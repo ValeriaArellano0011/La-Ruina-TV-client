@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Admin, Resource, CustomRoutes } from "react-admin";
+import jsonServerProvider from 'ra-data-json-server'
+import Home from "./Components/Home";
+import Card from "./Components/Card";
+import Dashboard from "./Components/Dashboard";
+import { Link, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com")
+
+const App = () => {
+  return(
+  <Admin dashboard={Dashboard}>
+    
+    <Resource name="card" list={Card}/>
+    <CustomRoutes noLayout>
+            <Route path="/home" element={<Home />} />
+        </CustomRoutes>
+        
+  </Admin>
+  )
 }
 
 export default App;
