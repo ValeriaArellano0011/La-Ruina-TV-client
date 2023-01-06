@@ -11,7 +11,6 @@ import { getCategorias, getPosts, resetMedia } from '../middlewares/redux/action
 const Browser = () => {
     BodyCss()
     const dispatch = useDispatch()
-    const userState = useSelector(state=> state.userState)
     const visorList = useSelector(state=>state.visorList)
     const listaCategorias = useSelector(state=>state.listaCategorias)
     const sliderCategoria = (categoria) => visorList.filter(e=>e.categoria.find(el=>el===categoria))
@@ -29,12 +28,12 @@ const Browser = () => {
 
 {/* ---------------------VISOR--------------------- */}
     {
-        (userState? userState === "online":null && visorList?.length > 1 )? <Visor/> : dispatch(getPosts())
+        (visorList?.length > 1 )? <Visor/> : dispatch(getPosts())
     }
 
 {/* --------------------SLIDERS-------------------- */}
     {   
-        (userState? userState === "online":null && visorList?.length > 1)? 
+        (visorList?.length > 1)? 
         ([...new Set(listaCategorias)].map(e=>
             {
                 if(id === 0){ id++; return <Slider titulo={'Contenido'} categoria={visorList} style={s} id={`s`}key={`s`}/>}

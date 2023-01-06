@@ -8,8 +8,8 @@ const Home = () => {
         <h1>Crea y comparte contenido multimedia</h1>
       </div>
       <div>
-      <Link to={'/dashboard'}><button>Iniciar sesion</button></Link>
-      <Link to={'/dashboard'}><button>Crear cuenta</button></Link>
+      <Link to={'/browser'}><button>Iniciar sesion</button></Link>
+      <Link to={'/browser'}><button>Crear cuenta</button></Link>
         
       </div>
 
