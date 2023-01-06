@@ -18,7 +18,7 @@ root.render(
       <Routes>
         <Route exact path='/browser' element={<Browser/>}/>
         <Route exact path='/novedades' element={<Novedades/>}/>
-        <Route exact path='/colaborarser' element={<Colaborar/>}/>
+        <Route exact path='/colaborar' element={<Colaborar/>}/>
         <Route exact path='/lanzamientos' element={<Lanzamientos/>}/>
         <Route exact path='/tienda' element={<Tienda/>}/>
       </Routes>
