@@ -1,5 +1,8 @@
 import React from "react";
-import {useDispatch} from 'react-redux';
+import s from './css/SearchBar.module.css';
+import searchIcon from '../design/search-icon.png';
+import { useDispatch } from "react-redux";
+import { searchBarFunction } from './css/SearchBar';
 import { useState } from "react";
 
 export default function SearchBar(){
@@ -19,14 +22,27 @@ export default function SearchBar(){
     }
 
     return (
-        <div>
-            <input
-            type = 'text'
-            placeholder="buscar..."
-            onChange= {(e) => handleInputChange(e)}
-            />
-
-            <button type='submit' onClick={(e) => handleSubmit(e)}>Buscar</button>
-        </div>
-    )
+        <div className={s.barCont}>
+        <form className={s.form_search_bar} onSubmit={(e) => handleSubmit(e)}>
+          <input 
+            className={s.liSearchBar}
+            id="liSearchBar"
+            type="text"
+            placeholder="Buscar..."
+            onChange={handleInputChange}
+            onMouseEnter={()=>{return searchBarFunction('enter')}}
+            onMouseLeave={()=>{return searchBarFunction('leave')}}
+          />
+            <button 
+              className={s.liSearchBtn} 
+              type="submit" 
+              disabled={false}
+              onMouseEnter={()=>{return searchBarFunction('enter')}}
+              onMouseLeave={()=>{return searchBarFunction('leave')}}
+                >
+              <img className={s.mediaSearch} src={searchIcon} height='20' alt="search" />
+            </button>
+        </form>
+      </div>
+    )  
 }

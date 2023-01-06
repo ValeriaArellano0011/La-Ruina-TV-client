@@ -28,12 +28,12 @@ const Browser = () => {
 
 {/* ---------------------VISOR--------------------- */}
     {
-        (visorList?.length > 1 )? <Visor/> : dispatch(getPosts())
+        visorList? <Visor/> : dispatch(getPosts())
     }
 
 {/* --------------------SLIDERS-------------------- */}
     {   
-        (visorList?.length > 1)? 
+        visorList? 
         ([...new Set(listaCategorias)].map(e=>
             {
                 if(id === 0){ id++; return <Slider titulo={'Contenido'} categoria={visorList} style={s} id={`s`}key={`s`}/>}
