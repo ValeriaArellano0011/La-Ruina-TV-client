@@ -97,6 +97,7 @@ export default function rootReducer(state = initialState, action){
 
 /*----------------Media----------------*/
         case GET_POSTS:
+            console.log(action.payload)
             return{
                 ...state,
                 visorList: action.payload,
