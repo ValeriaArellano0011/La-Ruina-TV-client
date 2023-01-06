@@ -1,5 +1,6 @@
 import React from "react";
 import {useDispatch} from 'react-redux';
+import { useState } from "react";
 
 export default function SearchBar(){
     const dispatch = useDispatch()
