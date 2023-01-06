@@ -33,7 +33,7 @@ const LandingPage = () => {
       
 
       <div>
-      <Link to={'/login'}><button className={style.button1}>Iniciar sesion</button></Link>
+      <Link to={'/browser'}><button className={style.button1}>Iniciar sesion</button></Link>
       <Link to={'/dashboard'}><button className={style.button1}>Crear cuenta</button></Link>
         
       </div>
