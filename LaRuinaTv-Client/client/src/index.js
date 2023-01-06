@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Browser from './Components/Browser';
+import Novedades from './Components/Novedades';
+import Colaborar from './Components/Colaborar';
+import Lanzamientos from './Components/Lanzamientos';
+import Tienda from './Components/Tienda';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +16,11 @@ root.render(
     <BrowserRouter>
       <App />
       <Routes>
-        <Route exact path='/browser' element={<Browser/>}></Route>
+        <Route exact path='/browser' element={<Browser/>}/>
+        <Route exact path='/novedades' element={<Novedades/>}/>
+        <Route exact path='/colaborarser' element={<Colaborar/>}/>
+        <Route exact path='/lanzamientos' element={<Lanzamientos/>}/>
+        <Route exact path='/tienda' element={<Tienda/>}/>
       </Routes>
     </BrowserRouter>
     </React.StrictMode>
