@@ -19,7 +19,7 @@ const LandingPage = () => {
       <div className={style.welcomeCont}>
         <h1>CREA, COMPARTI Y DISFRUTA DE CONTENIDO MULTIMEDIA</h1>
         <ul className={style.welcomeUl}>
-                    <li><Link to='/login'><button 
+                    <li><Link to='/browser'><button 
                     className={style.button1}
                     
                     
