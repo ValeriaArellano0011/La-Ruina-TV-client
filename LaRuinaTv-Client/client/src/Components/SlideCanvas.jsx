@@ -1,5 +1,4 @@
 import React from 'react'
-import LogOut from '../Auth/LogOut'
 import { BackButton } from './BackButton'
 import s from './css/SlideCanvas.module.css'
 
@@ -9,11 +8,11 @@ export const SlideCanvas = (props) => {
             <ul>
                 {
                     (props && props.option)?
-                        (props.option === 'logout')? <><LogOut/><BackButton/></> 
+                        (props.option === 'logout')? <><BackButton/></> 
                         :                 
-                        (props.option === 'profile')? <><LogOut/><BackButton/></>
+                        (props.option === 'profile')? <><BackButton/></>
                         :
-                        (props.option === 'configuration')? <><LogOut/><BackButton/></>
+                        (props.option === 'configuration')? <><BackButton/></>
                         :null
                     :null
                 }

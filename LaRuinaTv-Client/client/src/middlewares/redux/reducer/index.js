@@ -15,12 +15,7 @@ import iconDescarga from '../../../design/descarga-icon.png'
 
 const initialState = {
     /*----------------Auth----------------*/
-        userList: [],
-        currentUser: false,
-        loggedAccount: false,
-        userState: "offline",
-        redirect: "/",
-        option: "",
+
     
     /*----------------Media----------------*/
         typeMediaList: 

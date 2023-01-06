@@ -4,11 +4,10 @@ import LandingPage from './Components/LandingPage/LandingPage';
 import { Tienda } from './Components/Tienda';
 import { Colaborar } from './Components/Colaborar';
 import { Novedades } from './Components/Novedades';
+import { SlideCanvas } from './Components/SlideCanvas';
 import { Lanzamientos } from './Components/Lanzamientos';
+
 import { Switch, Route } from 'react-router-dom';
-
-
-
 
 function App() {
   return (
@@ -20,7 +19,7 @@ function App() {
             <div>
               {/* <Nav/> */}
               <div className='bodyApp'>
-              {/* <SlideCanvas option={option? option:""}/> */}
+              <SlideCanvas />
               <Route exact path='/browser'>
                 <Browser />
               </Route>

@@ -1,13 +1,48 @@
+@font-face {
+  font-family: Bebas Neue;
+  src: url('./fonts/BebasNeue.otf');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Bebas Neue;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  overflow-x: hidden;
+  background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+}
+
+.bodyApp{
+  width: 100vw;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:link, :visited{
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.774);
+}
+:link:hover{
+  color: white;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 100%;
+  position: absolute;
+}
+::-webkit-scrollbar-track {
+  background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);
+}
+::-webkit-scrollbar-thumb {
+  background: #fff2;
+  border-radius: 1px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fff4;
 }

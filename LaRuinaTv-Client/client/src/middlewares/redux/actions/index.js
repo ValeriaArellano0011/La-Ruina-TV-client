@@ -16,7 +16,7 @@ import {
 /*----------------Posts----------------*/
 export function getPosts() {
     return async function(dispatch) {
-        await axios.get('http://localhost:3001/posts')
+        await axios.get('http://localhost:3001/posts/')
         .then(res =>{
             dispatch({
                 type: GET_POSTS,

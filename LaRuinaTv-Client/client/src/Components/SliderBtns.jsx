@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import playIconb from '../../design/ruinatv-icon-play-b.png'
+import playIconb from '../design/ruinatv-icon-play-b.png'
 
 const SliderBtns = (props) => {
 
