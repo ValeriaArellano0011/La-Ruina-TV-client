@@ -5,7 +5,9 @@ import {
     GET_MEDIATYPE, 
     GET_POSTS,
     RESET_MEDIA,
-    RESET_VISOR} from "../../misc";
+    RESET_VISOR,
+    OPTION,
+    RESET_OPTION} from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -94,11 +96,18 @@ export default function rootReducer(state = initialState, action){
     switch (action.type){
 /*----------------Auth----------------*/
 
-
-
+        case OPTION:
+            return{
+                ...state,
+                option: action.payload
+            }
+        case RESET_OPTION:
+            return{
+                ...state,
+                option:''
+            }
 /*----------------Media----------------*/
         case GET_POSTS:
-            console.log(action.payload)
             return{
                 ...state,
                 visorList: action.payload,

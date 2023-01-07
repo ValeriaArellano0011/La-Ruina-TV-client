@@ -2,14 +2,19 @@ import React from 'react';
 import s from './css/ProfileMenu.module.css';
 import userIcon from '../design/user-icon.png';
 import handlerOptionCanvas from '../handlers/handlerOptionCanvas';
+import { useDispatch } from 'react-redux';
+import { getOption } from '../middlewares/redux/actions';
 
 export const EnterBtn = () => {
+  const dispatch = useDispatch()
   function onClickValue(e){
     return (
-      handlerOptionCanvas(e.target.value)
+      dispatch(getOption(e.target.id)),
+      handlerOptionCanvas(e.target.id)
       )}
   return (
-    <div    className={s.profileBtnMenu} 
+    <div    className={s.profileBtnMenu}
+            id='login'
             onClick={(e) => {return onClickValue(e)}}>
             <img className={s.userIcon} src={userIcon} alt='userIcon' width='15px' />
             Ingresar

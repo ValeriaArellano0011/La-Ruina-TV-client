@@ -7,9 +7,24 @@ import {
     GET_MEDIAURL, 
     RESET_MEDIA, 
     NEXT_VISOR, 
-    RESET_VISOR} from '../../misc'
+    RESET_VISOR,
+    OPTION,
+    RESET_OPTION,
+    } from '../../misc'
 
 /*-----------------Auth----------------*/
+export function getOption(e) {
+    return({
+        type: OPTION,
+        payload: e
+    })
+}
+
+export function resetOption() {
+    return({
+        type: RESET_OPTION
+    })
+}
 
 
 
