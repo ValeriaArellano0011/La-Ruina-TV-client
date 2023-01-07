@@ -1,18 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import style from './css/LandingPage.module.css'
-import { LandingCss } from './css/LandingCSS'
-import ruinaLogo from '../../design/ruina-logo.png'
+import style from './css/Enter.module.css'
+import { EnterCss } from './css/EnterCSS'
 import visorIntroVideo from '../../design/laruina-intro.mp4'
 
-
-const LandingPage = () => {
-    LandingCss()
+const Enter = () => {
+  EnterCss()
   return (
     <div className={style.landingBody}>
-      <div className={style.ruinaLogoCont}>
-        <img className={style.ruinaLogo} src={ruinaLogo} alt="La Ruina TV" width='120'/>
-      </div>
       <div className={style.visor}>
       <video className={style.visorVideoIntro} src={visorIntroVideo} autoPlay={true} loop muted  type="video/mp4"/>
       <div className={style.visorCanvas}></div>
@@ -38,4 +33,4 @@ const LandingPage = () => {
   )
 }
 
-export default LandingPage
+export default Enter
