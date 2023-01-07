@@ -10,16 +10,12 @@ import { SlideCanvas } from './Components/SlideCanvas';
 import { Lanzamientos } from './Components/Lanzamientos';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
-import GoogleConsentPage from './Components/Auth/GoogleConsentPage';
 
 function App() {
   
   return (
       <div className="App">
           <Switch>
-          <Route exact path='/auth'>
-            <GoogleConsentPage />
-          </Route>
           <Route exact path='/'>
               <Redirect to='/browser' />
           </Route>

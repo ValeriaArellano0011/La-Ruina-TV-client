@@ -1,21 +1,21 @@
 import s from './css/GoogleAuth.module.css'
-import googleIcon from '../../design/google-icon.png'
+import {GoogleLogin} from 'react-google-login';
 
 export default function GoogleSignUp(){
-    const googleAuth = () => {
-        window.open('http://localhost:3001/auth/google/callback',
-        '_self'
-        )
+    const responseGoogle = (res) => {
+        console.log(res)
     }
     return (
         <div >
-            <ul className={s.contGoogleLogIn}>
-            <button className={s.googleBtn} onClick={googleAuth}>
-                <ul className={s.btnGoogleLogIn}>
-                    <li><img src={googleIcon} alt="GoogleLogIn" width='30'/></li>
-                    <li><span>Sign up with Google</span></li>
-                </ul>
-            </button>
+            <ul className={s.contGoogleAuth}>
+                    <GoogleLogin
+                    className={s.googleBtn}
+                    clientId="123061127373-q8lr46gdr4kokvs7bkt5nol0f2p8evvq.apps.googleusercontent.com"
+                    buttonText="Sign Up with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                    />
             </ul>
         </div>
     )
