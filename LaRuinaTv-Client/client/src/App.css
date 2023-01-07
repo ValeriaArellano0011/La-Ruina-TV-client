@@ -60,19 +60,8 @@ button:hover{
   top: 30%;
   text-align: center;
 }
-<<<<<<< HEAD
-
-.slider-container {
-  scroll-snap-type: x mandatory;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-=======
 .bnv_cont h1{
   filter: drop-shadow(2px 2px 2px black);
->>>>>>> b4c46ca765a80c1bfd288480a049cd87691fe18e
 }
 .bnv_ul{
   position: relative;
