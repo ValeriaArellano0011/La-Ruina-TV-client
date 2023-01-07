@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './css/Enter.module.css'
-import { EnterCss } from './css/EnterCSS'
+import { EnterCss } from './css/EnterCss'
 import visorIntroVideo from '../../design/laruina-intro.mp4'
 
 const Enter = () => {
