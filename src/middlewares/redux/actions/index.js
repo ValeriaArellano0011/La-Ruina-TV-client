@@ -15,6 +15,12 @@ import {
     } from '../../misc'
 
 /*-----------------Auth----------------*/
+
+export function googleAuth() {
+    return async function (dispatch){
+    await axios.get('http://localhost:3001/auth/google/callback')
+}}
+
 export function getOption(e) {
     return({
         type: OPTION,

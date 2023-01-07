@@ -3,7 +3,9 @@ import googleIcon from '../../design/google-icon.png'
 
 export default function GoogleLogIn(){
     const googleAuth = () => {
-        window.open('http://localhost:3001/auth/google/callback'        )
+        window.open('http://localhost:3001/auth/google/callback',
+        '_self'
+        )
     }
     return (
         <div >
