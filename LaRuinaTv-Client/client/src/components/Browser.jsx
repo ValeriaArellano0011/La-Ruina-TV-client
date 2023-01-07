@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getCategorias, getPosts, resetMedia } from '../middlewares/redux/actions';
 
+
 const Browser = () => {
     BodyCss()
     const dispatch = useDispatch()

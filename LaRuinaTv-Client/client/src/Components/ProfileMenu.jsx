@@ -1,14 +1,14 @@
 import React from 'react';
 import s from './css/ProfileMenu.module.css';
 import profileMenuCss from './css/ProfileMenu';
-import handlerOptionsProfileBtns from '../handlers/handlerOptionsProfileBtns';
+import handlerOptionCanvas from '../handlers/handlerOptionCanvas';
 import btnMenuTv from '../design/ruinatv-icon-play-b.png';
 import userIcon from '../design/user-icon.png';
 
 export const ProfileMenu = () => {
   function onClickValue(e){
     return (
-      handlerOptionsProfileBtns(e.target.value)
+      handlerOptionCanvas(e.target.value)
       )}
   return (
     <div>

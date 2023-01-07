@@ -1,3 +1,9 @@
+/* --------------------Auth-------------------- */
+
+export const OPTION = 'OPTION'
+export const RESET_OPTION = 'RESET_OPTION'
+
+/* -------------------Posts------------------- */
 export const GET_CATEGORIAS = 'GET_CATEGORIAS'
 export const GET_MEDIATYPE = 'GET_MEDIATYPE'
 export const GET_MEDIAURL = 'GET_MEDIAURL'

@@ -19,11 +19,11 @@ const LandingPage = () => {
       <div className={style.welcomeCont}>
         <h1>CREA, COMPARTI Y DISFRUTA DE CONTENIDO MULTIMEDIA</h1>
         <ul className={style.welcomeUl}>
-                    <li><Link to='/browser'><button 
-                    className={style.button1}
-                    
-                    
-                    >Iniciar sesión</button></Link></li>
+
+        <Link to='/browser'><li>
+          <button className={style.button1}>Iniciar sesión</button>
+            </li></Link>
+
                     <li><button 
                     className={style.button2}
                     
@@ -32,11 +32,7 @@ const LandingPage = () => {
       </div>
       
 
-      <div>
-      <Link to={'/browser'}><button className={style.button1}>Iniciar sesion</button></Link>
-      <Link to={'/dashboard'}><button className={style.button1}>Crear cuenta</button></Link>
-        
-      </div>
+      
      </div>
     </div>
   )

@@ -1,7 +1,6 @@
 import './App.css';
 import Nav from './Components/Nav';
 import Browser from './Components/Browser';
-import LandingPage from './Components/LandingPage/LandingPage';
 import View from './Components/View';
 import Play from './Components/Play';
 import { Tienda } from './Components/Tienda';
@@ -10,15 +9,16 @@ import { Novedades } from './Components/Novedades';
 import { SlideCanvas } from './Components/SlideCanvas';
 import { Lanzamientos } from './Components/Lanzamientos';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 function App() {
+  
   return (
       <div className="App">
           <Switch>
-            <Route exact path='/'>
-              <LandingPage />
-            </Route>
+          <Route exact path='/'>
+              <Redirect to='/browser' />
+          </Route>
             <div>
               <Nav/>
               <div className='bodyApp'>
@@ -48,7 +48,7 @@ function App() {
             </div>
           </Switch>
       </div>
-    );
+    )
 }
 
 export default App;

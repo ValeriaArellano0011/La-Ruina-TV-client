@@ -1,18 +1,23 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import LogIn from './Auth/LogIn'
 import { BackButton } from './BackButton'
 import s from './css/SlideCanvas.module.css'
 
-export const SlideCanvas = (props) => {
+export const SlideCanvas = () => {
+    const option = useSelector(state=>state.option)
     return (
         <div className={s.slideCanvasCont} id='slideCanvasCont'>
             <ul>
                 {
-                    (props && props.option)?
-                        (props.option === 'logout')? <><BackButton/></> 
-                        :                 
-                        (props.option === 'profile')? <><BackButton/></>
+                    option?
+                        (option === 'login')? <><LogIn/></> 
                         :
-                        (props.option === 'configuration')? <><BackButton/></>
+                        (option === 'logout')? <><BackButton/></> 
+                        :                 
+                        (option === 'profile')? <><BackButton/></>
+                        :
+                        (option === 'configuration')? <><BackButton/></>
                         :null
                     :null
                 }
