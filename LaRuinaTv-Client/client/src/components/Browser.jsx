@@ -8,7 +8,19 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getCategorias, getPosts, resetMedia } from '../middlewares/redux/actions';
 
+
 const Browser = () => {
+<<<<<<< HEAD
+    
+  return (
+    <div>
+        <h1>Bienvenido a La Ruina Tv</h1>
+        <div>
+        <ReactPlayer playing={true} muted={true} width='200px' height='150px' url='https://www.youtube.com/watch?v=8_HBQE03gbc&ab_channel=z3nPnk' />
+        </div>
+    </div>
+  )
+=======
     BodyCss()
     const dispatch = useDispatch()
     const visorList = useSelector(state=>state.visorList)
@@ -48,6 +60,7 @@ const Browser = () => {
 
         </div>
     )
+>>>>>>> b4c46ca765a80c1bfd288480a049cd87691fe18e
 }
 
 export default Browser

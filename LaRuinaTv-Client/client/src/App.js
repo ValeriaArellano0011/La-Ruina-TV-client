@@ -45,7 +45,7 @@ function App() {
             </div>
           </Switch>
       </div>
-    );
+    )
 }
 
 export default App;
