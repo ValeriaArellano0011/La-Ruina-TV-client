@@ -4,6 +4,7 @@ import { onChangeInput, OnSubmitCreate } from '../../handlers/auth';
 import { createAccount } from '../../middlewares/redux/actions';
 import { useDispatch } from 'react-redux';
 import { authCss } from './css/authCss';
+import GoogleSignUp from './GoogleSignUp';
 
 const CreateAccount = () => {
   const dispatch = useDispatch()
@@ -42,6 +43,7 @@ const CreateAccount = () => {
                   <li className={s.form_li}>Contraseña</li>
                   <input type="password" name='contraseña' value={input.contraseña} onChange={e => {return onChangeInput(e.target.name,e.target.value,input,setInput)}} placeholder='contraseña' />
                 </form>
+                <GoogleSignUp />
           </ul>      
         </div>
             <ul className={s.btn_ul}>

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
+
+.contGoogleLogIn{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 40px;
+}
+.btnGoogleLogIn{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.googleBtn{
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    width: 260px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: black;
+    text-shadow: 0px 0px 1px rgba(50, 50, 50, 0.752);
+    font-weight: bolder;
+}
