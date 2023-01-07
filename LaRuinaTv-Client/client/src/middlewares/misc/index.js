@@ -1,11 +1,3 @@
-export const LOG_IN = 'LOG_IN'
-export const LOG_OUT = 'LOG_OUT'
-export const GET_USERS = 'GET_USERS'
-export const LOGGED_ACCOUNT = 'LOGGED_ACCOUNT'
-export const NEW_USER_CREATE = 'NEW_USER_CREATE'
-export const OPTION = 'OPTION'
-export const RESET_OPTION = 'RESET_OPTION'
-
 export const GET_CATEGORIAS = 'GET_CATEGORIAS'
 export const GET_MEDIATYPE = 'GET_MEDIATYPE'
 export const GET_MEDIAURL = 'GET_MEDIAURL'
