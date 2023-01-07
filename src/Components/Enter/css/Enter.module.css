@@ -1,3 +1,7 @@
+.enterBody{
+    text-align: center;
+}
+
 .visor{
     overflow: hidden;
     height: 100vh;
@@ -29,7 +33,7 @@
     height: 300px;
     color: white;
     font-weight: 100;
-    position: absolute;
+    position: relative;
     top: 30%;
     text-align: center;
 }
