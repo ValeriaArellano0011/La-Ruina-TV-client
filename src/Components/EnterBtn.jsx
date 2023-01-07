@@ -13,11 +13,11 @@ export const EnterBtn = () => {
       handlerOptionCanvas(e.target.id)
       )}
   return (
-    <div    className={s.profileBtnMenu}
+    <div    className={s.enterBtn}
             id='login'
             onClick={(e) => {return (onClickValue(e), document.querySelector('#slideCanvasCont').style.overflowY="hidden")}}>
             <img className={s.userIcon} src={userIcon} alt='userIcon' width='15px' />
-            Ingresar
+            Entrar
     </div>
   )
 }

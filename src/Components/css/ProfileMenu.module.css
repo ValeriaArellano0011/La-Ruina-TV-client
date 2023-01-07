@@ -17,6 +17,14 @@
     margin-left: -70px;
     font-size: 20px;
 }
+.enterBtn{
+    font-family: Bebas Neue;
+    color: rgba(255, 255, 255, 0.781);
+    transition-duration: .5s;
+    z-index: 9999999;
+    font-size: 20px;
+
+}
 .profileBtnMenu{
     border: none;
     font-family: Bebas Neue;
@@ -24,7 +32,7 @@
     transition-duration: .5s;
     z-index: 9999999;
 }
-.profileBtnMenu:hover{
+.profileBtnMenu:hover, .enterBtn:hover{
     cursor: pointer;
     color: white;
 }
