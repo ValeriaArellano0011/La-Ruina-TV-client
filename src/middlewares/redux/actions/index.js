@@ -10,6 +10,8 @@ import {
     RESET_VISOR,
     OPTION,
     RESET_OPTION,
+    LOG_IN,
+    CREATE_ACOOUNT,
     } from '../../misc'
 
 /*-----------------Auth----------------*/
@@ -26,7 +28,34 @@ export function resetOption() {
     })
 }
 
+export function createAccount(newUser){
+    return async function (dispatch){
+    await axios.post('http://localhost:3001/users/create', newUser)
+    .then(res => {
+        dispatch({
+            type: CREATE_ACOOUNT,
+            payload: res.data,
+        })
+    })
+    .catch(error => {
+        return { payload: error };
+    })}
+}
 
+export function logIn(input){
+    return async function (dispatch){ 
+        await axios.post('http://localhost:3001/user/login',input)
+        .then(res => {
+            dispatch({
+                type: LOG_IN,
+                payload: res.data
+            })
+        })
+        .catch((e) => {
+            console.log(e);
+        })
+    }
+}
 
 /*----------------Posts----------------*/
 export function getPosts() {

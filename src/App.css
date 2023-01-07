@@ -101,17 +101,17 @@ button:hover{
   background-color: #000000;
   z-index: 99999;
   position: fixed;
-  transform: translateX(100vw);
+  transform: translateY(100vw);
 }
 .LogInBody{
   width: 100vw;
   height: 100vh;
   overflow-x: 'hidden';
-  overflow-y: 'scroll';
+  overflow-y: 'hidden';
   background-color: #000000;
   z-index: 99999;
   position: fixed;
-  transform: translateX(-100vw);
+  transform: translateY(-100vw);
 }
 .tog{
   position: absolute;

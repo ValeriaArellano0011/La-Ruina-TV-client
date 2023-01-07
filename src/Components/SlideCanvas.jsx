@@ -11,7 +11,7 @@ export const SlideCanvas = () => {
             <ul>
                 {
                     option?
-                        (option === 'login')? <><Enter/></> 
+                        (option === 'login')?     <><Enter/></> 
                         :
                         (option === 'logout')? <><BackButton/></> 
                         :                 

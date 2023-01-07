@@ -1,0 +1,38 @@
+.tog{
+  position: absolute;
+  right: 50px;
+  top: 25px;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  font-family: 'Bebas Neue';
+  font-size: 20px;
+  opacity: 0.7;
+  border: none;
+}
+.btn_ul{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  display: flex;
+  position: relative;
+  right: 15px;
+}
+
+.form_ul{
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  right: 15px;
+  color: white;
+  text-shadow: 0px 0px 4px rgb(0, 0, 0);
+}
+
+.form_li{
+    margin-top: 20px;
+}
