@@ -1,20 +1,6 @@
 import './App.css';
 import Nav from './Components/Nav';
 import Browser from './Components/Browser';
-import LandingPage from './Components/LandingPage/LandingPage';
-<<<<<<< HEAD
-import {Route} from 'react-router-dom'
-import Browser from './Components/Browser';
-
-function App() {
-  return (
-    <>
-    <Route exact path='/' ><LandingPage/></Route> 
-   <Route exact path='/browser'><Browser/></Route>
-   </>
-   
-  );
-=======
 import View from './Components/View';
 import Play from './Components/Play';
 import { Tienda } from './Components/Tienda';
@@ -26,12 +12,10 @@ import { Lanzamientos } from './Components/Lanzamientos';
 import { Switch, Route } from 'react-router-dom';
 
 function App() {
+  
   return (
       <div className="App">
           <Switch>
-            <Route exact path='/'>
-              <LandingPage />
-            </Route>
             <div>
               <Nav/>
               <div className='bodyApp'>
@@ -61,8 +45,7 @@ function App() {
             </div>
           </Switch>
       </div>
-    );
->>>>>>> b4c46ca765a80c1bfd288480a049cd87691fe18e
+    )
 }
 
 export default App;
