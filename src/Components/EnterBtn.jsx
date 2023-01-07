@@ -15,7 +15,7 @@ export const EnterBtn = () => {
   return (
     <div    className={s.profileBtnMenu}
             id='login'
-            onClick={(e) => {return onClickValue(e)}}>
+            onClick={(e) => {return (onClickValue(e), document.querySelector('#slideCanvasCont').style.overflowY="hidden")}}>
             <img className={s.userIcon} src={userIcon} alt='userIcon' width='15px' />
             Ingresar
     </div>

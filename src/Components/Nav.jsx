@@ -32,7 +32,8 @@ const Nav = () => {
                         document.querySelector(`.navMenu`).style.display='flex',
                         document.querySelector(`.browserBody`).style.height='auto',
                         document.querySelector(`.browserBody`).style.overflowY='scroll',
-                        document.querySelector(`.visor`).style.transform='translateX(0)'
+                        document.querySelector(`.visor`).style.transform='translateX(0)',
+                        document.querySelector('#slideCanvasCont').style.overflowY="scroll"
                         )}}
                 />
             </Link>
