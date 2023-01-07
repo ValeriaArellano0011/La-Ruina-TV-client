@@ -1,4 +1,4 @@
-export default function handlerOptionsProfileBtns(){
+export default function handlerOptionCanvas(){
         document.querySelector(`.navCont`).style.width='0px'
         document.querySelector(`.navMenu`).style.display='none'
         document.querySelector(`.bodyApp`).style.transitionDuration='2s'

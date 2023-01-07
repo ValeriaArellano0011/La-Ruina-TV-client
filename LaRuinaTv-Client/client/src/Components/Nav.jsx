@@ -4,12 +4,17 @@ import s from './css/Nav.module.css'
 import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
 import { ProfileMenu } from './ProfileMenu';
+import { EnterBtn } from './EnterBtn';
+
 import navBack from './css/Nav';
+import { useSelector } from 'react-redux';
 
 const Nav = () => {
     const [posNav, setPosNav] = useState()
+    const userState = useSelector(state=>state.userState)
     window.onscroll = function() {navBack(setPosNav, posNav)};
     return (
+
     <div className='navCont'>
         <div className='ruinaLogoCont'>
             <Link to='/browser'>
@@ -41,7 +46,7 @@ const Nav = () => {
             <ul className='navSearchBar'>
                 <li><SearchBar/></li>
                 <ul className={s.profileMenuBtn}>
-                    <li><ProfileMenu/></li>
+                    {!userState? <li><EnterBtn /></li> :<li><ProfileMenu/></li>}
                 </ul>
             </ul>
         </ul>
