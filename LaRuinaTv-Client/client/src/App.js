@@ -9,13 +9,16 @@ import { Novedades } from './Components/Novedades';
 import { SlideCanvas } from './Components/SlideCanvas';
 import { Lanzamientos } from './Components/Lanzamientos';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 function App() {
   
   return (
       <div className="App">
           <Switch>
+          <Route exact path='/'>
+              <Redirect to='/browser' />
+          </Route>
             <div>
               <Nav/>
               <div className='bodyApp'>
