@@ -14,6 +14,7 @@ import {
     LOGIN,
     SIGNUP,
     GET_PRODUCTS,
+    GET_PRODUCT_DETAILS,
     } from '../../misc'
 
 /*-----------------Auth----------------*/
@@ -131,13 +132,26 @@ export function getResetVisor(){
     }
 }
 
-/*---------------Products---------------*/
+/*---------------Tienda---------------*/
 export function getProducts(){
     return async function (dispatch){
         await axios.get(`${URL_API}/product/all`)
         .then(res =>{
             dispatch({
                 type: GET_PRODUCTS,
+                payload: res.data
+            })
+        })
+        .catch(e => console.log(e))
+    }
+}
+
+export function getProductDetails(id) {
+    return async function(dispatch) {
+        await axios.get(`${URL_API}/product/${id}`)
+        .then(res =>{
+            dispatch({
+                type: GET_PRODUCT_DETAILS,
                 payload: res.data
             })
         })

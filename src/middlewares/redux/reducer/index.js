@@ -69,7 +69,7 @@ const initialState = {
         infoDetailViewer: [],
         listaCategorias: [],
 
-    /*----------------Products----------------*/
+    /*----------------Tienda----------------*/
         products: [],
         productDetails: [],
 
@@ -104,7 +104,7 @@ export default function rootReducer(state = initialState, action){
                 option:''
             }
 
-/*----------------Media----------------*/
+/*----------------Tienda----------------*/
         case GET_PRODUCTS:
             return{
                 ...state,

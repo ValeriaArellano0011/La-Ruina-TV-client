@@ -1,4 +1,4 @@
-const Product = (props) => {
+const Products = (props) => {
   const { idProduct, typeProduct, nameMerch, stock, idImg } = props
   return (
     <div>
@@ -7,4 +7,4 @@ const Product = (props) => {
   )
 }
 
-export default Product
+export default Products

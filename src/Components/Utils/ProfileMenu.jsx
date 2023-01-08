@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './css/ProfileMenu.module.css';
 import profileMenuCss from './css/ProfileMenu';
-import handlerOptionCanvas from '../handlers/handlerOptionCanvas';
-import btnMenuTv from '../design/ruinatv-icon-play-b.png';
-import userIcon from '../design/user-icon.png';
+import handlerOptionCanvas from '../../handlers/handlerOptionCanvas';
+import btnMenuTv from '../../design/ruinatv-icon-play-b.png';
+import userIcon from '../../design/user-icon.png';
 import { useSelector } from 'react-redux';
 
 export const ProfileMenu = () => {

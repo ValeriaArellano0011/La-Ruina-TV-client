@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ruinaLogo from '../design/ruina-logo.png';
+import ruinaLogo from '../../design/ruina-logo.png';
 import s from './css/Nav.module.css'
 import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { EnterBtn } from './EnterBtn';
 
 import navBack from './css/Nav';
 import { useDispatch, useSelector } from 'react-redux';
-import { resetOption } from '../middlewares/redux/actions';
+import { resetOption } from '../../middlewares/redux/actions';
 
 const Nav = () => {
     const dispatch = useDispatch()

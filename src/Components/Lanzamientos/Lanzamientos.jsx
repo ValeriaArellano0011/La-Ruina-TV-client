@@ -1,5 +1,5 @@
 import React from 'react'
-import { BodyCss } from '../functions/BodyCss'
+import { BodyCss } from '../../functions/BodyCss'
 
 export const Lanzamientos = () => {
   BodyCss()

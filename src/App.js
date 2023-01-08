@@ -1,13 +1,13 @@
 import './App.css';
-import Nav from './Components/Nav';
-import Browser from './Components/Browser';
-import View from './Components/View';
-import Play from './Components/Play';
-import { Tienda } from './Components/Tienda';
-import { Colaborar } from './Components/Colaborar';
-import { Novedades } from './Components/Novedades';
-import { SlideCanvas } from './Components/SlideCanvas';
-import { Lanzamientos } from './Components/Lanzamientos';
+import Nav from './Components/Utils/Nav';
+import Browser from './Components/Browser/Browser';
+import View from './Components/Media/View';
+import Play from './Components/Media/Play';
+import { Tienda } from './Components/Tienda/Tienda';
+import { Colaborar } from './Components/Colaborar/Colaborar';
+import { Novedades } from './Components/Novedades/Novedades';
+import { SlideCanvas } from './Components/Utils/SlideCanvas';
+import { Lanzamientos } from './Components/Lanzamientos/Lanzamientos';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 

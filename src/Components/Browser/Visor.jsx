@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getNextVisor, getResetVisor } from '../middlewares/redux/actions';
-import playIconb from '../design/ruinatv-icon-play-b.png'
-import playIconn from '../design/ruinatv-icon-play-n.png'
-import visorIntroVideo from '../design/laruina-intro.mp4'
+import { getNextVisor, getResetVisor } from '../../middlewares/redux/actions';
+import playIconb from '../../design/ruinatv-icon-play-b.png'
+import playIconn from '../../design/ruinatv-icon-play-n.png'
+import visorIntroVideo from '../../design/laruina-intro.mp4'
 
 const Visor = () => {
     const dispatch = useDispatch()

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import Enter from './Enter/Enter'
+import Enter from '../Enter/Enter'
 import { BackButton } from './BackButton'
 import s from './css/SlideCanvas.module.css'
 

@@ -1,6 +1,6 @@
 import React from "react";
 import s from './css/SearchBar.module.css';
-import searchIcon from '../design/search-icon.png';
+import searchIcon from '../../design/search-icon.png';
 import { useDispatch } from "react-redux";
 import { searchBarFunction } from './css/SearchBar';
 import { useState } from "react";

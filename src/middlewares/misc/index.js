@@ -14,6 +14,6 @@ export const RESET_MEDIA = 'RESET_MEDIA'
 export const GET_POSTS = 'GET_POSTS'
 export const GET_INFO = 'GET_INFO'
 
-/* -----------------Products----------------- */
+/* -----------------Tienda----------------- */
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const GET_PRODUCT_DETAILS = 'GET_PRODUCT_DETAILS'
