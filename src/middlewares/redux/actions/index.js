@@ -11,8 +11,9 @@ import {
     RESET_VISOR,
     OPTION,
     RESET_OPTION,
-    LOG_IN,
-    CREATE_ACOOUNT,
+    LOGIN,
+    SIGNUP,
+    GET_PRODUCTS,
     } from '../../misc'
 
 /*-----------------Auth----------------*/
@@ -28,27 +29,12 @@ export function resetOption() {
         type: RESET_OPTION
     })
 }
-
-export function createAccount(newUser){
-    return async function (dispatch){
-    await axios.post(`${URL_API}/users/create`, newUser)
-    .then(res => {
-        dispatch({
-            type: CREATE_ACOOUNT,
-            payload: res.data,
-        })
-    })
-    .catch(error => {
-        return { payload: error };
-    })}
-}
-
-export function logIn(input){
+export function login(email, password){
     return async function (dispatch){ 
-        await axios.post(`${URL_API}/user/login`,input)
+        await axios.post(`${URL_API}/users/login`, {email, password})
         .then(res => {
             dispatch({
-                type: LOG_IN,
+                type: LOGIN,
                 payload: res.data
             })
         })
@@ -57,6 +43,23 @@ export function logIn(input){
         })
     }
 }
+export const signup =
+  (alias, email, password) => async (dispatch) => {
+    try {
+        const response = await axios.post(`${URL_API}/users/signup`, {
+        alias,
+        email,
+        password
+    });
+    const data = await response.data;
+    return dispatch({
+      type: SIGNUP,
+      payload: data,
+    });
+    } catch (error) {
+        console.log(error)
+    }
+};
 
 /*----------------Posts----------------*/
 export function getPosts() {
@@ -127,6 +130,21 @@ export function getResetVisor(){
         type: RESET_VISOR
     }
 }
+
+/*---------------Products---------------*/
+export function getProducts(){
+    return async function (dispatch){
+        await axios.get(`${URL_API}/products/all`)
+        .then(res =>{
+            dispatch({
+                type: GET_PRODUCTS,
+                payload: res.data
+            })
+        })
+        .catch(e => console.log(e))
+    }
+}
+
 /*------------Filter&Search------------*/
 export function loadingSearchSet(){
 

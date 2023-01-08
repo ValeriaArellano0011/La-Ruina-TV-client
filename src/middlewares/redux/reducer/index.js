@@ -7,7 +7,9 @@ import {
     RESET_MEDIA,
     RESET_VISOR,
     OPTION,
-    RESET_OPTION} from "../../misc";
+    RESET_OPTION,
+    LOGIN,
+    GET_PRODUCTS} from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -17,7 +19,7 @@ import iconDescarga from '../../../design/descarga-icon.png'
 
 const initialState = {
     /*----------------Auth----------------*/
-        userState: false,
+        currentUser: false,
         option: '',
     
     /*----------------Media----------------*/
@@ -66,7 +68,11 @@ const initialState = {
         nextVisor: false,
         infoDetailViewer: [],
         listaCategorias: [],
-    
+
+    /*----------------Products----------------*/
+        products: [],
+        productDetails: [],
+
     /*------------Filter&Search------------*/
         filteredMedia: [],
         searchedMedia: [],
@@ -81,7 +87,12 @@ const initialState = {
 export default function rootReducer(state = initialState, action){
     switch (action.type){
 /*----------------Auth----------------*/
-
+        case LOGIN:
+            console.log(action.payload)
+            return {
+            ...state,
+            currentUser: action.payload.alias
+            }
         case OPTION:
             return{
                 ...state,
@@ -92,6 +103,14 @@ export default function rootReducer(state = initialState, action){
                 ...state,
                 option:''
             }
+
+/*----------------Media----------------*/
+        case GET_PRODUCTS:
+            return{
+                ...state,
+                products: action.payload
+            }
+
 /*----------------Media----------------*/
         case GET_POSTS:
             return{
