@@ -6,8 +6,16 @@ import { getNextVisor, getResetVisor } from '../middlewares/redux/actions';
 import playIconb from '../design/ruinatv-icon-play-b.png'
 import playIconn from '../design/ruinatv-icon-play-n.png'
 import visorIntroVideo from '../design/laruina-intro.mp4'
+import visorImg0 from '../design/visor/0-visor.jpg'
+import visorImg1 from '../design/visor/1-visor.jpg'
+import visorImg2 from '../design/visor/2-visor.jpg'
+import visorImg3 from '../design/visor/3-visor.jpg'
+import visorImg4 from '../design/visor/4-visor.jpg'
+import visorImg5 from '../design/visor/5-visor.jpg'
+import visorImg6 from '../design/visor/6-visor.jpg'
 
 const Visor = () => {
+    const visorImgList = [visorImg0,visorImg1,visorImg2,visorImg3,visorImg4,visorImg5,visorImg6]
     const dispatch = useDispatch()
     const visorList = useSelector(state=>state.visorList)
     const nextVisor = useSelector(state=>state.nextVisor)
@@ -79,7 +87,7 @@ const Visor = () => {
                             urlid={visorUrlID}
                             titulo={visorTitulo}
                             artista={visorArtista}
-                            img={visorImage}
+                            img={visorImgList[i]}
                             tag={visorTag}
                             onClick={()=>{window.scrollTo(0, 0)}}
                             onMouseEnter={()=>{

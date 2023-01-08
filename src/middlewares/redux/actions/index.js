@@ -134,7 +134,7 @@ export function getResetVisor(){
 /*---------------Products---------------*/
 export function getProducts(){
     return async function (dispatch){
-        await axios.get(`${URL_API}/products/all`)
+        await axios.get(`${URL_API}/product/all`)
         .then(res =>{
             dispatch({
                 type: GET_PRODUCTS,
