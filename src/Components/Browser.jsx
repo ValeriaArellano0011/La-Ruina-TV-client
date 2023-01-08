@@ -42,7 +42,7 @@ const Browser = () => {
 
 {/* ---------------------FOOTER--------------------- */}
 
-        <Footer/>
+        {visorList.length>1? <Footer/> : null}
 
         </div>
     )

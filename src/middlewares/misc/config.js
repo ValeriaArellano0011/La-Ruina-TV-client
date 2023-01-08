@@ -1,1 +1,1 @@
-export const URL_API = 'https://la-ruina-tv-api.fly.dev'
+export const URL_API = 'https://la-ruina-api.fly.dev'
