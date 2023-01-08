@@ -1,5 +1,5 @@
-import dotenv from 'dotenv'
 import axios from 'axios'
+import { URL_API } from '../../misc/config'
 import { 
     GET_POSTS, 
     GET_INFO, 
@@ -14,8 +14,6 @@ import {
     LOG_IN,
     CREATE_ACOOUNT,
     } from '../../misc'
-
-const {URL_API} = dotenv.config().process.env
 
 /*-----------------Auth----------------*/
 export function getOption(e) {
