@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { URL_API } from '../../misc/config'
 import { 
     GET_POSTS, 
     GET_INFO, 
@@ -30,7 +31,7 @@ export function resetOption() {
 
 export function createAccount(newUser){
     return async function (dispatch){
-    await axios.post('http://localhost:3001/users/create', newUser)
+    await axios.post(`${URL_API}/users/create`, newUser)
     .then(res => {
         dispatch({
             type: CREATE_ACOOUNT,
@@ -44,7 +45,7 @@ export function createAccount(newUser){
 
 export function logIn(input){
     return async function (dispatch){ 
-        await axios.post('http://localhost:3001/user/login',input)
+        await axios.post(`${URL_API}/user/login`,input)
         .then(res => {
             dispatch({
                 type: LOG_IN,
@@ -60,7 +61,7 @@ export function logIn(input){
 /*----------------Posts----------------*/
 export function getPosts() {
     return async function(dispatch) {
-        await axios.get('http://localhost:3001/posts/getall')
+        await axios.get(`${URL_API}/posts/getall`)
         .then(res =>{
             dispatch({
                 type: GET_POSTS,
@@ -73,7 +74,7 @@ export function getPosts() {
 
 export function getInfo(id) {
     return async function(dispatch) {
-        await axios.get(`http://localhost:3001/posts/${id}`)
+        await axios.get(`${URL_API}/posts/${id}`)
         .then(res =>{
             dispatch({
                 type: GET_INFO,
