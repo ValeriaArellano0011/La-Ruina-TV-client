@@ -27,13 +27,11 @@ const Browser = () => {
         <div className='browserBody'>
 
 {/* ---------------------VISOR--------------------- */}
-    {
-        visorList? <Visor/> : dispatch(getPosts())
-    }
+        <Visor/>
 
 {/* --------------------SLIDERS-------------------- */}
     {   
-        visorList? 
+        visorList?
         ([...new Set(listaCategorias)].map(e=>
             {
                 if(id === 0){ id++; return <Slider titulo={'Contenido'} categoria={visorList} style={s} id={`s`}key={`s`}/>}
@@ -44,7 +42,7 @@ const Browser = () => {
 
 {/* ---------------------FOOTER--------------------- */}
 
-                        <Footer/>
+        <Footer/>
 
         </div>
     )
