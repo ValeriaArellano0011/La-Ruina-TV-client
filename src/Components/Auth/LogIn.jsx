@@ -3,27 +3,20 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { onChangeInput } from '../../handlers/auth';
-import { logIn } from '../../middlewares/redux/actions';
+import { login } from '../../middlewares/redux/actions';
 import { authCss } from './css/authCss';
 import s from './css/LogIn.module.css'
 import GoogleLogIn from './GoogleLogIn';
 
 const LogIn = () => {
     const dispatch = useDispatch();
-    const inputStateInitial = {
-      userName: '',
-      contrasena: ''
-    }
-    const [input, setInput] = useState(inputStateInitial)
+    
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     // const [errors, setErrors] = useState({
     //     userName: '',
     //     contraseña: ''
     // })
-
-  
-    useEffect(() => {
-      setInput(inputStateInitial)
-    },[setInput, inputStateInitial]);
 
   return (
     <div className='LogInBody'>
@@ -37,9 +30,9 @@ const LogIn = () => {
                 <h1>Iniciar Sesión</h1>
                 <form className={s.form}>
                   <li className={s.form_li}>Nombre de usuario</li>
-                  <input type="text" name='userName' value={input.userName} onChange={e => {return onChangeInput(e.target.name,e.target.value,input,setInput)}} placeholder='alias o e-mail' />
+                  <input type="text" name='userName' onChange={e => {return setEmail(e.target.value)}} placeholder='alias o e-mail' />
                   <li className={s.form_li}>Contraseña</li>
-                  <input type="password" name='contrasena' value={input.contrasena} onChange={e => {return onChangeInput(e.target.name,e.target.value,input,setInput)}} placeholder='contraseña' />
+                  <input type="password" name='contrasena' onChange={e => {return setPassword(e.target.value)}} placeholder='contraseña' />
                 </form>
                 <GoogleLogIn />
           </ul>
@@ -52,7 +45,7 @@ const LogIn = () => {
                 onClick={e=> {
                   return(  
                   e.preventDefault(),
-                  dispatch(logIn([input])))
+                  dispatch(login(email, password)))
                 }}
                 >Entrar</button></li>
                 <li><button 

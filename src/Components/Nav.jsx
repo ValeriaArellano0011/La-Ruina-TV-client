@@ -13,7 +13,7 @@ import { resetOption } from '../middlewares/redux/actions';
 const Nav = () => {
     const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
-    const userState = useSelector(state=>state.userState)
+    const currentUser = useSelector(state=>state.currentUser)
     window.onscroll = function() {navBack(setPosNav, posNav)};
     return (
 
@@ -50,7 +50,7 @@ const Nav = () => {
             <ul className='navSearchBar'>
                 <li><SearchBar/></li>
                 <ul className={s.profileMenuBtn}>
-                    {!userState? <li><EnterBtn /></li> :<li><ProfileMenu/></li>}
+                    {!currentUser? <li><EnterBtn /></li> :<li><ProfileMenu/></li>}
                 </ul>
             </ul>
         </ul>

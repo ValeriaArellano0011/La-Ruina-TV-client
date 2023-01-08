@@ -4,8 +4,11 @@ import profileMenuCss from './css/ProfileMenu';
 import handlerOptionCanvas from '../handlers/handlerOptionCanvas';
 import btnMenuTv from '../design/ruinatv-icon-play-b.png';
 import userIcon from '../design/user-icon.png';
+import { useSelector } from 'react-redux';
 
 export const ProfileMenu = () => {
+  const currentUser = useSelector(state=>state.currentUser)
+  console.log(currentUser)
   function onClickValue(e){
     return (
       handlerOptionCanvas(e.target.value)
@@ -19,7 +22,7 @@ export const ProfileMenu = () => {
             onMouseLeave={() => {return profileMenuCss('leave')}}
             >
             <img className={s.userIcon} src={userIcon} alt='userIcon' width='15px' />
-            Hola, usuario promedio 
+            Hola, {currentUser} 
             <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
           </li>
           <li><button 
