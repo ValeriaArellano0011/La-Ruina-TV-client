@@ -97,7 +97,6 @@ export default function rootReducer(state = initialState, action){
             return{
                 ...state,
                 visorList: action.payload,
-                nextVisor: action.payload
             }
         case GET_INFO:
             return{
