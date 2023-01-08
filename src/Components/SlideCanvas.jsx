@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import LogIn from './Auth/LogIn'
+import Enter from './Enter/Enter'
 import { BackButton } from './BackButton'
 import s from './css/SlideCanvas.module.css'
 
@@ -11,7 +11,7 @@ export const SlideCanvas = () => {
             <ul>
                 {
                     option?
-                        (option === 'login')? <><LogIn/></> 
+                        (option === 'login')? <><Enter/></> 
                         :
                         (option === 'logout')? <><BackButton/></> 
                         :                 

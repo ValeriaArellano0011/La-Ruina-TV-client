@@ -7,9 +7,11 @@ import { ProfileMenu } from './ProfileMenu';
 import { EnterBtn } from './EnterBtn';
 
 import navBack from './css/Nav';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetOption } from '../middlewares/redux/actions';
 
 const Nav = () => {
+    const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
     const userState = useSelector(state=>state.userState)
     window.onscroll = function() {navBack(setPosNav, posNav)};
@@ -25,6 +27,7 @@ const Nav = () => {
                     width='120' 
                     onClick={()=>{
                         return(
+                        dispatch(resetOption()),
                         document.querySelector(`.bodyApp`).style.transform='translateX(0)',
                         document.querySelector(`.navCont`).style.transitionDuration='.2s',
                         document.querySelector(`.bodyApp`).style.transitionDuration='2s',
@@ -32,7 +35,8 @@ const Nav = () => {
                         document.querySelector(`.navMenu`).style.display='flex',
                         document.querySelector(`.browserBody`).style.height='auto',
                         document.querySelector(`.browserBody`).style.overflowY='scroll',
-                        document.querySelector(`.visor`).style.transform='translateX(0)'
+                        document.querySelector(`.visor`).style.transform='translateX(0)',
+                        document.querySelector('#slideCanvasCont').style.overflowY="scroll"
                         )}}
                 />
             </Link>

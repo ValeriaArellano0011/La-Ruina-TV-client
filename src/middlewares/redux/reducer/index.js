@@ -63,21 +63,7 @@ const initialState = {
                 info:['']
             }
         ],
-        nextVisor:[
-            {
-                urlID:[''],
-                typeMedia:[''],
-                titulo:[''],
-                artista:[''],
-                tag:[''],
-                img:[''],
-                sliderImg:[''],
-                icon:[''],
-                categoria:[''],
-                boton1:[''],
-                info:['']
-            }
-        ],
+        nextVisor: false,
         infoDetailViewer: [],
         listaCategorias: [],
     
@@ -111,7 +97,6 @@ export default function rootReducer(state = initialState, action){
             return{
                 ...state,
                 visorList: action.payload,
-                nextVisor: action.payload
             }
         case GET_INFO:
             return{
@@ -135,26 +120,12 @@ export default function rootReducer(state = initialState, action){
         case NEXT_VISOR:
             return{
                 ...state,
-                nextVisor: [state.visorList[action.payload]]
+                nextVisor: state.visorList.length>1? [state.visorList[action.payload]] : false
             }
         case RESET_VISOR:
             return{
                 ...state,
-                nextVisor:[            
-                    {
-                        urlID:[''],
-                        typeMedia:[''],
-                        titulo:[''],
-                        artista:[''],
-                        tag:[''],
-                        img:[''],
-                        sliderImg:[''],
-                        icon:[''],
-                        categoria:[''],
-                        boton1:[''],
-                        info:['']
-                    }
-                ],
+                nextVisor: false
             }
         default:
             return {...state}
