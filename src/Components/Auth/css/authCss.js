@@ -3,20 +3,26 @@ export function authCss(e){
         document.querySelector('.LogInBody').style.transitionDuration="1s",
         document.querySelector('.LogInBody').style.transform="translateY(0)",
         document.querySelector('.CreateAccountBody').style.transitionDuration="1s",
-        document.querySelector('.CreateAccountBody').style.transform="translateY(100vw)"
+        document.querySelector('.CreateAccountBody').style.transform="translateY(100vw)",
+        document.querySelector('#welcomeCont').style.opacity="1"
     )
     if (e === 'cancelCreate') return(
             document.querySelector('.CreateAccountBody').style.transitionDuration="1s",
-            document.querySelector('.CreateAccountBody').style.transform="translateY(100vw)"
+            document.querySelector('.CreateAccountBody').style.transform="translateY(100vw)",
+            document.querySelector('#welcomeCont').style.opacity="1"
+
     )
     if (e === 'togCreate') return (
         document.querySelector('.LogInBody').style.transitionDuration="1s",
         document.querySelector('.LogInBody').style.transform="translateY(-100vw)",
         document.querySelector('.CreateAccountBody').style.transitionDuration="1s",
-        document.querySelector('.CreateAccountBody').style.transform="translate(0)"
+        document.querySelector('.CreateAccountBody').style.transform="translate(0)",
+        document.querySelector('#welcomeCont').style.opacity="1"
+
     )
     if (e === 'cancelLogIn') return (
         document.querySelector('.LogInBody').style.transitionDuration="1s",
-        document.querySelector('.LogInBody').style.transform="translateY(-100vw)"
+        document.querySelector('.LogInBody').style.transform="translateY(-100vw)",
+        document.querySelector('#welcomeCont').style.opacity="1"
     )
 } 

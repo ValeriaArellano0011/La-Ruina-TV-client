@@ -1,9 +1,8 @@
 /* --------------------Auth-------------------- */
-
 export const OPTION = 'OPTION'
 export const RESET_OPTION = 'RESET_OPTION'
-export const LOG_IN = 'LOG_IN'
-export const CREATE_ACOOUNT = 'CREATE_ACCOUNT'
+export const LOGIN = 'LOGIN'
+export const SIGNUP = 'SIGNUP'
 
 /* -------------------Posts------------------- */
 export const GET_CATEGORIAS = 'GET_CATEGORIAS'
@@ -14,3 +13,7 @@ export const RESET_VISOR = 'RESET_VISOR'
 export const RESET_MEDIA = 'RESET_MEDIA'
 export const GET_POSTS = 'GET_POSTS'
 export const GET_INFO = 'GET_INFO'
+
+/* -----------------Products----------------- */
+export const GET_PRODUCTS = 'GET_PRODUCTS'
+export const GET_PRODUCT_DETAILS = 'GET_PRODUCT_DETAILS'
