@@ -1,17 +1,10 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { BodyCss } from '../../functions/BodyCss'
-import { getProducts } from '../../middlewares/redux/actions'
-
-const Product = () => {
-
+const Product = (props) => {
+  const { idProduct, typeProduct, nameMerch, stock, idImg } = props
   return (
     <div>
-      {
-
-      }
+      <img src={idImg} alt="productImg" /> {typeProduct} {nameMerch}
     </div>
   )
 }
 
-export default Cards
+export default Product
