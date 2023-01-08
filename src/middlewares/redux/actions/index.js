@@ -11,8 +11,8 @@ import {
     RESET_VISOR,
     OPTION,
     RESET_OPTION,
-    LOG_IN,
-    CREATE_ACOOUNT,
+    LOGIN,
+    SIGNUP
     } from '../../misc'
 
 /*-----------------Auth----------------*/
@@ -23,33 +23,14 @@ export function getOption(e) {
     })
 }
 
-export function resetOption() {
-    return({
-        type: RESET_OPTION
-    })
-}
-
-export function createAccount(newUser){
-    return async function (dispatch){
-    await axios.post(`${URL_API}/users/create`, newUser)
-    .then(res => {
-        dispatch({
-            type: CREATE_ACOOUNT,
-            payload: res.data,
-        })
-    })
-    .catch(error => {
-        return { payload: error };
-    })}
-}
-
-export function logIn(input){
+export function login(email, password){
     return async function (dispatch){ 
-        await axios.post(`${URL_API}/user/login`,input)
+        await axios.post(`${URL_API}/users/login`, {email, password})
         .then(res => {
+            console.log("userData: ", res.data.msg)
             dispatch({
-                type: LOG_IN,
-                payload: res.data
+                type: LOGIN,
+                payload: res.data.msg
             })
         })
         .catch((e) => {
@@ -57,6 +38,32 @@ export function logIn(input){
         })
     }
 }
+
+export const signup =
+  (alias, email, password) => async (dispatch) => {
+    try {
+        const response = await axios.post(`${URL_API}/users/signup`, {
+      alias,
+      email,
+      password
+    });
+    const data = await response.data;
+    return dispatch({
+      type: SIGNUP,
+      payload: data,
+    });
+    } catch (error) {
+        console.log(error)
+    }
+
+};
+
+export function resetOption() {
+    return({
+        type: RESET_OPTION
+    })
+}
+
 
 /*----------------Posts----------------*/
 export function getPosts() {

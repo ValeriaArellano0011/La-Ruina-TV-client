@@ -2,8 +2,8 @@
 
 export const OPTION = 'OPTION'
 export const RESET_OPTION = 'RESET_OPTION'
-export const LOG_IN = 'LOG_IN'
-export const CREATE_ACOOUNT = 'CREATE_ACCOUNT'
+export const LOGIN = 'LOGIN'
+export const SIGNUP = 'SIGNUP'
 
 /* -------------------Posts------------------- */
 export const GET_CATEGORIAS = 'GET_CATEGORIAS'

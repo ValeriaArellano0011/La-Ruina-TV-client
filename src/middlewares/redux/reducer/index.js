@@ -7,7 +7,8 @@ import {
     RESET_MEDIA,
     RESET_VISOR,
     OPTION,
-    RESET_OPTION} from "../../misc";
+    RESET_OPTION,
+    LOGIN} from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -17,6 +18,7 @@ import iconDescarga from '../../../design/descarga-icon.png'
 
 const initialState = {
     /*----------------Auth----------------*/
+        currentUser: {},
         userState: false,
         option: '',
     
@@ -81,7 +83,12 @@ const initialState = {
 export default function rootReducer(state = initialState, action){
     switch (action.type){
 /*----------------Auth----------------*/
-
+case LOGIN:
+            return{
+                ...state,
+                currentUser: action.payload,
+                userState: true
+            }
         case OPTION:
             return{
                 ...state,
