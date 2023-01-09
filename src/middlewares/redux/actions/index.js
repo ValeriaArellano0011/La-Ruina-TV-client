@@ -58,6 +58,22 @@ export const signup =
 
 };
 
+export function upload(){
+    return async function (dispatch){ 
+        await axios.get(`${URL_API}/media/listHolis`)
+        .then(res => {
+            console.log("res: ", res.data)
+            dispatch({
+                type: 'UPLOAD',
+                payload: res.data
+            })
+        })
+        .catch((e) => {
+            console.log(e);
+        })
+    }
+}
+
 export function resetOption() {
     return({
         type: RESET_OPTION
@@ -70,6 +86,7 @@ export function getPosts() {
     return async function(dispatch) {
         await axios.get(`${URL_API}/posts/getall`)
         .then(res =>{
+            console.log('el res del front',res)
             dispatch({
                 type: GET_POSTS,
                 payload: res.data

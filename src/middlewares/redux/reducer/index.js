@@ -23,6 +23,7 @@ const initialState = {
         option: '',
     
     /*----------------Media----------------*/
+
         typeMediaList: 
             {
                 musica:

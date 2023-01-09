@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../../middlewares/redux/actions';
+import { login, upload } from '../../middlewares/redux/actions';
 import { authCss } from './css/authCss';
 import s from './css/LogIn.module.css'
 import GoogleLogIn from './GoogleLogIn';
@@ -47,6 +47,9 @@ const LogIn = () => {
                 onClick={()=> authCss('cancelLogIn')}>
                 Cancelar
                 </button></li>
+                <button onClick={() => {
+                  dispatch(upload())
+                }}>UPLOAD</button>
             </ul>
     </div>
   )

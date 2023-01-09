@@ -19,7 +19,7 @@ const Post = (props) => {
                             <div className={s.sliderItem}>
                             <Link to={`/view/v=:urlid=_type_=${e.typeMedia}=_id_=${e.id}`}>
                             <button
-                            className={s.media} style={{backgroundImage: `url(${e.sliderImg})`}}
+                            className={s.media} style={{backgroundImage: e.sliderImg ? `url(${e.sliderImg})` :'error'}}
                             id={e.id}
                             urlid={e.urlID}
                             titulo={e.titulo}
