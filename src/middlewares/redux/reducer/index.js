@@ -9,7 +9,8 @@ import {
     OPTION,
     RESET_OPTION,
     LOGIN,
-    GET_PRODUCTS} from "../../misc";
+    GET_PRODUCTS,
+    POST_PRODUCT } from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -86,6 +87,9 @@ const initialState = {
 
 
 }
+/*--------------Formulario--------------*/
+
+
 
 export default function rootReducer(state = initialState, action){
     switch (action.type){
@@ -106,6 +110,10 @@ export default function rootReducer(state = initialState, action){
                 ...state,
                 option:''
             }
+        case POST_PRODUCT:
+            return{
+                ...state
+            }     
 
 /*----------------Tienda----------------*/
         case GET_PRODUCTS:
