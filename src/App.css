@@ -320,7 +320,7 @@ button:hover{
 .visorButtonPlay{
   width: 15px;
   margin-right: 10px;
-  position: absolute;
+  position: fixed;
   left: 30px;
   top:16px;
 }
