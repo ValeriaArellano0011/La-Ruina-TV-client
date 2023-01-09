@@ -9,7 +9,8 @@ import {
     OPTION,
     RESET_OPTION,
     LOGIN,
-    GET_PRODUCTS} from "../../misc";
+    GET_PRODUCTS,
+    POST_PRODUCT } from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -18,71 +19,77 @@ import iconWeb from '../../../design/web-icon.png'
 import iconDescarga from '../../../design/descarga-icon.png'
 
 const initialState = {
-    /*----------------Auth----------------*/
-        currentUser: false,
-        option: '',
-    
-    /*----------------Media----------------*/
-        typeMediaList: 
-            {
-                musica:
-                    {
-                        idYT:{url:'https://www.youtube.com/watch?v=', img:iconYT}, 
-                        idSpty:{url:'', img:iconSpty}, 
-                        idDrive:{url:'', img:iconDrive}
-                    },
-                serie:
-                    {
-                        idYoutube:{url:'', img:iconYT},
-                        idSpty:{url:'', img:iconSpty}, 
-                        idDrive:{url:'', img:iconDrive},
-                    },
-                app: 
-                    {
-                        urlWeb:{url:'', img:iconWeb},
-                        idDrive:{url:'', img:iconDrive},
-                        urlDescarga:{url:'', img:iconDescarga},
-                    },
-                libro:
-                    {
-                        urlWeb:{url:'', img:iconWeb},
-                        idDrive:{url:'', img:iconDrive},
-                        urlDescarga:{url:'', img:iconDescarga},
-                    }
-        },
-        visorList: [
-            {
-                urlID:[''],
-                typeMedia:[''],
-                titulo:[''],
-                artista:[''],
-                tag:[''],
-                img:[''],
-                sliderImg:[''],
-                icon:[''],
-                categoria:[''],
-                boton1:[''],
-                info:['']
-            }
-        ],
-        nextVisor: false,
-        infoDetailViewer: [],
-        listaCategorias: [],
+/*----------------Admin----------------*/
+    adminUser: true,
 
-    /*----------------Products----------------*/
-        products: [],
-        productDetails: [],
+/*----------------Auth----------------*/
+    currentUser: true,
+    option: '',
 
-    /*------------Filter&Search------------*/
-        filteredMedia: [],
-        searchedMedia: [],
-        mediaFound: {},
+/*----------------Media----------------*/
+    typeMediaList: 
+        {
+            musica:
+                {
+                    idYT:{url:'https://www.youtube.com/watch?v=', img:iconYT}, 
+                    idSpty:{url:'', img:iconSpty}, 
+                    idDrive:{url:'', img:iconDrive}
+                },
+            serie:
+                {
+                    idYoutube:{url:'', img:iconYT},
+                    idSpty:{url:'', img:iconSpty}, 
+                    idDrive:{url:'', img:iconDrive},
+                },
+            app: 
+                {
+                    urlWeb:{url:'', img:iconWeb},
+                    idDrive:{url:'', img:iconDrive},
+                    urlDescarga:{url:'', img:iconDescarga},
+                },
+            libro:
+                {
+                    urlWeb:{url:'', img:iconWeb},
+                    idDrive:{url:'', img:iconDrive},
+                    urlDescarga:{url:'', img:iconDescarga},
+                }
+    },
+    visorList: [
+        {
+            urlID:[''],
+            typeMedia:[''],
+            titulo:[''],
+            artista:[''],
+            tag:[''],
+            img:[''],
+            sliderImg:[''],
+            icon:[''],
+            categoria:[''],
+            boton1:[''],
+            info:['']
+        }
+    ],
+    nextVisor: false,
+    infoDetailViewer: [],
+    listaCategorias: [],
+
+/*----------------Tienda----------------*/
+    products: [],
+    productDetails: [],
+
+/*------------Filter&Search------------*/
+    filteredMedia: [],
+    searchedMedia: [],
+    mediaFound: {},
+
+/*--------------Pagination--------------*/
     
-    /*--------------Pagination--------------*/
-      
-    
-    
-    }
+
+
+}
+/*--------------Formulario--------------*/
+
+
 
 export default function rootReducer(state = initialState, action){
     switch (action.type){
@@ -103,8 +110,12 @@ export default function rootReducer(state = initialState, action){
                 ...state,
                 option:''
             }
+        case POST_PRODUCT:
+            return{
+                ...state
+            }     
 
-/*----------------Media----------------*/
+/*----------------Tienda----------------*/
         case GET_PRODUCTS:
             return{
                 ...state,

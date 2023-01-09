@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getInfo, getMediaType } from '../middlewares/redux/actions'
+import { getInfo, getMediaType } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
 
 const View = () => {

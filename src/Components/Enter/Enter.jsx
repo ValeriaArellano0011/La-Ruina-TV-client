@@ -19,7 +19,8 @@ const Enter = () => {
       <div className={style.visor}>
       <div className={style.visorCanvas}></div>
       <div className={style.welcomeCont} id='welcomeCont'>
-        <h1>CREÁ, COMPARTÍ Y DISFRUTÁ DE TODO NUESTRO CONTENIDO MULTIMEDIA</h1>
+      {/* <h1>CREÁ, COMPARTÍ Y DISFRUTÁ DE TODO NUESTRO CONTENIDO MULTIMEDIA</h1> */}
+      <h1>ENTRÁ BOBO, VENÍ PARA ACÁ</h1>
         <ul className={style.welcomeUl}>
 
         <Link to='/browser'><li>
