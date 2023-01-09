@@ -12,6 +12,12 @@ const CreateAccount = () => {
   const [alias, setAlias] = useState('')
   const [password, setPassword] = useState('')
 
+  // const [errors, setErrors] = useState({
+  //   alias: '',
+  //   email: '',
+  //   password: ''
+  // })
+
   const onSubmitCreate = (e) => {
     e.preventDefault()
     dispatch(signup(alias, email, password))
@@ -19,11 +25,6 @@ const CreateAccount = () => {
 
   return (
     <div className='CreateAccountBody'>
-      <button 
-        className='tog'
-        onClick={() => authCss('togLogIn')}
-        >Iniciar sesión
-        </button>
         <div className='formCont'>
           <ul className={s.form_ul}>
                 <h1>Crear Cuenta</h1>
@@ -33,7 +34,9 @@ const CreateAccount = () => {
                   <li className={s.form_li}>Correo electrónico</li>
                   <input type="email" name='email' onChange={e => {return setEmail(e.target.value)}} placeholder='e-mail' />
                   <li className={s.form_li}>Contraseña</li>
-                  <input type="password" name='contraseña' onChange={e => {return setPassword(e.target.value)}} placeholder='contraseña' />
+
+                  <input type="password" name='password' onChange={e => {return setPassword(e.target.value)}} placeholder='contraseña' />
+
                 </form>
                 <GoogleSignUp />
           </ul>      
@@ -50,6 +53,12 @@ const CreateAccount = () => {
                 className='button2'
                 onClick={()=> authCss('cancelCreate')}
                 >Cancelar</button></li>
+                      <button 
+                      className='tog'
+                      onClick={() => authCss('togLogIn')}
+                      >Iniciar sesión
+                      </button>
+
             </ul>
       
     </div>

@@ -8,7 +8,9 @@ import {
     RESET_VISOR,
     OPTION,
     RESET_OPTION,
-    LOGIN} from "../../misc";
+    LOGIN,
+    GET_PRODUCTS,
+    POST_PRODUCT } from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -17,6 +19,72 @@ import iconWeb from '../../../design/web-icon.png'
 import iconDescarga from '../../../design/descarga-icon.png'
 
 const initialState = {
+
+/*----------------Admin----------------*/
+    adminUser: false,
+
+/*----------------Auth----------------*/
+    currentUser: false,
+    option: '',
+
+/*----------------Media----------------*/
+    typeMediaList: 
+        {
+            musica:
+                {
+                    idYT:{url:'https://www.youtube.com/watch?v=', img:iconYT}, 
+                    idSpty:{url:'', img:iconSpty}, 
+                    idDrive:{url:'', img:iconDrive}
+                },
+            serie:
+                {
+                    idYoutube:{url:'', img:iconYT},
+                    idSpty:{url:'', img:iconSpty}, 
+                    idDrive:{url:'', img:iconDrive},
+                },
+            app: 
+                {
+                    urlWeb:{url:'', img:iconWeb},
+                    idDrive:{url:'', img:iconDrive},
+                    urlDescarga:{url:'', img:iconDescarga},
+                },
+            libro:
+                {
+                    urlWeb:{url:'', img:iconWeb},
+                    idDrive:{url:'', img:iconDrive},
+                    urlDescarga:{url:'', img:iconDescarga},
+                }
+    },
+    visorList: [
+        {
+            urlID:[''],
+            typeMedia:[''],
+            titulo:[''],
+            artista:[''],
+            tag:[''],
+            img:[''],
+            sliderImg:[''],
+            icon:[''],
+            categoria:[''],
+            boton1:[''],
+            info:['']
+        }
+    ],
+    nextVisor: false,
+    infoDetailViewer: [],
+    listaCategorias: [],
+
+/*----------------Tienda----------------*/
+    products: [],
+    productDetails: [],
+
+/*------------Filter&Search------------*/
+    filteredMedia: [],
+    searchedMedia: [],
+    mediaFound: {},
+
+/*--------------Pagination--------------*/
+
     /*----------------Auth----------------*/
         currentUser: {},
         userState: false,
@@ -78,16 +146,22 @@ const initialState = {
       
     
     
-    }
+
+
+}
+/*--------------Formulario--------------*/
+
+
 
 export default function rootReducer(state = initialState, action){
     switch (action.type){
 /*----------------Auth----------------*/
-case LOGIN:
-            return{
-                ...state,
-                currentUser: action.payload,
-                userState: true
+
+        case LOGIN:
+            console.log(action.payload)
+            return {
+            ...state,
+            currentUser: action.payload.msg.userAlias
             }
         case OPTION:
             return{
@@ -99,6 +173,18 @@ case LOGIN:
                 ...state,
                 option:''
             }
+        case POST_PRODUCT:
+            return{
+                ...state
+            }     
+
+/*----------------Tienda----------------*/
+        case GET_PRODUCTS:
+            return{
+                ...state,
+                products: action.payload
+            }
+
 /*----------------Media----------------*/
         case GET_POSTS:
             return{

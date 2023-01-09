@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './css/ProfileMenu.module.css';
-import userIcon from '../design/user-icon.png';
-import handlerOptionCanvas from '../handlers/handlerOptionCanvas';
+import userIcon from '../../design/user-icon.png';
+import handlerOptionCanvas from '../../handlers/handlerOptionCanvas';
 import { useDispatch } from 'react-redux';
-import { getOption } from '../middlewares/redux/actions';
+import { getOption } from '../../middlewares/redux/actions';
 
 export const EnterBtn = () => {
   const dispatch = useDispatch()

@@ -1,7 +1,7 @@
 import React from 'react'
-import { BodyCss } from '../functions/BodyCss'
+import { BodyCss } from '../../functions/BodyCss'
 
-export const Novedades = () => {
+export const Colaborar = () => {
   BodyCss()
   return (
     <div className='browserBody'>
