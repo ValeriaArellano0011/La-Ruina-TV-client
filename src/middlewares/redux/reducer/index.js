@@ -20,7 +20,7 @@ import iconDescarga from '../../../design/descarga-icon.png'
 
 const initialState = {
 /*----------------Admin----------------*/
-    adminUser: false,
+    adminUser: true,
 
 /*----------------Auth----------------*/
     currentUser: false,
@@ -70,7 +70,7 @@ const initialState = {
         }
     ],
     nextVisor: false,
-    infoDetailViewer: [],
+    infoDetailViewer: {urlID: {idYT:''}},
     listaCategorias: [],
 
 /*----------------Tienda----------------*/
@@ -145,7 +145,7 @@ export default function rootReducer(state = initialState, action){
         case RESET_MEDIA:
             return{
                 ...state,
-                infoDetailViewer: action.payload
+                infoDetailViewer: {urlID: {idYT:''}},
             }
         case NEXT_VISOR:
             return{

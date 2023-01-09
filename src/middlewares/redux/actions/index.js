@@ -138,8 +138,7 @@ export function getMediaUrl(mediainfo) {
 
 export function resetMedia() {
     return {
-        type: RESET_MEDIA,
-        payload: []
+        type: RESET_MEDIA
     }
 }
 
