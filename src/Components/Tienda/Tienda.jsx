@@ -17,7 +17,6 @@ export const Tienda = () => {
     <div className={s.tiendaCont}>
       <ul className={s.ulProducts}>
         <h1>Merchandising</h1>
-        <ul className={s.ulProducts}>
         {
           products?.map(e => {
             return(
@@ -35,7 +34,6 @@ export const Tienda = () => {
             }
           )
         }
-      </ul>
       </ul>
     </div>
   )

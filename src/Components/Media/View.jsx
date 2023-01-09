@@ -12,6 +12,7 @@ const View = () => {
     const {id, typeMedia, urlid}= useParams()
     const typeMediaList = useSelector(state =>state.typeMediaList)
     const infoDetailViewer = useSelector(state =>state.infoDetailViewer)
+    const {idYT} = infoDetailViewer.urlID
     const [type, setType] = useState([])
     const [mediaLink, setMediaLink] = useState({})
     useEffect(()=>{
@@ -25,7 +26,6 @@ const View = () => {
     useEffect(()=>{
         setMediaLink(urlid)
     },[setMediaLink, urlid])
-
     return (
         <div>
             <div className='visor'>
@@ -50,13 +50,16 @@ const View = () => {
                                     el.map((e)=>{
                                     return(
                                         <li className='viewLiImg' key={e}><a href={`${e.url}${mediaLink}`}><img className='viewLiIcon' src={e.img} alt="" /></a></li>
-                                    )
-                                }))
+                                        )
+                                    }))
                                 })
-
                             }
                         </ul>
-                        <Link to={`/play/p=:urlid=_type_=:typeMedia=_id_=mZiusH3M8Uc`}><button className='buttonVer'>Ver ahora</button></Link>
+                        {infoDetailViewer?
+                        
+                        <Link to={`/play/p=:urlid=_type_=:typeMedia=_id_=${idYT}`}><button className='buttonVer'>Ver ahora</button></Link>
+                        : null
+                        }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
                     </div>
                     </div>

@@ -54,12 +54,10 @@ export function resetOption() {
         type: RESET_OPTION
     })
 }
-
 export function login(email, password){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/users/login`, {email, password})
         .then(res => {
-            console.log("userData: ", res.data.msg)
             dispatch({
                 type: LOGIN,
                 payload: res.data
@@ -95,6 +93,7 @@ export function getPosts() {
     return async function(dispatch) {
         await axios.get(`${URL_API}/posts/getall`)
         .then(res =>{
+            console.log('el res del front',res)
             dispatch({
                 type: GET_POSTS,
                 payload: res.data
@@ -142,8 +141,7 @@ export function getMediaUrl(mediainfo) {
 
 export function resetMedia() {
     return {
-        type: RESET_MEDIA,
-        payload: []
+        type: RESET_MEDIA
     }
 }
 
