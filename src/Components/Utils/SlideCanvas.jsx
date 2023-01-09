@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Dashboard from '../../Admin/Dashboard/Dashboard'
 import Enter from '../Enter/Enter'
 import { BackButton } from './BackButton'
 import s from './css/SlideCanvas.module.css'
@@ -10,7 +11,9 @@ export const SlideCanvas = () => {
         <div className={s.slideCanvasCont} id='slideCanvasCont'>
             <ul>
                 {
-                    option?
+                        option?
+                        (option === 'dashboard')? <><Dashboard/></> 
+                        :
                         (option === 'login')? <><Enter/></> 
                         :
                         (option === 'logout')? <><BackButton/></> 

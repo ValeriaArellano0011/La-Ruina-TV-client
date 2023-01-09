@@ -1,0 +1,18 @@
+.crearProducto, .crearPost {
+    color:aliceblue;
+    background-color: rgb(42, 42, 42);
+    margin: 10px;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    left: -20px;
+    font-family: Bebas Neue;
+    font-size: 30px;
+    position: relative;
+    opacity: .8;
+    transition-duration: 1s;
+}
+
+.crearProducto:hover, .crearPost:hover{
+    opacity: 1,
+}

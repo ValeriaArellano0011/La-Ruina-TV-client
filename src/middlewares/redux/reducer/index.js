@@ -18,71 +18,74 @@ import iconWeb from '../../../design/web-icon.png'
 import iconDescarga from '../../../design/descarga-icon.png'
 
 const initialState = {
-    /*----------------Auth----------------*/
-        currentUser: false,
-        option: '',
-    
-    /*----------------Media----------------*/
-        typeMediaList: 
-            {
-                musica:
-                    {
-                        idYT:{url:'https://www.youtube.com/watch?v=', img:iconYT}, 
-                        idSpty:{url:'', img:iconSpty}, 
-                        idDrive:{url:'', img:iconDrive}
-                    },
-                serie:
-                    {
-                        idYoutube:{url:'', img:iconYT},
-                        idSpty:{url:'', img:iconSpty}, 
-                        idDrive:{url:'', img:iconDrive},
-                    },
-                app: 
-                    {
-                        urlWeb:{url:'', img:iconWeb},
-                        idDrive:{url:'', img:iconDrive},
-                        urlDescarga:{url:'', img:iconDescarga},
-                    },
-                libro:
-                    {
-                        urlWeb:{url:'', img:iconWeb},
-                        idDrive:{url:'', img:iconDrive},
-                        urlDescarga:{url:'', img:iconDescarga},
-                    }
-        },
-        visorList: [
-            {
-                urlID:[''],
-                typeMedia:[''],
-                titulo:[''],
-                artista:[''],
-                tag:[''],
-                img:[''],
-                sliderImg:[''],
-                icon:[''],
-                categoria:[''],
-                boton1:[''],
-                info:['']
-            }
-        ],
-        nextVisor: false,
-        infoDetailViewer: [],
-        listaCategorias: [],
+/*----------------Admin----------------*/
+    adminUser: true,
 
-    /*----------------Tienda----------------*/
-        products: [],
-        productDetails: [],
+/*----------------Auth----------------*/
+    currentUser: true,
+    option: '',
 
-    /*------------Filter&Search------------*/
-        filteredMedia: [],
-        searchedMedia: [],
-        mediaFound: {},
+/*----------------Media----------------*/
+    typeMediaList: 
+        {
+            musica:
+                {
+                    idYT:{url:'https://www.youtube.com/watch?v=', img:iconYT}, 
+                    idSpty:{url:'', img:iconSpty}, 
+                    idDrive:{url:'', img:iconDrive}
+                },
+            serie:
+                {
+                    idYoutube:{url:'', img:iconYT},
+                    idSpty:{url:'', img:iconSpty}, 
+                    idDrive:{url:'', img:iconDrive},
+                },
+            app: 
+                {
+                    urlWeb:{url:'', img:iconWeb},
+                    idDrive:{url:'', img:iconDrive},
+                    urlDescarga:{url:'', img:iconDescarga},
+                },
+            libro:
+                {
+                    urlWeb:{url:'', img:iconWeb},
+                    idDrive:{url:'', img:iconDrive},
+                    urlDescarga:{url:'', img:iconDescarga},
+                }
+    },
+    visorList: [
+        {
+            urlID:[''],
+            typeMedia:[''],
+            titulo:[''],
+            artista:[''],
+            tag:[''],
+            img:[''],
+            sliderImg:[''],
+            icon:[''],
+            categoria:[''],
+            boton1:[''],
+            info:['']
+        }
+    ],
+    nextVisor: false,
+    infoDetailViewer: [],
+    listaCategorias: [],
+
+/*----------------Tienda----------------*/
+    products: [],
+    productDetails: [],
+
+/*------------Filter&Search------------*/
+    filteredMedia: [],
+    searchedMedia: [],
+    mediaFound: {},
+
+/*--------------Pagination--------------*/
     
-    /*--------------Pagination--------------*/
-      
-    
-    
-    }
+
+
+}
 
 export default function rootReducer(state = initialState, action){
     switch (action.type){

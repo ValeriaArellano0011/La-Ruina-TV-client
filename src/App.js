@@ -10,6 +10,8 @@ import { SlideCanvas } from './Components/Utils/SlideCanvas';
 import { Lanzamientos } from './Components/Lanzamientos/Lanzamientos';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
+import CreateProduct from './Admin/Requests/CreateProduct';
+import CreatePost from './Admin/Requests/CreatePost';
 
 function App() {
   
@@ -39,10 +41,16 @@ function App() {
                 <Tienda />
               </Route>
               <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
-                <View/>
+                <View />
               </Route>
               <Route path={'/play/p=:urlid=_type_=:typeMedia=_id_=:id'}>
-                <Play/>
+                <Play />
+              </Route>
+              <Route exact path='/product/create'>
+                <CreateProduct/>
+              </Route>
+              <Route exact path='/post/create'>
+                <CreatePost/>
               </Route>
               </div>
             </div>
