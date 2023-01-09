@@ -263,7 +263,7 @@ button:hover{
   left: -40px;
   scale: 0;
 }
-.button1,.button2{
+.button1,.button2,.buttonVer{
   height: 50px;
   width: 200px;
   position: relative;
@@ -273,16 +273,19 @@ button:hover{
   border: none;
   border-radius: 2%;
 }
-.button1{
+.button1,.buttonVer{
   background: linear-gradient(to bottom, #ffffff, rgba(0, 0, 0, 0.679));
   background-color: #ffffff;
+}
+.buttonVer{
+  left: 50px;
 }
 .button2{
   background-color: #84848446;
   color: #ffffff;
   font-weight: 100;
 }
-.button1:hover{
+.button1:hover,.buttonVer:hover{
   background: linear-gradient(to bottom, #171717, rgba(0, 0, 0, 0.679));
   background-color: #171717;
   color: #ffffff;
@@ -320,7 +323,7 @@ button:hover{
 .visorButtonPlay{
   width: 15px;
   margin-right: 10px;
-  position: fixed;
+  position: absolute;
   left: 30px;
   top:16px;
 }
@@ -390,9 +393,6 @@ button:hover{
   transition-duration: 0.5s;
 }
 
-/* ------------------VIEW----------------- */
-
-
 .viewMediaTypesCont{
   width: min-content;
   height: 35px;
@@ -444,6 +444,20 @@ button:hover{
   transition-duration: 0.5s;
 }
 
+/* ------------------PLAY----------------- */
+
+.playCont{
+  width: 100vw;
+  height: 100vh;
+}
+
+.playUl{
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  margin-top: 70px;
+  margin-left: 80px;
+}
 
 /* ----------------FOOTER----------------- */
 .ruinaContFooter{

@@ -46,7 +46,6 @@ const View = () => {
                         <ul className='viewMediaTypesList'>
                             {
                                 Object.entries(type).map((el)=>{
-                                    console.log(mediaLink)
                                     return(
                                     el.map((e)=>{
                                     return(
@@ -57,6 +56,7 @@ const View = () => {
 
                             }
                         </ul>
+                        <Link to={`/play/p=:urlid=_type_=:typeMedia=_id_=mZiusH3M8Uc`}><button className='buttonVer'>Ver ahora</button></Link>
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
                     </div>
                     </div>

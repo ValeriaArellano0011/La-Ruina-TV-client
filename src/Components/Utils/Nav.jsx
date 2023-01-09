@@ -9,6 +9,7 @@ import { EnterBtn } from './EnterBtn';
 import navBack from './css/Nav';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetOption } from '../../middlewares/redux/actions';
+import { BackButton } from './BackButton';
 
 const Nav = () => {
     const dispatch = useDispatch()
@@ -121,7 +122,7 @@ const Nav = () => {
             <ul className='navSearchBar'>
                 <li><SearchBar/></li>
                 <ul className={s.profileMenuBtn}>
-                    {!currentUser? <li><EnterBtn /></li> :<li><ProfileMenu/></li>}
+                    {!currentUser? (option==='login'? <li><BackButton /></li> : <li><EnterBtn /></li>) :<li><ProfileMenu/></li>}
                 </ul>
             </ul>
         </ul>

@@ -28,9 +28,9 @@ export const ProfileMenu = () => {
             Hola, {currentUser} 
             <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
           </li>
-          {
+        {
           adminUser?
-          (<li><button 
+          <><li><button 
             id='optionProfileBtn0' 
             className={s.optionProfileBtn} 
             value='dashboard'
@@ -38,9 +38,8 @@ export const ProfileMenu = () => {
             onMouseEnter={() => {return profileMenuCss('enter')}}
             onMouseLeave={() => {return profileMenuCss('leave')}}
 
-            >DASHBOARD</button></li>) : null
-          }
-          <li><button 
+            >DASHBOARD</button></li>
+            <li><button 
             id='optionProfileBtn1' 
             className={s.optionProfileBtn} 
             value='profile' 
@@ -68,6 +67,45 @@ export const ProfileMenu = () => {
             onMouseLeave={() => {return profileMenuCss('leave')}}
 
             >SALIR</button></li>
+            </>
+            :
+          <><li><button 
+            id='optionProfileBtn1' 
+            className={s.optionProfileBtn} 
+            value='profile' 
+            onClick={(e)=>{return onClickValue(e)}}
+            onMouseEnter={() => {return profileMenuCss('enter')}}
+            onMouseLeave={() => {return profileMenuCss('leave')}}
+
+            >PERFIL</button></li>
+          <li><button 
+            id='optionProfileBtn0' 
+            className={s.optionProfileBtn} 
+            value='subscription'
+            onClick={(e)=>{return onClickValue(e)}}
+            onMouseEnter={() => {return profileMenuCss('enter')}}
+            onMouseLeave={() => {return profileMenuCss('leave')}}
+
+            >SUSCRIPCIÓN</button></li>
+          <li><button 
+            id='optionProfileBtn2' 
+            className={s.optionProfileBtn} 
+            value='configuration' 
+            onClick={(e)=>{return onClickValue(e)}}
+            onMouseEnter={() => {return profileMenuCss('enter')}}
+            onMouseLeave={() => {return profileMenuCss('leave')}}
+
+            >CONFIGURACIÓN</button></li>
+          <li><button 
+            id='optionProfileBtn3' 
+            className={s.optionProfileBtn} 
+            value='logout' 
+            onClick={(e)=>{return onClickValue(e)}}
+            onMouseEnter={() => {return profileMenuCss('enter')}}
+            onMouseLeave={() => {return profileMenuCss('leave')}}
+
+            >SALIR</button></li></>
+        }
         </ul>
 
     </div>
