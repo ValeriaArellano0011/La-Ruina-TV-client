@@ -54,10 +54,12 @@ export function resetOption() {
         type: RESET_OPTION
     })
 }
+
 export function login(email, password){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/users/login`, {email, password})
         .then(res => {
+            console.log("userData: ", res.data.msg)
             dispatch({
                 type: LOGIN,
                 payload: res.data
@@ -85,6 +87,32 @@ export const signup =
         console.log(error)
     }
 };
+
+export const signup =
+  (alias, email, password) => async (dispatch) => {
+    try {
+        const response = await axios.post(`${URL_API}/users/signup`, {
+      alias,
+      email,
+      password
+    });
+    const data = await response.data;
+    return dispatch({
+      type: SIGNUP,
+      payload: data,
+    });
+    } catch (error) {
+        console.log(error)
+    }
+
+};
+
+export function resetOption() {
+    return({
+        type: RESET_OPTION
+    })
+}
+
 
 /*----------------Posts----------------*/
 export function getPosts() {

@@ -19,6 +19,7 @@ import iconWeb from '../../../design/web-icon.png'
 import iconDescarga from '../../../design/descarga-icon.png'
 
 const initialState = {
+
 /*----------------Admin----------------*/
     adminUser: true,
 
@@ -83,6 +84,67 @@ const initialState = {
     mediaFound: {},
 
 /*--------------Pagination--------------*/
+
+    /*----------------Auth----------------*/
+        currentUser: {},
+        userState: false,
+        option: '',
+    
+    /*----------------Media----------------*/
+        typeMediaList: 
+            {
+                musica:
+                    {
+                        idYT:{url:'https://www.youtube.com/watch?v=', img:iconYT}, 
+                        idSpty:{url:'', img:iconSpty}, 
+                        idDrive:{url:'', img:iconDrive}
+                    },
+                serie:
+                    {
+                        idYoutube:{url:'', img:iconYT},
+                        idSpty:{url:'', img:iconSpty}, 
+                        idDrive:{url:'', img:iconDrive},
+                    },
+                app: 
+                    {
+                        urlWeb:{url:'', img:iconWeb},
+                        idDrive:{url:'', img:iconDrive},
+                        urlDescarga:{url:'', img:iconDescarga},
+                    },
+                libro:
+                    {
+                        urlWeb:{url:'', img:iconWeb},
+                        idDrive:{url:'', img:iconDrive},
+                        urlDescarga:{url:'', img:iconDescarga},
+                    }
+        },
+        visorList: [
+            {
+                urlID:[''],
+                typeMedia:[''],
+                titulo:[''],
+                artista:[''],
+                tag:[''],
+                img:[''],
+                sliderImg:[''],
+                icon:[''],
+                categoria:[''],
+                boton1:[''],
+                info:['']
+            }
+        ],
+        nextVisor: false,
+        infoDetailViewer: [],
+        listaCategorias: [],
+    
+    /*------------Filter&Search------------*/
+        filteredMedia: [],
+        searchedMedia: [],
+        mediaFound: {},
+    
+    /*--------------Pagination--------------*/
+      
+    
     
 
 
@@ -94,6 +156,7 @@ const initialState = {
 export default function rootReducer(state = initialState, action){
     switch (action.type){
 /*----------------Auth----------------*/
+
         case LOGIN:
             console.log(action.payload)
             return {
