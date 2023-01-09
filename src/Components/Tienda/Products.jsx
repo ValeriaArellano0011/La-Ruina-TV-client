@@ -3,9 +3,9 @@ import s from './css/Tienda.module.css'
 
 const Products = () => {
   const productsDetails = useSelector(state=>state.productsDetails)
-  const { idProduct, typeProduct, nameMerch, stock, idImg } = productsDetails
-  console.log('idImg: ',idImg)
+  const { idProduct, typeProduct, nameMerch, stock, idImg } = productsDetails? productsDetails:''
   return (
+    
     <div className={s.cardProduct}>
       <img className={s.productImg} src={idImg} alt="productImg" /> <br></br> {typeProduct} {nameMerch}
     </div>

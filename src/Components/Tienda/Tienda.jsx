@@ -18,7 +18,8 @@ export const Tienda = () => {
       <ul className={s.ulProducts}>
         <h1>Merchandising</h1>
         {
-          products?.map(e => {
+          products?
+          products.map(e => {
             return(
             <>  
               <Link to={`/tienda/product/${e.idProduct}`}><li key={products.indexOf(e)}>
@@ -32,7 +33,7 @@ export const Tienda = () => {
             </>  
               )
             }
-          )
+          ) : null
         }
       </ul>
     </div>
