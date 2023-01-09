@@ -1,13 +1,12 @@
 .tiendaCont{
-    margin: 0px;
     width: 100vw;
-    height: 100vh;
     height: auto;
     position: relative;
-    top: 70px;
+    top: 0px;
+    font-size: larger;
     text-align: center;
     justify-content: center;
-    background-color: aqua;
+    font-weight: lighter;
 }
 
 .productImg{
@@ -17,12 +16,20 @@
 }
 
 .ulProducts{
+    color: black;
     position: absolute;
     display: flex;
     list-style: none;
-    width: 100%;
-    background: green;
+    width: 100vw;
+    height: 100vh;
     text-align: center;
     justify-content: center;
-    
+    left: -40px;
+    top: 80px;
+    background-color: rgb(255, 255, 255);
+
+}
+.cardProduct{
+    color: black;
+
 }

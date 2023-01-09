@@ -12,6 +12,7 @@ import { Lanzamientos } from './Components/Lanzamientos/Lanzamientos';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import CreateProduct from './Admin/Requests/CreateProduct';
 import CreatePost from './Admin/Requests/CreatePost';
+import Product from './Components/Tienda/Product';
 
 function App() {
   
@@ -40,11 +41,14 @@ function App() {
               <Route exact path='/tienda'>
                 <Tienda />
               </Route>
-              <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
-                <View />
+              <Route path={'/tienda/product/:id'}>
+                <Product />
               </Route>
               <Route path={'/play/p=:urlid=_type_=:typeMedia=_id_=:id'}>
                 <Play />
+              </Route>
+              <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
+                <View />
               </Route>
               <Route exact path='/product/create'>
                 <CreateProduct/>

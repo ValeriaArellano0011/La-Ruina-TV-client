@@ -63,7 +63,7 @@ const Visor = () => {
                 <img className='visorBG' src={visorImage} alt='' />
             </div>
             <div className='visorCanvas'></div>
-            {nextVisor?
+            {visorList?
             (<div className='visorPostInfo'>
                 <div className='visorPostArtista'>
                     <p>{visorArtista}</p>
