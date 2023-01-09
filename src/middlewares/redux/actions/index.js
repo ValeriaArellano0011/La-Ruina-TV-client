@@ -33,7 +33,7 @@ import {
     export const postPost = (post) => {
         console.log(post)
         return async function (dispatch) {
-            let json = await axios.post(`${URL_API}/post/product`, post);
+            let json = await axios.post(`${URL_API}/media/upload`, post);
             return dispatch ({
                 type: POST_POST,
                 payload: json.data
