@@ -8,7 +8,6 @@ import {postProduct} from "../../middlewares/redux/actions/index"
 import { useHistory } from "react-router-dom"
 
 const CreateProduct = () => {
-   
   const history = useHistory()
   const dispatch = useDispatch();
   const [input,setInput] = useState ({name: "",price:"",description:""})

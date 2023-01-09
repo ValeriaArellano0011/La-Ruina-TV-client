@@ -1,7 +1,9 @@
 .CreateProduct {
-        background-color: rgba(53, 53, 53, 0.569);
-        color: #ffffff;
-        width: 300px;
+        margin-top: 10px;
+        background-color: white;
+        color: #000000;
+        width: 100vw;
+        height: 100vh;
         margin: 0 auto;
         padding: 15px;
         border-radius: 3px;

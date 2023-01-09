@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { resetOption } from '../../middlewares/redux/actions'
+import { getOption, resetOption } from '../../middlewares/redux/actions'
 import s from '../css/Dashboard.module.css'
 
 const Requests = () => {
@@ -32,7 +32,7 @@ const Requests = () => {
           className={s.crearPost}
           onClick={()=>{
             return(
-            dispatch(resetOption()),
+            dispatch(getOption('navBlack')),
             document.querySelector(`.bodyApp`).style.transform='translateX(0)',
             document.querySelector(`.navCont`).style.transitionDuration='.2s',
             document.querySelector(`.bodyApp`).style.transitionDuration='2s',
