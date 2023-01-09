@@ -33,7 +33,7 @@ const Browser = () => {
 {/* --------------------SLIDERS-------------------- */}
     {   
         visorList?
-        ([...new Set(listaCategorias)].map(e=>
+            ([...new Set(listaCategorias)].map(e=>
             {
                 if(id === 0){ id++; return <Slider titulo={'Contenido'} categoria={visorList} style={s} id={`s`}key={`s`}/>}
                 else{id = e.id; return <Slider titulo={e} categoria={sliderCategoria(e)} style={s} id={`s${e.id}`} key={`s${e}`}/>}
