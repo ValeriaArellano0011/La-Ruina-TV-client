@@ -75,8 +75,8 @@ const initialState = {
     listaCategorias: [],
 
 /*----------------Tienda----------------*/
-    products: [],
-    productDetails: [],
+    products: false,
+    productDetails: {idProduct:''},
 
 /*------------Filter&Search------------*/
     filteredMedia: [],

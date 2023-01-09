@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { resetOption } from '../../middlewares/redux/actions'
 import s from './css/BackBtn.module.css'
+import backIcon from '../../design/ruinatv-icon-play-b.png'
 
 export const BackButton = () => {
     const dispatch = useDispatch()
@@ -23,6 +24,7 @@ export const BackButton = () => {
                         document.querySelector('#slideCanvasCont').style.overflowY="scroll"
                         )}}
         >
+        <img className={s.backIcon} src={backIcon} alt='backIcon' width='15px' />
             Volver
         </button>
     </div>

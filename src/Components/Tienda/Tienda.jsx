@@ -18,10 +18,11 @@ export const Tienda = () => {
       <ul className={s.ulProducts}>
         <h1>Merchandising</h1>
         {
-          products?.map(e => {
+          products?
+          products.map(e => {
             return(
             <>  
-              <Link to={`/tienda/product/${e.idProduct}`}><li key={e.idProduct}>
+              <Link to={`/tienda/product/${e.idProduct}`}><li key={products.indexOf(e)}>
                 <Products 
                   idProduct={e.idProduct} 
                   typeProduct={e.typeProduct} 
@@ -32,7 +33,7 @@ export const Tienda = () => {
             </>  
               )
             }
-          )
+          ) : null
         }
       </ul>
     </div>

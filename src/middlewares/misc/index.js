@@ -17,6 +17,5 @@ export const GET_INFO = 'GET_INFO'
 /* -----------------Tienda----------------- */
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const GET_PRODUCT_DETAILS = 'GET_PRODUCT_DETAILS'
-
 export const POST_PRODUCT = 'POST_PRODUCT'
 export const POST_POST = 'POST_POST'
