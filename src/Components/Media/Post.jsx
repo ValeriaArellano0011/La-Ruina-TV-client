@@ -1,5 +1,5 @@
 import React from 'react';
-import playIconn from '../design/ruinatv-icon-play-n.png'
+import playIconn from '../../design/ruinatv-icon-play-n.png'
 import { Link } from 'react-router-dom';
 
 const Post = (props) => {

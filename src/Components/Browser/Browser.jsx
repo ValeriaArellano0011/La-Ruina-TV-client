@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import s from "./css/Slider.module.css";
 import Visor from './Visor';
-import Footer from './Footer';
+import Footer from '../Utils/Footer';
 import Slider from './Slider';
-import { BodyCss } from '../functions/BodyCss';
+import { BodyCss } from '../../functions/BodyCss';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCategorias, getPosts, resetMedia } from '../middlewares/redux/actions';
+import { getCategorias, getPosts, resetMedia } from '../../middlewares/redux/actions';
 
 const Browser = () => {
     BodyCss()
@@ -26,7 +26,7 @@ const Browser = () => {
     return (
         <div className='browserBody'>
 
-{/* ---------------------VISOR--------------------- */}
+{/* ---------------------VISOR--------------------- */} 
         <Visor/>
 
 {/* --------------------SLIDERS-------------------- */}
@@ -42,7 +42,7 @@ const Browser = () => {
 
 {/* ---------------------FOOTER--------------------- */}
 
-        <Footer/>
+        {visorList.length>1? <Footer/> : null}
 
         </div>
     )

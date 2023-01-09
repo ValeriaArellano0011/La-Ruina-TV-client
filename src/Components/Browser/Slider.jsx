@@ -1,4 +1,4 @@
-import Post from "./Post"
+import Post from "../Media/Post"
 import SliderBtns from "./SliderBtns"
 
 const Slider = (props) =>{

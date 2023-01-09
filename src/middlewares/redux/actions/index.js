@@ -12,7 +12,11 @@ import {
     OPTION,
     RESET_OPTION,
     LOGIN,
-    SIGNUP
+    SIGNUP,
+    GET_PRODUCTS,
+    GET_PRODUCT_DETAILS,
+    POST_PRODUCT   
+
     } from '../../misc'
 
 /*-----------------Auth----------------*/
@@ -23,6 +27,12 @@ export function getOption(e) {
     })
 }
 
+export function resetOption() {
+    return({
+        type: RESET_OPTION
+    })
+}
+
 export function login(email, password){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/users/login`, {email, password})
@@ -30,7 +40,7 @@ export function login(email, password){
             console.log("userData: ", res.data.msg)
             dispatch({
                 type: LOGIN,
-                payload: res.data.msg
+                payload: res.data
             })
         })
         .catch((e) => {
@@ -38,6 +48,23 @@ export function login(email, password){
         })
     }
 }
+export const signup =
+  (alias, email, password) => async (dispatch) => {
+    try {
+        const response = await axios.post(`${URL_API}/users/signup`, {
+        alias,
+        email,
+        password
+    });
+    const data = await response.data;
+    return dispatch({
+      type: SIGNUP,
+      payload: data,
+    });
+    } catch (error) {
+        console.log(error)
+    }
+};
 
 export const signup =
   (alias, email, password) => async (dispatch) => {
@@ -151,6 +178,34 @@ export function getResetVisor(){
         type: RESET_VISOR
     }
 }
+
+/*---------------Tienda---------------*/
+export function getProducts(){
+    return async function (dispatch){
+        await axios.get(`${URL_API}/product/all`)
+        .then(res =>{
+            dispatch({
+                type: GET_PRODUCTS,
+                payload: res.data
+            })
+        })
+        .catch(e => console.log(e))
+    }
+}
+
+export function getProductDetails(id) {
+    return async function(dispatch) {
+        await axios.get(`${URL_API}/product/${id}`)
+        .then(res =>{
+            dispatch({
+                type: GET_PRODUCT_DETAILS,
+                payload: res.data
+            })
+        })
+        .catch(e => console.log(e))
+    }
+}
+
 /*------------Filter&Search------------*/
 export function loadingSearchSet(){
 
@@ -167,6 +222,18 @@ export function searchStateChange(){
 export function totalMedia(){
     
 }
+/*--------------Formulario-------------*/
+export const postProduct = (post) => {
+    console.log(post)
+    return async function (dispatch) {
+        let json = await axios.post(`${URL_API}/post/product`, post);
+        return dispatch ({
+            type: POST_PRODUCT,
+            payload: json.data
+        })
+    }
+};
+
 
 
 /*--------------Pagination-------------*/

@@ -1,24 +1,26 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login, upload } from '../../middlewares/redux/actions';
+import { login } from '../../middlewares/redux/actions';
 import { authCss } from './css/authCss';
 import s from './css/LogIn.module.css'
 import GoogleLogIn from './GoogleLogIn';
 
 const LogIn = () => {
     const dispatch = useDispatch();
+
+    
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    // const [errors, setErrors] = useState({
+    //     userName: '',
+    //     contraseña: ''
+    // })
 
-
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
   return (
     <div className='LogInBody'>
-        <button 
-        className='tog'
-        onClick={()=> authCss('togCreate')}
-        >Crear cuenta
-        </button>
         <div className='formCont'>
           <ul className={s.form_ul}>
                 <h1>Iniciar Sesión</h1>
@@ -47,10 +49,9 @@ const LogIn = () => {
                 onClick={()=> authCss('cancelLogIn')}>
                 Cancelar
                 </button></li>
-                <button onClick={() => {
-                  dispatch(upload())
-                }}>UPLOAD</button>
             </ul>
+
+
     </div>
   )
 }

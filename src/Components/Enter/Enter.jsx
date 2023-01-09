@@ -18,8 +18,9 @@ const Enter = () => {
 
       <div className={style.visor}>
       <div className={style.visorCanvas}></div>
-      <div className={style.welcomeCont}>
-        <h1>CREÁ, COMPARTÍ Y DISFRUTÁ DE TODO NUESTRO CONTENIDO MULTIMEDIA</h1>
+      <div className={style.welcomeCont} id='welcomeCont'>
+      {/* <h1>CREÁ, COMPARTÍ Y DISFRUTÁ DE TODO NUESTRO CONTENIDO MULTIMEDIA</h1> */}
+      <h1>ENTRÁ BOBO, VENÍ PARA ACÁ</h1>
         <ul className={style.welcomeUl}>
 
         <Link to='/browser'><li>
@@ -27,6 +28,7 @@ const Enter = () => {
             className={style.button1}
             onClick={()=>
               {
+                  document.querySelector('#welcomeCont').style.opacity="0"
                   document.querySelector('.LogInBody').style.transitionDuration="1s"
                   document.querySelector('.LogInBody').style.transform="translate(0)"
               }   
@@ -38,6 +40,7 @@ const Enter = () => {
                     className={style.button2}
                     onClick={()=>
                       {
+                          document.querySelector('#welcomeCont').style.opacity="0"
                           document.querySelector('.CreateAccountBody').style.transitionDuration="1s"
                           document.querySelector('.CreateAccountBody').style.transform="translate(0)"
                       }   

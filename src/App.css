@@ -10,6 +10,15 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.dashControlCont{
+  margin-top: 80px;
+}
+
+.CreateBody{
+  margin-top: 80px;
+  text-align: center;
+}
+
 button:hover{
   cursor: pointer;
 }
@@ -113,7 +122,7 @@ button:hover{
   background-color: #000000;
   z-index: 99999;
   position: fixed;
-  transform: translateY(100vw);
+  transform: translateY(100vh);
 }
 .LogInBody{
   width: 100vw;
@@ -123,7 +132,7 @@ button:hover{
   background-color: #000000;
   z-index: 99999;
   position: fixed;
-  transform: translateY(-100vw);
+  transform: translateY(-100vh);
 }
 .tog{
   position: absolute;
@@ -311,7 +320,7 @@ button:hover{
 .visorButtonPlay{
   width: 15px;
   margin-right: 10px;
-  position: absolute;
+  position: fixed;
   left: 30px;
   top:16px;
 }
