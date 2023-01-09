@@ -18,9 +18,6 @@ const LogIn = () => {
     //     userName: '',
     //     contraseña: ''
     // })
-
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
   return (
     <div className='LogInBody'>
         <div className='formCont'>
