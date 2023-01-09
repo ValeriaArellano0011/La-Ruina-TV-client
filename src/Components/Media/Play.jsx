@@ -1,9 +1,10 @@
 import React from 'react'
-import ReactPlayer from 'react-player'
+// import ReactPlayer from 'react-player'
 import { useParams } from 'react-router-dom'
-
+import { PlayBodyCss } from '../../functions/BodyCss';
 
 const Play = () => {
+  PlayBodyCss()
   const {id}= useParams()
 
   return (

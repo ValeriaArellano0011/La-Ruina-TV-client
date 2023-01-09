@@ -6,7 +6,7 @@ import Slider from './Slider';
 import { BodyCss } from '../../functions/BodyCss';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCategorias, getPosts, resetMedia } from '../../middlewares/redux/actions';
+import { getCategorias, getPosts, resetMedia, resetOption } from '../../middlewares/redux/actions';
 
 const Browser = () => {
     BodyCss()
@@ -15,6 +15,7 @@ const Browser = () => {
     const listaCategorias = useSelector(state=>state.listaCategorias)
     const sliderCategoria = (categoria) => visorList.filter(e=>e.categoria.find(el=>el===categoria))
     useEffect(()=>{
+        dispatch(resetOption())
         dispatch(resetMedia())
         dispatch(getPosts())
     },[dispatch])
