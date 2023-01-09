@@ -176,7 +176,7 @@ export function searchStateChange(){
 export function totalMedia(){
     
 }
-/// Formulario
+/*--------------Formulario-------------*/
 export const postProduct = (post) => {
     console.log(post)
     return async function (dispatch) {
