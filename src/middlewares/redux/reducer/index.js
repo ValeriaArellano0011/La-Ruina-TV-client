@@ -20,10 +20,10 @@ import iconDescarga from '../../../design/descarga-icon.png'
 
 const initialState = {
 /*----------------Admin----------------*/
-    adminUser: true,
+    adminUser: false,
 
 /*----------------Auth----------------*/
-    currentUser: true,
+    currentUser: false,
     option: '',
 
 /*----------------Media----------------*/
@@ -98,7 +98,7 @@ export default function rootReducer(state = initialState, action){
             console.log(action.payload)
             return {
             ...state,
-            currentUser: action.payload.alias
+            currentUser: action.payload.msg.userAlias
             }
         case OPTION:
             return{
