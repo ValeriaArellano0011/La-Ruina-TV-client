@@ -7,7 +7,8 @@ export const BackButton = () => {
     const dispatch = useDispatch()
     return (
         <div className={s.BackButton}>      
-            <button 
+            <button
+                    className={s.BackButton} 
                     onClick={()=>{
                         return(
                         dispatch(resetOption()),

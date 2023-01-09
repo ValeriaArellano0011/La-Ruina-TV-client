@@ -4,6 +4,7 @@ import { BodyCss } from '../../functions/BodyCss'
 import { getProducts } from '../../middlewares/redux/actions'
 import Products from './Products'
 import s from './css/Tienda.module.css'
+import { Link } from 'react-router-dom'
 
 export const Tienda = () => {
   BodyCss()
@@ -15,11 +16,26 @@ export const Tienda = () => {
   return (
     <div className={s.tiendaCont}>
       <ul className={s.ulProducts}>
+        <h1>Merchandising</h1>
+        <ul className={s.ulProducts}>
         {
           products?.map(e => {
-            return <li key={e.idProduct}><Products idProduct={e.idProduct} typeProduct={e.typeProduct} nameMerch={e.nameMerch} stock={e.stock} idImg={e.idImg} /></li>
-          })
+            return(
+            <>  
+              <Link to={`/tienda/product/${e.idProduct}`}><li key={e.idProduct}>
+                <Products 
+                  idProduct={e.idProduct} 
+                  typeProduct={e.typeProduct} 
+                  nameMerch={e.nameMerch} 
+                  stock={e.stock} 
+                  idImg={e.idImg} />
+              </li></Link>
+            </>  
+              )
+            }
+          )
         }
+      </ul>
       </ul>
     </div>
   )

@@ -1,13 +1,14 @@
 .CreateProduct {
-        margin-top: 10px;
-        background-color: white;
-        color: #000000;
-        width: 100vw;
-        height: 100vh;
-        margin: 0 auto;
-        padding: 15px;
-        border-radius: 3px;
-        text-align: center;
-    }
+    position: relative;
+    margin-top: 10px;
+    color: #000000;
+    width: 100vw;
+    height: auto;
+    border-radius: 20px;
+    text-align: center;
+}
 
-
+.formCont {
+    margin-bottom: 30px;
+    margin-left: -40px;
+}
