@@ -30,13 +30,21 @@ import {
             })
         }
     };
-    export const postPost = (post) => {
-        console.log(post)
+    export const postPost = (formData) => {
+        console.log(formData)
         return async function (dispatch) {
-            let json = await axios.post(`${URL_API}/media/upload`, post);
+
+
+            const response = await axios.post(
+                `${URL_API}/media/upload`,
+                formData,
+                {headers: {'Content-Type': 'multipart/form-data'}}
+              );
+
+            
             return dispatch ({
                 type: POST_POST,
-                payload: json.data
+                payload: response.data
             })
         }
     };
