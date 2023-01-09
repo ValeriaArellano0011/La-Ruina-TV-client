@@ -15,6 +15,7 @@ import {
     SIGNUP,
     GET_PRODUCTS,
     GET_PRODUCT_DETAILS,
+    POST_PRODUCT   
     } from '../../misc'
 
 /*-----------------Auth----------------*/
@@ -175,6 +176,18 @@ export function searchStateChange(){
 export function totalMedia(){
     
 }
+/*--------------Formulario-------------*/
+export const postProduct = (post) => {
+    console.log(post)
+    return async function (dispatch) {
+        let json = await axios.post(`${URL_API}/post/product`, post);
+        return dispatch ({
+            type: POST_PRODUCT,
+            payload: json.data
+        })
+    }
+};
+
 
 
 /*--------------Pagination-------------*/
