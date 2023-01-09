@@ -21,7 +21,7 @@ export const Tienda = () => {
           products?.map(e => {
             return(
             <>  
-              <Link to={`/tienda/product/${e.idProduct}`}><li key={e.idProduct}>
+              <Link to={`/tienda/product/${e.idProduct}`}><li key={products.indexOf(e)}>
                 <Products 
                   idProduct={e.idProduct} 
                   typeProduct={e.typeProduct} 

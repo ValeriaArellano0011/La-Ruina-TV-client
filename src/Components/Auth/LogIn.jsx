@@ -46,8 +46,12 @@ const LogIn = () => {
                 onClick={()=> authCss('cancelLogIn')}>
                 Cancelar
                 </button></li>
+                <button 
+                className='tog'
+                onClick={() => authCss('togCreate')}
+                >Crear cuenta
+                </button>
             </ul>
-
 
     </div>
   )
