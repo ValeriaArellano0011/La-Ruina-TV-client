@@ -1,8 +1,8 @@
 import React from 'react'
-import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { onChangeInput } from '../../handlers/auth';
+
 import { login } from '../../middlewares/redux/actions';
 import { authCss } from './css/authCss';
 import s from './css/LogIn.module.css'
@@ -10,6 +10,7 @@ import GoogleLogIn from './GoogleLogIn';
 
 const LogIn = () => {
     const dispatch = useDispatch();
+
     
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -17,7 +18,6 @@ const LogIn = () => {
     //     userName: '',
     //     contraseña: ''
     // })
-
   return (
     <div className='LogInBody'>
         <div className='formCont'>
