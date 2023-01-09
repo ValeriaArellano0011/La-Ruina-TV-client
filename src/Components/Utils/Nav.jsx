@@ -13,6 +13,7 @@ import { resetOption } from '../../middlewares/redux/actions';
 const Nav = () => {
     const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
+    const option = useSelector(state=>state.option)
     const currentUser = useSelector(state=>state.currentUser)
     window.onscroll = function() {navBack(setPosNav, posNav)};
     return (
@@ -27,6 +28,7 @@ const Nav = () => {
                     width='120' 
                     onClick={()=>{
                         return(
+                        (option === 'navBlack')? document.querySelector(`.navCont`).style.backgorundColor='rgb(0,0,0)' : null,
                         dispatch(resetOption()),
                         document.querySelector(`.bodyApp`).style.transform='translateX(0)',
                         document.querySelector(`.navCont`).style.transitionDuration='.2s',

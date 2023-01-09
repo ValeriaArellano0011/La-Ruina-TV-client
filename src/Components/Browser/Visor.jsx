@@ -90,7 +90,7 @@ const Visor = () => {
                                 document.querySelector('.visorButtonPlay').src=playIconn
                             }}
                             >
-                            <img className='visorButtonPlay' src={playIconn} alt='' />{visorBtn1}</button></Link></li>
+                            <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{visorBtn1}</button></Link></li>
                         <li><button className='button2'>Más información</button></li>
                     </ul>
                     <ul className='visorIcons'>

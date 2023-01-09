@@ -1,0 +1,13 @@
+.tiendaCont{
+    width: 100vw;
+    height: auto;
+    background: linear-gradient(168deg, rgb(255, 255, 255) 20% , #c1c1c1 120%);
+}
+
+.productImg{
+    width: 200px;
+}
+
+.ulProducts{
+    display: flex;
+}

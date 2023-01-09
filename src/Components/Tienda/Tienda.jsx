@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BodyCss } from '../../functions/BodyCss'
 import { getProducts } from '../../middlewares/redux/actions'
 import Products from './Products'
+import s from './css/Tienda.module.css'
 
 export const Tienda = () => {
   BodyCss()
@@ -12,12 +13,14 @@ export const Tienda = () => {
     dispatch(getProducts())
   },[dispatch])
   return (
-    <div className='browserBody'>
-      {
-        products?.map(e => {
-          return <Products idProduct={e.idProduct} typeProduct={e.typeProduct} nameMerch={e.nameMerch} stock={e.stock} idImg={e.idImg} />
-        })
-      }
+    <div className={s.tiendaCont}>
+      <ul className={s.ulProducts}>
+        {
+          products?.map(e => {
+            return <li key={e.idProduct}><Products idProduct={e.idProduct} typeProduct={e.typeProduct} nameMerch={e.nameMerch} stock={e.stock} idImg={e.idImg} /></li>
+          })
+        }
+      </ul>
     </div>
   )
 }
