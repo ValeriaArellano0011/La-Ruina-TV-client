@@ -21,7 +21,7 @@ import iconDescarga from '../../../design/descarga-icon.png'
 const initialState = {
 
 /*----------------Admin----------------*/
-    adminUser: false,
+    adminUser: true,
 
 /*----------------Auth----------------*/
     currentUser: false,
@@ -71,7 +71,7 @@ const initialState = {
         }
     ],
     nextVisor: false,
-    infoDetailViewer: [],
+    infoDetailViewer: {urlID: {idYT:''}},
     listaCategorias: [],
 
 /*----------------Tienda----------------*/
@@ -84,70 +84,6 @@ const initialState = {
     mediaFound: {},
 
 /*--------------Pagination--------------*/
-
-    /*----------------Auth----------------*/
-        currentUser: {},
-        userState: false,
-        option: '',
-    
-    /*----------------Media----------------*/
-
-        typeMediaList: 
-            {
-                musica:
-                    {
-                        idYT:{url:'https://www.youtube.com/watch?v=', img:iconYT}, 
-                        idSpty:{url:'', img:iconSpty}, 
-                        idDrive:{url:'', img:iconDrive}
-                    },
-                serie:
-                    {
-                        idYoutube:{url:'', img:iconYT},
-                        idSpty:{url:'', img:iconSpty}, 
-                        idDrive:{url:'', img:iconDrive},
-                    },
-                app: 
-                    {
-                        urlWeb:{url:'', img:iconWeb},
-                        idDrive:{url:'', img:iconDrive},
-                        urlDescarga:{url:'', img:iconDescarga},
-                    },
-                libro:
-                    {
-                        urlWeb:{url:'', img:iconWeb},
-                        idDrive:{url:'', img:iconDrive},
-                        urlDescarga:{url:'', img:iconDescarga},
-                    }
-        },
-        visorList: [
-            {
-                urlID:[''],
-                typeMedia:[''],
-                titulo:[''],
-                artista:[''],
-                tag:[''],
-                img:[''],
-                sliderImg:[''],
-                icon:[''],
-                categoria:[''],
-                boton1:[''],
-                info:['']
-            }
-        ],
-        nextVisor: false,
-        infoDetailViewer: [],
-        listaCategorias: [],
-    
-    /*------------Filter&Search------------*/
-        filteredMedia: [],
-        searchedMedia: [],
-        mediaFound: {},
-    
-    /*--------------Pagination--------------*/
-      
-    
-    
-
 
 }
 /*--------------Formulario--------------*/
@@ -209,7 +145,7 @@ export default function rootReducer(state = initialState, action){
         case RESET_MEDIA:
             return{
                 ...state,
-                infoDetailViewer: action.payload
+                infoDetailViewer: {urlID: {idYT:''}},
             }
         case NEXT_VISOR:
             return{
