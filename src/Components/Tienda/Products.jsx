@@ -5,7 +5,7 @@ const Products = (props) => {
   console.log('idImg: ',idImg)
   return (
     <div>
-      <img className={s.productImg} src={idImg} alt="productImg" /> {typeProduct} {nameMerch}
+      <img className={s.productImg} src={idImg} alt="productImg" /> <br></br> {typeProduct} {nameMerch}
     </div>
   )
 }

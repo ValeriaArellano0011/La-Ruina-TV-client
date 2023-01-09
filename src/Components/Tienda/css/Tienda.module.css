@@ -1,13 +1,28 @@
 .tiendaCont{
+    margin: 0px;
     width: 100vw;
+    height: 100vh;
     height: auto;
-    background: linear-gradient(168deg, rgb(255, 255, 255) 20% , #c1c1c1 120%);
+    position: relative;
+    top: 70px;
+    text-align: center;
+    justify-content: center;
+    background-color: aqua;
 }
 
 .productImg{
     width: 200px;
+    border-radius: 5px;
+    margin-left: 10px;
 }
 
 .ulProducts{
+    position: absolute;
     display: flex;
+    list-style: none;
+    width: 100%;
+    background: green;
+    text-align: center;
+    justify-content: center;
+    
 }

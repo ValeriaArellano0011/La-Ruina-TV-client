@@ -15,10 +15,16 @@ export const Tienda = () => {
   return (
     <div className={s.tiendaCont}>
       <ul className={s.ulProducts}>
+        <h1>Merchandising</h1>
         {
           products?.map(e => {
-            return <li key={e.idProduct}><Products idProduct={e.idProduct} typeProduct={e.typeProduct} nameMerch={e.nameMerch} stock={e.stock} idImg={e.idImg} /></li>
-          })
+            return(
+            <>  
+              <li key={e.idProduct}><Products idProduct={e.idProduct} typeProduct={e.typeProduct} nameMerch={e.nameMerch} stock={e.stock} idImg={e.idImg} /></li>
+            </>  
+              )
+            }
+          )
         }
       </ul>
     </div>
