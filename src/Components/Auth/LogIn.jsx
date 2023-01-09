@@ -20,11 +20,6 @@ const LogIn = () => {
 
   return (
     <div className='LogInBody'>
-        <button 
-        className='tog'
-        onClick={()=> authCss('togCreate')}
-        >Crear cuenta
-        </button>
         <div className='formCont'>
           <ul className={s.form_ul}>
                 <h1>Iniciar Sesión</h1>
@@ -53,7 +48,14 @@ const LogIn = () => {
                 onClick={()=> authCss('cancelLogIn')}>
                 Cancelar
                 </button></li>
+              <button 
+                className='tog'
+                onClick={()=> authCss('togCreate')}
+                >Crear cuenta
+              </button>
             </ul>
+
+
     </div>
   )
 }

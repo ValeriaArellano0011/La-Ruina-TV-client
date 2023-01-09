@@ -11,7 +11,7 @@ const Visor = () => {
     const dispatch = useDispatch()
     const visorList = useSelector(state=>state.visorList)
     const nextVisor = useSelector(state=>state.nextVisor)
-    const [i, setI] = useState(0)
+    const [cont, setI] = useState(0)
     const [visorID, setVisorID] = useState()
     const [visorTag, setVisorTag] = useState()
     const [visorBtn1, setVisorBtn1] = useState()
@@ -24,11 +24,11 @@ const Visor = () => {
     const [visorTypeMedia, setVisorTypeMedia] = useState()
     const {urlID, id, img, artista, titulo, typeMedia, tag, icon, boton1, info} = nextVisor? nextVisor.at(0) : nextVisor
     useEffect(() => {
-        let inf = 99999+i
+        let inf = 99999+cont
         const max = visorList.length
         let timeInterval = 20
         let interval = null
-        dispatch(getNextVisor(i%max))
+        dispatch(getNextVisor(cont%max))
         interval = setInterval(()=>{    
             dispatch(getResetVisor())
             setI(k=>k+1)
@@ -53,7 +53,7 @@ const Visor = () => {
             document.querySelector(`.visor`).style.transform='translateX(0)'
         }, timeInterval*1000)
         return () =>  (clearInterval(interval, timeInterval))
-    },[urlID, id, img, artista, titulo, typeMedia, tag, icon, boton1, info, i, visorList, dispatch])
+    },[urlID, id, img, artista, titulo, typeMedia, tag, icon, boton1, info, cont, visorList, dispatch])
 
 
     return(

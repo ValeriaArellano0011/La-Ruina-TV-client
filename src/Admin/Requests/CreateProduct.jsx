@@ -7,7 +7,7 @@ const CreateProduct = () => {
       <div className='CreateBody'>
       <Card>
         <Title title="Nuevo Post"/>
-        <h1>Crear un Nuevo PProducto</h1>
+        <h1>Crear un Nuevo Producto</h1>
         <CardContent>Rellena el siguiente formulario</CardContent>
       </Card>
       </div>

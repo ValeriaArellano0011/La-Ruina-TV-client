@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import s from './css/CreateAccount.module.css';
-import { onChangeInput, OnSubmitCreate } from '../../handlers/auth';
 import { signup } from '../../middlewares/redux/actions';
 import { useDispatch } from 'react-redux';
 import { authCss } from './css/authCss';
