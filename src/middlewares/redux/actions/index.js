@@ -70,23 +70,6 @@ export function login(email, password){
         })
     }
 }
-export const signup =
-  (alias, email, password) => async (dispatch) => {
-    try {
-        const response = await axios.post(`${URL_API}/users/signup`, {
-        alias,
-        email,
-        password
-    });
-    const data = await response.data;
-    return dispatch({
-      type: SIGNUP,
-      payload: data,
-    });
-    } catch (error) {
-        console.log(error)
-    }
-};
 
 export const signup =
   (alias, email, password) => async (dispatch) => {
@@ -106,13 +89,6 @@ export const signup =
     }
 
 };
-
-export function resetOption() {
-    return({
-        type: RESET_OPTION
-    })
-}
-
 
 /*----------------Posts----------------*/
 export function getPosts() {
