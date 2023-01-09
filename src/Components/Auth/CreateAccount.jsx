@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import s from './css/CreateAccount.module.css';
 import { signup } from '../../middlewares/redux/actions';
 import { useDispatch } from 'react-redux';
@@ -11,6 +11,7 @@ const CreateAccount = () => {
   const [email, setEmail] = useState('')
   const [alias, setAlias] = useState('')
   const [password, setPassword] = useState('')
+
   // const [errors, setErrors] = useState({
   //   alias: '',
   //   email: '',
@@ -33,7 +34,9 @@ const CreateAccount = () => {
                   <li className={s.form_li}>Correo electrónico</li>
                   <input type="email" name='email' onChange={e => {return setEmail(e.target.value)}} placeholder='e-mail' />
                   <li className={s.form_li}>Contraseña</li>
+
                   <input type="password" name='password' onChange={e => {return setPassword(e.target.value)}} placeholder='contraseña' />
+
                 </form>
                 <GoogleSignUp />
           </ul>      
