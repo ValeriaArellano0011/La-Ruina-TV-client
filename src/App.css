@@ -10,6 +10,15 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.dashControlCont{
+  margin-top: 80px;
+}
+
+.CreateBody{
+  margin-top: 80px;
+  text-align: center;
+}
+
 button:hover{
   cursor: pointer;
 }

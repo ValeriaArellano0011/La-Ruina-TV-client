@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent'
 
 const CreatePost = () => {
     return (
-      <div className='dashControlCont'>
+      <div className='CreateBody'>
       <Card>
         <Title title="Nuevo Post"/>
         <h1>Crear un Nuevo Post</h1>
