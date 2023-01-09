@@ -1,8 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { onChangeInput } from '../../handlers/auth';
-
 import { login } from '../../middlewares/redux/actions';
 import { authCss } from './css/authCss';
 import s from './css/LogIn.module.css'
@@ -48,11 +46,6 @@ const LogIn = () => {
                 onClick={()=> authCss('cancelLogIn')}>
                 Cancelar
                 </button></li>
-              <button 
-                className='tog'
-                onClick={()=> authCss('togCreate')}
-                >Crear cuenta
-              </button>
             </ul>
 
 

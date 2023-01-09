@@ -91,6 +91,7 @@ export function getPosts() {
     return async function(dispatch) {
         await axios.get(`${URL_API}/posts/getall`)
         .then(res =>{
+            console.log('el res del front',res)
             dispatch({
                 type: GET_POSTS,
                 payload: res.data
