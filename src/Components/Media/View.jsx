@@ -60,7 +60,10 @@ const View = () => {
                         </ul>
                         {infoDetailViewer?
                         
-                        <button onClick={()=>{return document.querySelector('.playerCont').style.scale='1'}} className='buttonVer'>Ver ahora</button>
+                        <button onClick={()=>{return (
+                            document.querySelector('.playerCont').style.scale='1',
+                            document.querySelector('.playerUI').style.display='block'
+                        )}} className='buttonVer'>Ver ahora</button>
                         : null
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
