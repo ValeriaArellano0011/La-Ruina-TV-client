@@ -1,9 +1,9 @@
-export default function Product(props){
-    const { idProduct, typeProduct, nameMerch, stock, idImg } = props
+export default function Product(){
+
     return (
         <div>
             <h1>Detalles del producto</h1>
-            <img src={idImg} alt={typeProduct} />
+            <img src={''} alt={''} />
         </div>
     )
 }

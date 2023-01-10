@@ -1,12 +1,19 @@
 .tiendaCont{
     width: 100vw;
-    height: auto;
     position: relative;
     top: 0px;
     font-size: larger;
     text-align: center;
     justify-content: center;
     font-weight: lighter;
+    color: rgb(255, 255, 255);
+
+}
+.tiendaBg{
+    width: 100vw;
+    min-height: 100vh;
+    margin-top: 80px;
+    background-attachment: scroll;
 }
 
 .productImg{
@@ -16,8 +23,8 @@
 }
 
 .ulProducts{
-    color: black;
-    position: absolute;
+    color: rgb(255, 255, 255);
+    position: relative;
     display: flex;
     list-style: none;
     width: 100vw;
@@ -25,11 +32,13 @@
     text-align: center;
     justify-content: center;
     left: -40px;
-    top: 80px;
-    background-color: rgb(255, 255, 255);
 
 }
+.ulTitle{
+    margin-left: -40px;
+    margin-top: 200px;
+}
 .cardProduct{
-    color: black;
+    color: rgb(255, 255, 255);
 
 }
