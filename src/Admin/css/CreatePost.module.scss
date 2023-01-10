@@ -5,13 +5,12 @@
 
 .CreateProduct {
     position: absolute;
-    margin-top: 85px;
     color: #000000;
+    margin-top: 85px;
     width: 100vw;
     height: auto;
     border-radius: 20px;
     text-align: center;
-    
     .types {
       display: flex;
       flex-direction: row;
@@ -49,6 +48,7 @@
       border: none;
       cursor: pointer;
       border-radius: 40px;
+      margin-bottom: 30px
     }
 }
 

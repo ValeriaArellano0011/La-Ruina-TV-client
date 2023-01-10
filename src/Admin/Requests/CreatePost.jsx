@@ -105,7 +105,7 @@ const CreatePost = () => {
       <div className={styles.CreateProduct}>
       <Card>
         <Title title="Nuevo Post"/>
-        <h1>Crear un Nuevo Post</h1>
+        <h1 className={styles.createTitle}>Crear un Nuevo Post</h1>
         <CardContent>Rellena el siguiente formulario</CardContent>
         <form onSubmit={submit}>
         <div>
