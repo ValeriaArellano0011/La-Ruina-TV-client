@@ -101,6 +101,7 @@ const CreatePost = () => {
   }
 
     return (
+      <div className={styles.createBody}>
       <div className={styles.CreateProduct}>
       <Card>
         <Title title="Nuevo Post"/>
@@ -180,6 +181,7 @@ const CreatePost = () => {
         </div>
       </form>
       </Card>
+      </div>
       </div>
     )
 }
