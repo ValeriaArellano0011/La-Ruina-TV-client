@@ -18,8 +18,12 @@ export const Tienda = () => {
   return (
     <div className={s.tiendaCont}>
       <div className={s.tiendaBg}>
+        <div className={s.tiendaSliderCont}>
+          <h1 className={s.tiendaTituloSlider}>Bienvenidos a la tienda oficial de La Ruina Records</h1>
+          <img classname={s.tiendaSlider} src="" alt="" />
+        </div>
         <ul className={s.ulTitle}>
-          <h1>Merchandising</h1>
+          <h1 className={s.tiendaMerch}>Merchandising</h1>
         <ul className={s.ulProducts}>
           {
             products?

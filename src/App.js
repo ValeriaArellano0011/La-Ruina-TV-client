@@ -19,9 +19,9 @@ function App() {
   return (
       <div className="App">
           <Switch>
-          <Route exact path='/'>
-              <Redirect to='/browser' />
-          </Route>
+            <Route exact path='/'>
+                <Redirect to='/browser' />
+            </Route>
             <div>
               <Nav/>
               <div className='bodyApp'>
