@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { BodyCss } from '../../functions/BodyCss'
-import { getProducts } from '../../middlewares/redux/actions'
 import Products from './Products'
 import s from './css/Tienda.module.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProducts } from '../../middlewares/redux/actions'
+import { BodyCss } from '../../functions/BodyCss'
 import { Link } from 'react-router-dom'
 
 export const Tienda = () => {
