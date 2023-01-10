@@ -23,7 +23,7 @@ import iconDescarga from '../../../design/descarga-icon.png'
 const initialState = {
 
 /*----------------Admin----------------*/
-    adminUser: true,
+    rolUser: 'admin', // roles: 'admin', 'subscriber', 'colaborator'
 
 /*----------------Auth----------------*/
     currentUser: false,

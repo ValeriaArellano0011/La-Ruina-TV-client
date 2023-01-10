@@ -44,9 +44,6 @@ function App() {
               <Route path={'/tienda/product/:id'}>
                 <Product />
               </Route>
-              <Route path={'/play/p=:urlid=_type_=:typeMedia=_id_=:id'}>
-                <Play />
-              </Route>
               <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
                 <View />
               </Route>
