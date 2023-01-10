@@ -17,6 +17,7 @@ export const Tienda = () => {
     <div className={s.tiendaCont}>
       <ul className={s.ulProducts}>
         <h1>Merchandising</h1>
+        <ul className={s.ulProducts}>
         {
           products?
           products.map(e => {
@@ -35,6 +36,7 @@ export const Tienda = () => {
             }
           ) : null
         }
+        </ul>
       </ul>
     </div>
   )
