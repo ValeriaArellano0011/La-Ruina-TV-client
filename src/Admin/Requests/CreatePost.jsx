@@ -95,7 +95,8 @@ const CreatePost = () => {
       artist: '',
       info:'',
       types: [],
-      image: null
+      imageVisor: null,
+      imageSlider: null,
     });
   }
 
@@ -139,11 +140,20 @@ const CreatePost = () => {
             />
           </p>
           <p>
-            <label>Imagen</label>
+            <label>Imagen del Visor</label>
             <br></br>
             <input
               type="file"
-              name="image"
+              name="imageVisor"
+              onChange={handleInputChange}
+            />
+          </p>
+          <p>
+            <label>Imagen del Slider</label>
+            <br></br>
+            <input
+              type="file"
+              name="imageSlider"
               onChange={handleInputChange}
             />
           </p>
