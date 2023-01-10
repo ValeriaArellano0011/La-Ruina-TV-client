@@ -177,7 +177,7 @@ const CreatePost = () => {
             ))}
             
           </div>
-          <input type="submit" value="Create" className={styles.submit} />
+          <input type="submit" value="Publicar" className={styles.submit} />
         </div>
       </form>
       </Card>
