@@ -38,7 +38,6 @@ const CreateAccount = () => {
                   <input type="password" name='password' onChange={e => {return setPassword(e.target.value)}} placeholder='contraseña' />
 
                 </form>
-                <GoogleSignUp />
           </ul>      
         </div>
             <ul className={s.btn_ul}>
