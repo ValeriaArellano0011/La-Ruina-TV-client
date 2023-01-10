@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 import { getInfo, getMediaType } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
 import s from './css/View.module.css'
-import Play from './Play'
+import Player from './Player'
 
 const View = () => {
     const dispatch = useDispatch()
@@ -35,7 +35,7 @@ const View = () => {
                     <img className='visorBG' src={infoDetailViewer.sliderImg} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
-                    <Play id={idYT} />
+                    <Player id={idYT} />
                 <div className='visorPostInfo'>
                     <div className='visorPostArtista'>
                         <p>{infoDetailViewer.artista}</p>

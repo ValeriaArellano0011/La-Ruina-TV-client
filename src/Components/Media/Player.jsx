@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Play = (props) => {
+const Player = (props) => {
   const {id}= props
 
   return (
@@ -20,4 +20,4 @@ const Play = (props) => {
   )
 }
 
-export default Play
+export default Player

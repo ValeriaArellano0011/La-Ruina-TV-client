@@ -2,7 +2,6 @@ import './App.css';
 import Nav from './Components/Utils/Nav';
 import Browser from './Components/Browser/Browser';
 import View from './Components/Media/View';
-import Play from './Components/Media/Play';
 import { Tienda } from './Components/Tienda/Tienda';
 import { Colaborar } from './Components/Colaborar/Colaborar';
 import { Novedades } from './Components/Novedades/Novedades';
