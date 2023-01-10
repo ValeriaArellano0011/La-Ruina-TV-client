@@ -1,8 +1,6 @@
-import { useSelector } from 'react-redux'
 import s from './css/Tienda.module.css'
 
 const Products = (props) => {
-  const products = useSelector(state=>state.products)
   const { idProduct, typeProduct, nameMerch, stock, idImg } = props
   return (
     

@@ -3,7 +3,7 @@ import Products from './Products'
 import Footer from '../Utils/Footer'
 import s from './css/Tienda.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProducts } from '../../middlewares/redux/actions'
+import { getProducts, resetProductDetails } from '../../middlewares/redux/actions'
 import { BodyCss } from '../../functions/BodyCss'
 import { Link } from 'react-router-dom'
 
@@ -12,6 +12,7 @@ export const Tienda = () => {
   const dispatch = useDispatch()
   const products = useSelector(state=>state.products)
   useEffect(()=>{
+    dispatch(resetProductDetails())
     dispatch(getProducts())
   },[dispatch])
   return (

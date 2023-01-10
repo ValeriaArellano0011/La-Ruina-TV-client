@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { resetOption } from '../../middlewares/redux/actions'
 import s from './css/BackBtn.module.css'
 import backIcon from '../../design/ruinatv-icon-play-b.png'
+import { BodyCss } from '../../functions/BodyCss'
 
 export const BackButton = () => {
     const dispatch = useDispatch()
@@ -13,6 +14,7 @@ export const BackButton = () => {
                     onClick={()=>{
                         return(
                         dispatch(resetOption()),
+                        BodyCss(),
                         document.querySelector(`.bodyApp`).style.transform='translateX(0)',
                         document.querySelector(`.navCont`).style.transitionDuration='.2s',
                         document.querySelector(`.bodyApp`).style.transitionDuration='2s',

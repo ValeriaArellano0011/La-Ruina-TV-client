@@ -3,7 +3,6 @@ import s from './css/CreateAccount.module.css';
 import { signup } from '../../middlewares/redux/actions';
 import { useDispatch } from 'react-redux';
 import { authCss } from './css/authCss';
-import GoogleSignUp from './GoogleSignUp';
 
 const CreateAccount = () => {
   const dispatch = useDispatch()
