@@ -7,6 +7,7 @@ import { BodyCss } from '../../functions/BodyCss';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getCategorias, getPosts, resetMedia, resetOption } from '../../middlewares/redux/actions';
+import  Sort  from '../../sort/Sort';
 
 const Browser = () => {
     BodyCss()
@@ -29,6 +30,10 @@ const Browser = () => {
 
 {/* ---------------------VISOR--------------------- */} 
         <Visor/>
+
+    {/* ----------------------SORT--------------------- */}
+
+        <Sort/>
 
 {/* --------------------SLIDERS-------------------- */}
     {   
