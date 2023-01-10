@@ -19,9 +19,9 @@ function App() {
   return (
       <div className="App">
           <Switch>
-          <Route exact path='/'>
-              <Redirect to='/browser' />
-          </Route>
+            <Route exact path='/'>
+                <Redirect to='/browser' />
+            </Route>
             <div>
               <Nav/>
               <div className='bodyApp'>
@@ -43,9 +43,6 @@ function App() {
               </Route>
               <Route path={'/tienda/product/:id'}>
                 <Product />
-              </Route>
-              <Route path={'/play/p=:urlid=_type_=:typeMedia=_id_=:id'}>
-                <Play />
               </Route>
               <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
                 <View />

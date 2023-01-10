@@ -1,23 +1,56 @@
 .tiendaCont{
     width: 100vw;
     height: auto;
-    position: relative;
+    position: absolute;
     top: 0px;
     font-size: larger;
     text-align: center;
     justify-content: center;
     font-weight: lighter;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(to bottom, #ffffffcf, rgb(0, 0, 0));
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    top: 75px;
+
+}
+
+.tiendaSlider, .tiendaSliderCont{
+    margin-top: -20px;
+    width: 100vw;
+    height: 380px;
+    background-color: rgba(203, 135, 53, 0.264);
+}
+
+.tiendaBg{
+    width: 100vw;
+}
+.tiendaMerch {
+    font-size: 65px;
+}
+
+.tiendaTituloSlider{
+    font-size: 40px;
+    color: aliceblue;
 }
 
 .productImg{
     width: 200px;
     border-radius: 5px;
     margin-left: 10px;
+    transition-duration: 1s;
+    filter: drop-shadow(10px -10px 10px rgba(0, 0, 0, 0.327));
+    margin-top: 15px;
+}
+
+.productImg:hover{
+    scale: 1.02;
+    z-index: 999;
 }
 
 .ulProducts{
-    color: black;
-    position: absolute;
+    color: rgb(0, 0, 0);
+    position: relative;
     display: flex;
     list-style: none;
     width: 100vw;
@@ -25,11 +58,13 @@
     text-align: center;
     justify-content: center;
     left: -40px;
-    top: 80px;
-    background-color: rgb(255, 255, 255);
+}
 
+
+.ulTitle{
+    margin-left: -40px;
 }
 .cardProduct{
-    color: black;
+    color: rgb(0, 0, 0);
 
 }

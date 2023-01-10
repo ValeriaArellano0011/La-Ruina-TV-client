@@ -95,15 +95,17 @@ const CreatePost = () => {
       artist: '',
       info:'',
       types: [],
-      image: null
+      imageVisor: null,
+      imageSlider: null,
     });
   }
 
     return (
+      <div className={styles.createBody}>
       <div className={styles.CreateProduct}>
       <Card>
         <Title title="Nuevo Post"/>
-        <h1>Crear un Nuevo Post</h1>
+        <h1 className={styles.createTitle}>Crear un Nuevo Post</h1>
         <CardContent>Rellena el siguiente formulario</CardContent>
         <form onSubmit={submit}>
         <div>
@@ -139,11 +141,20 @@ const CreatePost = () => {
             />
           </p>
           <p>
-            <label>Imagen</label>
+            <label>Imagen del Visor</label>
             <br></br>
             <input
               type="file"
-              name="image"
+              name="imageVisor"
+              onChange={handleInputChange}
+            />
+          </p>
+          <p>
+            <label>Imagen del Slider</label>
+            <br></br>
+            <input
+              type="file"
+              name="imageSlider"
               onChange={handleInputChange}
             />
           </p>
@@ -166,10 +177,11 @@ const CreatePost = () => {
             ))}
             
           </div>
-          <input type="submit" value="Create" className={styles.submit} />
+          <input type="submit" value="Publicar" className={styles.submit} />
         </div>
       </form>
       </Card>
+      </div>
       </div>
     )
 }

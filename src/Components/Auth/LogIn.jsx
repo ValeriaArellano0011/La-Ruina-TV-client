@@ -1,14 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../middlewares/redux/actions';
 import { authCss } from './css/authCss';
 import s from './css/LogIn.module.css'
-import GoogleLogIn from './GoogleLogIn';
 
 const LogIn = () => {
     const dispatch = useDispatch();
-
+    const currentUser = useSelector(state=>state.currentUser)
     
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -27,7 +26,6 @@ const LogIn = () => {
                   <li className={s.form_li}>Contraseña</li>
                   <input type="password" name='contrasena' onChange={e => {return setPassword(e.target.value)}} placeholder='contraseña' />
                 </form>
-                <GoogleLogIn />
           </ul>
         </div>
         <ul className={s.btn_ul}>
@@ -36,7 +34,7 @@ const LogIn = () => {
                 type='submit'
                 value='onSubmit'
                 onClick={e=> {
-                  return(  
+                  return(
                   e.preventDefault(),
                   dispatch(login(email, password)))
                 }}

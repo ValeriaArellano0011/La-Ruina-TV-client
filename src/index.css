@@ -9,6 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
+  min-height: 100vh;
   overflow-x: hidden;
   background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);
   background-attachment: scroll;
@@ -17,6 +18,7 @@ body {
 
 .bodyApp{
   width: 100vw;
+  height: auto;
 }
 
 code {

@@ -1,19 +1,13 @@
 import React from 'react'
-// import ReactPlayer from 'react-player'
-import { useParams } from 'react-router-dom'
-import { PlayBodyCss } from '../../functions/BodyCss';
 
-const Play = () => {
-  PlayBodyCss()
-  const {id}= useParams()
+const Play = (props) => {
+  const {id}= props
 
   return (
-    <div className='playCont'>
-
-{/* <ReactPlayer url='https://www.youtube.com/watch?v=jfKfPfyJRdk&ab_channel=LofiGirl'/> */}
+    <div className='playerCont'>
       <ul className='playUl'><iframe 
-        width="80%" 
-        height="80%" 
+        width="600px" 
+        height="350px" 
         src={`https://www.youtube.com/embed/${id}`}
         title="YouTube video player" 
         frameborder="0" 

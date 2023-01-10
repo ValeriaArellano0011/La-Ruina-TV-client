@@ -10,7 +10,9 @@ import {
     RESET_OPTION,
     LOGIN,
     GET_PRODUCTS,
-    POST_PRODUCT } from "../../misc";
+    POST_PRODUCT, 
+    GET_PRODUCT_DETAILS,
+    RESET_PRODUCT_DETAILS} from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -21,7 +23,7 @@ import iconDescarga from '../../../design/descarga-icon.png'
 const initialState = {
 
 /*----------------Admin----------------*/
-    adminUser: true,
+    rolUser: 'admin', // roles: 'admin', 'subscriber', 'colaborator'
 
 /*----------------Auth----------------*/
     currentUser: false,
@@ -76,7 +78,7 @@ const initialState = {
 
 /*----------------Tienda----------------*/
     products: false,
-    productDetails: {idProduct:''},
+    productDetails: [{idProduct:'', categoryProduct:'', typeProduct:'', nameMerch:'', stock:'', idImg:''}],
 
 /*------------Filter&Search------------*/
     filteredMedia: [],
@@ -120,6 +122,16 @@ export default function rootReducer(state = initialState, action){
             return{
                 ...state,
                 products: action.payload
+            }
+        case GET_PRODUCT_DETAILS:
+            return{
+                ...state,
+                productDetails: action.payload
+            }
+        case RESET_PRODUCT_DETAILS:
+            return{
+                ...state,
+                productDetails: [{idProduct:'', categoryProduct:'', typeProduct:'', nameMerch:'', stock:'', idImg:''}],
             }
 
 /*----------------Media----------------*/

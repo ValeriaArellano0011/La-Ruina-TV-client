@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getInfo, getMediaType } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
+import s from './css/View.module.css'
+import Play from './Play'
 
 const View = () => {
     const dispatch = useDispatch()
@@ -33,6 +35,7 @@ const View = () => {
                     <img className='visorBG' src={infoDetailViewer.sliderImg} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
+                    <Play id={idYT} />
                 <div className='visorPostInfo'>
                     <div className='visorPostArtista'>
                         <p>{infoDetailViewer.artista}</p>
@@ -57,7 +60,7 @@ const View = () => {
                         </ul>
                         {infoDetailViewer?
                         
-                        <Link to={`/play/p=:urlid=_type_=:typeMedia=_id_=${idYT}`}><button className='buttonVer'>Ver ahora</button></Link>
+                        <button onClick={()=>{return document.querySelector('.playerCont').style.scale='1'}} className='buttonVer'>Ver ahora</button>
                         : null
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>

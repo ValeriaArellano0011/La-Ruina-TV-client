@@ -49,6 +49,7 @@ const handleSubmit = (e) => {
 }
 
   return (
+    <div className={styles.createBody}>
       <div className={styles.CreateProduct}>
       <div className='CreateBody'>
       <Card>
@@ -78,6 +79,7 @@ const handleSubmit = (e) => {
         </form>
       </Card>
       </div>
+    </div>
     </div>
     )
 }

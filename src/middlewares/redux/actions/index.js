@@ -16,7 +16,8 @@ import {
     GET_PRODUCTS,
     GET_PRODUCT_DETAILS,
     POST_PRODUCT,   
-    POST_POST
+    POST_POST,
+    RESET_PRODUCT_DETAILS
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -190,6 +191,12 @@ export function getProductDetails(id) {
             })
         })
         .catch(e => console.log(e))
+    }
+}
+
+export function resetProductDetails() {
+    return {
+        type: RESET_PRODUCT_DETAILS
     }
 }
 

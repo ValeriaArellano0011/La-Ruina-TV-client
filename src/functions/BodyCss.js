@@ -3,9 +3,3 @@ export const BodyCss= () => {
         document.querySelector('body').style.overflowY="scroll"
     )
 }
-
-export const PlayBodyCss= () => {
-    return (
-        document.querySelector('body').style.overflowY="hidden"
-    )
-}
