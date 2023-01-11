@@ -12,6 +12,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import CreateProduct from './Admin/Requests/CreateProduct';
 import CreatePost from './Admin/Requests/CreatePost';
 import Product from './Components/Tienda/Product';
+import ContinuePostCreate from './Admin/Requests/ContinuePostCreate';
 
 function App() {
   
@@ -51,6 +52,9 @@ function App() {
               </Route>
               <Route exact path='/post/create'>
                 <CreatePost/>
+              </Route>
+              <Route exact path='/post/continue/create'>
+                <ContinuePostCreate/>
               </Route>
               </div>
             </div>

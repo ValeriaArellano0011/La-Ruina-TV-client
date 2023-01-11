@@ -5,10 +5,11 @@ import styles from "../css/CreatePost.module.scss"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { postPost } from "../../middlewares/redux/actions/index"
+import { useHistory } from "react-router-dom"
 
 const CreatePost = () => {
   const dispatch = useDispatch();
-
+  const history = useHistory()
   const handleInputChange = (e) => {
     if (e.target.name !== "title" && e.target.name !== "artist" && e.target.name !== "info" && e.target.name !== "category") {
       console.log('la imagen', e.target.files[0])
@@ -28,67 +29,19 @@ const CreatePost = () => {
     title: "",
     artist: '',
     info: '',
-    category: [],
-    image: null
+    category: []
   });
 
-  const options = [
-    {
-      slot: 1,
-      name: 'Sello Arruinados'
-    },
-    {
-      slot: 2,
-      name: 'Música'
-    },
-    {
-      slot: 3,
-      name: 'Estudio "La Ruina Records"'
-    },
-    {
-      slot: 4,
-      name: 'En vivo'
-    },
-    {
-      slot: 5,
-      name: 'App y descargables'
-    },
-    {
-      slot: 6,
-      name: 'Literatura'
-    },
-    {
-      slot: 7,
-      name: 'Series'
-    }
-  ]
-
-  const checkbox = (e) => {
-    if (data.category.includes(e.target.value)) {
-      data.category = data.category.filter((id) => id !== e.target.value);
-      setData({
-        ...data,
-        category: data.category,
-      });
-    } else {
-      setData({
-        ...data,
-        category: [...data.category, e.target.value],
-      });
-    }
-  };
-
+  const [imgSlider, setImgSlider ] = useState(null)
 
   const submit = (e)=> {
     e.preventDefault()
-    console.log('inputs data: ', data)
     let formData = new FormData();
-    formData.append("image", data.image);
+    formData.append("image", imgSlider);
     formData.append("title", data.title);
     formData.append("artist", data.artist);
     formData.append("info", data.info);
     formData.append("category", data.category);
-    console.log([...formData])
     dispatch(postPost(formData));
     setData({
       title: "",
@@ -98,6 +51,7 @@ const CreatePost = () => {
       imageVisor: null,
       imageSlider: null,
     });
+    history.push('/post/continue/create')
   }
 
     return (
@@ -117,7 +71,6 @@ const CreatePost = () => {
               name="title"
               value={data.title}
               onChange={handleInputChange}
-              required
             />
           </p>
           <p>
@@ -141,43 +94,17 @@ const CreatePost = () => {
             />
           </p>
           <p>
-            <label>Imagen del Visor</label>
-            <br></br>
-            <input
-              type="file"
-              name="imageVisor"
-              onChange={handleInputChange}
-            />
-          </p>
-          <p>
             <label>Imagen del Slider</label>
             <br></br>
             <input
               type="file"
-              name="imageSlider"
-              onChange={handleInputChange}
+              name="file"
+              onChange={(e) => setImgSlider(e.target.files[0])}
             />
           </p>
         </div>
         <div>
-          <h1>Categoria</h1>
-          <div className={styles.types}>
-            {options?.map((t) => (
-              <div key={t.slot}>
-                <input
-                  type="checkbox"
-                  name={t.name}
-                  value={t.slot}
-                  id={t.slot}
-                  onChange={(e) => checkbox(e)}
-                />
-                <label htmlFor={t.slot}>{t.name}</label>
-                {t.slot % 4 === 0 ? <br /> : null}
-              </div>
-            ))}
-            
-          </div>
-          <input type="submit" value="Publicar" className={styles.submit} />
+          <input type="submit" value="Continuar" className={styles.submit} />
         </div>
       </form>
       </Card>
