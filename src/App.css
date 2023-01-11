@@ -446,19 +446,33 @@ button:hover{
 
 /* ------------------PLAY----------------- */
 .playerCont{
-  width: 600px;
-  height: 350px;
+  width: 50vw;
+  height: 100vh;
   position: fixed;
+  right: 0px;
   z-index: 9999;
   top: 0;
-  right: 120px;
-  margin-top: 150px;
-  scale: 0;
   transition-duration: 1s;
   filter: drop-shadow(0px 0px 20px black);
+  background: linear-gradient(to right, #00000000, rgba(0, 0, 0, 0.579));
+  z-index: 0;
+  opacity: 0;
+}
+.playerLi{
+  width: 640px;
+  height: 360px;
+  background-color: #171717;
+  position: relative;
+  margin-top: 150px;
+  right: 120px;
+  scale: 0;
+  transition-duration: 1s;
 }
 .playUl{
-  scale: none
+  list-style: none;
+  scale: 0;
+  position: absolute;
+  justify-content: end;
 }
 /* ----------------FOOTER----------------- */
 .ruinaContFooter{

@@ -5,8 +5,8 @@ const Player = (props) => {
   const {id, playing, controls}= props
   return (
     <div className='playerCont'>
-      <ul className='playUl'>
-      <YouTubePlayer controls autoplay={true} url={`https://www.youtube.com/watch?v=mZiusH3M8Uc`} />
+      <ul className='playerUl'>
+       <li className='playerLi'><YouTubePlayer controls autoplay={true} url={`https://www.youtube.com/watch?v=${id}`} /></li>
       {/* <iframe
           width="600px" 
           height="350px" 

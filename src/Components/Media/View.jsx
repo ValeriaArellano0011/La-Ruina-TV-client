@@ -14,7 +14,7 @@ const View = () => {
     const {id, typeMedia, urlid}= useParams()
     const typeMediaList = useSelector(state =>state.typeMediaList)
     const infoDetailViewer = useSelector(state =>state.infoDetailViewer)
-    const {idYT} = infoDetailViewer.urlID
+    const [idYT, setIdYT] = useState('')
     const [type, setType] = useState([])
     const [mediaLink, setMediaLink] = useState({})
     useEffect(()=>{
@@ -35,7 +35,7 @@ const View = () => {
                     <img className='visorBG' src={infoDetailViewer.sliderImg} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
-                    <Player />
+                    <Player id={idYT} />
                 <div className='visorPostInfo'>
                     <div className='visorPostArtista'>
                         <p>{infoDetailViewer.artista}</p>
@@ -61,8 +61,10 @@ const View = () => {
                         {infoDetailViewer?
                         
                         <button onClick={()=>{return (
-                            document.querySelector('.playerCont').style.scale='1',
-                            document.querySelector('.playerUI').style.display='block'
+                            setIdYT(infoDetailViewer.urlID.idYT),
+                            document.querySelector('.playerCont').style.opacity='1',
+                            document.querySelector('.playerLi').style.scale='1',
+                            document.querySelector('.playUl').style.scale='1'
                         )}} className='buttonVer'>Ver ahora</button>
                         : null
                         }
