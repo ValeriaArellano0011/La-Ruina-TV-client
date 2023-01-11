@@ -50,6 +50,7 @@ const handleSubmit = (e) => {
 
   return (
     <div className={styles.createBody}>
+      <div className='bgNav'></div>
       <div className={styles.CreateProduct}>
       <div className='CreateBody'>
       <Card>

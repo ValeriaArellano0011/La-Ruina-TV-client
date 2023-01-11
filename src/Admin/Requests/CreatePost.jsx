@@ -102,6 +102,7 @@ const CreatePost = () => {
 
     return (
       <div className={styles.createBody}>
+      <div className='bgNav'></div>
       <div className={styles.CreateProduct}>
       <Card>
         <Title title="Nuevo Post"/>

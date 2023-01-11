@@ -467,6 +467,7 @@ button:hover{
   right: 120px;
   scale: 0;
   transition-duration: 1s;
+  list-style: none;
 }
 .playUl{
   list-style: none;
@@ -479,4 +480,27 @@ button:hover{
   height: 100vh;
   width: 100%;
   overflow: hidden;
+}
+
+
+
+/* ----------------DONATE----------------- */
+
+.donateBtn{
+  width: 100vw;
+  margin-top: 400px;
+  background-color: #171717;
+  text-align: center;
+  font-size: 50px;
+}
+
+/* ----------------TIENDA----------------- */
+
+.bgNav{
+  position: fixed;
+  width: 100vw;
+  height: 80px;
+  background-color: #171717;
+  top: 0px;
+  z-index: 99;
 }
