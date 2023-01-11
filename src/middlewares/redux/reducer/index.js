@@ -12,7 +12,9 @@ import {
     GET_PRODUCTS,
     POST_PRODUCT, 
     GET_PRODUCT_DETAILS,
-    RESET_PRODUCT_DETAILS} from "../../misc";
+    RESET_PRODUCT_DETAILS,
+    GET_IDYT,
+    RESET_IDYT} from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -30,6 +32,7 @@ const initialState = {
     option: '',
 
 /*----------------Media----------------*/
+    ytPlayerState: '',
     typeMediaList: 
         {
             musica:
@@ -135,10 +138,20 @@ export default function rootReducer(state = initialState, action){
             }
 
 /*----------------Media----------------*/
+        case GET_IDYT:
+            return{
+                ...state,
+                ytPlayerState: action.payload
+            }
+        case RESET_IDYT:
+            return{
+                ...state,
+                ytPlayerState: ''
+            }
         case GET_POSTS:
             return{
                 ...state,
-                visorList: action.payload,
+                visorList: action.payload
             }
         case GET_INFO:
             return{

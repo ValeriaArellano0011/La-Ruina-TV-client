@@ -29,7 +29,7 @@ button:hover{
   position: fixed;
   top: 0px;
   background: linear-gradient(to bottom, #000000cf, rgba(255, 255, 255, 0));
-  z-index: 999;
+  z-index: 99999999999;
   list-style: none;
   display: flex;
   justify-content: center;
@@ -463,8 +463,8 @@ button:hover{
   height: 360px;
   background-color: #171717;
   position: relative;
-  margin-top: 150px;
-  right: 120px;
+  margin-top: 175px;
+  right: 75px;
   scale: 0;
   transition-duration: 1s;
   list-style: none;

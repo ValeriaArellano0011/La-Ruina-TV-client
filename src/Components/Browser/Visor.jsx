@@ -72,7 +72,7 @@ const Visor = () => {
                     <p>{visorTitulo}</p>
                     <div className='visorInfo'><h3>{visorInfo}</h3></div>
                     <ul className='visorBtn'>
-                        <li><Link to={`/view/v=:urlid=_type_=${visorTypeMedia}=_id_=${visorID}`}>
+                        <li><Link to={`/view/v=${visorUrlID?.idYT}=_type_=${visorTypeMedia}=_id_=${visorID}`}>
                             <button 
                             className='button1'
                             id={visorID}

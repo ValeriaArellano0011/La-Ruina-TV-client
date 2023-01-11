@@ -6,7 +6,7 @@ import Slider from './Slider';
 import { BodyCss } from '../../functions/BodyCss';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCategorias, getPosts, resetMedia, resetOption } from '../../middlewares/redux/actions';
+import { getCategorias, getPosts, resetIdYT, resetMedia, resetOption } from '../../middlewares/redux/actions';
 
 const Browser = () => {
     BodyCss()
@@ -17,6 +17,7 @@ const Browser = () => {
     useEffect(()=>{
         dispatch(resetOption())
         dispatch(resetMedia())
+        dispatch(resetIdYT())
         dispatch(getPosts())
     },[dispatch])
     useEffect(()=>{

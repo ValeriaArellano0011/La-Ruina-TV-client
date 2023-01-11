@@ -17,7 +17,7 @@ const Post = (props) => {
                     return(
                         <li value={e.id} key={e.id}>
                             <div className={s.sliderItem}>
-                            <Link to={`/view/v=:urlid=_type_=${e.typeMedia}=_id_=${e.id}`}>
+                            <Link to={`/view/v=${e.urlID.idYT}=_type_=${e.typeMedia}=_id_=${e.id}`}>
                             <button
                             className={s.media} style={{backgroundImage: e.sliderImg ? `url(${e.sliderImg})` :'error'}}
                             id={e.id}
