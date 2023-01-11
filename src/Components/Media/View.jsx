@@ -35,7 +35,7 @@ const View = () => {
                     <img className='visorBG' src={infoDetailViewer.sliderImg} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
-                    <Player id={idYT} />
+                    <Player idYT={idYT} />
                 <div className='visorPostInfo'>
                     <div className='visorPostArtista'>
                         <p>{infoDetailViewer.artista}</p>
