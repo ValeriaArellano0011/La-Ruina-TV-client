@@ -142,6 +142,46 @@ const CreatePost = () => {
             />
           </p>
           <p>
+            <label>ID YouTube</label>
+            <br></br>
+            <input
+              type="text"
+              name="idYT"
+              value={data.info}
+              onChange={handleInputChange}
+            />
+          </p>
+          <p>
+            <label>ID Spotify</label>
+              <br></br>
+              <input
+                type="text"
+                name="idSpty"
+                value={data.info}
+                onChange={handleInputChange}
+              />
+          </p>
+          <p>
+          <label>ID Drive</label>
+            <br></br>
+            <input
+              type="text"
+              name="idDrive"
+              value={data.info}
+              onChange={handleInputChange}
+            />
+          </p>
+          <p>
+            <label>Descripción</label>
+            <br></br>
+            <input
+              type="text"
+              name="info"
+              value={data.info}
+              onChange={handleInputChange}
+            />
+          </p>
+          <p>
             <label>Imagen del Visor</label>
             <br></br>
             <input

@@ -463,8 +463,8 @@ button:hover{
   height: 360px;
   background-color: #171717;
   position: relative;
-  margin-top: 175px;
-  right: 75px;
+  margin-top: 100px;
+  right: 65px;
   scale: 0;
   transition-duration: 1s;
   list-style: none;

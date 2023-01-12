@@ -17,15 +17,15 @@ const Visor = () => {
     const [visorBtn1, setVisorBtn1] = useState()
     const [visorInfo, setVisorInfo] = useState()
     const [visorIcon, setVisorIcon] = useState()
-    const [visorImage, setVisorImage] = useState()
+    const [visorImg, setVisorImage] = useState()
     const [visorUrlID, setVisorUrlID] = useState()  
-    const [visorTitulo, setVisorTitulo] = useState()
-    const [visorArtista, setVisorArtista] = useState()
+    const [visorTitle, setVisorTitulo] = useState()
+    const [visorArtist, setVisorArtista] = useState()
     const [visorTypeMedia, setVisorTypeMedia] = useState()
-    const {urlID, id, img, artista, titulo, typeMedia, tag, icon, boton1, info} = nextVisor? nextVisor.at(0) : nextVisor
+    const {idMedia, id, visorImage, artist, title, typeMedia, tag, icon, actionButton, info} = nextVisor? nextVisor.at(0) : nextVisor
     useEffect(() => {
         let inf = 99999+cont
-        const max = visorList.length
+        const max = visorList? visorList.length : 0
         let timeInterval = 20
         let interval = null
         dispatch(getNextVisor(cont%max))
@@ -35,12 +35,12 @@ const Visor = () => {
             setVisorID(id)
             setVisorTag(tag)
             setVisorInfo(info)
-            setVisorImage(img)
+            setVisorImage(visorImage)
             setVisorIcon(icon)
-            setVisorBtn1(boton1)
-            setVisorUrlID(urlID)
-            setVisorTitulo(titulo)
-            setVisorArtista(artista)
+            setVisorBtn1(actionButton)
+            setVisorUrlID(idMedia)
+            setVisorTitulo(title)
+            setVisorArtista(artist)
             setVisorTypeMedia(typeMedia)
                         
             document.querySelector('.visorPostInfo').style.animationName='infoScale'
@@ -53,23 +53,23 @@ const Visor = () => {
             document.querySelector(`.visor`).style.transform='translateX(0)'
         }, timeInterval*1000)
         return () =>  (clearInterval(interval, timeInterval))
-    },[urlID, id, img, artista, titulo, typeMedia, tag, icon, boton1, info, cont, visorList, dispatch])
+    },[actionButton, idMedia, id, visorImage, artist, title, typeMedia, tag, icon, info, cont, visorList, dispatch])
 
 
     return(
         <div className='visor'>
             <video className='visorVideoIntro' src={visorIntroVideo} autoPlay={true} loop muted  type="video/mp4"/>
             <div className='visorBGCanvas'>
-                <img className='visorBG' src={visorImage} alt='' />
+                <img className='visorBG' src={visorImg} alt='' />
             </div>
             <div className='visorCanvas'></div>
             {visorList?
             (<div className='visorPostInfo'>
                 <div className='visorPostArtista'>
-                    <p>{visorArtista}</p>
+                    <p>{visorArtist}</p>
                 </div>
                 <div className='visorPostTitulo'>
-                    <p>{visorTitulo}</p>
+                    <p>{visorTitle}</p>
                     <div className='visorInfo'><h3>{visorInfo}</h3></div>
                     <ul className='visorBtn'>
                         <li><Link to={`/view/v=${visorUrlID?.idYT}=_type_=${visorTypeMedia}=_id_=${visorID}`}>
@@ -77,9 +77,9 @@ const Visor = () => {
                             className='button1'
                             id={visorID}
                             urlid={visorUrlID}
-                            titulo={visorTitulo}
-                            artista={visorArtista}
-                            img={visorImage}
+                            titulo={visorTitle}
+                            artista={visorArtist}
+                            img={visorImg}
                             tag={visorTag}
                             onClick={()=>{window.scrollTo(0, 0)}}
                             onMouseEnter={()=>{

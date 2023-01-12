@@ -13,18 +13,18 @@ const Post = (props) => {
             {
                 props?
                 (
-                    props.categoria.map(e=>{
+                    props.category.map(e=>{
                     return(
                         <li value={e.id} key={e.id}>
                             <div className={s.sliderItem}>
-                            <Link to={`/view/v=${e.urlID.idYT}=_type_=${e.typeMedia}=_id_=${e.id}`}>
+                            <Link to={`/view/v=${e.idMedia.idYT}=_type_=${e.typeMedia}=_id_=${e.id}`}>
                             <button
-                            className={s.media} style={{backgroundImage: e.sliderImg ? `url(${e.sliderImg})` :'error'}}
+                            className={s.media} style={{backgroundImage: e.sliderImage ? `url(${e.sliderImage})` :'error'}}
                             id={e.id}
                             urlid={e.urlID}
-                            titulo={e.titulo}
-                            artista={e.artista}
-                            img={e.sliderImg}
+                            titulo={e.title}
+                            artista={e.artist}
+                            img={e.sliderImage}
                             onClick={()=>{return window.scrollTo(0, 0)}}
                             ><img src={e.icon[0]} alt="" className={s.logoItem} />
                             </button>
