@@ -63,9 +63,8 @@ const initialState = {
     postList: [
         {
             id:[''],
-            idPost:[''],
             idMedia:[''],
-            typeMedia:[''],
+            mediaType:[''],
             title:[''],
             artist:[''],
             tag:[''],
@@ -80,7 +79,7 @@ const initialState = {
     ],
     nextVisor: false,
     infoDetailViewer: {urlID: {idYT:''}},
-    categoryList: [],
+    categoryList: ["Sello Arruinados", 'Música',  'Estudio "La Ruina Records"', "En vivo", "App y descargables", "Literatura", "Series"],
 
 /*----------------Tienda----------------*/
     products: false,
