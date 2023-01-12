@@ -9,7 +9,6 @@ import { useHistory } from "react-router-dom";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const handleInputChange = (e) => {
     if (
       e.target.name !== "title" &&
@@ -167,7 +166,6 @@ const CreatePost = () => {
       category: [],
       idLinkYT: "",
     });
-    history.push("/post/continue/create");
   };
 
   return (
@@ -275,7 +273,7 @@ const CreatePost = () => {
               </div>
               <input
                 type="submit"
-                value="Continuar"
+                value="Publicar"
                 className={styles.submit}
               />
             </div>
