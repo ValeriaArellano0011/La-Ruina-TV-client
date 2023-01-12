@@ -24,9 +24,8 @@ import {
 
 /*-----------------Admin----------------*/
     export const postProduct = (post) => {
-        console.log(post)
         return async function (dispatch) {
-            let json = await axios.post(`${URL_API}/post/product`, post);
+            let json = await axios.post(`http://localhost:8080/post/product`, post);
             return dispatch ({
                 type: POST_PRODUCT,
                 payload: json.data
@@ -34,17 +33,30 @@ import {
         }
     };
     export const postPost = (formData) => {
-        console.log(formData)
         return async function (dispatch) {
 
 
             const response = await axios.post(
-                `${URL_API}/media/upload`,
+                `http://localhost:8080/media/upload`,
                 formData,
                 {headers: {'Content-Type': 'multipart/form-data'}}
               );
 
             
+            return dispatch ({
+                type: POST_POST,
+                payload: response.data
+            })
+        }
+    };
+
+    export const postPostContinue = (formData) => {
+        return async function (dispatch) {
+            const response = await axios.post(
+                `http://localhost:8080/media/upload/continue`,
+                formData,
+                {headers: {'Content-Type': 'multipart/form-data'}}
+              );
             return dispatch ({
                 type: POST_POST,
                 payload: response.data
@@ -79,13 +91,14 @@ export function login(email, password){
         })
     }
 }
+
 export const signup =
   (alias, email, password) => async (dispatch) => {
     try {
         const response = await axios.post(`${URL_API}/users/signup`, {
-        alias,
-        email,
-        password
+      alias,
+      email,
+      password
     });
     const data = await response.data;
     return dispatch({
@@ -95,6 +108,7 @@ export const signup =
     } catch (error) {
         console.log(error)
     }
+
 };
 
 /*----------------Posts----------------*/
