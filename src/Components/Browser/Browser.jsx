@@ -7,14 +7,14 @@ import Sort from '../Utils/Sort';
 import { BodyCss } from '../../functions/BodyCss';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCategorias, getPosts, resetIdYT, resetMedia, resetOption } from '../../middlewares/redux/actions';
+import { getPosts, resetIdYT, resetMedia, resetOption } from '../../middlewares/redux/actions';
 
 const Browser = () => {
     BodyCss()
     const dispatch = useDispatch()
-    const visorList = useSelector(state=>state.postList)
+    const cardList = useSelector(state=>state.postList)
     const categoryList = useSelector(state=>state.categoryList)
-    const sliderCategoria = (categories) => visorList.filter(e=> {return e.categories.find(el=>el===categories)})
+    //const sliderCategoria = (categories) => cardList.filter(e=> {return e.categories.find(el=>el===categoryList)})
     useEffect(()=>{
         dispatch(resetOption())
         dispatch(resetMedia())
@@ -22,10 +22,9 @@ const Browser = () => {
         dispatch(getPosts())
     },[dispatch])
     useEffect(()=>{
-        dispatch(getCategorias(visorList))
-    },[visorList, dispatch])
+        //dispatch(getCategorias(visorList))
+    },[cardList, dispatch])
  
-    let id = 0
     return (
         <div className='browserBody'>
 
@@ -35,20 +34,29 @@ const Browser = () => {
 {/* ----------------------SORT--------------------- */}
         <Sort/>
 
-{/* --------------------SLIDERS-------------------- */}
-    {   
-        visorList?
-            ([...new Set(categoryList)].map(e=>
-            {
-                if(id === 0){ id++; return <Slider titulo={'Contenido'} categories={visorList} style={s} id={`s`}key={`s`}/>}
-                else{id = e.id; return <Slider titulo={e} categories={sliderCategoria(e)} style={s} id={`s${e.id}`} key={`s${e}`}/>}
-            }
-        )) : null
-    }
+{/* --------------------SLIDERS-------------------- */} 
+        cardList && <Slider title={'Contenido'} cardList={cardList} style={s} id={`s`} key={`s${0}`}/>)
+        {
+            categoryList.map((category, i)=>{
+                cardList.map(card => {
+                    console.log('card cate: ', card.categories)
+                    console.log('cate: ', category)
+                    if(card.categories === category){
+                        return (<>
+                            <Slider title={category} cardList={cardList.filter(e => e.categories.split(',') === category)} style={s} id={`s${category.id}`} key={`s${i}`}/>
+                        </>  )  
+                    }
+                })
+                
+            })
+        }
+        
+    
+
 
 {/* ---------------------FOOTER--------------------- */}
 
-        {visorList.length>1? <Footer/> : null}
+        {cardList.length>1 && <Footer/>}
 
         </div>
     )

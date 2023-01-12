@@ -3,6 +3,7 @@ import s from './css/CreateAccount.module.css';
 import { signup } from '../../middlewares/redux/actions';
 import { useDispatch } from 'react-redux';
 import { authCss } from './css/authCss';
+import GoogleSignUp from './GoogleSignUp'
 
 const CreateAccount = () => {
   const dispatch = useDispatch()
@@ -35,18 +36,20 @@ const CreateAccount = () => {
                   <li className={s.form_li}>Contraseña</li>
 
                   <input type="password" name='password' onChange={e => {return setPassword(e.target.value)}} placeholder='contraseña' />
-
-                </form>
-          </ul>      
-        </div>
-            <ul className={s.btn_ul}>
-                <li><button 
+                  <li className={s.form_li}><button 
                 className='button1'
                 type='submit'
                 name='submit'
                 onClick={e => onSubmitCreate(e)}
 
                 >Crear cuenta</button></li>
+
+                </form>
+
+          </ul>
+                <GoogleSignUp />
+        </div>
+            <ul className={s.btn_ul}>
                 <li><button 
                 className='button2'
                 onClick={()=> authCss('cancelCreate')}

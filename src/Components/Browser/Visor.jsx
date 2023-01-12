@@ -9,7 +9,7 @@ import visorIntroVideo from '../../design/laruina-intro.mp4'
 
 const Visor = () => {
     const dispatch = useDispatch()
-    const visorList = useSelector(state=>state.visorList)
+    const visorList = useSelector(state=>state.postList)
     const nextVisor = useSelector(state=>state.nextVisor)
     const [cont, setI] = useState(0)
     const [visorID, setVisorID] = useState()
@@ -22,7 +22,7 @@ const Visor = () => {
     const [visorTitle, setVisorTitulo] = useState()
     const [visorArtist, setVisorArtista] = useState()
     const [visorTypeMedia, setVisorTypeMedia] = useState()
-    const {idMedia, id, visorImage, artist, title, mediaType, tag, icon, actionButton, info} = nextVisor? nextVisor.at(0) : nextVisor
+    const {idMedia, id, linkimg, artist, title, mediaType, tag, icon, actionButton, info} = nextVisor? nextVisor.at(0) : nextVisor
     useEffect(() => {
         let inf = 99999+cont
         const max = visorList? visorList.length : 0
@@ -35,7 +35,7 @@ const Visor = () => {
             setVisorID(id)
             setVisorTag(tag)
             setVisorInfo(info)
-            setVisorImage(visorImage)
+            setVisorImage(linkimg)
             setVisorIcon(icon)
             setVisorBtn1(actionButton)
             setVisorUrlID(idMedia)
@@ -53,7 +53,7 @@ const Visor = () => {
             document.querySelector(`.visor`).style.transform='translateX(0)'
         }, timeInterval*1000)
         return () =>  (clearInterval(interval, timeInterval))
-    },[actionButton, idMedia, id, visorImage, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
+    },[actionButton, idMedia, id, visorImg, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
 
 
     return(

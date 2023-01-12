@@ -34,14 +34,11 @@ import {
     };
     export const postPost = (formData) => {
         return async function (dispatch) {
-
-
             const response = await axios.post(
                 `${URL_API}/media/upload`,
                 formData,
                 {headers: {'Content-Type': 'multipart/form-data'}}
               );
-
             
             return dispatch ({
                 type: POST_POST,
