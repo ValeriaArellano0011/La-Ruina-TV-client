@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import styles from "../css/CreatePost.module.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { postPost } from "../../middlewares/redux/actions/index";
+import { holis, postPost } from "../../middlewares/redux/actions/index";
 import { useHistory } from "react-router-dom";
 
 const CreatePost = () => {
@@ -37,7 +37,31 @@ const CreatePost = () => {
     genre: [],
     categories: [],
     idLinkYT: "",
+    mediaType: [],
+    idLinkSPOTY: "",
+    idLinkDRIVE: "",
+    urlLinkWEB: "",
+    urlLinkDOWNLOAD: "",
   });
+
+  const optionsMediaType = [
+    {
+      slot: 1,
+      name: "Música",
+    },
+    {
+      slot: 2,
+      name: "Serie",
+    },
+    {
+      slot: 3,
+      name: "App",
+    },
+    {
+      slot: 4,
+      name: "Libro",
+    },
+  ];
 
   const optionsGenre = [
     {
@@ -111,7 +135,9 @@ const CreatePost = () => {
 
   const checkboxCat = (e) => {
     if (data.categories.includes(e.target.value)) {
-      data.categories = data.categories.filter((name) => name !== e.target.value);
+      data.categories = data.categories.filter(
+        (name) => name !== e.target.value
+      );
       setData({
         ...data,
         categories: data.categories,
@@ -139,6 +165,21 @@ const CreatePost = () => {
     }
   };
 
+  const checkboxMT = (e) => {
+    if (data.mediaType.includes(e.target.value)) {
+      data.mediaType = data.mediaType.filter((name) => name !== e.target.value);
+      setData({
+        ...data,
+        mediaType: data.mediaType,
+      });
+    } else {
+      setData({
+        ...data,
+        mediaType: [...data.mediaType, e.target.value],
+      });
+    }
+  };
+
   const [imgSlider, setImgSlider] = useState(null);
   const [imgVisor, setImgVisor] = useState(null);
 
@@ -153,6 +194,12 @@ const CreatePost = () => {
     formData.append("categories", data.categories);
     formData.append("genre", data.genre);
     formData.append("idYT", data.idLinkYT);
+    formData.append("mediaType", data.idLinkYT);
+    formData.append("idLinkSPOTY", data.idLinkSPOTY);
+    formData.append("idLinkDRIVE", data.idLinkDRIVE);
+    formData.append("urlLinkWEB", data.urlLinkWEB);
+    formData.append("urlLinkDOWNLOAD", data.urlLinkDOWNLOAD);
+
     dispatch(postPost(formData));
     setData({
       title: "",
@@ -164,6 +211,11 @@ const CreatePost = () => {
       genre: [],
       categories: [],
       idLinkYT: "",
+      mediaType: [],
+      idLinkSPOTY: "",
+      idLinkDRIVE: "",
+      urlLinkWEB: "",
+      urlLinkDOWNLOAD: "",
     });
   };
 
@@ -236,48 +288,115 @@ const CreatePost = () => {
                   }
                 />
               </p>
+              <p>
+                <label>Id del link de Spotify</label>
+                <br></br>
+                <input
+                  type="text"
+                  name="idLinkSPOTY"
+                  value={data.idLinkSPOTY}
+                  onChange={(e) =>
+                    setData({ ...data, idLinkSPOTY: e.target.value })
+                  }
+                />
+              </p>
+              <p>
+                <label>Id del link de Drive</label>
+                <br></br>
+                <input
+                  type="text"
+                  name="idLinkDRIVE"
+                  value={data.idLinkDRIVE}
+                  onChange={(e) =>
+                    setData({ ...data, idLinkDRIVE: e.target.value })
+                  }
+                />
+              </p>
+              <p>
+                <label>url de la Web</label>
+                <br></br>
+                <input
+                  type="text"
+                  name="urlLinkWEB"
+                  value={data.urlLinkWEB}
+                  onChange={(e) =>
+                    setData({ ...data, urlLinkWEB: e.target.value })
+                  }
+                />
+              </p>
+              <p>
+                <label>Link de descarga</label>
+                <br></br>
+                <input
+                  type="text"
+                  name="urlLinkDOWNLOAD"
+                  value={data.urlLinkDOWNLOAD}
+                  onChange={(e) =>
+                    setData({ ...data, urlLinkDOWNLOAD: e.target.value })
+                  }
+                />
+              </p>
               <div>
-              <h1>Categoria</h1>
-              <div className={styles.types}>
-                {optionsCategories?.map((t) => (
-                  <div key={`${t.name}-${t.slot}`}>
-                    <input
-                      type="checkbox"
-                      name={t.name}
-                      value={t.name}
-                      id={t.name}
-                      onChange={(e) => checkboxCat(e)}
-                    />
-                    <label htmlFor={t.name}>{t.name}</label>
-                    { t.slot % 4 === 0 ? <br /> : null }
-                  </div>
-                ))}
-              </div>
+                <h1>Categoria</h1>
+                <div className={styles.types}>
+                  {optionsCategories?.map((t) => (
+                    <div key={`${t.name}-${t.slot}`}>
+                      <input
+                        type="checkbox"
+                        name={t.name}
+                        value={t.name}
+                        id={t.name}
+                        onChange={(e) => checkboxCat(e)}
+                      />
+                      <label htmlFor={t.name}>{t.name}</label>
+                      {t.slot % 4 === 0 ? <br /> : null}
+                    </div>
+                  ))}
+                </div>
 
-              <h1>Género</h1>
-              <div className={styles.types}>
-                {optionsGenre?.map((t) => (
-                  <div key={`${t.name}-${t.slot}`}>
-                    <input
-                      type="checkbox"
-                      name={t.name}
-                      value={t.name}
-                      id={t.name}
-                      onChange={(e) => checkboxGen(e)}
-                    />
-                    <label htmlFor={t.name}>{t.name}</label>
-                    { t.slot % 4 === 0 ? <br /> : null }
-                  </div>
-                ))} 
+                <h1>Género</h1>
+                <div className={styles.types}>
+                  {optionsGenre?.map((t) => (
+                    <div key={`${t.name}-${t.slot}`}>
+                      <input
+                        type="checkbox"
+                        name={t.name}
+                        value={t.name}
+                        id={t.name}
+                        onChange={(e) => checkboxGen(e)}
+                      />
+                      <label htmlFor={t.name}>{t.name}</label>
+                      {t.slot % 4 === 0 ? <br /> : null}
+                    </div>
+                  ))}
+                </div>
+
+                <h1>Media Type</h1>
+                <div className={styles.types}>
+                  {optionsMediaType?.map((t) => (
+                    <div key={`${t.name}-${t.slot}`}>
+                      <input
+                        type="checkbox"
+                        name={t.name}
+                        value={t.name}
+                        id={t.name}
+                        onChange={(e) => checkboxMT(e)}
+                      />
+                      <label htmlFor={t.name}>{t.name}</label>
+                      {t.slot % 4 === 0 ? <br /> : null}
+                    </div>
+                  ))}
+                </div>
+                <input
+                  type="submit"
+                  value="Publicar"
+                  className={styles.submit}
+                />
+               
               </div>
-              <input
-                type="submit"
-                value="Publicar"
-                className={styles.submit}
-              />
-            </div>
             </div>
           </form>
+          <button onClick={() => dispatch(holis())}>DONT CLICK ME</button>
         </Card>
       </div>
     </div>

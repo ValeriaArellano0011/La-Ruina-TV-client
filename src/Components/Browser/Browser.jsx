@@ -7,7 +7,7 @@ import Sort from '../Utils/Sort';
 import { BodyCss } from '../../functions/BodyCss';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCategorias, getPosts, resetIdYT, resetMedia, resetOption } from '../../middlewares/redux/actions';
+import { getCategorias, /* getPosts */ resetIdYT, resetMedia, resetOption } from '../../middlewares/redux/actions';
 
 const Browser = () => {
     BodyCss()
@@ -19,7 +19,7 @@ const Browser = () => {
         dispatch(resetOption())
         dispatch(resetMedia())
         dispatch(resetIdYT())
-        dispatch(getPosts())
+        //dispatch(getPosts())
     },[dispatch])
     useEffect(()=>{
         dispatch(getCategorias(visorList))
@@ -44,7 +44,7 @@ const Browser = () => {
                 if(id === 0){ id++; return <Slider titulo={'Contenido'} categories={visorList} style={s} id={`s`}key={`s`}/>}
                 else{id = e.id; return <Slider titulo={e} categories={sliderCategoria(e)} style={s} id={`s${e.id}`} key={`s${e}`}/>}
             }
-        )) : dispatch(getPosts())
+        )) : null
     }
 
 {/* ---------------------FOOTER--------------------- */}

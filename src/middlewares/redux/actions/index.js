@@ -49,16 +49,13 @@ import {
             })
         }
     };
-
-    export const postPostContinue = (formData) => {
+    export const holis = () => {
         return async function (dispatch) {
-            const response = await axios.post(
-                `http://localhost:8080/media/upload/continue`,
-                formData,
-                {headers: {'Content-Type': 'multipart/form-data'}}
-              );
+            const response = await axios.get(
+                `http://localhost:8080/media/getall`
+            );
             return dispatch ({
-                type: POST_POST,
+                type: 'GETALLlll',
                 payload: response.data
             })
         }
@@ -124,19 +121,19 @@ export function resetIdYT() {
     }
 }
 
-export function getPosts() {
-    return async function(dispatch) {
-        await axios.get(`${URL_API}/posts/getall`)
-        .then(res =>{
-            console.log('el res del front',res)
-            dispatch({
-                type: GET_POSTS,
-                payload: res.data
-            })
-        })
-        .catch(e => console.log(e))
-    }
-}
+// export function getPosts() {
+//     return async function(dispatch) {
+//         await axios.get(`${URL_API}/posts/getall`)
+//         .then(res =>{
+//             console.log('el res del front',res)
+//             dispatch({
+//                 type: GET_POSTS,
+//                 payload: res.data
+//             })
+//         })
+//         .catch(e => console.log(e))
+//     }
+// }
 
 export function getInfo(id) {
     return async function(dispatch) {
