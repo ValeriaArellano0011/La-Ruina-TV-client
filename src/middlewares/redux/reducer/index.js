@@ -32,14 +32,14 @@ const initialState = {
         {
             musica:
                 {
-                    idYT:{url:'https://www.youtube.com/watch?v=', img:iconYT}, 
-                    idSpty:{url:'', img:iconSpty}, 
+                    idYT:{url:'', img:iconYT}, 
+                    idSpoty:{url:'', img:iconSpty}, 
                     idDrive:{url:'', img:iconDrive}
                 },
             serie:
                 {
-                    idYoutube:{url:'', img:iconYT},
-                    idSpty:{url:'', img:iconSpty}, 
+                    idYT:{url:'', img:iconYT},
+                    idSpoty:{url:'', img:iconSpty}, 
                     idDrive:{url:'', img:iconDrive},
                 },
             app: 

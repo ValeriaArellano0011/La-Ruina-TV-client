@@ -4,12 +4,16 @@
 
 // const composeEnhancer = window.REDUX_DEVTOOLS_EXTENSIONS_COMPOSE || compose;
 
+// const composeEnhancer = window.REDUX_DEVTOOLS_EXTENSIONS_COMPOSE || compose;
 // const store = createStore(
 //     rootReducer,
 //     composeEnhancer(applyMiddleware(thunkMiddleware))
+//     composeEnhancer(applyMiddleware(thunkMiddleware))
 // )
 
+
 // export default store
+
 
 /* TEST LALO */
 
