@@ -6,24 +6,24 @@ const Sort = () => {
         
         <div id="header">
             <ul className="nav">
-                <li><a href="">Explore</a>
+                <li>Explore
                     <ul>
-                        <li><a href="">Music Genre</a>
+                        <li>Music Genre
                             <ul>
-                                <li><a href="">Rock</a></li>
-                                <li><a href="">Metal</a></li>
-                                <li><a href="">Jazz</a></li>
-                                <li><a href="">Blues</a></li>
-                                <li><a href="">Góspel</a></li>
-                                <li><a href="">Soul</a></li>
-                                <li><a href="">Pop</a></li>
-                                <li><a href="">Rock and roll</a></li>
-                                <li><a href="">Country</a></li>
+                                <li>Rock</li>
+                                <li>Metal</li>
+                                <li>Jazz</li>
+                                <li>Blues</li>
+                                <li>Góspel</li>
+                                <li>Soul</li>
+                                <li>Pop</li>
+                                <li>Rock and roll</li>
+                                <li>Country</li>
                             </ul>
                         </li>
-                        <li><a href="">Artists</a></li>
-                        <li><a href="">Category</a></li>
-                        <li><a href="">Type Media</a></li>
+                        <li>Artists</li>
+                        <li>Category</li>
+                        <li>Type Media</li>
                     </ul>
                 </li>
             </ul>

@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import styles from "../css/CreatePost.module.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { holis, postPost } from "../../middlewares/redux/actions/index";
+import { getPosts, postPost } from "../../middlewares/redux/actions/index";
 import { useHistory } from "react-router-dom";
 
 const CreatePost = () => {
@@ -396,7 +396,7 @@ const CreatePost = () => {
               </div>
             </div>
           </form>
-          <button onClick={() => dispatch(holis())}>DONT CLICK ME</button>
+          <button onClick={() => dispatch(getPosts())}>DONT CLICK ME</button>
         </Card>
       </div>
     </div>
