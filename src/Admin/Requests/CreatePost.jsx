@@ -167,115 +167,20 @@ const CreatePost = () => {
       category: [],
       idLinkYT: "",
     });
-    history.push("/post/continue/create");
   };
 
-
-    return (
-      <div className={styles.createBody}>
-      <div className='bgNav'></div>
+  return (
+    <div className={styles.createBody}>
       <div className={styles.CreateProduct}>
-      <Card>
-        <Title title="Nuevo Post"/>
-        <h1 className={styles.createTitle}>Crear un Nuevo Post</h1>
-        <CardContent>Rellena el siguiente formulario</CardContent>
-        <form onSubmit={submit}>
-        <div>
-          <p>
-            <label>Titulo</label>
-            <br></br>
-            <input
-              type="text"
-              name="title"
-              value={data.title}
-              onChange={handleInputChange}
-              required
-            />
-          </p>
-          <p>
-            <label>Artista</label>
-            <br></br>
-            <input
-              type="text"
-              name="artist"
-              value={data.artist}
-              onChange={handleInputChange}
-            />
-          </p>
-          <p>
-            <label>Descripción</label>
-            <br></br>
-            <input
-              type="text"
-              name="info"
-              value={data.info}
-              onChange={handleInputChange}
-            />
-          </p>
-          <p>
-            <label>ID YouTube</label>
-            <br></br>
-            <input
-              type="text"
-              name="idYT"
-              value={data.info}
-              onChange={handleInputChange}
-            />
-          </p>
-          <p>
-            <label>ID Spotify</label>
-              <br></br>
-              <input
-                type="text"
-                name="idSpty"
-                value={data.info}
-                onChange={handleInputChange}
-              />
-          </p>
-          <p>
-          <label>ID Drive</label>
-            <br></br>
-            <input
-              type="text"
-              name="idDrive"
-              value={data.info}
-              onChange={handleInputChange}
-            />
-          </p>
-          <p>
-            <label>Descripción</label>
-            <br></br>
-            <input
-              type="text"
-              name="info"
-              value={data.info}
-              onChange={handleInputChange}
-            />
-          </p>
-          <p>
-            <label>Imagen del Visor</label>
-            <br></br>
-            <input
-              type="file"
-              name="imageVisor"
-              onChange={handleInputChange}
-            />
-          </p>
-          <p>
-            <label>Imagen del Slider</label>
-            <br></br>
-            <input
-              type="file"
-              name="imageSlider"
-              onChange={handleInputChange}
-            />
-          </p>
-        </div>
-        <div>
-          <h1>Categoria</h1>
-          <div className={styles.types}>
-            {options?.map((t) => (
-              <div key={t.slot}>
+        <Card>
+          <Title title="Nuevo Post" />
+          <h1 className={styles.createTitle}>Crear un Nuevo Post</h1>
+          <CardContent>Rellena el siguiente formulario</CardContent>
+          <form onSubmit={submit}>
+            <div>
+              <p>
+                <label>Titulo</label>
+                <br></br>
                 <input
                   type="text"
                   name="title"
@@ -369,7 +274,7 @@ const CreatePost = () => {
               </div>
               <input
                 type="submit"
-                value="Continuar"
+                value="Publicar"
                 className={styles.submit}
               />
             </div>
