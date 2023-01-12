@@ -12,7 +12,9 @@ import {
     GET_PRODUCTS,
     POST_PRODUCT, 
     GET_PRODUCT_DETAILS,
-    RESET_PRODUCT_DETAILS} from "../../misc";
+    RESET_PRODUCT_DETAILS,
+    GET_IDYT,
+    RESET_IDYT} from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -30,11 +32,12 @@ const initialState = {
     option: '',
 
 /*----------------Media----------------*/
+    ytPlayerState: '',
     typeMediaList: 
         {
             musica:
                 {
-                    idYT:{url:'https://www.youtube.com/watch?v=', img:iconYT}, 
+                    idYT:{url:'', img:iconYT}, 
                     idSpty:{url:'', img:iconSpty}, 
                     idDrive:{url:'', img:iconDrive}
                 },
@@ -48,33 +51,36 @@ const initialState = {
                 {
                     urlWeb:{url:'', img:iconWeb},
                     idDrive:{url:'', img:iconDrive},
-                    urlDescarga:{url:'', img:iconDescarga},
+                    urlDownload:{url:'', img:iconDescarga},
                 },
             libro:
                 {
                     urlWeb:{url:'', img:iconWeb},
                     idDrive:{url:'', img:iconDrive},
-                    urlDescarga:{url:'', img:iconDescarga},
+                    urlDownload:{url:'', img:iconDescarga},
                 }
     },
-    visorList: [
+    postList: [
         {
-            urlID:[''],
+            id:[''],
+            idPost:[''],
+            idMedia:[''],
             typeMedia:[''],
-            titulo:[''],
-            artista:[''],
+            title:[''],
+            artist:[''],
             tag:[''],
-            img:[''],
-            sliderImg:[''],
+            visorImage:[''],
+            sliderImage:[''],
             icon:[''],
-            categoria:[''],
-            boton1:[''],
-            info:['']
+            categories:[''],
+            actionButton:[''],
+            info:[''],
+            genre: ['']
         }
     ],
     nextVisor: false,
     infoDetailViewer: {urlID: {idYT:''}},
-    listaCategorias: [],
+    categoryList: [],
 
 /*----------------Tienda----------------*/
     products: false,
@@ -97,7 +103,6 @@ export default function rootReducer(state = initialState, action){
 /*----------------Auth----------------*/
 
         case LOGIN:
-            console.log(action.payload)
             return {
             ...state,
             currentUser: action.payload.msg.userAlias
@@ -135,10 +140,20 @@ export default function rootReducer(state = initialState, action){
             }
 
 /*----------------Media----------------*/
+        case GET_IDYT:
+            return{
+                ...state,
+                ytPlayerState: action.payload
+            }
+        case RESET_IDYT:
+            return{
+                ...state,
+                ytPlayerState: ''
+            }
         case GET_POSTS:
             return{
                 ...state,
-                visorList: action.payload,
+                postList: action.payload
             }
         case GET_INFO:
             return{
@@ -152,7 +167,7 @@ export default function rootReducer(state = initialState, action){
         case GET_CATEGORIAS:
             return{
                 ...state,
-                listaCategorias: [...new Set([...state.listaCategorias, ...new Set(action.payload)].filter(e=> e !== ''))]
+                categoryList: [...new Set([...state.categoryList, ...new Set(action.payload)].filter(e=> e !== ''))]
             }
         case RESET_MEDIA:
             return{
@@ -162,7 +177,7 @@ export default function rootReducer(state = initialState, action){
         case NEXT_VISOR:
             return{
                 ...state,
-                nextVisor: state.visorList.length>1? [state.visorList[action.payload]] : false
+                nextVisor: state.postList.length>1? [state.postList[action.payload]] : false
             }
         case RESET_VISOR:
             return{

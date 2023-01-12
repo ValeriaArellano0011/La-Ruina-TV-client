@@ -13,6 +13,8 @@ export const RESET_VISOR = 'RESET_VISOR'
 export const RESET_MEDIA = 'RESET_MEDIA'
 export const GET_POSTS = 'GET_POSTS'
 export const GET_INFO = 'GET_INFO'
+export const GET_IDYT = 'GET_IDYT'
+export const RESET_IDYT = 'RESET_IDYT'
 
 /* -----------------Tienda----------------- */
 export const GET_PRODUCTS = 'GET_PRODUCTS'

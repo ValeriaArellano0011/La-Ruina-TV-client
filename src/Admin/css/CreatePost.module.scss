@@ -4,24 +4,38 @@
 }
 
 .CreateProduct {
-  position: absolute;
-  color: #000000;
-  margin-top: 85px;
-  width: 100vw;
-  height: auto;
-  border-radius: 20px;
-  text-align: center;
+    position: absolute;
+    color: #000000;
+    margin-top: 80px;
+    width: 100vw;
+    height: auto;
+    border-radius: 20px;
+    text-align: center;
+    .types {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
 
-  .types {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
-    justify-content: center;
+      input[type="checkbox"],
+      input[type="radio"] {
+        display: none;
+      }
 
-    input[type="checkbox"],
-    input[type="radio"] {
-      display: none;
+      label {
+        cursor: pointer;
+        border-radius: 20px;
+        margin: 7px;
+      }
+
+      input[type="checkbox"]:checked + label {
+        background: rgba(105, 105, 104, 0.7);
+      }
+
+        input[type="checkbox"]:checked + label:hover {
+          background: rgba(105, 105, 104, 0.7);
+        }
     }
 
     label {

@@ -4,9 +4,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getInfo, getMediaType } from '../../middlewares/redux/actions'
+import { getIdYT, getInfo, getMediaType } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
-import s from './css/View.module.css'
 import Player from './Player'
 
 const View = () => {
@@ -14,7 +13,7 @@ const View = () => {
     const {id, typeMedia, urlid}= useParams()
     const typeMediaList = useSelector(state =>state.typeMediaList)
     const infoDetailViewer = useSelector(state =>state.infoDetailViewer)
-    const {idYT} = infoDetailViewer.urlID
+    const idYT = useSelector(state=>state.ytPlayerState)
     const [type, setType] = useState([])
     const [mediaLink, setMediaLink] = useState({})
     useEffect(()=>{
@@ -35,7 +34,6 @@ const View = () => {
                     <img className='visorBG' src={infoDetailViewer.sliderImg} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
-                    <Player />
                 <div className='visorPostInfo'>
                     <div className='visorPostArtista'>
                         <p>{infoDetailViewer.artista}</p>
@@ -58,12 +56,17 @@ const View = () => {
                                 })
                             }
                         </ul>
+                        <Player idYT={idYT} />
                         {infoDetailViewer?
                         
-                        <button onClick={()=>{return (
-                            document.querySelector('.playerCont').style.scale='1',
-                            document.querySelector('.playerUI').style.display='block'
-                        )}} className='buttonVer'>Ver ahora</button>
+                        <button onClick={()=>{
+                            return (
+                            dispatch(getIdYT(infoDetailViewer.urlID.idYT)),
+                            document.querySelector('.playerCont').style.opacity='1',
+                            document.querySelector('.playerLi').style.scale='1',
+                            document.querySelector('.playUl').style.scale='1'
+                            )}}
+                            className='buttonVer'>Ver ahora</button>
                         : null
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>

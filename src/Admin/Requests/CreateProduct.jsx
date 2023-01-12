@@ -50,6 +50,7 @@ const handleSubmit = (e) => {
 
   return (
     <div className={styles.createBody}>
+      <div className='bgNav'></div>
       <div className={styles.CreateProduct}>
       <div className='CreateBody'>
       <Card>
@@ -59,21 +60,21 @@ const handleSubmit = (e) => {
         <form className={styles.formCont} onSubmit={(e) => handleSubmit(e)}>
           <ul className={styles.ulCont}>
             <div>
-              <label><h2>Name</h2></label>
+              <label><h2>Nombre del producto</h2></label>
               <input className="field" type="text" value={input.name}  name="name" onChange={handleChange} />
             </div>
             <div>
-              <label><h2>Price</h2></label>
+              <label><h2>Precio</h2></label>
               <input className="field" type="text" value={input.price} name="price" onChange={handleChange}/>
             </div>
             <div>
-              <label><h2>Description</h2></label>
+              <label><h2>Descripción</h2></label>
               <p>
                 <textarea type="text"  name="description" value={input.description} rows="5" cols="32" onChange={handleChange} />
               </p>
             </div>
             <div>
-              <button> SEND</button>
+              <button>Publicar</button>
             </div>
           </ul>
         </form>
