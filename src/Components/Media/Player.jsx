@@ -1,22 +1,15 @@
 import React from 'react'
-import YouTubePlayer from 'react-player/youtube'
 
 const Player = (props) => {
-  const {id, playing, controls}= props
+  const {idYT}= props
   return (
     <div className='playerCont'>
-      <ul className='playUl'>
-      <YouTubePlayer controls autoplay={true} url={`https://www.youtube.com/watch?v=mZiusH3M8Uc`} />
-      {/* <iframe
-          width="600px" 
-          height="350px" 
-          src={`https://www.youtube.com/embed/${id}?start=0;rel=0&amp`}
-          Player
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen='true'>
-      
-        </iframe> */}
+      <ul className='playerUl'>
+       <li className='playerLi'>
+        <iframe id="ytplayer" type="text/html" width="100%" height="100%" allowFullScreen
+          src={`https://www.youtube.com/embed/${idYT}?start=1&color=white`}
+          frameborder="0" />
+        </li>
       </ul>
     </div>
     

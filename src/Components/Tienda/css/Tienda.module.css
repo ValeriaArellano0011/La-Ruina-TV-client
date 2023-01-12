@@ -12,7 +12,7 @@
     background-repeat: no-repeat;
     background-attachment: scroll;
     top: 75px;
-
+    z-index: 1;
 }
 
 .tiendaSlider, .tiendaSliderCont{
@@ -20,10 +20,13 @@
     width: 100vw;
     height: 380px;
     background-color: rgba(203, 135, 53, 0.264);
+    z-index: 1;
+
 }
 
 .tiendaBg{
     width: 100vw;
+    z-index: 1;
 }
 .tiendaMerch {
     font-size: 65px;
@@ -45,7 +48,6 @@
 
 .productImg:hover{
     scale: 1.02;
-    z-index: 999;
 }
 
 .ulProducts{

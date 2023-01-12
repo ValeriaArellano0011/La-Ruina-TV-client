@@ -6,18 +6,18 @@ import Slider from './Slider';
 import { BodyCss } from '../../functions/BodyCss';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCategorias, getPosts, resetMedia, resetOption } from '../../middlewares/redux/actions';
-import  Sort  from '../../sort/Sort';
+import { getCategorias, getPosts, resetIdYT, resetMedia, resetOption } from '../../middlewares/redux/actions';
 
 const Browser = () => {
     BodyCss()
     const dispatch = useDispatch()
-    const visorList = useSelector(state=>state.visorList)
-    const listaCategorias = useSelector(state=>state.listaCategorias)
-    const sliderCategoria = (categoria) => visorList.filter(e=>e.categoria.find(el=>el===categoria))
+    const visorList = useSelector(state=>state.postList)
+    const categoryList = useSelector(state=>state.categoryList)
+    const sliderCategoria = (categories) => visorList.filter(e=>e.categories.find(el=>el===categories))
     useEffect(()=>{
         dispatch(resetOption())
         dispatch(resetMedia())
+        dispatch(resetIdYT())
         dispatch(getPosts())
     },[dispatch])
     useEffect(()=>{
@@ -38,10 +38,10 @@ const Browser = () => {
 {/* --------------------SLIDERS-------------------- */}
     {   
         visorList?
-            ([...new Set(listaCategorias)].map(e=>
+            ([...new Set(categoryList)].map(e=>
             {
-                if(id === 0){ id++; return <Slider titulo={'Contenido'} categoria={visorList} style={s} id={`s`}key={`s`}/>}
-                else{id = e.id; return <Slider titulo={e} categoria={sliderCategoria(e)} style={s} id={`s${e.id}`} key={`s${e}`}/>}
+                if(id === 0){ id++; return <Slider titulo={'Contenido'} category={visorList} style={s} id={`s`}key={`s`}/>}
+                else{id = e.id; return <Slider titulo={e} category={sliderCategoria(e)} style={s} id={`s${e.id}`} key={`s${e}`}/>}
             }
         )) : dispatch(getPosts())
     }

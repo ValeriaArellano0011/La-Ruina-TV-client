@@ -17,7 +17,9 @@ import {
     GET_PRODUCT_DETAILS,
     POST_PRODUCT,   
     POST_POST,
-    RESET_PRODUCT_DETAILS
+    RESET_PRODUCT_DETAILS,
+    GET_IDYT,
+    RESET_IDYT
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -110,6 +112,18 @@ export const signup =
 };
 
 /*----------------Posts----------------*/
+export function getIdYT(idYT) {
+    return {
+        type: GET_IDYT,
+        payload: idYT
+    }
+}
+export function resetIdYT() {
+    return {
+        type: RESET_IDYT
+    }
+}
+
 export function getPosts() {
     return async function(dispatch) {
         await axios.get(`${URL_API}/posts/getall`)

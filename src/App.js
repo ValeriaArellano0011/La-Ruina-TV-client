@@ -14,7 +14,6 @@ import CreatePost from './Admin/Requests/CreatePost';
 import Product from './Components/Tienda/Product';
 
 function App() {
-  
   return (
       <div className="App">
           <Switch>

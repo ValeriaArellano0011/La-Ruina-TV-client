@@ -21,6 +21,7 @@ export const Tienda = () => {
         <div className={s.tiendaSliderCont}>
           <h1 className={s.tiendaTituloSlider}>Bienvenidos a la tienda oficial de La Ruina Records</h1>
           <img classname={s.tiendaSlider} src="" alt="" />
+          <div className='bgNav'></div>
         </div>
         <ul className={s.ulTitle}>
           <h1 className={s.tiendaMerch}>Merchandising</h1>
