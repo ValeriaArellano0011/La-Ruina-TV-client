@@ -150,7 +150,7 @@ export function getInfo(id) {
 
 export function getCategorias(lista) {
     const listCat = []
-    lista.map((e)=>{return e.categoria.map(el=>{return listCat.push(el)})})
+    lista.map((e)=>{return e.categories.map(el=>{return listCat.push(el)})})
     return {
         type: GET_CATEGORIAS,
         payload: new Set(listCat)

@@ -63,7 +63,6 @@ const initialState = {
     postList: [
         {
             id:[''],
-            idPost:[''],
             idMedia:[''],
             typeMedia:[''],
             title:[''],

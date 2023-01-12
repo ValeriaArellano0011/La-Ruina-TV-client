@@ -80,7 +80,7 @@ const Visor = () => {
                             titulo={visorTitle}
                             artista={visorArtist}
                             img={visorImg}
-                            tag={visorTag}
+                            tag={visorTag? visorTag : null}
                             onClick={()=>{window.scrollTo(0, 0)}}
                             onMouseEnter={()=>{
                                 document.querySelector('.visorButtonPlay').src=playIconb
@@ -90,7 +90,7 @@ const Visor = () => {
                                 document.querySelector('.visorButtonPlay').src=playIconn
                             }}
                             >
-                            <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{visorBtn1}</button></Link></li>
+                            <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{visorBtn1? visorBtn1 : 'Ver más'}</button></Link></li>
                         <li><button className='button2'>Más información</button></li>
                     </ul>
                     <ul className='visorIcons'>
