@@ -3,6 +3,7 @@ import s from "./css/Slider.module.css";
 import Visor from './Visor';
 import Footer from '../Utils/Footer';
 import Slider from './Slider';
+import Sort from '../Utils/Sort';
 import { BodyCss } from '../../functions/BodyCss';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -40,8 +41,8 @@ const Browser = () => {
         visorList?
             ([...new Set(categoryList)].map(e=>
             {
-                if(id === 0){ id++; return <Slider titulo={'Contenido'} category={visorList} style={s} id={`s`}key={`s`}/>}
-                else{id = e.id; return <Slider titulo={e} category={sliderCategoria(e)} style={s} id={`s${e.id}`} key={`s${e}`}/>}
+                if(id === 0){ id++; return <Slider titulo={'Contenido'} categories={visorList} style={s} id={`s`}key={`s`}/>}
+                else{id = e.id; return <Slider titulo={e} categories={sliderCategoria(e)} style={s} id={`s${e.id}`} key={`s${e}`}/>}
             }
         )) : dispatch(getPosts())
     }

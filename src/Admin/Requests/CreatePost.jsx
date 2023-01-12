@@ -14,7 +14,7 @@ const CreatePost = () => {
       e.target.name !== "title" &&
       e.target.name !== "artist" &&
       e.target.name !== "info" &&
-      e.target.name !== "category"
+      e.target.name !== "categories"
     ) {
       console.log("la imagen", e.target.files[0]);
       setData({
@@ -35,7 +35,7 @@ const CreatePost = () => {
     info: "",
     category: [],
     genre: [],
-    category: [],
+    categories: [],
     idLinkYT: "",
   });
 
@@ -78,7 +78,7 @@ const CreatePost = () => {
     },
   ];
 
-  const optionsCategory = [
+  const optionsCategories = [
     {
       slot: 1,
       name: "Sello Arruinados",
@@ -110,16 +110,16 @@ const CreatePost = () => {
   ];
 
   const checkboxCat = (e) => {
-    if (data.category.includes(e.target.value)) {
-      data.category = data.category.filter((name) => name !== e.target.value);
+    if (data.categories.includes(e.target.value)) {
+      data.categories = data.categories.filter((name) => name !== e.target.value);
       setData({
         ...data,
-        category: data.category,
+        categories: data.categories,
       });
     } else {
       setData({
         ...data,
-        category: [...data.category, e.target.value],
+        categories: [...data.categories, e.target.value],
       });
     }
   };
@@ -150,9 +150,8 @@ const CreatePost = () => {
     formData.append("title", data.title);
     formData.append("artist", data.artist);
     formData.append("info", data.info);
-    formData.append("category", data.category);
+    formData.append("categories", data.categories);
     formData.append("genre", data.genre);
-    formData.append("category", data.category);
     formData.append("idYT", data.idLinkYT);
     dispatch(postPost(formData));
     setData({
@@ -163,7 +162,7 @@ const CreatePost = () => {
       imageVisor: null,
       imageSlider: null,
       genre: [],
-      category: [],
+      categories: [],
       idLinkYT: "",
     });
   };
@@ -240,7 +239,7 @@ const CreatePost = () => {
               <div>
               <h1>Categoria</h1>
               <div className={styles.types}>
-                {optionsCategory?.map((t) => (
+                {optionsCategories?.map((t) => (
                   <div key={`${t.name}-${t.slot}`}>
                     <input
                       type="checkbox"

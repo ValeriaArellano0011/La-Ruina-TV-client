@@ -3,24 +3,24 @@ import SliderBtns from "./SliderBtns"
 
 const Slider = (props) =>{
     const tituloSlider = (props.titulo)
-    const categoria = (props.categoria)
+    const categories = (props.categories)
     const s = (props.style)
     const id = (props.id)
 
     return(
     <div className={s.sliderCont} >
         <h3>{tituloSlider}</h3>
-        <div className={s.sliderCategoria}>
+        <div className={s.slidercategories}>
             <div className={s.sliderContItems}>
                 <SliderBtns
                     name = {tituloSlider}
                     keyID = {id}
-                    categoria = {categoria}
+                    categories = {categories}
                     style = {s}
                 />
                 <Post
                     name = {tituloSlider}
-                    categoria = {categoria}
+                    categories = {categories}
                     keyID = {id}
                     key = {`${tituloSlider}Sldr`}
                     style = {s}

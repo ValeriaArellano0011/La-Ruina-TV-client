@@ -13,7 +13,7 @@ const Post = (props) => {
             {
                 props?
                 (
-                    props.category.map(e=>{
+                    props.categories.map(e=>{
                     return(
                         <li value={e.id} key={e.id}>
                             <div className={s.sliderItem}>
