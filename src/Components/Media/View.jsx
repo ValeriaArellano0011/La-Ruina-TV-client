@@ -4,14 +4,16 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getInfo, getMediaType } from '../../middlewares/redux/actions'
+import { getIdYT, getInfo, getMediaType } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
+import Player from './Player'
 
 const View = () => {
     const dispatch = useDispatch()
     const {id, typeMedia, urlid}= useParams()
     const typeMediaList = useSelector(state =>state.typeMediaList)
     const infoDetailViewer = useSelector(state =>state.infoDetailViewer)
+    const idYT = useSelector(state=>state.ytPlayerState)
     const [type, setType] = useState([])
     const [mediaLink, setMediaLink] = useState({})
     useEffect(()=>{
@@ -25,7 +27,6 @@ const View = () => {
     useEffect(()=>{
         setMediaLink(urlid)
     },[setMediaLink, urlid])
-
     return (
         <div>
             <div className='visor'>
@@ -50,13 +51,24 @@ const View = () => {
                                     el.map((e)=>{
                                     return(
                                         <li className='viewLiImg' key={e}><a href={`${e.url}${mediaLink}`}><img className='viewLiIcon' src={e.img} alt="" /></a></li>
-                                    )
-                                }))
+                                        )
+                                    }))
                                 })
-
                             }
                         </ul>
-                        <Link to={`/play/p=:urlid=_type_=:typeMedia=_id_=mZiusH3M8Uc`}><button className='buttonVer'>Ver ahora</button></Link>
+                        <Player idYT={idYT} />
+                        {infoDetailViewer?
+                        
+                        <button onClick={()=>{
+                            return (
+                            dispatch(getIdYT(infoDetailViewer.urlID.idYT)),
+                            document.querySelector('.playerCont').style.opacity='1',
+                            document.querySelector('.playerLi').style.scale='1',
+                            document.querySelector('.playUl').style.scale='1'
+                            )}}
+                            className='buttonVer'>Ver ahora</button>
+                        : null
+                        }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
                     </div>
                     </div>

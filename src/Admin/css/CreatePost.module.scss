@@ -1,0 +1,67 @@
+.createBody {
+  width: 100vw;
+  height: auto;
+}
+
+.CreateProduct {
+  position: absolute;
+  color: #000000;
+  margin-top: 80px;
+  width: 100vw;
+  height: auto;
+  border-radius: 20px;
+  text-align: center;
+  .types {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+      border-radius: 20px;
+      margin: 7px;
+    }
+
+    input[type="checkbox"]:checked + label {
+      background: rgba(105, 105, 104, 0.7);
+    }
+
+    input[type="checkbox"]:checked + label:hover {
+      background: rgba(105, 105, 104, 0.7);
+    }
+  }
+
+  label {
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 7px;
+  }
+
+  input[type="checkbox"]:checked + label {
+    background: rgba(105, 105, 104, 0.7);
+  }
+
+  input[type="checkbox"]:checked + label:hover {
+    background: rgba(105, 105, 104, 0.7);
+  }
+}
+
+.submit {
+  margin-top: 20px;
+  padding: 0.6em 0.8em;
+  width: 100px;
+  //background-color: $secondary;
+  color: white;
+  background-color: rgb(32, 32, 32);
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  margin-bottom: 30px;
+}

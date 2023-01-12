@@ -35,19 +35,18 @@ const Enter = () => {
             }
             >Iniciar sesión</button>
             </li></Link>
+            <li><button 
+            className={style.button2}
+            onClick={()=>
+              {
+                  document.querySelector('#welcomeCont').style.opacity="0"
+                  document.querySelector('.CreateAccountBody').style.transitionDuration="1s"
+                  document.querySelector('.CreateAccountBody').style.transform="translate(0)"
+              }   
+            }       
+            >Crear cuenta</button></li>
+        </ul>
 
-                    <li><button 
-                    className={style.button2}
-                    onClick={()=>
-                      {
-                          document.querySelector('#welcomeCont').style.opacity="0"
-                          document.querySelector('.CreateAccountBody').style.transitionDuration="1s"
-                          document.querySelector('.CreateAccountBody').style.transform="translate(0)"
-                      }   
-                    }       
-                    
-                    >Crear cuenta</button></li>
-                </ul>
       </div>
       
 

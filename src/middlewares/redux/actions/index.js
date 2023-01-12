@@ -16,27 +16,47 @@ import {
     GET_PRODUCTS,
     GET_PRODUCT_DETAILS,
     POST_PRODUCT,   
-    POST_POST
+    POST_POST,
+    RESET_PRODUCT_DETAILS,
+    GET_IDYT,
+    RESET_IDYT
     } from '../../misc'
 
 /*-----------------Admin----------------*/
     export const postProduct = (post) => {
-        console.log(post)
         return async function (dispatch) {
-            let json = await axios.post(`${URL_API}/post/product`, post);
+            let json = await axios.post(`http://localhost:8080/post/product`, post);
             return dispatch ({
                 type: POST_PRODUCT,
                 payload: json.data
             })
         }
     };
-    export const postPost = (post) => {
-        console.log(post)
+    export const postPost = (formData) => {
         return async function (dispatch) {
-            let json = await axios.post(`${URL_API}/post/product`, post);
+
+
+            const response = await axios.post(
+                `http://localhost:8080/media/upload`,
+                formData,
+                {headers: {'Content-Type': 'multipart/form-data'}}
+              );
+
+            
             return dispatch ({
                 type: POST_POST,
-                payload: json.data
+                payload: response.data
+            })
+        }
+    };
+    export const holis = () => {
+        return async function (dispatch) {
+            const response = await axios.get(
+                `http://localhost:8080/media/getall`
+            );
+            return dispatch ({
+                type: 'GETALLlll',
+                payload: response.data
             })
         }
     };
@@ -54,12 +74,10 @@ export function resetOption() {
         type: RESET_OPTION
     })
 }
-
 export function login(email, password){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/users/login`, {email, password})
         .then(res => {
-            console.log("userData: ", res.data.msg)
             dispatch({
                 type: LOGIN,
                 payload: res.data
@@ -91,18 +109,31 @@ export const signup =
 };
 
 /*----------------Posts----------------*/
-export function getPosts() {
-    return async function(dispatch) {
-        await axios.get(`${URL_API}/posts/getall`)
-        .then(res =>{
-            dispatch({
-                type: GET_POSTS,
-                payload: res.data
-            })
-        })
-        .catch(e => console.log(e))
+export function getIdYT(idYT) {
+    return {
+        type: GET_IDYT,
+        payload: idYT
     }
 }
+export function resetIdYT() {
+    return {
+        type: RESET_IDYT
+    }
+}
+
+// export function getPosts() {
+//     return async function(dispatch) {
+//         await axios.get(`${URL_API}/posts/getall`)
+//         .then(res =>{
+//             console.log('el res del front',res)
+//             dispatch({
+//                 type: GET_POSTS,
+//                 payload: res.data
+//             })
+//         })
+//         .catch(e => console.log(e))
+//     }
+// }
 
 export function getInfo(id) {
     return async function(dispatch) {
@@ -142,8 +173,7 @@ export function getMediaUrl(mediainfo) {
 
 export function resetMedia() {
     return {
-        type: RESET_MEDIA,
-        payload: []
+        type: RESET_MEDIA
     }
 }
 
@@ -184,6 +214,12 @@ export function getProductDetails(id) {
             })
         })
         .catch(e => console.log(e))
+    }
+}
+
+export function resetProductDetails() {
+    return {
+        type: RESET_PRODUCT_DETAILS
     }
 }
 

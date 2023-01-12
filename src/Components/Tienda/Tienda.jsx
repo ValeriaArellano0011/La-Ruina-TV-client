@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { BodyCss } from '../../functions/BodyCss'
-import { getProducts } from '../../middlewares/redux/actions'
 import Products from './Products'
+import Footer from '../Utils/Footer'
 import s from './css/Tienda.module.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProducts, resetProductDetails } from '../../middlewares/redux/actions'
+import { BodyCss } from '../../functions/BodyCss'
 import { Link } from 'react-router-dom'
 
 export const Tienda = () => {
@@ -11,32 +12,42 @@ export const Tienda = () => {
   const dispatch = useDispatch()
   const products = useSelector(state=>state.products)
   useEffect(()=>{
+    dispatch(resetProductDetails())
     dispatch(getProducts())
   },[dispatch])
   return (
     <div className={s.tiendaCont}>
-      <ul className={s.ulProducts}>
-        <h1>Merchandising</h1>
+      <div className={s.tiendaBg}>
+        <div className={s.tiendaSliderCont}>
+          <h1 className={s.tiendaTituloSlider}>Bienvenidos a la tienda oficial de La Ruina Records</h1>
+          <img classname={s.tiendaSlider} src="" alt="" />
+          <div className='bgNav'></div>
+        </div>
+        <ul className={s.ulTitle}>
+          <h1 className={s.tiendaMerch}>Merchandising</h1>
         <ul className={s.ulProducts}>
-        {
-          products?.map(e => {
-            return(
-            <>  
-              <Link to={`/tienda/product/${e.idProduct}`}><li key={e.idProduct}>
-                <Products 
-                  idProduct={e.idProduct} 
-                  typeProduct={e.typeProduct} 
-                  nameMerch={e.nameMerch} 
-                  stock={e.stock} 
-                  idImg={e.idImg} />
-              </li></Link>
-            </>  
-              )
-            }
-          )
-        }
-      </ul>
-      </ul>
+          {
+            products?
+            products.map(e => {
+              return(
+              <>  
+                <Link to={`/tienda/product/${e.idProduct}`}><li key={products.indexOf(e)}>
+                  <Products 
+                    idProduct={e.idProduct} 
+                    typeProduct={e.typeProduct} 
+                    nameMerch={e.nameMerch} 
+                    stock={e.stock} 
+                    idImg={e.idImg} />
+                </li></Link>
+              </>  
+                )
+              }
+            ) : null
+          }
+          </ul>
+        </ul>
+      </div>
+      <Footer />
     </div>
   )
 }

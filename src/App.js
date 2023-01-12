@@ -2,7 +2,6 @@ import './App.css';
 import Nav from './Components/Utils/Nav';
 import Browser from './Components/Browser/Browser';
 import View from './Components/Media/View';
-import Play from './Components/Media/Play';
 import { Tienda } from './Components/Tienda/Tienda';
 import { Colaborar } from './Components/Colaborar/Colaborar';
 import { Novedades } from './Components/Novedades/Novedades';
@@ -15,13 +14,12 @@ import CreatePost from './Admin/Requests/CreatePost';
 import Product from './Components/Tienda/Product';
 
 function App() {
-  
   return (
       <div className="App">
           <Switch>
-          <Route exact path='/'>
-              <Redirect to='/browser' />
-          </Route>
+            <Route exact path='/'>
+                <Redirect to='/browser' />
+            </Route>
             <div>
               <Nav/>
               <div className='bodyApp'>
@@ -43,9 +41,6 @@ function App() {
               </Route>
               <Route path={'/tienda/product/:id'}>
                 <Product />
-              </Route>
-              <Route path={'/play/p=:urlid=_type_=:typeMedia=_id_=:id'}>
-                <Play />
               </Route>
               <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
                 <View />
