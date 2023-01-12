@@ -14,7 +14,7 @@ const Browser = () => {
     const dispatch = useDispatch()
     const visorList = useSelector(state=>state.postList)
     const categoryList = useSelector(state=>state.categoryList)
-    const sliderCategoria = (categories) => visorList.filter(e=>e.categories.find(el=>el===categories))
+    const sliderCategoria = (categories) => visorList.filter(e=> {return e.categories.find(el=>el===categories)})
     useEffect(()=>{
         dispatch(resetOption())
         dispatch(resetMedia())
@@ -43,12 +43,12 @@ const Browser = () => {
                 if(id === 0){ id++; return <Slider titulo={'Contenido'} categories={visorList} style={s} id={`s`}key={`s`}/>}
                 else{id = e.id; return <Slider titulo={e} categories={sliderCategoria(e)} style={s} id={`s${e.id}`} key={`s${e}`}/>}
             }
-        )) : getPosts()
+        )) : null
     }
 
 {/* ---------------------FOOTER--------------------- */}
 
-        {visorList.length>1? <Footer/> : getPosts()}
+        {visorList.length>1? <Footer/> : null}
 
         </div>
     )

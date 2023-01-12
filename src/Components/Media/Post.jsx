@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Post = (props) => {
     const key = (props.keyID)
     const s = (props.style)
+    console.log(props)
     return (
         <div className={s.sliderItems}>
             <ul className={s.sliderListaItems}
@@ -17,7 +18,7 @@ const Post = (props) => {
                     return(
                         <li value={e.id} key={e.id}>
                             <div className={s.sliderItem}>
-                            <Link to={`/view/v=${e.idMedia.idYT}=_type_=${e.typeMedia}=_id_=${e.id}`}>
+                            <Link to={`/view/v=${e.idMedia.idYT}=_type_=${e.mediaType}=_id_=${e.id}`}>
                             <button
                             className={s.media} style={{backgroundImage: e.sliderImage ? `url(${e.sliderImage})` :'error'}}
                             id={e.id}

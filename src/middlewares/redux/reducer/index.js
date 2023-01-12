@@ -64,7 +64,7 @@ const initialState = {
         {
             id:[''],
             idMedia:[''],
-            typeMedia:[''],
+            mediaType:[''],
             title:[''],
             artist:[''],
             tag:[''],

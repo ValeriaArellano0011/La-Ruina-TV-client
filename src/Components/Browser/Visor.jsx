@@ -22,7 +22,7 @@ const Visor = () => {
     const [visorTitle, setVisorTitulo] = useState()
     const [visorArtist, setVisorArtista] = useState()
     const [visorTypeMedia, setVisorTypeMedia] = useState()
-    const {idMedia, id, visorImage, artist, title, typeMedia, tag, icon, actionButton, info} = nextVisor? nextVisor.at(0) : nextVisor
+    const {idMedia, id, visorImage, artist, title, mediaType, tag, icon, actionButton, info} = nextVisor? nextVisor.at(0) : nextVisor
     useEffect(() => {
         let inf = 99999+cont
         const max = visorList? visorList.length : 0
@@ -41,7 +41,7 @@ const Visor = () => {
             setVisorUrlID(idMedia)
             setVisorTitulo(title)
             setVisorArtista(artist)
-            setVisorTypeMedia(typeMedia)
+            setVisorTypeMedia(mediaType)
                         
             document.querySelector('.visorPostInfo').style.animationName='infoScale'
             document.querySelector('.visorPostInfo').style.animationIterationCount=inf
@@ -53,7 +53,7 @@ const Visor = () => {
             document.querySelector(`.visor`).style.transform='translateX(0)'
         }, timeInterval*1000)
         return () =>  (clearInterval(interval, timeInterval))
-    },[actionButton, idMedia, id, visorImage, artist, title, typeMedia, tag, icon, info, cont, visorList, dispatch])
+    },[actionButton, idMedia, id, visorImage, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
 
 
     return(

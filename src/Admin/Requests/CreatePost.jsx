@@ -193,8 +193,8 @@ const CreatePost = () => {
     formData.append("info", data.info);
     formData.append("categories", data.categories);
     formData.append("genre", data.genre);
-    formData.append("idYT", data.idLinkYT);
-    formData.append("mediaType", data.idLinkYT);
+    formData.append("idLinkYT", data.idLinkYT);
+    formData.append("mediaType", data.mediaType);
     formData.append("idLinkSPOTY", data.idLinkSPOTY);
     formData.append("idLinkDRIVE", data.idLinkDRIVE);
     formData.append("urlLinkWEB", data.urlLinkWEB);
