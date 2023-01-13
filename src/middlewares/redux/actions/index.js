@@ -19,7 +19,8 @@ import {
     POST_POST,
     RESET_PRODUCT_DETAILS,
     GET_IDYT,
-    RESET_IDYT
+    RESET_IDYT,
+    GET_MUSIC_NAME
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -78,7 +79,7 @@ export async function googleAuth(){
 
 function LoginButton() {
     const handleLogin = async () => {
-      const response = await axios.get('http://localhost:3000/auth/google');
+      const response = await axios.get(`${URL_API}/auth/google`);
       const token = response.data.token;
       localStorage.setItem('token', token);
     };
@@ -244,8 +245,18 @@ export function loadingSearchSet(){
 
 }
 
-export function searchMedia(){
-
+export function getMusicName(name){
+    return async (dispatch) => {
+        try {
+            const searchMusic = await axios(`${URL_API}/search?name=${name}`);
+            return dispatch({
+                type: GET_MUSIC_NAME,
+                payload: searchMusic.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export function searchStateChange(){

@@ -10,9 +10,9 @@ export const BackButton = () => {
     return (
         <div className={s.BackButton}>      
             <button
-                    className={s.BackButton} 
-                    onClick={()=>{
-                        return(
+                className={s.BackButton} 
+                onClick={()=>{
+                    return(
                         dispatch(resetOption()),
                         BodyCss(),
                         document.querySelector(`.bodyApp`).style.transform='translateX(0)',
@@ -24,10 +24,9 @@ export const BackButton = () => {
                         document.querySelector(`.browserBody`).style.overflowY='scroll',
                         document.querySelector(`.visor`).style.transform='translateX(0)',
                         document.querySelector('#slideCanvasCont').style.overflowY="scroll"
-                        )}}
-        >
-        <img className={s.backIcon} src={backIcon} alt='backIcon' width='15px' />
-            Volver
+                    )
+                }
+            }><img className={s.backIcon} src={backIcon} alt='backIcon' width='15px' />Volver
         </button>
     </div>
   )

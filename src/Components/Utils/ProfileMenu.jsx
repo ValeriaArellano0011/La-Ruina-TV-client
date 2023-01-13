@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './css/ProfileMenu.module.css';
-import profileMenuCss from './css/ProfileMenu';
-import handlerOptionCanvas from '../../handlers/handlerOptionCanvas';
-import btnMenuTv from '../../design/ruinatv-icon-play-b.png';
 import userIcon from '../../design/user-icon.png';
+import btnMenuTv from '../../design/ruinatv-icon-play-b.png';
+import profileMenuCss from './css/ProfileMenu';
+import OptionCanvas from '../../functions/OptionCanvas';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOption } from '../../middlewares/redux/actions';
 
@@ -14,7 +14,7 @@ export const ProfileMenu = () => {
   function onClickValue(e){
     return (
       dispatch(getOption(e.target.value)),
-      handlerOptionCanvas(e.target.value)
+      OptionCanvas(e.target.value)
       )}
   return (
     <div>

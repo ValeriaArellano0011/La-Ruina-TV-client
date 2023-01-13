@@ -4,6 +4,7 @@ import searchIcon from '../../design/search-icon.png';
 import { useDispatch } from "react-redux";
 import { searchBarFunction } from './css/SearchBar';
 import { useState } from "react";
+import { getMusicName } from "../../middlewares/redux/actions";
 
 export default function SearchBar(){
     const dispatch = useDispatch()
@@ -17,7 +18,7 @@ export default function SearchBar(){
 
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(/*ACA VA LA LLAMADA (actions)*/(name));
+        dispatch(getMusicName(name));
         setName("")
     }
 

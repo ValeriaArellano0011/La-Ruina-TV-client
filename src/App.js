@@ -16,50 +16,50 @@ import Verify from './Components/Auth/Verify';
 
 function App() {
   return (
-      <div className="App">
-          <Switch>
-            <Route exact path='/'>
-                <Redirect to='/browser' />
-            </Route>
-            <div>
-              <Nav/>
-              <div className='bodyApp'>
-              <SlideCanvas />
-              <Route exact path='/browser'>
-                <Browser />
-              </Route>
-              <Route path='/verify'>
-                <Verify/>
-              </Route>
-              <Route exact path='/novedades'>
-                <Novedades />
-              </Route>
-              <Route exact path='/lanzamientos'>
-                <Lanzamientos />
-              </Route>
-              <Route exact path='/colaborar'>
-                <Colaborar />
-              </Route>
-              <Route exact path='/tienda'>
-                <Tienda />
-              </Route>
-              <Route path={'/tienda/product/:id'}>
-                <Product />
-              </Route>
-              <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
-                <View />
-              </Route>
-              <Route exact path='/product/create'>
-                <CreateProduct/>
-              </Route>
-              <Route exact path='/post/create'>
-                <CreatePost/>
-              </Route>
-              </div>
-            </div>
-          </Switch>
-      </div>
-    )
+    <div className="App">
+      <Switch>
+        <>
+          <Nav/>
+          <div className='bodyApp'>
+          <Route exact path='/'>
+              <Redirect to='/browser' />
+          </Route>
+          <SlideCanvas />
+          <Route exact path='/browser'>
+            <Browser />
+          </Route>
+          <Route path='/verify'>
+            <Verify/>
+          </Route>
+          <Route exact path='/novedades'>
+            <Novedades />
+          </Route>
+          <Route exact path='/lanzamientos'>
+            <Lanzamientos />
+          </Route>
+          <Route exact path='/colaborar'>
+            <Colaborar />
+          </Route>
+          <Route exact path='/tienda'>
+            <Tienda />
+          </Route>
+          <Route path={'/tienda/product/:id'}>
+            <Product />
+          </Route>
+          <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
+            <View />
+          </Route>
+          <Route exact path='/product/create'>
+            <CreateProduct/>
+          </Route>
+          <Route exact path='/post/create'>
+            <CreatePost/>
+          </Route>
+          </div>
+        </>
+      </Switch>
+    </div>
+  )
 }
 
 export default App;

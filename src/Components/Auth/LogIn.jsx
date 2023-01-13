@@ -1,6 +1,7 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { login } from '../../middlewares/redux/actions';
 import { authCss } from './css/authCss';
 import s from './css/LogIn.module.css'
@@ -9,13 +10,16 @@ import GoogleSignUp from './GoogleSignUp'
 const LogIn = () => {
     const dispatch = useDispatch();
     const currentUser = useSelector(state=>state.currentUser)
-    
+    const history = useHistory()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     // const [errors, setErrors] = useState({
     //     userName: '',
     //     contraseña: ''
     // })
+    useEffect(()=>{
+      currentUser && history.push('/browser')
+    })
   return (
     <div className='LogInBody'>
         <div className='formCont'>
@@ -34,18 +38,15 @@ const LogIn = () => {
                   return(
                   e.preventDefault(),
                   dispatch(login(email, password)))
+  
                 }}
                 >Entrar</button></li>
                 </form>
           </ul>
+          <h3 style={{color: 'white', fontWeigth: 'thin'}} >o ingresa a través de</h3>
           <GoogleSignUp />
         </div>
         <ul className={s.btn_ul}>
-                <li><button 
-                className='button2'
-                onClick={()=> authCss('cancelLogIn')}>
-                Cancelar
-                </button></li>
                 <button 
                 className='tog'
                 onClick={() => authCss('togCreate')}
