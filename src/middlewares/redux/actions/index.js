@@ -71,6 +71,25 @@ export function resetOption() {
         type: RESET_OPTION
     })
 }
+
+export async function googleAuth(){
+    return await axios.get(`${URL_API}/auth/google`)
+}
+
+function LoginButton() {
+    const handleLogin = async () => {
+      const response = await axios.get('http://localhost:3000/auth/google');
+      const token = response.data.token;
+      localStorage.setItem('token', token);
+    };
+  
+    return (
+      <button onClick={handleLogin}>
+        Login with Google
+      </button>
+    );
+  }
+
 export function login(email, password){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/users/login`, {email, password})

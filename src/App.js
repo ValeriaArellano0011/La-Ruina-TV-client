@@ -12,6 +12,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import CreateProduct from './Admin/Requests/CreateProduct';
 import CreatePost from './Admin/Requests/CreatePost';
 import Product from './Components/Tienda/Product';
+import Verify from './Components/Auth/Verify';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
               <SlideCanvas />
               <Route exact path='/browser'>
                 <Browser />
+              </Route>
+              <Route path='/verify'>
+                <Verify/>
               </Route>
               <Route exact path='/novedades'>
                 <Novedades />

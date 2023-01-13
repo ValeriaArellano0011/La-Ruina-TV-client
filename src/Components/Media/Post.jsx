@@ -3,7 +3,6 @@ import playIconn from "../../design/ruinatv-icon-play-n.png";
 import { Link } from "react-router-dom";
 
 const Post = ({ cardList, style }) => {
-  console.log('LA cardList: ', cardList)
   return (
     <div className={style.sliderItems}>
       <ul
