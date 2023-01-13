@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Dashboard from '../../Admin/Dashboard/Dashboard'
+import Profile from '../../Admin/Profile/Profile'
 import Enter from '../Enter/Enter'
 import { BackButton } from './BackButton'
 import s from './css/SlideCanvas.module.css'
@@ -18,7 +19,7 @@ export const SlideCanvas = () => {
                         :
                         (option === 'logout')? <><BackButton/></> 
                         :                 
-                        (option === 'profile')? <><BackButton/></>
+                        (option === 'profile')? <><Profile/></>
                         :
                         (option === 'configuration')? <><BackButton/></>
                         :null
