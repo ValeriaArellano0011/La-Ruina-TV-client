@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import CreateAccount from '../Auth/CreateAccount'
 import LogIn from '../Auth/LogIn'
 import style from './css/Enter.module.css'
-import { EnterCss } from './css/EnterCss'
+import { EnterCss } from './js/EnterCss'
 
 const Enter = () => {
   EnterCss()
@@ -22,8 +22,6 @@ const Enter = () => {
       {/* <h1>CREÁ, COMPARTÍ Y DISFRUTÁ DE TODO NUESTRO CONTENIDO MULTIMEDIA</h1> */}
       <h1>ENTRÁ BOBO, VENÍ PARA ACÁ</h1>
         <ul className={style.welcomeUl}>
-
-        <Link to='/browser'><li>
           <button 
             className={style.button1}
             onClick={()=>
@@ -34,20 +32,18 @@ const Enter = () => {
               }   
             }
             >Iniciar sesión</button>
-            </li></Link>
+            <li><button 
+            className={style.button2}
+            onClick={()=>
+              {
+                  document.querySelector('#welcomeCont').style.opacity="0"
+                  document.querySelector('.CreateAccountBody').style.transitionDuration="1s"
+                  document.querySelector('.CreateAccountBody').style.transform="translate(0)"
+              }   
+            }       
+            >Crear cuenta</button></li>
+        </ul>
 
-                    <li><button 
-                    className={style.button2}
-                    onClick={()=>
-                      {
-                          document.querySelector('#welcomeCont').style.opacity="0"
-                          document.querySelector('.CreateAccountBody').style.transitionDuration="1s"
-                          document.querySelector('.CreateAccountBody').style.transform="translate(0)"
-                      }   
-                    }       
-                    
-                    >Crear cuenta</button></li>
-                </ul>
       </div>
       
 

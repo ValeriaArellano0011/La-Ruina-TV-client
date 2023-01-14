@@ -27,7 +27,7 @@ const Requests = () => {
         Crear Producto
         </button>
       </Link>
-      <Link to='/post/create'>
+      <Link to='/media/create'>
         <button 
           className={s.crearPost}
           onClick={()=>{
@@ -43,7 +43,7 @@ const Requests = () => {
             document.querySelector(`.visor`).style.transform='translateX(0)',
             document.querySelector('#slideCanvasCont').style.overflowY="scroll"
             )}}>
-        Crear Post
+        Crear Media
         </button>
       </Link>
     </div>

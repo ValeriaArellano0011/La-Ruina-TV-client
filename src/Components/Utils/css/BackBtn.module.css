@@ -4,4 +4,17 @@
     color: aliceblue;
     background-color: transparent;
     border: none;
+    opacity: .8;
+}
+
+.backIcon{
+    rotate: 180deg;
+    margin-right: 5px;
+    opacity: .8;
+}
+.BackButton,.backIcon{
+    transition-duration: 1s;
+}
+.BackButton:hover,.backIcon:hover{
+    opacity: 1;
 }

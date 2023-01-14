@@ -1,0 +1,12 @@
+.infoCont{
+    width: 800px;
+    height: 450px;
+    background-color: #171717;
+    position: fixed;
+    top: 85px;
+    right: 40px;
+    border-radius: 5px;
+    scale: 0;
+    transition-duration: 1s;
+    z-index: 99999999999999;
+}

@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
-import ruinaLogo from '../../design/ruina-logo.png';
-import s from './css/Nav.module.css'
-import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
-import { ProfileMenu } from './ProfileMenu';
-import { EnterBtn } from './EnterBtn';
-
-import navBack from './css/Nav';
 import { useDispatch, useSelector } from 'react-redux';
+import s from './css/Nav.module.css'
+import ruinaLogo from '../../design/ruina-logo.png';
+
+import navBack from './js/Nav';
 import { resetOption } from '../../middlewares/redux/actions';
+
+import SearchBar from './SearchBar';
+import { EnterBtn } from './EnterBtn';
 import { BackButton } from './BackButton';
+import { ProfileMenu } from './ProfileMenu';
+import { _GOD_MODE_ } from '../../middlewares/redux/actions';
+import { GOD__MODE } from '../../Admin/Requests/GOD__MODE';
+
 
 const Nav = () => {
     const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
     const option = useSelector(state=>state.option)
     const currentUser = useSelector(state=>state.currentUser)
+    const userAlias = localStorage.getItem('auth')
     window.onscroll = function() {navBack(setPosNav, posNav)};
     return (
 
@@ -43,6 +48,7 @@ const Nav = () => {
                         )}}
                 />
             </Link>
+        <GOD__MODE/>
         </div>
         <ul className='navMenu'>
             <li
@@ -122,7 +128,7 @@ const Nav = () => {
             <ul className='navSearchBar'>
                 <li><SearchBar/></li>
                 <ul className={s.profileMenuBtn}>
-                    {!currentUser? (option==='login'? <li><BackButton /></li> : <li><EnterBtn /></li>) :<li><ProfileMenu/></li>}
+                    {!(userAlias || currentUser)? (option==='login'? <li><BackButton /></li> : <li><EnterBtn /></li>) :<li><ProfileMenu/></li>}
                 </ul>
             </ul>
         </ul>

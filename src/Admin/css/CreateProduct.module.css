@@ -1,11 +1,17 @@
+.createBody{
+    width: 100vw;
+    height: auto;
+  }
+
 .CreateProduct {
-    position: relative;
+    position: absolute;
     margin-top: 10px;
     color: #000000;
     width: 100vw;
     height: auto;
     border-radius: 20px;
     text-align: center;
+    z-index: 1;
 }
 
 .formCont {

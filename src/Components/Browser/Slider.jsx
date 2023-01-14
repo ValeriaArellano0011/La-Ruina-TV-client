@@ -1,28 +1,27 @@
-import Post from "../Media/Post"
-import SliderBtns from "./SliderBtns"
+import Media from "../Media/Media"
+import SliderBtns from "../Utils/SliderBtns"
 
 const Slider = (props) =>{
-    const tituloSlider = (props.titulo)
-    const categoria = (props.categoria)
+    const sliderTitle = (props.title)
+    const cardList = (props.cardList)
     const s = (props.style)
     const id = (props.id)
 
     return(
     <div className={s.sliderCont} >
-        <h3>{tituloSlider}</h3>
-        <div className={s.sliderCategoria}>
+        <h3>{sliderTitle}</h3>
+        <div className={s.slidercategories}>
             <div className={s.sliderContItems}>
                 <SliderBtns
-                    name = {tituloSlider}
+                    name = {sliderTitle}
                     keyID = {id}
-                    categoria = {categoria}
+                    categories = {cardList}
                     style = {s}
                 />
-                <Post
-                    name = {tituloSlider}
-                    categoria = {categoria}
+                <Media
+                    cardList = {cardList}
                     keyID = {id}
-                    key = {`${tituloSlider}Sldr`}
+                    key = {`${sliderTitle}Sldr`}
                     style = {s}
                 /> 
             </div>

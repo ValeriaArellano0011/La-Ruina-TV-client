@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { URL_API } from '../../misc/config'
 import { 
-    GET_POSTS, 
+    GET_MEDIA, 
     GET_INFO, 
     GET_CATEGORIAS, 
     GET_MEDIATYPE, 
@@ -16,12 +16,23 @@ import {
     GET_PRODUCTS,
     GET_PRODUCT_DETAILS,
     POST_PRODUCT,   
-    POST_POST
+    POST_MEDIA,
+    RESET_PRODUCT_DETAILS,
+    GET_IDYT,
+    RESET_IDYT,
+    GET_MUSIC_NAME,
+    __GOD_MODE__
     } from '../../misc'
 
 /*-----------------Admin----------------*/
+    export const _GOD_MODE_ = () => {
+        return async function (dispatch) {
+            return dispatch ({
+                type:'__GOD_MODE__'
+            })
+        }
+    };
     export const postProduct = (post) => {
-        console.log(post)
         return async function (dispatch) {
             let json = await axios.post(`${URL_API}/post/product`, post);
             return dispatch ({
@@ -30,24 +41,31 @@ import {
             })
         }
     };
-    export const postPost = (formData) => {
-        console.log(formData)
+    export const postMedia = (formData) => {
         return async function (dispatch) {
-
-
             const response = await axios.post(
                 `${URL_API}/media/upload`,
                 formData,
                 {headers: {'Content-Type': 'multipart/form-data'}}
               );
-
             
             return dispatch ({
-                type: POST_POST,
+                type: POST_MEDIA,
                 payload: response.data
             })
         }
     };
+    // export const getPosts = () => {
+    //     return async function (dispatch) {
+    //         const response = await axios.get(
+    //             `${URL_API}/media/getall`
+    //         );
+    //         return dispatch ({
+    //             type: GET_MEDIA,
+    //             payload: response.data
+    //         })
+    //     }
+    // };
 
 /*-----------------Auth----------------*/
 export function getOption(e) {
@@ -62,6 +80,25 @@ export function resetOption() {
         type: RESET_OPTION
     })
 }
+
+export async function googleAuth(){
+    return await axios.get(`${URL_API}/auth/google`)
+}
+
+function LoginButton() {
+    const handleLogin = async () => {
+      const response = await axios.get(`${URL_API}/auth/google`);
+      const token = response.data.token;
+      localStorage.setItem('token', token);
+    };
+  
+    return (
+      <button onClick={handleLogin}>
+        Login with Google
+      </button>
+    );
+  }
+
 export function login(email, password){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/users/login`, {email, password})
@@ -76,13 +113,14 @@ export function login(email, password){
         })
     }
 }
+
 export const signup =
   (alias, email, password) => async (dispatch) => {
     try {
         const response = await axios.post(`${URL_API}/users/signup`, {
-        alias,
-        email,
-        password
+      alias,
+      email,
+      password
     });
     const data = await response.data;
     return dispatch({
@@ -92,16 +130,29 @@ export const signup =
     } catch (error) {
         console.log(error)
     }
+
 };
 
-/*----------------Posts----------------*/
-export function getPosts() {
+/*----------------Media----------------*/
+export function getIdYT(idYT) {
+    return {
+        type: GET_IDYT,
+        payload: idYT
+    }
+}
+export function resetIdYT() {
+    return {
+        type: RESET_IDYT
+    }
+}
+
+export function getMedia() {
     return async function(dispatch) {
-        await axios.get(`${URL_API}/posts/getall`)
+        await axios.get(`${URL_API}/media/getall`)
         .then(res =>{
             console.log('el res del front',res)
             dispatch({
-                type: GET_POSTS,
+                type: GET_MEDIA,
                 payload: res.data
             })
         })
@@ -124,7 +175,7 @@ export function getInfo(id) {
 
 export function getCategorias(lista) {
     const listCat = []
-    lista.map((e)=>{return e.categoria.map(el=>{return listCat.push(el)})})
+    lista.map((e)=>{return e.categories.map(el=>{return listCat.push(el)})})
     return {
         type: GET_CATEGORIAS,
         payload: new Set(listCat)
@@ -191,13 +242,29 @@ export function getProductDetails(id) {
     }
 }
 
+export function resetProductDetails() {
+    return {
+        type: RESET_PRODUCT_DETAILS
+    }
+}
+
 /*------------Filter&Search------------*/
 export function loadingSearchSet(){
 
 }
 
-export function searchMedia(){
-
+export function getMusicName(name){
+    return async (dispatch) => {
+        try {
+            const searchMusic = await axios(`${URL_API}/search/name=${name}`);
+            return dispatch({
+                type: GET_MUSIC_NAME,
+                payload: searchMusic.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export function searchStateChange(){

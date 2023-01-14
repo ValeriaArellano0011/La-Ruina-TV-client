@@ -3,14 +3,19 @@ import {
     GET_CATEGORIAS, 
     GET_INFO,
     GET_MEDIATYPE, 
-    GET_POSTS,
+    GET_MEDIA,
     RESET_MEDIA,
     RESET_VISOR,
     OPTION,
     RESET_OPTION,
     LOGIN,
     GET_PRODUCTS,
-    POST_PRODUCT } from "../../misc";
+    POST_PRODUCT, 
+    GET_PRODUCT_DETAILS,
+    RESET_PRODUCT_DETAILS,
+    GET_IDYT,
+    __GOD_MODE__,
+    RESET_IDYT} from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -21,62 +26,64 @@ import iconDescarga from '../../../design/descarga-icon.png'
 const initialState = {
 
 /*----------------Admin----------------*/
-    adminUser: true,
+    rolUser: 'free', // roles: 'admin', 'subscriber', 'colaborator', 'free'
 
 /*----------------Auth----------------*/
     currentUser: false,
     option: '',
-
 /*----------------Media----------------*/
+    ytPlayerState: '',
     typeMediaList: 
         {
             musica:
                 {
-                    idYT:{url:'https://www.youtube.com/watch?v=', img:iconYT}, 
-                    idSpty:{url:'', img:iconSpty}, 
+                    idYT:{url:'', img:iconYT}, 
+                    idSpoty:{url:'', img:iconSpty}, 
                     idDrive:{url:'', img:iconDrive}
                 },
             serie:
                 {
-                    idYoutube:{url:'', img:iconYT},
-                    idSpty:{url:'', img:iconSpty}, 
+                    idYT:{url:'', img:iconYT},
+                    idSpoty:{url:'', img:iconSpty}, 
                     idDrive:{url:'', img:iconDrive},
                 },
             app: 
                 {
                     urlWeb:{url:'', img:iconWeb},
                     idDrive:{url:'', img:iconDrive},
-                    urlDescarga:{url:'', img:iconDescarga},
+                    urlDownload:{url:'', img:iconDescarga},
                 },
             libro:
                 {
                     urlWeb:{url:'', img:iconWeb},
                     idDrive:{url:'', img:iconDrive},
-                    urlDescarga:{url:'', img:iconDescarga},
+                    urlDownload:{url:'', img:iconDescarga},
                 }
     },
-    visorList: [
+    mediaList: [
         {
-            urlID:[''],
-            typeMedia:[''],
-            titulo:[''],
-            artista:[''],
+            id:[''],
+            idMedia:[''],
+            mediaType:[''],
+            title:[''],
+            artist:[''],
             tag:[''],
-            img:[''],
-            sliderImg:[''],
+            visorImage:[''],
+            sliderImage:[''],
             icon:[''],
-            categoria:[''],
-            boton1:[''],
-            info:['']
+            categories:[''],
+            actionButton:[''],
+            info:[''],
+            genre: ['']
         }
     ],
     nextVisor: false,
     infoDetailViewer: {urlID: {idYT:''}},
-    listaCategorias: [],
+    categoryList: ["Sello Arruinados", 'Música',  'Estudio "La Ruina Records"', "En vivo", "App y descargables", "Literatura", "Series"],
 
 /*----------------Tienda----------------*/
-    products: [],
-    productDetails: [],
+    products: false,
+    productDetails: [{idProduct:'', categoryProduct:'', typeProduct:'', nameMerch:'', stock:'', idImg:''}],
 
 /*------------Filter&Search------------*/
     filteredMedia: [],
@@ -85,20 +92,28 @@ const initialState = {
 
 /*--------------Pagination--------------*/
 
-}
+
 /*--------------Formulario--------------*/
+}
 
 
 
 export default function rootReducer(state = initialState, action){
     switch (action.type){
+/*----------------Admin----------------*/
+        case __GOD_MODE__:
+            return {
+            ...state,
+            rolUser: state.rolUser != 'admin'?  'admin' : 'free'
+            }
+
 /*----------------Auth----------------*/
 
         case LOGIN:
-            console.log(action.payload)
             return {
             ...state,
-            currentUser: action.payload.msg.userAlias
+            currentUser: action.payload.msg.userAlias,
+            rolUser: action.payload.msg.role
             }
         case OPTION:
             return{
@@ -121,12 +136,32 @@ export default function rootReducer(state = initialState, action){
                 ...state,
                 products: action.payload
             }
-
-/*----------------Media----------------*/
-        case GET_POSTS:
+        case GET_PRODUCT_DETAILS:
             return{
                 ...state,
-                visorList: action.payload,
+                productDetails: action.payload
+            }
+        case RESET_PRODUCT_DETAILS:
+            return{
+                ...state,
+                productDetails: [{idProduct:'', categoryProduct:'', typeProduct:'', nameMerch:'', stock:'', idImg:''}],
+            }
+
+/*----------------Media----------------*/
+        case GET_IDYT:
+            return{
+                ...state,
+                ytPlayerState: action.payload
+            }
+        case RESET_IDYT:
+            return{
+                ...state,
+                ytPlayerState: ''
+            }
+        case GET_MEDIA:
+            return{
+                ...state,
+                mediaList: action.payload
             }
         case GET_INFO:
             return{
@@ -140,7 +175,7 @@ export default function rootReducer(state = initialState, action){
         case GET_CATEGORIAS:
             return{
                 ...state,
-                listaCategorias: [...new Set([...state.listaCategorias, ...new Set(action.payload)].filter(e=> e !== ''))]
+                categoryList: [...new Set([...state.categoryList, ...new Set(action.payload)].filter(e=> e !== ''))]
             }
         case RESET_MEDIA:
             return{
@@ -150,7 +185,7 @@ export default function rootReducer(state = initialState, action){
         case NEXT_VISOR:
             return{
                 ...state,
-                nextVisor: state.visorList.length>1? [state.visorList[action.payload]] : false
+                nextVisor: state.mediaList.length>1? [state.mediaList[action.payload]] : false
             }
         case RESET_VISOR:
             return{
