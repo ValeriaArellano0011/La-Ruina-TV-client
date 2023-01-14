@@ -3,7 +3,7 @@ import {
     GET_CATEGORIAS, 
     GET_INFO,
     GET_MEDIATYPE, 
-    GET_POSTS,
+    GET_MEDIA,
     RESET_MEDIA,
     RESET_VISOR,
     OPTION,
@@ -14,6 +14,7 @@ import {
     GET_PRODUCT_DETAILS,
     RESET_PRODUCT_DETAILS,
     GET_IDYT,
+    __GOD_MODE__,
     RESET_IDYT} from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
@@ -30,7 +31,6 @@ const initialState = {
 /*----------------Auth----------------*/
     currentUser: false,
     option: '',
-
 /*----------------Media----------------*/
     ytPlayerState: '',
     typeMediaList: 
@@ -60,7 +60,7 @@ const initialState = {
                     urlDownload:{url:'', img:iconDescarga},
                 }
     },
-    postList: [
+    mediaList: [
         {
             id:[''],
             idMedia:[''],
@@ -91,6 +91,8 @@ const initialState = {
     mediaFound: {},
 
 /*--------------Pagination--------------*/
+
+
 /*--------------Formulario--------------*/
 }
 
@@ -98,12 +100,20 @@ const initialState = {
 
 export default function rootReducer(state = initialState, action){
     switch (action.type){
+/*----------------Admin----------------*/
+        case __GOD_MODE__:
+            return {
+            ...state,
+            rolUser: state.rolUser != 'admin'?  'admin' : 'free'
+            }
+
 /*----------------Auth----------------*/
 
         case LOGIN:
             return {
             ...state,
-            currentUser: action.payload.msg.userAlias
+            currentUser: action.payload.msg.userAlias,
+            rolUser: action.payload.msg.role
             }
         case OPTION:
             return{
@@ -148,10 +158,10 @@ export default function rootReducer(state = initialState, action){
                 ...state,
                 ytPlayerState: ''
             }
-        case GET_POSTS:
+        case GET_MEDIA:
             return{
                 ...state,
-                postList: action.payload
+                mediaList: action.payload
             }
         case GET_INFO:
             return{
@@ -175,7 +185,7 @@ export default function rootReducer(state = initialState, action){
         case NEXT_VISOR:
             return{
                 ...state,
-                nextVisor: state.postList.length>1? [state.postList[action.payload]] : false
+                nextVisor: state.mediaList.length>1? [state.mediaList[action.payload]] : false
             }
         case RESET_VISOR:
             return{

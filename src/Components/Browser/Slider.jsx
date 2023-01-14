@@ -1,5 +1,5 @@
-import Post from "../Media/Post"
-import SliderBtns from "./SliderBtns"
+import Media from "../Media/Media"
+import SliderBtns from "../Utils/SliderBtns"
 
 const Slider = (props) =>{
     const sliderTitle = (props.title)
@@ -18,7 +18,7 @@ const Slider = (props) =>{
                     categories = {cardList}
                     style = {s}
                 />
-                <Post
+                <Media
                     cardList = {cardList}
                     keyID = {id}
                     key = {`${sliderTitle}Sldr`}

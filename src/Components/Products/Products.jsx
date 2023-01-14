@@ -1,4 +1,4 @@
-import s from './css/Tienda.module.css'
+import s from '../Tienda/css/Tienda.module.css'
 
 const Products = (props) => {
   const { idProduct, typeProduct, nameMerch, stock, idImg } = props

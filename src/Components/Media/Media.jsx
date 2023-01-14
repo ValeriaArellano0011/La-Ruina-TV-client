@@ -2,7 +2,7 @@ import React from "react";
 import playIconn from "../../design/ruinatv-icon-play-n.png";
 import { Link } from "react-router-dom";
 
-const Post = ({ cardList, style }) => {
+const Media = ({ cardList, style }) => {
   return (
     <div className={style.sliderItems}>
       <ul
@@ -55,4 +55,4 @@ const Post = ({ cardList, style }) => {
     </div>
   );
 };
-export default Post;
+export default Media;

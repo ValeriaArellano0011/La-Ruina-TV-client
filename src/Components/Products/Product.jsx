@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getProductDetails } from "../../middlewares/redux/actions"
-import s from './css/Tienda.module.css'
+import s from '../Tienda/css/Tienda.module.css'
 
 export default function Product(){
     const dispatch = useDispatch()

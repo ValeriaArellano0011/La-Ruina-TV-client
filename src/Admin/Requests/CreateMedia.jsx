@@ -4,10 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import styles from "../css/CreatePost.module.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPosts, postPost } from "../../middlewares/redux/actions/index";
+import { getMedia, postMedia } from "../../middlewares/redux/actions/index";
 import { useHistory } from "react-router-dom";
 
-const CreatePost = () => {
+const CreateMedia = () => {
   const dispatch = useDispatch();
   const handleInputChange = (e) => {
     if (
@@ -200,7 +200,7 @@ const CreatePost = () => {
     formData.append("urlLinkWEB", data.urlLinkWEB);
     formData.append("urlLinkDOWNLOAD", data.urlLinkDOWNLOAD);
 
-    dispatch(postPost(formData));
+    dispatch(postMedia(formData));
     setData({
       title: "",
       artist: "",
@@ -276,6 +276,22 @@ const CreatePost = () => {
                   onChange={(e) => setImgVisor(e.target.files[0])}
                 />
               </p>
+              <h1>Media Type</h1>
+              <div className={styles.types}>
+                {optionsMediaType?.map((t) => (
+                  <div key={`${t.name}-${t.slot}`}>
+                    <input
+                      type="checkbox"
+                      name={t.name}
+                      value={t.name}
+                      id={t.name}
+                      onChange={(e) => checkboxMT(e)}
+                    />
+                    <label htmlFor={t.name}>{t.name}</label>
+                    {t.slot % 4 === 0 ? <br /> : null}
+                  </div>
+                ))}
+              </div>
               <p>
                 <label>Id del link de YouTube</label>
                 <br></br>
@@ -370,23 +386,6 @@ const CreatePost = () => {
                     </div>
                   ))}
                 </div>
-
-                <h1>Media Type</h1>
-                <div className={styles.types}>
-                  {optionsMediaType?.map((t) => (
-                    <div key={`${t.name}-${t.slot}`}>
-                      <input
-                        type="checkbox"
-                        name={t.name}
-                        value={t.name}
-                        id={t.name}
-                        onChange={(e) => checkboxMT(e)}
-                      />
-                      <label htmlFor={t.name}>{t.name}</label>
-                      {t.slot % 4 === 0 ? <br /> : null}
-                    </div>
-                  ))}
-                </div>
                 <input
                   type="submit"
                   value="Publicar"
@@ -396,11 +395,11 @@ const CreatePost = () => {
               </div>
             </div>
           </form>
-          <button onClick={() => dispatch(getPosts())}>DONT CLICK ME</button>
+          <button onClick={() => dispatch(getMedia())}>DONT CLICK ME</button>
         </Card>
       </div>
     </div>
   );
 };
 
-export default CreatePost;
+export default CreateMedia;

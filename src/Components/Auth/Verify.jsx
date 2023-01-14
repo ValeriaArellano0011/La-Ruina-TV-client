@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './css/Verify.module.scss'
 import { useLocation } from 'react-router-dom';
 import LogIn from './LogIn';
+import CreateAccount from './CreateAccount';
+
 
 function Verify() {
     const location = useLocation()
@@ -22,13 +24,14 @@ function Verify() {
                     }
                 >Iniciar Sesión</button>
                 <LogIn />
+                <CreateAccount />
             </div>
         )
     }else{
         return (
             <div className={styles.verify_container}>
                 <h1 style={{color: 'white'}}>No pudimos verificar tu correo"</h1>
-                <h2 style={{color: 'white'}}>Vuelve a intentarlo</h2>
+                <h2 style={{color: 'white', filter: 'drop-shadow(0px 0px 2px red)'}}>Vuelve a intentarlo</h2>
             </div>
         )
     }

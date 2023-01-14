@@ -9,12 +9,12 @@
 }
 
 .form_ul{
+  display: flex;
   justify-content: center;
   justify-items: center;
   align-items: center;
   text-align: center;
   list-style: none;
-  display: flex;
   flex-direction: column;
   position: relative;
   right: 15px;

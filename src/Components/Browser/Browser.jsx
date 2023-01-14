@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import s from "./css/Slider.module.css";
 import Visor from "./Visor";
-import Footer from "../Utils/Footer";
+import Footer from "../Footer/Footer";
 import Slider from "./Slider";
 import Sort from "../Utils/Sort";
-import { BodyCss } from "../../functions/BodyCss";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { BodyCss } from "../../functions";
+import { useDispatch, useSelector } from "react-redux";
+import { InfoCanvas } from '../Utils/InfoCanvas'
+
 import {
-  getPosts,
+  getMedia,
   resetIdYT,
   resetMedia,
   resetOption,
@@ -16,24 +17,27 @@ import {
 
 const Browser = () => {
   BodyCss();
+
   const dispatch = useDispatch();
-  const cardList = useSelector((state) => state.postList);
+  const cardList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
   //const sliderCategoria = (categories) => cardList.filter(e=> {return e.categories.find(el=>el===categoryList)})
   useEffect(() => {
     dispatch(resetOption());
     dispatch(resetMedia());
     dispatch(resetIdYT());
-    dispatch(getPosts());
+    dispatch(getMedia());
   }, [dispatch]);
   useEffect(() => {
     //dispatch(getCategorias(visorList))
+    
   }, [cardList, dispatch]);
 
   return (
     <div className="browserBody">
       {/* ---------------------VISOR--------------------- */}
       <Visor />
+      <InfoCanvas />
 
       {/* ----------------------SORT--------------------- */}
       <Sort />

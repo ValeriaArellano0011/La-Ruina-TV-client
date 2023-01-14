@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { URL_API } from '../../misc/config'
 import { 
-    GET_POSTS, 
+    GET_MEDIA, 
     GET_INFO, 
     GET_CATEGORIAS, 
     GET_MEDIATYPE, 
@@ -16,14 +16,22 @@ import {
     GET_PRODUCTS,
     GET_PRODUCT_DETAILS,
     POST_PRODUCT,   
-    POST_POST,
+    POST_MEDIA,
     RESET_PRODUCT_DETAILS,
     GET_IDYT,
     RESET_IDYT,
-    GET_MUSIC_NAME
+    GET_MUSIC_NAME,
+    __GOD_MODE__
     } from '../../misc'
 
 /*-----------------Admin----------------*/
+    export const _GOD_MODE_ = () => {
+        return async function (dispatch) {
+            return dispatch ({
+                type:'__GOD_MODE__'
+            })
+        }
+    };
     export const postProduct = (post) => {
         return async function (dispatch) {
             let json = await axios.post(`${URL_API}/post/product`, post);
@@ -33,7 +41,7 @@ import {
             })
         }
     };
-    export const postPost = (formData) => {
+    export const postMedia = (formData) => {
         return async function (dispatch) {
             const response = await axios.post(
                 `${URL_API}/media/upload`,
@@ -42,7 +50,7 @@ import {
               );
             
             return dispatch ({
-                type: POST_POST,
+                type: POST_MEDIA,
                 payload: response.data
             })
         }
@@ -53,7 +61,7 @@ import {
     //             `${URL_API}/media/getall`
     //         );
     //         return dispatch ({
-    //             type: GET_POSTS,
+    //             type: GET_MEDIA,
     //             payload: response.data
     //         })
     //     }
@@ -125,7 +133,7 @@ export const signup =
 
 };
 
-/*----------------Posts----------------*/
+/*----------------Media----------------*/
 export function getIdYT(idYT) {
     return {
         type: GET_IDYT,
@@ -138,13 +146,13 @@ export function resetIdYT() {
     }
 }
 
-export function getPosts() {
+export function getMedia() {
     return async function(dispatch) {
         await axios.get(`${URL_API}/media/getall`)
         .then(res =>{
             console.log('el res del front',res)
             dispatch({
-                type: GET_POSTS,
+                type: GET_MEDIA,
                 payload: res.data
             })
         })
@@ -248,7 +256,7 @@ export function loadingSearchSet(){
 export function getMusicName(name){
     return async (dispatch) => {
         try {
-            const searchMusic = await axios(`${URL_API}/search?name=${name}`);
+            const searchMusic = await axios(`${URL_API}/search/name=${name}`);
             return dispatch({
                 type: GET_MUSIC_NAME,
                 payload: searchMusic.data

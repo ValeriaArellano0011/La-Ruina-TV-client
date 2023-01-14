@@ -2,7 +2,7 @@ import React from "react";
 import s from './css/SearchBar.module.css';
 import searchIcon from '../../design/search-icon.png';
 import { useDispatch } from "react-redux";
-import { searchBarFunction } from './css/SearchBar';
+import { searchBarFunction } from './js/SearchBar';
 import { useState } from "react";
 import { getMusicName } from "../../middlewares/redux/actions";
 
@@ -32,14 +32,12 @@ export default function SearchBar(){
             placeholder="Buscar..."
             onChange={handleInputChange}
             onMouseEnter={()=>{return searchBarFunction('enter')}}
-            onMouseLeave={()=>{return searchBarFunction('leave')}}
           />
             <button 
               className={s.liSearchBtn} 
               type="submit" 
               disabled={false}
               onMouseEnter={()=>{return searchBarFunction('enter')}}
-              onMouseLeave={()=>{return searchBarFunction('leave')}}
                 >
               <img className={s.mediaSearch} src={searchIcon} height='20' alt="search" />
             </button>
