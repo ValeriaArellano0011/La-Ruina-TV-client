@@ -1,0 +1,26 @@
+	/*Menù lateral*/
+	.crearProducto,
+	.crearPost {
+		color: aliceblue;
+		background-color: rgb(42, 42, 42);
+		margin: 10px;
+		width: 300px;
+		height: 300px;
+		border-radius: 5px;
+		left: -500px;
+		font-family: Bebas Neue;
+		font-size: 30px;
+		position: relative;
+		opacity: .8;
+		transition-duration: 1s;
+
+	}
+
+	.ulRequestPorfile {
+		text-decoration: none;
+	}
+
+	.crearProducto:hover,
+	.crearPost:hover {
+		opacity: 1,
+	}
