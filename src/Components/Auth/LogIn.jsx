@@ -20,7 +20,6 @@ const LogIn = () => {
       logCss();
       localStorage.setItem('auth', currentUser)
       history.push('/browser')
-      window.location.reload()
     }
   }, [currentUser]);
   return (

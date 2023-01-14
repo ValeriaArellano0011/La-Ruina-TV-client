@@ -5,6 +5,7 @@ import Enter from '../Auth/Enter'
 import { Checkout } from '../Checkout/Checkout'
 import { BackButton } from './BackButton'
 import s from './css/SlideCanvas.module.css'
+import Profile from '../../Admin/Profile/Profile'
 
 export const CanvasOptions = () => {
     const option = useSelector(state=>state.option)
@@ -19,7 +20,7 @@ export const CanvasOptions = () => {
                     :
                     (option === 'login')? <><Enter/></> 
                     :
-                    (option === 'profile')? <><BackButton/></>
+                    (option === 'profile')? <><Profile/></>
                     :
                     (option === 'configuration')? <><BackButton/></>
                     :null

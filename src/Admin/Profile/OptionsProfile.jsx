@@ -3,10 +3,7 @@ import React from 'react'
 import { Title } from 'react-admin'
 import CardContent from '@mui/material/CardContent'
 import RequestProfile from '../Requests/RequestProfile'
-import { useDispatch, useSelector } from 'react-redux';
-
-
-
+import { useSelector } from 'react-redux';
 
 const OptionsProfile = () => {
     const currentUser = useSelector(state=>state.currentUser)

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getProducts, resetProductDetails } from '../../middlewares/redux/actions'
 import { BodyCss } from '../../functions'
 import { Link } from 'react-router-dom'
+import bannerTienda from '../../design/banner-tienda.png'
 
 export const Tienda = () => {
   BodyCss()
@@ -20,7 +21,7 @@ export const Tienda = () => {
       <div className={s.tiendaBg}>
         <div className={s.tiendaSliderCont}>
           <h1 className={s.tiendaTituloSlider}>Bienvenidos a la tienda oficial de La Ruina Records</h1>
-          <img classname={s.tiendaSlider} src="" alt="" />
+          <img classname={s.tiendaSlider} src={bannerTienda} alt="" />
           <div className='bgNav'></div>
         </div>
         <ul className={s.ulTitle}>

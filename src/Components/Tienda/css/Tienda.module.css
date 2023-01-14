@@ -19,7 +19,7 @@
     margin-top: -20px;
     width: 100vw;
     height: 380px;
-    background-color: rgba(203, 135, 53, 0.264);
+    background-image: url(../../../design/banner-tienda.png);
     z-index: 1;
 
 }
