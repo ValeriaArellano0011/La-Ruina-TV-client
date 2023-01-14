@@ -4,7 +4,7 @@ export const RESET_OPTION = 'RESET_OPTION'
 export const LOGIN = 'LOGIN'
 export const SIGNUP = 'SIGNUP'
 
-/* -------------------Posts------------------- */
+/* -------------------Media------------------- */
 export const GET_CATEGORIAS = 'GET_CATEGORIAS'
 export const GET_MEDIATYPE = 'GET_MEDIATYPE'
 export const GET_MEDIAURL = 'GET_MEDIAURL'

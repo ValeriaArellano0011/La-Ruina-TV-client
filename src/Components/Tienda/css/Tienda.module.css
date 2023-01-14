@@ -15,7 +15,13 @@
     z-index: 1;
 }
 
-.tiendaSlider, .tiendaSliderCont{
+.tiendaSlider{
+    margin-top: -20px;
+    width: 100vw;
+    height: 380px;
+    z-index: 1;
+}
+.tiendaSliderCont{
     margin-top: -20px;
     width: 100vw;
     height: 380px;

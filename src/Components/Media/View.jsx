@@ -20,9 +20,9 @@ const View = () => {
         dispatch(getInfo(id))
     },[dispatch, id])
 
-    useEffect(()=>{
-        setType(typeMediaList[dispatch(getMediaType(typeMedia)).payload])
-    },[dispatch, typeMediaList, typeMedia])
+    // useEffect(()=>{
+    //     setType(typeMediaList[dispatch(getMediaType(typeMedia)).payload])
+    // },[dispatch, typeMediaList, typeMedia])
 
     useEffect(()=>{
         setMediaLink(urlid)
@@ -31,21 +31,21 @@ const View = () => {
         <div>
             <div className='visor'>
                 <div className='visorBGCanvas'>
-                    <img className='visorBG' src={infoDetailViewer.sliderImg} alt='' />
+                    <img className='visorBG' src={infoDetailViewer.linkimg} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
                 <div className='visorPostInfo'>
                     <div className='visorPostArtista'>
-                        <p>{infoDetailViewer.artista}</p>
+                        <p>{infoDetailViewer.artist}</p>
                     </div>
                     <div className='visorPostTitulo' id='viewPostTitulo'>
-                    <p>{infoDetailViewer.titulo}</p>
+                    <p>{infoDetailViewer.title}</p>
                     <div className='visorInfo'>
                         <h3>{infoDetailViewer.info}</h3>
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
-                            {
+                            {/* {
                                 Object.entries(type).map((el)=>{
                                     return(
                                     el.map((e)=>{
@@ -54,14 +54,14 @@ const View = () => {
                                         )
                                     }))
                                 })
-                            }
+                            } */}
                         </ul>
                         <Player idYT={idYT} />
                         {infoDetailViewer?
                         
                         <button onClick={()=>{
                             return (
-                            dispatch(getIdYT(infoDetailViewer.urlID.idYT)),
+                            dispatch(getIdYT(infoDetailViewer.idLinkYT)),
                             document.querySelector('.playerCont').style.opacity='1',
                             document.querySelector('.playerLi').style.scale='1',
                             document.querySelector('.playUl').style.scale='1'

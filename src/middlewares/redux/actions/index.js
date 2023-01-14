@@ -162,7 +162,7 @@ export function getMedia() {
 
 export function getInfo(id) {
     return async function(dispatch) {
-        await axios.get(`${URL_API}/posts/${id}`)
+        await axios.get(`${URL_API}/media/${id}`)
         .then(res =>{
             dispatch({
                 type: GET_INFO,

@@ -26,7 +26,7 @@ import iconDescarga from '../../../design/descarga-icon.png'
 const initialState = {
 
 /*----------------Admin----------------*/
-    rolUser: 'free', // roles: 'admin', 'subscriber', 'colaborator', 'free'
+    rolUser: 'free', // s: 'admin', 'subscriber', 'colaborator', 'free'
 
 /*----------------Auth----------------*/
     currentUser: false,
@@ -158,10 +158,17 @@ export default function rootReducer(state = initialState, action){
                 ...state,
                 ytPlayerState: ''
             }
+            
         case GET_MEDIA:
-            return{
+            const combinedArray = state.mediaList.concat(action.payload);
+            const uniqueArray = combinedArray.filter((item) => {
+            const existingIndex = state.mediaList.findIndex(o => o.uniqueProperty === item.uniqueProperty);
+                return existingIndex === -1
+            });
+            console.log(uniqueArray)
+            return {
                 ...state,
-                mediaList: action.payload
+                mediaList: uniqueArray
             }
         case GET_INFO:
             return{
@@ -172,11 +179,11 @@ export default function rootReducer(state = initialState, action){
             return{
             ...state,
             }
-        case GET_CATEGORIAS:
-            return{
-                ...state,
-                categoryList: [...new Set([...state.categoryList, ...new Set(action.payload)].filter(e=> e !== ''))]
-            }
+        // case GET_CATEGORIAS:
+        //     return{
+        //         ...state,
+        //         categoryList: [...new Set([...state.categoryList, ...new Set(action.payload)].filter(e=> e !== ''))]
+        //     }
         case RESET_MEDIA:
             return{
                 ...state,

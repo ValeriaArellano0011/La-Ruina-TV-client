@@ -24,15 +24,15 @@ const Browser = () => {
   //const sliderCategoria = (categories) => cardList.filter(e=> {return e.categories.find(el=>el===categoryList)})
   useEffect(() => {
     dispatch(resetOption());
+    dispatch(getMedia());
     dispatch(resetMedia());
     dispatch(resetIdYT());
-    dispatch(getMedia());
   }, [dispatch]);
   useEffect(() => {
     //dispatch(getCategorias(visorList))
     
   }, [cardList, dispatch]);
-
+  
   return (
     <div className="browserBody">
       {/* ---------------------VISOR--------------------- */}

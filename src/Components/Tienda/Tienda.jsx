@@ -21,7 +21,7 @@ export const Tienda = () => {
       <div className={s.tiendaBg}>
         <div className={s.tiendaSliderCont}>
           <h1 className={s.tiendaTituloSlider}>Bienvenidos a la tienda oficial de La Ruina Records</h1>
-          <img classname={s.tiendaSlider} src={bannerTienda} alt="" />
+          {/* <img classname={s.tiendaSlider} src={bannerTienda} alt="" /> */}
           <div className='bgNav'></div>
         </div>
         <ul className={s.ulTitle}>
@@ -32,7 +32,7 @@ export const Tienda = () => {
             products.map(e => {
               return(
               <>  
-                <Link to={`/tienda/product/${e.idProduct}`}><li key={products.indexOf(e)}>
+                <Link to={`/tienda/product/${e.idProduct}`}><li key={products.indexOf(e)+'tienda'}>
                   <Products 
                     idProduct={e.idProduct} 
                     typeProduct={e.typeProduct} 

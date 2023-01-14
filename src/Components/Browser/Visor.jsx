@@ -8,6 +8,7 @@ import { VisorFunction } from './js/VisorFunction';
 const Visor = () => {
     const { 
         visorID, 
+        visorIdYT,
         visorImg, 
         visorTag, 
         visorBtn1, 
@@ -35,7 +36,7 @@ const Visor = () => {
                     <p>{visorTitle}</p>
                     <div className='visorInfo'><h3>{visorInfo}</h3></div>
                     <ul className='visorBtn'>
-                        <li><Link to={`/view/v=${visorUrlID?.idYT}=_type_=${visorTypeMedia}=_id_=${visorID}`}>
+                        <li><Link to={`/view/v=${visorIdYT}=_type_=${visorTypeMedia}=_id_=${visorID}`}>
                             <button 
                             className='button1'
                             id={visorID}

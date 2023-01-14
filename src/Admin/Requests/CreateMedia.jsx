@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import styles from "../css/CreatePost.module.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getMedia, postMedia } from "../../middlewares/redux/actions/index";
+import { postMedia } from "../../middlewares/redux/actions/index";
 import { useHistory } from "react-router-dom";
 
 const CreateMedia = () => {
@@ -391,11 +391,9 @@ const CreateMedia = () => {
                   value="Publicar"
                   className={styles.submit}
                 />
-               
               </div>
             </div>
           </form>
-          <button onClick={() => dispatch(getMedia())}>DONT CLICK ME</button>
         </Card>
       </div>
     </div>

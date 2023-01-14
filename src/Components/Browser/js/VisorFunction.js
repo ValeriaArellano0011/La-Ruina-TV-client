@@ -25,7 +25,8 @@ export const VisorFunction = () =>{
     const [visorTitle, setVisorTitulo] = useState()
     const [visorArtist, setVisorArtista] = useState()
     const [visorTypeMedia, setVisorTypeMedia] = useState()
-    const {idMedia, id, linkimg, artist, title, mediaType, tag, icon, actionButton, info} = nextVisor? nextVisor.at(0) : nextVisor
+    const [visorIdYT, setVisorIdYT] = useState()
+    const {idMedia, id, idLinkYT, linkimg, artist, title, mediaType, tag, icon, actionButton, info} = nextVisor? nextVisor.at(0) : nextVisor
     useEffect(() => {
         let inf = 99999+cont
         const max = visorList? visorList.length : 0
@@ -45,7 +46,7 @@ export const VisorFunction = () =>{
             setVisorTitulo(title)
             setVisorArtista(artist)
             setVisorTypeMedia(mediaType)
-                        
+            setVisorIdYT(idLinkYT)            
             document.querySelector('.visorPostInfo').style.animationName='infoScale'
             document.querySelector('.visorPostInfo').style.animationIterationCount=inf
             document.querySelector('.visorPostInfo').style.animationDuration=`${timeInterval}s`
@@ -56,10 +57,11 @@ export const VisorFunction = () =>{
             document.querySelector(`.visor`).style.transform='translateX(0)'
         }, timeInterval*1000)
         return () =>  (clearInterval(interval, timeInterval))
-    },[actionButton, idMedia, id, visorImg, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
+    },[actionButton,visorIdYT, idMedia, id, visorImg, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
     return {
         visorList,
         nextVisor,
+        visorIdYT,
         visorID,
         visorTag, 
         visorBtn1, 
