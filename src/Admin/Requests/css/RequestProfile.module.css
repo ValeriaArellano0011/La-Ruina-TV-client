@@ -26,11 +26,20 @@
 	text-align: left;
 }
 
-.likeIcon, .listIcon, .adminIcon{
+.likeIcon, .listIcon, .adminIcon {
 	width: 35px;
 	filter: grayscale(1);
 	transition-duration: 1s;
 	opacity: .9;
+	margin-top: 15px;
+}
+
+.subscriptionIcon{
+	width: 35px;
+	filter: grayscale(1);
+	transition-duration: 1s;
+	opacity: .9;
+	margin-top: 20px;
 }
 
 .logoutIcon{
@@ -42,7 +51,7 @@
 	position: fixed;
 }
 
-.likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover{
+.likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover, .subscriptionIcon:hover{
 	cursor: pointer;
 	filter: grayscale(.2);
 	opacity: 1;

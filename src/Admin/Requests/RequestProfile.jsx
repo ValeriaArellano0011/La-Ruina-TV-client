@@ -7,6 +7,7 @@ import likeIcon from '../../design/like-icon.png'
 import listIcon from '../../design/lista-icon.png'
 import logoutIcon from '../../design/logout-icon.png'
 import adminIcon from '../../design/admin-icon.png'
+import subscriptionIcon from '../../design/subscription-icon.png'
 
 const RequestProfile = () => {
     const dispatch = useDispatch()
@@ -27,8 +28,11 @@ const RequestProfile = () => {
                         rolUser === 'admin' ?
                         <li>
                             <img src={adminIcon} className={s.adminIcon} onClick={()=>{return dispatch(getOption('dashboard'))}} alt="lista" />
-                        </li> : null 
-                    }
+                        </li> 
+                        :
+                        <li>
+                          <img src={subscriptionIcon} className={s.subscriptionIcon} onClick={()=>{return dispatch(getOption('subscription'))}} alt="lista" />
+                        </li>                     }
                     <li>
                         <img 
                             src={logoutIcon} 
