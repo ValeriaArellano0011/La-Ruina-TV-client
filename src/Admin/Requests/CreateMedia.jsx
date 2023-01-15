@@ -397,7 +397,7 @@ const CreateMedia = () => {
           </form>
           <button onClick={async () => {
             await axios.get(
-                `${URL_API}/generate`).then(res => console.log(res)).catch(e => console.log(e))
+                `${URL_API}/mercadopago/generate`).then(res => console.log(res)).catch(e => console.log(e))
             }}>
 
           </button>
