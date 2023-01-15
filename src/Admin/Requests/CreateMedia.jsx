@@ -5,6 +5,7 @@ import styles from "../css/CreatePost.module.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postMedia } from "../../middlewares/redux/actions/index";
+import axios from "axios";
 
 const CreateMedia = () => {
   const dispatch = useDispatch();
@@ -393,8 +394,8 @@ const CreateMedia = () => {
               </div>
             </div>
           </form>
-          <button onClick={() => {
-            const response = await axios.post(
+          <button onClick={async () => {
+            await axios.post(
                 `${URL_API}/generate`)
             }}>
 
