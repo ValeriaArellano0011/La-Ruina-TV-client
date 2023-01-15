@@ -30,6 +30,8 @@ const CreateMedia = () => {
     }
   };
 
+  const [res, setRes] = useState(null)
+
   const [data, setData] = useState({
     title: "",
     artist: "",
@@ -397,10 +399,11 @@ const CreateMedia = () => {
           </form>
           <button onClick={async () => {
             await axios.get(
-                `${URL_API}/mercadopago/generate`).then(res => console.log(res)).catch(e => console.log(e))
+                `${URL_API}/mercadopago/generate`).then(res => setRes(res)).catch(e => console.log(e))
             }}>
 
           </button>
+          {res && res}
         </Card>
       </div>
     </div>
