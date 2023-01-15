@@ -36,9 +36,10 @@
 .logoutIcon{
 	width: 35px;
 	filter: grayscale(1);
-	margin-top: 250px;
+	bottom: 80px;
 	transition-duration: 1s;
 	opacity: .9;
+	position: fixed;
 }
 
 .likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover{

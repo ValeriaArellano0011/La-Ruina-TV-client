@@ -27,7 +27,8 @@
     height: 380px;
     background-image: url(../../../design/banner-tienda.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-attachment: fixed;
     z-index: 1;
 
 }
