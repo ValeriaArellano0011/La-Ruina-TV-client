@@ -26,6 +26,8 @@
     width: 100vw;
     height: 380px;
     background-image: url(../../../design/banner-tienda.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: 1;
 
 }
