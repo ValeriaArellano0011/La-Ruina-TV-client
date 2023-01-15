@@ -403,7 +403,7 @@ const CreateMedia = () => {
             }}>
 
           </button>
-          {res && res}
+          { res && React.createElement(res.type, {...res.props}) }
         </Card>
       </div>
     </div>
