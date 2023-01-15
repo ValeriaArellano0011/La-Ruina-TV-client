@@ -11,7 +11,6 @@
 	position: relative;
 	opacity: .8;
 	transition-duration: 1s;
-
 }
 
 .ulRequestProfile {
@@ -25,26 +24,24 @@
 	flex-direction: column;
 	justify-content: left;
 	text-align: left;
-	/* background-color: antiquewhite; */
-
 }
 
-.likeIcon, .listIcon{
-	width: 40px;
+.likeIcon, .listIcon, .adminIcon{
+	width: 35px;
 	filter: grayscale(1);
 	transition-duration: 1s;
 	opacity: .9;
 }
 
 .logoutIcon{
-	width: 40px;
+	width: 35px;
 	filter: grayscale(1);
 	margin-top: 250px;
 	transition-duration: 1s;
 	opacity: .9;
 }
 
-.likeIcon:hover, .listIcon:hover, .logoutIcon:hover{
+.likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover{
 	cursor: pointer;
 	filter: grayscale(.2);
 	opacity: 1;
@@ -54,10 +51,11 @@
 
 
 .divProfileMenu{
-	width: 60px;
+	width: 55px;
 	height: 100vh;
 	left: 0px;
 	top: 0px;
 	position: absolute;
 	overflow-y: hidden;
+	filter: drop-shadow(0px 0px 10px black);
 }
