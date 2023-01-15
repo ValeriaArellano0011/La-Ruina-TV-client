@@ -48,7 +48,7 @@ const Browser = () => {
           title={"Contenido"}
           cardList={cardList}
           style={s}
-          id={`s`}
+          id={`s${0}`}
           key={`s${0}`}
         />
       )}

@@ -2,12 +2,12 @@ import React from "react";
 import playIconn from "../../design/ruinatv-icon-play-n.png";
 import { Link } from "react-router-dom";
 
-const Media = ({ cardList, style }) => {
+const Media = ({ cardList, style, keyID }) => {
   return (
     <div className={style.sliderItems}>
       <ul
         className={style.sliderListaItems}
-        // id={`${key}ListaItems`}
+        id={`${keyID}ListaItems`}
       >
         {cardList
           ? cardList.map((e, i) => {
@@ -33,7 +33,7 @@ const Media = ({ cardList, style }) => {
                           return window.scrollTo(0, 0);
                         }}
                       >
-                        <img src={e.icon} alt="" className={style.logoItem} />
+                        <img src={e.icon} alt="logo" className={style.logoItem} />
                       </button>
                     </Link>
                     <Link to={``} className={style.link}>
@@ -41,7 +41,7 @@ const Media = ({ cardList, style }) => {
                         <img
                           className={style.sliderItemIconPlayN}
                           src={playIconn}
-                          alt=""
+                          alt="play"
                         />
                         {e.title}
                       </p>

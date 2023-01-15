@@ -61,7 +61,7 @@ const initialState = {
     },
     mediaList: [
         {
-            id:[''],
+            id:'',
             idMedia:[''],
             mediaType:[''],
             title:[''],
@@ -159,17 +159,17 @@ export default function rootReducer(state = initialState, action){
             }
             
         case GET_MEDIA:
-            const combinedArray = state.mediaList.concat(action.payload);
-            const uniqueArray = combinedArray.filter((item) => {
-            const existingIndex = state.mediaList.findIndex(o => o.uniqueProperty === item.uniqueProperty);
-                return existingIndex === -1
-            });
-            console.log(uniqueArray)
+            var hash = {};
             return {
                 ...state,
-                mediaList: uniqueArray
+                mediaList: [...state.mediaList, ...action.payload].filter(e=> e.id !== '').filter(function(current) {
+                    var exists = !hash[current.id];
+                    hash[current.id] = true;
+                    return exists;
+                  })
             }
         case GET_INFO:
+            console.log(action.payload)
             return{
                 ...state,
                 infoDetailViewer: action.payload.at(0)

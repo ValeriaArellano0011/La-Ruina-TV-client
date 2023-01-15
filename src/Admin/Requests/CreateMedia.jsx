@@ -404,7 +404,7 @@ const CreateMedia = () => {
             }}>
 
           </button>
-          <a href={res ?? res}>Pay here</a>
+          <a href={res && res}>Pay here</a>
         </Card>
       </div>
     </div>
