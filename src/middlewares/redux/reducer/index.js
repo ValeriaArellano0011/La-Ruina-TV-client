@@ -111,7 +111,7 @@ export default function rootReducer(state = initialState, action){
         case LOGIN:
             return {
             ...state,
-            currentUser: action.payload.msg.userAlias,
+            currentUser: action.payload.msg,
             rolUser: action.payload.msg.role
             }
         case OPTION:

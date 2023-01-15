@@ -9,6 +9,7 @@ import logoutIcon from '../../design/logout-icon.png'
 import adminIcon from '../../design/admin-icon.png'
 import subscriptionIcon from '../../design/subscription-icon.png'
 import userIcon from '../../design/user-icon.png'
+import configIcon from '../../design/config-icon.png'
 
 const RequestProfile = () => {
     const dispatch = useDispatch()
@@ -37,7 +38,11 @@ const RequestProfile = () => {
                         :
                         <li>
                           <img src={subscriptionIcon} className={s.subscriptionIcon} onClick={()=>{return dispatch(getOption('subscription'))}} alt="lista" />
-                        </li>                     }
+                        </li>                     
+                    }
+                    <li>
+                        <img src={configIcon} className={s.configIcon} alt="configuraciones" />
+                    </li>
                     <li>
                         <img 
                             src={logoutIcon} 

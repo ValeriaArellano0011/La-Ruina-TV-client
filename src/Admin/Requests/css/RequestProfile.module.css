@@ -26,12 +26,20 @@
 	text-align: left;
 }
 
-.likeIcon, .listIcon, .adminIcon, .userIcon {
+.likeIcon, .listIcon, .userIcon {
 	width: 35px;
 	filter: grayscale(1);
 	transition-duration: 1s;
 	opacity: .9;
 	margin-top: 15px;
+}
+
+.adminIcon {
+	width: 35px;
+	filter: grayscale(1);
+	transition-duration: 1s;
+	opacity: .9;
+	margin-top: 20px;
 }
 
 .subscriptionIcon{

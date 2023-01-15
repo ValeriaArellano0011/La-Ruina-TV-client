@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import s from './css/Checkout.module.css'
 import checkedIcon from '../../design/checked-icon.png'
 import RequestProfile from '../../Admin/Requests/RequestProfile'
+import axios from 'axios'
 
 export const Checkout = () => {
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  const handleCheckout = async () => {
+    setIsSubscribing(true);
+    try {
+      // call the API endpoint to create the checkout
+      const { data } = await axios.post('/mercadopago/create-checkout', {
+          planId: "Plan Suscriptor",
+          name: localStorage.getItem('auth'),
+          email: "johndoe@example.com"
+      });
+      // redirect the user to the checkout's approval URL
+      window.location.href = data.checkout.init_point;
+  } catch (error) {
+      console.log(error);
+      alert("There was an error subscribing. Please try again later.");
+  } finally {
+      setIsSubscribing(false);
+  }
+  }
+
   return (
     <div className={s.checkoutCont}>
         <div className={s.checkoutFormat} >
@@ -49,7 +71,7 @@ export const Checkout = () => {
                       </h5>
                     </ul>
                   </div>
-                  <button className={s.btnSubmit}>Comenzar</button>
+                  <button className={s.btnSubmit} onClick={() => handleCheckout()}>Comenzar</button>
                 </div>
               </li>
               {/* <li className={s.liCheck}>

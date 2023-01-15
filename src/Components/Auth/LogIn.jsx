@@ -8,6 +8,7 @@ import { authCss } from "./js/authCss";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 const LogIn = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser);
@@ -19,6 +20,7 @@ const LogIn = () => {
     if (currentUser) {
       logCss();
       localStorage.setItem('auth', currentUser)
+      console.log(currentUser)
       history.push('/browser')
     }
   }, [currentUser, history]);
