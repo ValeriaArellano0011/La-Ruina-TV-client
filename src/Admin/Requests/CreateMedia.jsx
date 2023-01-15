@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postMedia } from "../../middlewares/redux/actions/index";
 import axios from "axios";
+import { URL_API } from "../../middlewares/misc/config";
 
 const CreateMedia = () => {
   const dispatch = useDispatch();
