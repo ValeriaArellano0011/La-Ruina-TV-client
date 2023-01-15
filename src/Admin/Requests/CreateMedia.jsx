@@ -403,7 +403,7 @@ const CreateMedia = () => {
             }}>
 
           </button>
-          { res && React.createElement(res.type, {...res.props}) }
+          { res && <div dangerouslySetInnerHTML={{ __html: res }} />}
         </Card>
       </div>
     </div>
