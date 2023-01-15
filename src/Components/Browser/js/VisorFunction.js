@@ -57,7 +57,7 @@ export const VisorFunction = () =>{
             document.querySelector(`.visor`).style.transform='translateX(0)'
         }, timeInterval*1000)
         return () =>  (clearInterval(interval, timeInterval))
-    },[actionButton,visorIdYT, idMedia, id, visorImg, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
+    },[actionButton,visorIdYT, idMedia, id, linkimg, idLinkYT, visorImg, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
     return {
         visorList,
         nextVisor,

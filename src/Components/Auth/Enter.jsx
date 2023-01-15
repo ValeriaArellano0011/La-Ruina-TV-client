@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import CreateAccount from '../Auth/CreateAccount'
 import LogIn from '../Auth/LogIn'
 import style from './css/Enter.module.css'

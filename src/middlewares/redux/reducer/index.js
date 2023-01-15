@@ -1,6 +1,5 @@
 import { 
     NEXT_VISOR, 
-    GET_CATEGORIAS, 
     GET_INFO,
     GET_MEDIATYPE, 
     GET_MEDIA,
@@ -104,7 +103,7 @@ export default function rootReducer(state = initialState, action){
         case __GOD_MODE__:
             return {
             ...state,
-            rolUser: state.rolUser != 'admin'?  'admin' : 'free'
+            rolUser: state.rolUser !== 'admin'?  'admin' : 'free'
             }
 
 /*----------------Auth----------------*/

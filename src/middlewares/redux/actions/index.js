@@ -21,7 +21,6 @@ import {
     GET_IDYT,
     RESET_IDYT,
     GET_MUSIC_NAME,
-    __GOD_MODE__
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -84,20 +83,6 @@ export function resetOption() {
 export async function googleAuth(){
     return await axios.get(`${URL_API}/auth/google`)
 }
-
-function LoginButton() {
-    const handleLogin = async () => {
-      const response = await axios.get(`${URL_API}/auth/google`);
-      const token = response.data.token;
-      localStorage.setItem('token', token);
-    };
-  
-    return (
-      <button onClick={handleLogin}>
-        Login with Google
-      </button>
-    );
-  }
 
 export function login(email, password){
     return async function (dispatch){ 

@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getProducts, resetProductDetails } from '../../middlewares/redux/actions'
 import { BodyCss } from '../../functions'
 import { Link } from 'react-router-dom'
-import bannerTienda from '../../design/banner-tienda.png'
 
 export const Tienda = () => {
   BodyCss()

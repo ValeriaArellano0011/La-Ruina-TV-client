@@ -9,10 +9,10 @@ export default function Product(){
     const params = useParams()
     const {id} = params
     const productDetails = useSelector(state=>state.productDetails)
-    const {idProduct, categoryProduct, typeProduct, nameMerch, stock, idImg} = productDetails.at(0)
+    const {nameMerch, idImg} = productDetails.at(0)
     useEffect(()=>{
         dispatch(getProductDetails(id))
-    },[dispatch])
+    },[dispatch, id])
     return (
         <div className={s.productCont}>
             <h1>Detalles del producto</h1>

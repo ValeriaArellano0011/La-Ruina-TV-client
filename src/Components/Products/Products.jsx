@@ -1,7 +1,7 @@
 import s from '../Tienda/css/Tienda.module.css'
 
 const Products = (props) => {
-  const { idProduct, typeProduct, nameMerch, stock, idImg } = props
+  const { typeProduct, nameMerch, idImg } = props
   return (
     
     <div className={s.cardProduct}>

@@ -1,21 +1,17 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getIdYT, getInfo, getMediaType } from '../../middlewares/redux/actions'
+import { getIdYT, getInfo } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
 import Player from './Player'
 
 const View = () => {
     const dispatch = useDispatch()
-    const {id, typeMedia, urlid}= useParams()
-    const typeMediaList = useSelector(state =>state.typeMediaList)
+    const {id}= useParams()
     const infoDetailViewer = useSelector(state =>state.infoDetailViewer)
     const idYT = useSelector(state=>state.ytPlayerState)
-    const [type, setType] = useState([])
-    const [mediaLink, setMediaLink] = useState({})
     useEffect(()=>{
         dispatch(getInfo(id))
     },[dispatch, id])
@@ -24,9 +20,6 @@ const View = () => {
     //     setType(typeMediaList[dispatch(getMediaType(typeMedia)).payload])
     // },[dispatch, typeMediaList, typeMedia])
 
-    useEffect(()=>{
-        setMediaLink(urlid)
-    },[setMediaLink, urlid])
     return (
         <div>
             <div className='visor'>

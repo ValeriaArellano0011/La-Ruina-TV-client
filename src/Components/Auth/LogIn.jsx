@@ -21,7 +21,7 @@ const LogIn = () => {
       localStorage.setItem('auth', currentUser)
       history.push('/browser')
     }
-  }, [currentUser]);
+  }, [currentUser, history]);
   return (
     <div className="LogInBody">
       <div className="formCont">
@@ -52,7 +52,9 @@ const LogIn = () => {
                 type="submit"
                 value="onSubmit"
                 onClick={(e) => {
-                 return e.preventDefault(), dispatch(login(email, password));
+                 return (
+                  e.preventDefault() ,
+                  dispatch(login(email, password)));
                 }}
               >
                 Entrar
