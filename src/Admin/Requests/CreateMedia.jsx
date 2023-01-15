@@ -396,7 +396,7 @@ const CreateMedia = () => {
             </div>
           </form>
           <button onClick={async () => {
-            await axios.post(
+            await axios.get(
                 `${URL_API}/generate`).then(res => console.log(res)).catch(e => console.log(e))
             }}>
 
