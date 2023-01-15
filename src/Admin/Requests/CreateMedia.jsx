@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { postMedia } from "../../middlewares/redux/actions/index";
 import axios from "axios";
 import { URL_API } from "../../middlewares/misc/config";
-
+import React from "react";
 const CreateMedia = () => {
   const dispatch = useDispatch();
   const handleInputChange = (e) => {
