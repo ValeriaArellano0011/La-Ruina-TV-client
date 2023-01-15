@@ -19,10 +19,10 @@ export const Checkout = () => {
                     <ul>
                       <h5>
                         <li>
-                          <img src={checkedIcon} width="40px" alt="check" /> Acceso a todo nuestro contenido mediante plataformas comerciales
+                          <img src={checkedIcon} width="12px" alt="check" /> Acceso a todo nuestro contenido mediante plataformas comerciales
                         </li>
                         <li>
-                          <img src={checkedIcon} width="40px" alt="check" /> Debes suscribirte a nuestro canal de Youtube
+                          <img src={checkedIcon} width="12px" alt="check" /> Debes suscribirte a nuestro canal de Youtube
                         </li>
                       </h5>
                     </ul>                  
@@ -40,10 +40,10 @@ export const Checkout = () => {
                     <ul>
                       <h5>
                         <li>
-                          <img src={checkedIcon} width="20px" alt="check" /> Acceso a todo nuestro contenido sin anuncios
+                          <img src={checkedIcon} width="12px" alt="check" /> Acceso a todo nuestro contenido sin anuncios
                         </li>
                         <li>
-                          <img src={checkedIcon} width="20px" alt="check" /> Reproduce tus canciones en cualquier lugar, incluso sin conexión
+                          <img src={checkedIcon} width="12px" alt="check" /> Reproduce tus canciones en cualquier lugar, incluso sin conexión
                         </li>
                       </h5>
                     </ul>

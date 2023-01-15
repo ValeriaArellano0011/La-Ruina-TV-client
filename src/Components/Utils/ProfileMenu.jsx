@@ -13,9 +13,8 @@ export const ProfileMenu = () => {
   const rolUser = useSelector(state=>state.rolUser)
   const dispatch = useDispatch()
   const history = useHistory()
-  
-
   const userAlias = localStorage.getItem('auth')
+
   function onClickValue(e){
     return (
       dispatch(getOption(e.target.value)),
