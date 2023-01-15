@@ -9,8 +9,8 @@ const Media = ({ cardList, style, keyID }) => {
         className={style.sliderListaItems}
         id={`${keyID}ListaItems`}
       >
-        {cardList
-          ? cardList.map((e, i) => {
+        {
+          cardList? cardList.map((e, i) => {
               return (
                 <li value={e.id} key={i}>
                   <div className={style.sliderItem}>
@@ -33,7 +33,7 @@ const Media = ({ cardList, style, keyID }) => {
                           return window.scrollTo(0, 0);
                         }}
                       >
-                        <img src={e.icon} alt="logo" className={style.logoItem} />
+                        {/* <img src={e.icon} alt="logo" className={style.logoItem} /> */}
                       </button>
                     </Link>
                     <Link to={``} className={style.link}>
