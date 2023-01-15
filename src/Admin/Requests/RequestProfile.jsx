@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { resetOption } from '../../middlewares/redux/actions'
+import { getOption } from '../../middlewares/redux/actions'
 import s from './css/OptionsProfile.module.css'
 import likeIcon from '../../design/like-icon.png'
 import listIcon from '../../design/lista-icon.png'
@@ -26,7 +26,7 @@ const RequestProfile = () => {
                     {   
                         rolUser === 'admin' ?
                         <li>
-                            <img src={adminIcon} className={s.adminIcon} alt="lista" />
+                            <img src={adminIcon} className={s.adminIcon} onClick={()=>{return dispatch(getOption('dashboard'))}} alt="lista" />
                         </li> : null 
                     }
                     <li>
