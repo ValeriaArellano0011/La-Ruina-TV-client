@@ -393,6 +393,12 @@ const CreateMedia = () => {
               </div>
             </div>
           </form>
+          <button onClick={() => {
+            const response = await axios.post(
+                `${URL_API}/generate`)
+            }}>
+
+          </button>
         </Card>
       </div>
     </div>
