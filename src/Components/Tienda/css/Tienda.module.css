@@ -16,13 +16,13 @@
 }
 
 .tiendaSlider{
-    margin-top: -20px;
     width: 100vw;
     height: 380px;
     z-index: 1;
 }
 .tiendaSliderCont{
-    margin-top: -20px;
+    position: relative;
+    margin-top: 0px;
     width: 100vw;
     height: 380px;
     background-image: url(../../../design/banner-tienda.png);
@@ -30,7 +30,6 @@
     background-size: contain;
     background-attachment: fixed;
     z-index: 1;
-
 }
 
 .tiendaBg{
