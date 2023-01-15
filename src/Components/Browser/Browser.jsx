@@ -23,15 +23,15 @@ const Browser = () => {
   const categoryList = useSelector((state) => state.categoryList);
   //const sliderCategoria = (categories) => cardList.filter(e=> {return e.categories.find(el=>el===categoryList)})
   useEffect(() => {
+    dispatch(resetIdYT());
+    dispatch(resetMedia());
     dispatch(resetOption());
     dispatch(getMedia());
-    dispatch(resetMedia());
-    dispatch(resetIdYT());
   }, [dispatch]);
-  useEffect(() => {
-    //dispatch(getCategorias(visorList))
+  // useEffect(() => {
+  //   //dispatch(getCategorias(visorList))
     
-  }, [cardList, dispatch]);
+  // }, [cardList, dispatch]);
   
   return (
     <div className="browserBody">

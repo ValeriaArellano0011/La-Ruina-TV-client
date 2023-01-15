@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './css/Checkout.module.css'
 import checkedIcon from '../../design/checked-icon.png'
+import RequestProfile from '../../Admin/Requests/RequestProfile'
 
 export const Checkout = () => {
   return (
@@ -76,6 +77,7 @@ export const Checkout = () => {
                 </div>
               </li> */}
             </ul>
+            <RequestProfile />
         </div>
     </div>
   )

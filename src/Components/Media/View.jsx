@@ -13,7 +13,7 @@ const View = () => {
     const infoDetailViewer = useSelector(state =>state.infoDetailViewer)
     const idYT = useSelector(state=>state.ytPlayerState)
     useEffect(()=>{
-        dispatch(getInfo(id))
+        dispatch(getInfo(id?? id))
     },[dispatch, id])
 
     // useEffect(()=>{
@@ -21,6 +21,7 @@ const View = () => {
     // },[dispatch, typeMediaList, typeMedia])
 
     return (
+        infoDetailViewer?
         <div>
             <div className='visor'>
                 <div className='visorBGCanvas'>
@@ -67,7 +68,7 @@ const View = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> : null
     )
 }
 

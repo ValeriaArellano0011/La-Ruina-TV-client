@@ -77,7 +77,7 @@ const initialState = {
         }
     ],
     nextVisor: false,
-    infoDetailViewer: {urlID: {idYT:''}},
+    infoDetailViewer: [{urlID: {idYT:''}}],
     categoryList: ["Sello Arruinados", 'Música',  'Estudio "La Ruina Records"', "En vivo", "App y descargables", "Literatura", "Series"],
 
 /*----------------Tienda----------------*/
@@ -170,6 +170,7 @@ export default function rootReducer(state = initialState, action){
             }
         case GET_INFO:
             console.log(action.payload)
+
             return{
                 ...state,
                 infoDetailViewer: action.payload.at(0)

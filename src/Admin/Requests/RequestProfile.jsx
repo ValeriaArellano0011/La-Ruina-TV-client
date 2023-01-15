@@ -8,6 +8,7 @@ import listIcon from '../../design/lista-icon.png'
 import logoutIcon from '../../design/logout-icon.png'
 import adminIcon from '../../design/admin-icon.png'
 import subscriptionIcon from '../../design/subscription-icon.png'
+import userIcon from '../../design/user-icon.png'
 
 const RequestProfile = () => {
     const dispatch = useDispatch()
@@ -18,6 +19,10 @@ const RequestProfile = () => {
             <ul
                 className={s.ulProfileMenu}>
                 <ul className={s.ulRequestProfile}>
+                    <li>
+                        <img src={userIcon} className={s.userIcon} onClick={()=>{return dispatch(getOption('profile'))}} alt="perfil" />
+                    </li>
+
                     <li>
                         <img src={likeIcon} className={s.likeIcon} alt="favoritos" />
                     </li>
