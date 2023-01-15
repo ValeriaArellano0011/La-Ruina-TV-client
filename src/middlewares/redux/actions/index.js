@@ -150,7 +150,7 @@ export function getInfo(id) {
         await axios.get(`${URL_API}/media/${id}`)
         .then(res =>{
             dispatch({
-                type: GET_INFO,
+                type: GET_INFO, 
                 payload: res.data
             })
         })
