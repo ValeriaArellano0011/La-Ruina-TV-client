@@ -6,30 +6,16 @@ import axios from 'axios'
 import { URL_API } from '../../middlewares/misc/config'
 
 export const Checkout = () => {
-  const [ , setIsSubscribing] = useState(false);
-  const [ userEmail, setUserEmail ] = useState('')
-  const auth = localStorage.getItem('auth');
-  const user = auth ? JSON.parse(auth) : null;
-  useEffect(() => {
-    if (user) {
-      setUserEmail(user.email)
-    }
-}, [user]);
 
   const handleCheckout = async () => {
-    setIsSubscribing(true);
     try {
-      const { data } = await axios.post(`${URL_API}/mercadopago/create-checkout`, {
-          planId: "Plan Subscriptor",
-          name: user.userAlias,
-          email: userEmail
-      });
-      window.location.href = data.checkout.init_point;
+      await axios.post(`${URL_API}/mercadopago/create-checkout`)
+      .then(data => 
+        window.location.href = data.data
+      )
   } catch (error) {
       console.log(error);
-      alert("There was an error subscribing. Please try again later.");
-  } finally {
-      setIsSubscribing(false);
+      alert("Hubo un error, intenta de nuevo más tarde.");
   }
   }
 

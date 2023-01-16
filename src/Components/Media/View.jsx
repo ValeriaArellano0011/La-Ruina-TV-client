@@ -9,7 +9,7 @@ import Player from './Player'
 
 const View = () => {
     const dispatch = useDispatch()
-    const {id}= useParams()
+    const { id } = useParams()
     const infoDetailViewer = useSelector(state =>state.infoDetailViewer)
     const idYT = useSelector(state=>state.ytPlayerState)
     useEffect(()=>{
@@ -21,7 +21,7 @@ const View = () => {
     // },[dispatch, typeMediaList, typeMedia])
 
     return (
-        infoDetailViewer?
+        !infoDetailViewer?
         <div>
             <div className='visor'>
                 <div className='visorBGCanvas'>

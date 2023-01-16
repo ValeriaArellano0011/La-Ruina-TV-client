@@ -1,7 +1,7 @@
 import Media from "../Media/Media"
 import SliderBtns from "../Utils/SliderBtns"
 
-const Slider = (props) =>{
+const Slider = (props) => {
     const sliderTitle = (props.title)
     const cardList = (props.cardList)
     const s = (props.style)
@@ -16,14 +16,12 @@ const Slider = (props) =>{
                         name = {sliderTitle}
                         keyID = {id}
                         categories = {cardList}
-                        style = {s}
-                    />
+                        style = {s} />
                     <Media
                         cardList = {cardList}
                         keyID = {id}
                         key = {`${sliderTitle}Sldr`}
-                        style = {s}
-                    /> 
+                        style = {s} />
                 </div>
             </div>
         </div>

@@ -54,7 +54,7 @@ const Visor = () => {
                                 document.querySelector('.visorButtonPlay').src=playIconn
                             }}
                             >
-                            <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{visorBtn1? visorBtn1 : 'Ver más'}</button></Link></li>
+                            <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{visorBtn1? visorBtn1 : 'Ver media'}</button></Link></li>
                         <li><button 
                                 className='button2'
                                 onClick={()=>{ return document.querySelector('#infoCont').style.scale='1' }} >
