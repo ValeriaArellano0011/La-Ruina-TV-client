@@ -34,6 +34,7 @@ const LogIn = () => {
             <input
               type="text"
               name="userName"
+              required
               onChange={(e) => {
                 return setEmail(e.target.value);
               }}
@@ -43,6 +44,7 @@ const LogIn = () => {
             <input
               type="password"
               name="password"
+              required
               onChange={(e) => {
                 return setPassword(e.target.value);
               }}
@@ -64,7 +66,7 @@ const LogIn = () => {
             </li>
           </form>
         </ul>
-        <h3 style={{ color: "white", fontWeigth: "thin" }}>
+        <h3 style={{ color: "white", fontWeight: 'lighter', fontSize: "15px"}}>
           o ingresa a través de
         </h3>
         <GoogleSignUp />

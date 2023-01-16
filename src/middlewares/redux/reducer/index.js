@@ -95,8 +95,6 @@ const initialState = {
 /*--------------Formulario--------------*/
 }
 
-
-
 export default function rootReducer(state = initialState, action){
     switch (action.type){
 /*----------------Admin----------------*/

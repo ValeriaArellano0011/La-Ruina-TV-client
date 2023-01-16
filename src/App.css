@@ -155,7 +155,8 @@ button:hover{
   background-color: #171717c1;
   position: relative;
   left: 25vw;
-  top: 80px;
+  top: 60px;
+  border-radius: 15px;
 }
 
 /* ---------------VISOR--------------- */
