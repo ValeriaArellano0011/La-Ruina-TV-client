@@ -19,8 +19,11 @@ const Nav = () => {
     const [posNav, setPosNav] = useState()
     const option = useSelector(state=>state.option)
     const currentUser = useSelector(state=>state.currentUser)
-    const userAlias = localStorage.getItem('auth')
+    const auth = localStorage.getItem('auth');
+    const user = auth ? JSON.parse(auth) : null;
+    console.log(user)
     window.onscroll = function() {navBack(setPosNav, posNav)};
+
     return (
 
     <div className='navCont'>
@@ -133,7 +136,7 @@ const Nav = () => {
             <ul className='navSearchBar'>
                 <li><SearchBar/></li>
                 <ul className={s.profileMenuBtn}>
-                    {!(userAlias || currentUser)? 
+                    {!(user || currentUser)? 
                     (option==='login'? <li><BackButton /></li> : <li><EnterBtn /></li>)
                     : (option === '' || option==='login' )? <li><ProfileMenu/></li> : <li><BackButton /></li> }
                 </ul>

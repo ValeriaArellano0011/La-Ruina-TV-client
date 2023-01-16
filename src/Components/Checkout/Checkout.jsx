@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import s from './css/Checkout.module.css'
 import checkedIcon from '../../design/checked-icon.png'
 import RequestProfile from '../../Admin/Requests/RequestProfile'
@@ -6,17 +6,23 @@ import axios from 'axios'
 
 export const Checkout = () => {
   const [isSubscribing, setIsSubscribing] = useState(false);
+  const [ userEmail, setUserEmail ] = useState('')
+  const auth = localStorage.getItem('auth');
+  const user = auth ? JSON.parse(auth) : null;
+  useEffect(() => {
+    if (user) {
+      setUserEmail(user.email)
+    }
+}, [user]);
 
   const handleCheckout = async () => {
     setIsSubscribing(true);
     try {
-      // call the API endpoint to create the checkout
       const { data } = await axios.post('/mercadopago/create-checkout', {
-          planId: "Plan Suscriptor",
-          name: localStorage.getItem('auth'),
-          email: "johndoe@example.com"
+          planId: "Plan Subscriptor",
+          name: user.userAlias,
+          email: userEmail
       });
-      // redirect the user to the checkout's approval URL
       window.location.href = data.checkout.init_point;
   } catch (error) {
       console.log(error);

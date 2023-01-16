@@ -25,10 +25,10 @@ const RequestProfile = () => {
                     </li>
 
                     <li>
-                        <img src={likeIcon} className={s.likeIcon} alt="favoritos" />
+                        <img src={likeIcon} className={s.likeIcon} alt="favoritos" onClick={()=>{return dispatch(getOption('fav'))}} />
                     </li>
                     <li>
-                        <img src={listIcon} className={s.listIcon} alt="lista" />
+                        <img src={listIcon} className={s.listIcon} alt="lista" onClick={()=>{return dispatch(getOption('list'))}} />
                     </li>
                     {   
                         rolUser === 'admin' ?
@@ -41,7 +41,7 @@ const RequestProfile = () => {
                         </li>                     
                     }
                     <li>
-                        <img src={configIcon} className={s.configIcon} alt="configuraciones" />
+                        <img src={configIcon} className={s.configIcon} onClick={()=>{return dispatch(getOption('config'))}} alt="configuraciones" />
                     </li>
                     <li>
                         <img 

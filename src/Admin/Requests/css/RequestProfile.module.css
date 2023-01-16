@@ -26,7 +26,7 @@
 	text-align: left;
 }
 
-.likeIcon, .listIcon, .userIcon {
+.likeIcon, .listIcon, .userIcon, .configIcon {
 	width: 35px;
 	filter: grayscale(1);
 	transition-duration: 1s;
@@ -59,7 +59,7 @@
 	position: fixed;
 }
 
-.likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover, .subscriptionIcon:hover, .userIcon:hover{
+.likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover, .subscriptionIcon:hover, .userIcon:hover, .configIcon:hover{
 	cursor: pointer;
 	filter: grayscale(.2);
 	opacity: 1;

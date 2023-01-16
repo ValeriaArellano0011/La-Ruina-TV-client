@@ -19,11 +19,11 @@ const LogIn = () => {
   useEffect(() => {
     if (currentUser) {
       logCss();
-      localStorage.setItem('auth', currentUser)
-      console.log(currentUser)
+      localStorage.setItem('auth', JSON.stringify(currentUser))
       history.push('/browser')
     }
   }, [currentUser, history]);
+  
   return (
     <div className="LogInBody">
       <div className="formCont">

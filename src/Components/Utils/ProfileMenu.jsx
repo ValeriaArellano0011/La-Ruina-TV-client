@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import s from './css/ProfileMenu.module.css';
 import userIcon from '../../design/user-icon.png';
 import btnMenuTv from '../../design/ruinatv-icon-play-b.png';
@@ -13,7 +13,10 @@ export const ProfileMenu = () => {
   const rolUser = useSelector(state=>state.rolUser)
   const dispatch = useDispatch()
   const history = useHistory()
-  const userAlias = localStorage.getItem('auth')
+  const auth = localStorage.getItem('auth');
+  const user = auth ? JSON.parse(auth) : null;
+  
+  const [ userAlias, setUserAlias ] = useState('')
 
   function onClickValue(e){
     return (
@@ -21,6 +24,12 @@ export const ProfileMenu = () => {
       OptionCanvas(e.target.value)
     )
   }
+
+  useEffect(() => {
+    if (user) {
+      setUserAlias(user.userAlias)
+    }
+}, [user]);
   return (
     <div>
         <ul className={s.profileBtnCont}>
@@ -30,7 +39,7 @@ export const ProfileMenu = () => {
             onMouseLeave={() => {return profileMenuCss('leave')}}
             >
             <img className={s.userIcon} src={userIcon} alt='userIcon' width='15px' />
-            Hola, {userAlias ? userAlias : currentUser} 
+            Hola, {userAlias ? userAlias : currentUser.userAlias} 
             <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
           </li>
         {
