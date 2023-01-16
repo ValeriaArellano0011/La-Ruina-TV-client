@@ -23,7 +23,7 @@ export const Checkout = () => {
     <div className={s.checkoutCont}>
         <div className={s.checkoutFormat} >
           <div className={s.navFixed} ></div>
-          <h1>Elegí tu plan, bobo</h1>
+          <h1>Elegí tu plan</h1>
             <ul className={s.ulCheck}>
               <li className={s.liCheck}>
                 <div className={s.divCheckCont}>
