@@ -108,7 +108,7 @@ export const ProfileMenu = () => {
           <li><button 
             id='optionProfileBtn2' 
             className={s.optionProfileBtn} 
-            value='configuration' 
+            value='config' 
             onClick={(e)=>{return onClickValue(e)}}
             onMouseEnter={() => {return profileMenuCss('enter')}}
 

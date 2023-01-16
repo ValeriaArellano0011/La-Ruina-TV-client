@@ -9,7 +9,8 @@
 }
 
 .checkoutFormat {
-    margin-top: 100px
+    margin-top: 100px;
+    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
 }
 
 .navFixed {
@@ -29,9 +30,11 @@
     margin-bottom: 80px;
 }
 .liCheck {
+    list-style: none;
     text-align: center;
 }
 .divCheckCont{
+    list-style: none;
     width: 300px;
     height: 400px;
     background-color: rgb(255, 255, 255);
@@ -60,6 +63,7 @@ h2{
     text-align: start;
     font-family: Product Sans, sans-serif;
     font-weight: thin;
+    list-style: none;
 }
 .btnSubmit{
     height: 40px;

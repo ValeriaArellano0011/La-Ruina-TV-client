@@ -2,7 +2,9 @@
   font-family: Bebas Neue;
   src: url('./fonts/BebasNeue.otf');
 }
-
+ul, li{
+  list-style: none;
+}
 body {
   margin: 0;
   font-family: Bebas Neue;
@@ -14,11 +16,13 @@ body {
   background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);
   background-attachment: scroll;
   background-repeat: no-repeat;
+  list-style: none;
 }
 
 .bodyApp{
   width: 100vw;
   width: 100vw;
+  list-style: none;
 }
 
 code {

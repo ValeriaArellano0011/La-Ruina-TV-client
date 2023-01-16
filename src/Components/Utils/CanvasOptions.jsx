@@ -6,6 +6,11 @@ import { Checkout } from '../Checkout/Checkout'
 import { BackButton } from './BackButton'
 import s from './css/SlideCanvas.module.css'
 import Profile from '../../Admin/Profile/Profile'
+import {Favorites} from '../UserProfile/Favorites'
+import {PlayList} from '../UserProfile/PlayList'
+import {Configurations} from '../UserProfile/Configurations'
+
+
 
 export const CanvasOptions = () => {
     const option = useSelector(state=>state.option)
@@ -16,7 +21,13 @@ export const CanvasOptions = () => {
                     option?
                     (option === 'dashboard')? <><Dashboard/></> 
                     :
-                    (option === 'subscription')? <><Checkout/></> 
+                    (option === 'subscription')? <><Checkout/></>
+                    :
+                    (option === 'favorites')? <><Favorites/></>
+                    :
+                    (option === 'playlist')? <><PlayList/></>
+                    :
+                    (option === 'config')? <><Configurations/></>
                     :
                     (option === 'login')? <><Enter/></> 
                     :

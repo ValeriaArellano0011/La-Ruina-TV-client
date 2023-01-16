@@ -3,6 +3,7 @@ import s from './css/Checkout.module.css'
 import checkedIcon from '../../design/checked-icon.png'
 import RequestProfile from '../../Admin/Requests/RequestProfile'
 import axios from 'axios'
+import { URL_API } from '../../middlewares/misc/config'
 
 export const Checkout = () => {
   const [isSubscribing, setIsSubscribing] = useState(false);
@@ -18,7 +19,7 @@ export const Checkout = () => {
   const handleCheckout = async () => {
     setIsSubscribing(true);
     try {
-      const { data } = await axios.post('/mercadopago/create-checkout', {
+      const { data } = await axios.post(`${URL_API}/mercadopago/create-checkout`, {
           planId: "Plan Subscriptor",
           name: user.userAlias,
           email: userEmail
