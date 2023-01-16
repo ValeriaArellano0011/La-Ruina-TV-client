@@ -19,6 +19,9 @@
     height: 80px;
     background-color: #171717;
 }
+.userIcon{
+    margin-top: -30px;
+}
 .divProfile{
     width: 100vw;
     height: 100vh;

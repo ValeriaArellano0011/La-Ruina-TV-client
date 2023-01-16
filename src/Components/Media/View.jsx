@@ -13,7 +13,7 @@ const View = () => {
     const infoDetailViewer = useSelector(state =>state.infoDetailViewer)
     const idYT = useSelector(state=>state.ytPlayerState)
     useEffect(()=>{
-        dispatch(getInfo(id?? id))
+        dispatch(getInfo(id))
     },[dispatch, id])
 
     // useEffect(()=>{

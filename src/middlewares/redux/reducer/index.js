@@ -1,7 +1,7 @@
 import { 
     NEXT_VISOR, 
     GET_INFO,
-    GET_MEDIATYPE, 
+    GET_MEDIATYPE,
     GET_MEDIA,
     RESET_MEDIA,
     RESET_VISOR,
@@ -13,6 +13,7 @@ import {
     GET_PRODUCT_DETAILS,
     RESET_PRODUCT_DETAILS,
     GET_IDYT,
+    GET_MUSIC_NAME,
     __GOD_MODE__,
     RESET_IDYT} from "../../misc";
 
@@ -104,7 +105,7 @@ export default function rootReducer(state = initialState, action){
             return {
             ...state,
             rolUser: state.rolUser !== 'admin'?  'admin' : 'free'
-            }
+            };
 
 /*----------------Auth----------------*/
 
@@ -113,50 +114,50 @@ export default function rootReducer(state = initialState, action){
             ...state,
             currentUser: action.payload.msg,
             rolUser: action.payload.msg.role
-            }
+            };
         case OPTION:
             return{
                 ...state,
                 option: action.payload
-            }
+            };
         case RESET_OPTION:
             return{
                 ...state,
                 option:''
-            }
+            };
         case POST_PRODUCT:
             return{
                 ...state
-            }     
+            };     
 
 /*----------------Tienda----------------*/
         case GET_PRODUCTS:
             return{
                 ...state,
                 products: action.payload
-            }
+            };
         case GET_PRODUCT_DETAILS:
             return{
                 ...state,
                 productDetails: action.payload
-            }
+            };
         case RESET_PRODUCT_DETAILS:
             return{
                 ...state,
                 productDetails: [{idProduct:'', categoryProduct:'', typeProduct:'', nameMerch:'', stock:'', idImg:''}],
-            }
+            };
 
 /*----------------Media----------------*/
         case GET_IDYT:
             return{
                 ...state,
                 ytPlayerState: action.payload
-            }
+            };
         case RESET_IDYT:
             return{
                 ...state,
                 ytPlayerState: ''
-            }
+            };
             
         case GET_MEDIA:
             var hash = {};
@@ -167,39 +168,49 @@ export default function rootReducer(state = initialState, action){
                     hash[current.id] = true;
                     return exists;
                   })
-            }
+            };
         case GET_INFO:
             console.log(action.payload)
 
             return{
                 ...state,
                 infoDetailViewer: action.payload.at(0)
-            }
-        case GET_MEDIATYPE:
-            return{
-            ...state,
-            }
+            };
+        // case GET_MEDIATYPE:
+        //     return{
+        //     ...state,
+        //     };
         // case GET_CATEGORIAS:
         //     return{
         //         ...state,
         //         categoryList: [...new Set([...state.categoryList, ...new Set(action.payload)].filter(e=> e !== ''))]
-        //     }
+        //     };
         case RESET_MEDIA:
             return{
                 ...state,
                 infoDetailViewer: {urlID: {idYT:''}},
-            }
+            };
         case NEXT_VISOR:
             return{
                 ...state,
                 nextVisor: state.mediaList.length>1? [state.mediaList[action.payload]] : false
-            }
+            };
         case RESET_VISOR:
             return{
                 ...state,
                 nextVisor: false
-            }
+            };
+
+/* ----------------------- Search ----------------------- */
+
+        case GET_MUSIC_NAME:
+            return{
+                ...state,
+                searchedMedia: action.payload
+            };
+
+
         default:
-            return {...state}
+            return {...state};
     }
 }

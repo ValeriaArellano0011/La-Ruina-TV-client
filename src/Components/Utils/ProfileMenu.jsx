@@ -1,12 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import s from './css/ProfileMenu.module.css';
-import userIcon from '../../design/user-icon.png';
 import btnMenuTv from '../../design/ruinatv-icon-play-b.png';
 import profileMenuCss from './js/ProfileMenu';
 import OptionCanvas from '../../functions';
 import { getOption } from '../../middlewares/redux/actions';
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
+import configIcon from '../../design/config-icon.png';
+import userIcon from '../../design/user-icon.png';
+import adminIcon from '../../design/admin-icon.png';
+import likeIcon from '../../design/like-icon.png';
+import subscriptionIcon from '../../design/subscription-icon.png';
+import listaIcon from '../../design/lista-icon.png';
+import logoutIcon from '../../design/logout-icon.png';
 
 export const ProfileMenu = () => {
   const currentUser = useSelector(state=>state.currentUser)
@@ -20,10 +26,12 @@ export const ProfileMenu = () => {
 
   function onClickValue(e){
     return (
-      dispatch(getOption(e.target.value)),
-      OptionCanvas(e.target.value)
+      dispatch(getOption(e.target.value || e)),
+      OptionCanvas(e.target.value || e)
     )
   }
+
+
 
   useEffect(() => {
     if (user) {
@@ -52,7 +60,13 @@ export const ProfileMenu = () => {
             onClick={(e)=>{return onClickValue(e)}}
             onMouseEnter={() => {return profileMenuCss('enter')}}
 
-            >PERFIL</button></li>
+            >
+              <img 
+              value='profile'
+              src={userIcon} 
+              height='12px' 
+              alt="" />
+              PERFIL</button></li>
 
             <li><button 
             id='optionProfileBtn1' 
@@ -61,19 +75,56 @@ export const ProfileMenu = () => {
             onClick={(e)=>{return onClickValue(e)}}
             onMouseEnter={() => {return profileMenuCss('enter')}}
 
-            >DASHBOARD</button></li>
-
+            >
+              <img 
+              value='dashboard'
+              src={adminIcon} 
+              height='12px' 
+              alt="" />
+              DASHBOARD</button></li>
             <li><button 
-              id='optionProfileBtn2' 
-              className={s.optionProfileBtn} 
-              value='configuration' 
-              onClick={(e)=>{return onClickValue(e)}}
-              onMouseEnter={() => {return profileMenuCss('enter')}}>
-              CONFIGURACIÓN</button></li>
+            id='optionProfileBtn2' 
+            className={s.optionProfileBtn} 
+            value='favorites' 
+            onClick={(e)=>{return onClickValue(e)}}
+            onMouseEnter={() => {return profileMenuCss('enter')}}>
+              <img 
+              value='favorites'
+              src={likeIcon} 
+              height='12px' 
+              alt="" />
+              Favoritos</button>
+            </li>
+            
             <li><button 
               id='optionProfileBtn3' 
               className={s.optionProfileBtn} 
-              value='logout' 
+              value='playlist' 
+              onClick={(e)=>{return onClickValue(e)}}
+              onMouseEnter={() => {return profileMenuCss('enter')}}
+    
+              >
+              <img 
+              value='playlist'
+              src={listaIcon} 
+              height='12px' 
+              alt="" />
+                LISTAS</button></li>
+            <li><button 
+              id='optionProfileBtn4' 
+              className={s.optionProfileBtn} 
+              value='config' 
+              onClick={(e)=>{return onClickValue(e)}}
+              onMouseEnter={() => {return profileMenuCss('enter')}}>
+              <img 
+              value='config'
+              src={configIcon} 
+              height='12px' 
+              alt="" />
+              CONFIGURACIÓN</button></li>
+            <li><button                 
+              id='optionProfileBtn5' 
+              className={s.optionProfileBtn} 
               onClick={()=>{
                 return (
                   localStorage.removeItem('auth'), 
@@ -82,6 +133,10 @@ export const ProfileMenu = () => {
                 )
               }}
               onMouseEnter={() => {return profileMenuCss('enter')}}>
+              <img 
+              src={logoutIcon} 
+              height='12px' 
+              alt="" />
               SALIR</button></li>
             </>
             :
@@ -91,30 +146,67 @@ export const ProfileMenu = () => {
             className={s.optionProfileBtn} 
             value='profile' 
             onClick={(e)=>{return onClickValue(e)}}
-            onMouseEnter={() => {return profileMenuCss('enter')}}
-            >
-
+            onMouseEnter={() => {return profileMenuCss('enter')}}>
+              <img 
+              value='profile'
+              src={userIcon} 
+              height='12px' 
+              alt="" />
               PERFIL
             </button>
           </li>
           <li><button 
             id='optionProfileBtn1' 
             className={s.optionProfileBtn} 
-            value='subscription'
+            value='favorites' 
             onClick={(e)=>{return onClickValue(e)}}
-            onMouseEnter={() => {return profileMenuCss('enter')}}
-
-            >SUSCRIPCIÓN</button></li>
-          <li><button 
+            onMouseEnter={() => {return profileMenuCss('enter')}}>
+              <img 
+              value='favorites'
+              src={likeIcon} 
+              height='12px' 
+              alt="" />
+              FAVORITOS</button></li>
+            <li><button 
+              id='optionProfileBtn3' 
+              className={s.optionProfileBtn} 
+              value='playlist' 
+              onClick={(e)=>{return onClickValue(e)}}
+              onMouseEnter={() => {return profileMenuCss('enter')}}
+              >
+              <img 
+              value='playlist'
+              src={listaIcon} 
+              height='12px' 
+              alt="" />
+                LISTAS</button></li>
+          <li><button                                 
             id='optionProfileBtn2' 
+            className={s.optionProfileBtn} 
+            value='subscription'
+            onMouseEnter={() => {return profileMenuCss('enter')}}
+            >
+              <img 
+              value='subscription'
+              src={subscriptionIcon} 
+              height='12px' 
+              alt="" />
+              SUSCRIPCIÓN</button></li>
+          <li>
+            <button 
+            id='optionProfileBtn4' 
             className={s.optionProfileBtn} 
             value='config' 
             onClick={(e)=>{return onClickValue(e)}}
-            onMouseEnter={() => {return profileMenuCss('enter')}}
-
-            >CONFIGURACIÓN</button></li>
+            onMouseEnter={() => {return profileMenuCss('enter')}}>
+              <img 
+              value='config' 
+              src={configIcon} 
+              height='12px' 
+              alt="" />
+              CONFIGURACIÓN</button></li>
           <li><button 
-            id='optionProfileBtn3' 
+            id='optionProfileBtn5' 
             className={s.optionProfileBtn} 
             onClick={()=>{
               return (
@@ -123,9 +215,14 @@ export const ProfileMenu = () => {
                 window.location.reload()
               )
             }}
-            onMouseEnter={() => {return profileMenuCss('enter')}}
-
-            >SALIR</button></li></>
+            onMouseEnter={() => {return profileMenuCss('enter')}}>
+              <img 
+              src={logoutIcon} 
+              height='12px'
+              alt="" />
+            SALIR</button></li>
+          </>
+            
         }
         </ul>   
 

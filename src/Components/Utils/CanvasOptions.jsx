@@ -10,15 +10,13 @@ import {Favorites} from '../UserProfile/Favorites'
 import {PlayList} from '../UserProfile/PlayList'
 import {Configurations} from '../UserProfile/Configurations'
 
-
-
 export const CanvasOptions = () => {
     const option = useSelector(state=>state.option)
     return (
         <div className={s.slideCanvasCont} id='slideCanvasCont'>
             <ul>
-                {
-                    option?
+                {   
+                    (option?
                     (option === 'dashboard')? <><Dashboard/></> 
                     :
                     (option === 'subscription')? <><Checkout/></>
@@ -35,7 +33,7 @@ export const CanvasOptions = () => {
                     :
                     (option === 'configuration')? <><BackButton/></>
                     :null
-                :null
+                :null)
                 }
             </ul>
         </div>

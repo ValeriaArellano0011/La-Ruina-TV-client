@@ -6,7 +6,7 @@ import axios from 'axios'
 import { URL_API } from '../../middlewares/misc/config'
 
 export const Checkout = () => {
-  const [isSubscribing, setIsSubscribing] = useState(false);
+  const [ , setIsSubscribing] = useState(false);
   const [ userEmail, setUserEmail ] = useState('')
   const auth = localStorage.getItem('auth');
   const user = auth ? JSON.parse(auth) : null;
