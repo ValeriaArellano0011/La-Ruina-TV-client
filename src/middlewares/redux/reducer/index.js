@@ -77,7 +77,21 @@ const initialState = {
         }
     ],
     nextVisor: false,
-    infoDetailViewer: [{urlID: {idYT:''}}],
+    infoDetailViewer:[{
+        linkimg:"",
+        idLinkSPOTY:"",
+        idLinkDRIVE:"",
+        urlLinkWEB:"",
+        urlLinkDOWNLOAD:"",
+        categories:"",
+        info: "",
+        connectionId:"",
+        title:"",
+        genre:"",
+        artist:"",
+        idLinkYT:"",
+        mediaType:""
+    }],
     categoryList: ["Sello Arruinados", 'Música',  'Estudio "La Ruina Records"', "En vivo", "App y descargables", "Literatura", "Series"],
 
 /*----------------Tienda----------------*/
@@ -171,7 +185,7 @@ export default function rootReducer(state = initialState, action){
 
             return{
                 ...state,
-                infoDetailViewer: action.payload.at(0)
+                infoDetailViewer: action.payload
             };
         // case GET_MEDIATYPE:
         //     return{
@@ -185,7 +199,21 @@ export default function rootReducer(state = initialState, action){
         case RESET_MEDIA:
             return{
                 ...state,
-                infoDetailViewer: {urlID: {idYT:''}},
+                infoDetailViewer: [{
+                    linkimg:"",
+                    idLinkSPOTY:"",
+                    idLinkDRIVE:"",
+                    urlLinkWEB:"",
+                    urlLinkDOWNLOAD:"",
+                    categories:"",
+                    info: "",
+                    connectionId:"",
+                    title:"",
+                    genre:"",
+                    artist:"",
+                    idLinkYT:"",
+                    mediaType:""
+                }],
             };
         case NEXT_VISOR:
             return{

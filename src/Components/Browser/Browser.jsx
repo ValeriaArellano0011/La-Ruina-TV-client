@@ -18,15 +18,15 @@ const Browser = () => {
   BodyCss();
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(resetMedia());
+    dispatch(resetOption());
+    dispatch(resetIdYT());
+    dispatch(getMedia());
+  }, []);
   const cardList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
 
-  useEffect(() => {
-    dispatch(resetIdYT());
-    dispatch(resetMedia());
-    dispatch(getMedia());
-    dispatch(resetOption());
-  }, [dispatch]);
   
   return (
     <div className="browserBody">
