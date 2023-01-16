@@ -22,7 +22,7 @@ export default function SearchBar(){
         e.preventDefault();
         if (name.length>0){
         return (dispatch(getMusicName(name)),
-        history.push(`/search/${name}`))
+        history.push(`/search`))
       }
     }
 
