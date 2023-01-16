@@ -12,7 +12,6 @@ const Player = (props) => {
         </li>
       </ul>
     </div>
-    
   )
 }
 

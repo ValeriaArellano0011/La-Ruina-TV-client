@@ -133,28 +133,35 @@ export function resetIdYT() {
 
 export function getMedia() {
     return async function(dispatch) {
-        await axios.get(`${URL_API}/media/getall`)
-        .then(res =>{
-            console.log('el res del front',res)
-            dispatch({
-                type: GET_MEDIA,
-                payload: res.data
+        try {
+            await axios.get(`${URL_API}/media/getall`)
+            .then(res =>{
+                dispatch({
+                    type: GET_MEDIA,
+                    payload: res.data
+                })
             })
-        })
-        .catch(e => console.log(e))
+            
+        } catch(e) {
+            console.log(e)
+        }
     }
 }
 
 export function getInfo(id) {
     return async function(dispatch) {
-        await axios.get(`${URL_API}/media/${id}`)
-        .then(res =>{
-            dispatch({
-                type: GET_INFO, 
-                payload: res.data
-            })
-        })
-        .catch(e => console.log(e))
+        try{
+            await axios.get(`${URL_API}/media/${id}`)
+            .then(res =>{
+                if (res.data.length===1){
+                dispatch({
+                    type: GET_INFO, 
+                    payload: res.data
+                })
+            }})
+        } catch(e) {
+            console.log(e)
+        }
     }
 }
 

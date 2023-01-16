@@ -4,14 +4,14 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 export default function GoogleSignUp() {
- // const history = useHistory;
+//  const history = useHistory;
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   if (token) {
-  //     history.push("/browser");
-  //   }
-  // }, [history]);
+//   useEffect(() => {
+//     const user = localStorage.getItem("token");
+//     if (token) {
+//       history.push("/browser");
+//     }
+//   }, [history]);
 
   return (
     <div>

@@ -9,33 +9,46 @@ import Player from './Player'
 
 const View = () => {
     const dispatch = useDispatch()
-    const { id } = useParams()
-    const infoDetailViewer = useSelector(state =>state.infoDetailViewer)
-    const idYT = useSelector(state=>state.ytPlayerState)
+    const {id} = useParams()
     useEffect(()=>{
         dispatch(getInfo(id))
     },[dispatch, id])
-
+    const infoDetailViewer = useSelector(state =>state.infoDetailViewer)
+    const idYT = useSelector(state=>state.ytPlayerState)
+    const {
+        linkimg,
+        idLinkSPOTY,
+        idLinkDRIVE,
+        urlLinkWEB,
+        urlLinkDOWNLOAD,
+        categories,
+        info,
+        connectionId,
+        title,
+        genre,
+        artist,
+        idLinkYT,
+        mediaType
+        } = infoDetailViewer?.at(0)
     // useEffect(()=>{
     //     setType(typeMediaList[dispatch(getMediaType(typeMedia)).payload])
     // },[dispatch, typeMediaList, typeMedia])
 
     return (
-        !infoDetailViewer?
         <div>
             <div className='visor'>
                 <div className='visorBGCanvas'>
-                    <img className='visorBG' src={infoDetailViewer.linkimg} alt='' />
+                    <img className='visorBG' src={linkimg} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
                 <div className='visorPostInfo'>
                     <div className='visorPostArtista'>
-                        <p>{infoDetailViewer.artist}</p>
+                        <p>{artist}</p>
                     </div>
                     <div className='visorPostTitulo' id='viewPostTitulo'>
-                    <p>{infoDetailViewer.title}</p>
+                    <p>{title}</p>
                     <div className='visorInfo'>
-                        <h3>{infoDetailViewer.info}</h3>
+                        <h3>{info}</h3>
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
@@ -51,24 +64,22 @@ const View = () => {
                             } */}
                         </ul>
                         <Player idYT={idYT} />
-                        {infoDetailViewer?
-                        
+                        {
                         <button onClick={()=>{
                             return (
-                            dispatch(getIdYT(infoDetailViewer.idLinkYT)),
+                            dispatch(getIdYT(idLinkYT)),
                             document.querySelector('.playerCont').style.opacity='1',
                             document.querySelector('.playerLi').style.scale='1',
                             document.querySelector('.playUl').style.scale='1'
                             )}}
                             className='buttonVer'>Ver ahora</button>
-                        : null
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
                     </div>
                     </div>
                 </div>
             </div>
-        </div> : null
+        </div>
     )
 }
 
