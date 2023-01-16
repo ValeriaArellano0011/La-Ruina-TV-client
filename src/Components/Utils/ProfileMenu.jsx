@@ -184,6 +184,7 @@ export const ProfileMenu = () => {
             id='optionProfileBtn2' 
             className={s.optionProfileBtn} 
             value='subscription'
+            onClick={(e)=>{return onClickValue(e)}}
             onMouseEnter={() => {return profileMenuCss('enter')}}
             >
               <img 

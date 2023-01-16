@@ -1,7 +1,6 @@
 import { 
     NEXT_VISOR, 
     GET_INFO,
-    GET_MEDIATYPE,
     GET_MEDIA,
     RESET_MEDIA,
     RESET_VISOR,
