@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import s from './css/Checkout.module.css'
 import checkedIcon from '../../design/checked-icon.png'
+import RequestProfile from '../../Admin/Requests/RequestProfile'
+import axios from 'axios'
+import { URL_API } from '../../middlewares/misc/config'
 
 export const Checkout = () => {
+
+  const handleCheckout = async () => {
+    try {
+      await axios.post(`${URL_API}/mercadopago/create-checkout`)
+      .then(data => 
+        window.location.href = data.data
+      )
+  } catch (error) {
+      console.log(error);
+      alert("Hubo un error, intenta de nuevo más tarde.");
+  }
+  }
+
   return (
     <div className={s.checkoutCont}>
         <div className={s.checkoutFormat} >
@@ -48,7 +64,7 @@ export const Checkout = () => {
                       </h5>
                     </ul>
                   </div>
-                  <button className={s.btnSubmit}>Comenzar</button>
+                  <button className={s.btnSubmit} onClick={() => handleCheckout()}>Comenzar</button>
                 </div>
               </li>
               {/* <li className={s.liCheck}>
@@ -76,6 +92,7 @@ export const Checkout = () => {
                 </div>
               </li> */}
             </ul>
+            <RequestProfile />
         </div>
     </div>
   )

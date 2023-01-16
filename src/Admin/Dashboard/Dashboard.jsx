@@ -3,6 +3,7 @@ import React from 'react'
 import { Title } from 'react-admin'
 import CardContent from '@mui/material/CardContent'
 import Requests from '../Requests/Requests'
+import RequestProfile from '../Requests/RequestProfile'
 
 const Dashboard = () => {
   return (
@@ -15,6 +16,7 @@ const Dashboard = () => {
       <ul>
         <li>
           <Requests />
+          <RequestProfile />
         </li>
       </ul>
     </div>

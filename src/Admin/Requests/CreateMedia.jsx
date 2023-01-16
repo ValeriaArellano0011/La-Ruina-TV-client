@@ -50,30 +50,30 @@ const CreateMedia = () => {
   const optionsMediaType = [
     {
       slot: 1,
-      name: "Música",
+      name: "musica",
     },
     {
       slot: 2,
-      name: "Serie",
+      name: "serie",
     },
     {
       slot: 3,
-      name: "App",
+      name: "app",
     },
     {
       slot: 4,
-      name: "Libro",
+      name: "libro",
     },
   ];
 
   const optionsGenre = [
     {
       slot: 1,
-      name: "Jazz",
+      name: "jazz",
     },
     {
       slot: 2,
-      name: "Pop",
+      name: "pop",
     },
     {
       slot: 3,
@@ -85,7 +85,7 @@ const CreateMedia = () => {
     },
     {
       slot: 5,
-      name: "electrónica",
+      name: "electronica",
     },
     {
       slot: 6,

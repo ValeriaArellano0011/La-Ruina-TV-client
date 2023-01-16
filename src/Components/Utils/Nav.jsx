@@ -19,8 +19,11 @@ const Nav = () => {
     const [posNav, setPosNav] = useState()
     const option = useSelector(state=>state.option)
     const currentUser = useSelector(state=>state.currentUser)
-    const userAlias = localStorage.getItem('auth')
+    const auth = localStorage.getItem('auth');
+    const user = auth ? JSON.parse(auth) : null;
+    console.log(user)
     window.onscroll = function() {navBack(setPosNav, posNav)};
+
     return (
 
     <div className='navCont'>
@@ -32,6 +35,7 @@ const Nav = () => {
                     alt="La Ruina TV"
                     width='120' 
                     onClick={()=>{
+                        window.scrollTo(0, 0)
                         return(
                         (option === 'navBlack')? document.querySelector(`.navCont`).style.backgorundColor='rgb(0,0,0)' : null,
                         dispatch(resetOption()),
@@ -52,6 +56,7 @@ const Nav = () => {
         <ul className='navMenu'>
             <li
                 onClick={()=>{
+                    window.scrollTo(0, 0)
                     return(
                     dispatch(resetOption()),
                     document.querySelector(`.bodyApp`).style.transform='translateX(0)',
@@ -67,6 +72,7 @@ const Nav = () => {
                 <Link to='/browser'>Inicio</Link></li>
             <li
                 onClick={()=>{
+                    window.scrollTo(0, 0)
                     return(
                     dispatch(resetOption()),
                     document.querySelector(`.bodyApp`).style.transform='translateX(0)',
@@ -81,6 +87,7 @@ const Nav = () => {
                     )}}>                <Link to='/novedades'>Novedades</Link></li>
             <li
                 onClick={()=>{
+                    window.scrollTo(0, 0)
                     return(
                     dispatch(resetOption()),
                     document.querySelector(`.bodyApp`).style.transform='translateX(0)',
@@ -96,6 +103,7 @@ const Nav = () => {
                 <Link to='/lanzamientos'>Lanzamientos</Link></li>
             <li
                 onClick={()=>{
+                    window.scrollTo(0, 0)
                     return(
                     dispatch(resetOption()),
                     document.querySelector(`.bodyApp`).style.transform='translateX(0)',
@@ -111,6 +119,7 @@ const Nav = () => {
                 <Link to='/colaborar'>Colaborar</Link></li>
             <li
                 onClick={()=>{
+                    window.scrollTo(0, 0)
                     return(
                     dispatch(resetOption()),
                     document.querySelector(`.bodyApp`).style.transform='translateX(0)',
@@ -127,7 +136,9 @@ const Nav = () => {
             <ul className='navSearchBar'>
                 <li><SearchBar/></li>
                 <ul className={s.profileMenuBtn}>
-                    {!(userAlias || currentUser)? (option==='login'? <li><BackButton /></li> : <li><EnterBtn /></li>) :<li><ProfileMenu/></li>}
+                    {!(user || currentUser)? 
+                    (option==='login'? <li><BackButton /></li> : <li><EnterBtn /></li>)
+                    : (option === '' || option==='login' )? <li><ProfileMenu/></li> : <li><BackButton /></li> }
                 </ul>
             </ul>
         </ul>

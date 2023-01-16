@@ -5,9 +5,11 @@ import { useDispatch } from "react-redux";
 import { searchBarFunction } from './js/SearchBar';
 import { useState } from "react";
 import { getMusicName } from "../../middlewares/redux/actions";
+import { useHistory } from "react-router-dom";
 
 export default function SearchBar(){
     const dispatch = useDispatch()
+    const history = useHistory()
     const [name, setName] = useState("")
 
     function handleInputChange(e){
@@ -18,8 +20,10 @@ export default function SearchBar(){
 
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(getMusicName(name));
-        setName("")
+        if (name.length>0){
+        return (dispatch(getMusicName(name)),
+        history.push(`/search`))
+      }
     }
 
     return (

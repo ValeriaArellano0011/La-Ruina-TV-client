@@ -3,7 +3,6 @@ import s from "./css/Slider.module.css";
 import Visor from "./Visor";
 import Footer from "../Footer/Footer";
 import Slider from "./Slider";
-import Sort from "../Utils/Sort";
 import { BodyCss } from "../../functions";
 import { useDispatch, useSelector } from "react-redux";
 import { InfoCanvas } from '../Utils/InfoCanvas'
@@ -21,29 +20,26 @@ const Browser = () => {
   const dispatch = useDispatch();
   const cardList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
-  //const sliderCategoria = (categories) => cardList.filter(e=> {return e.categories.find(el=>el===categoryList)})
+
   useEffect(() => {
-    dispatch(resetOption());
-    dispatch(getMedia());
-    dispatch(resetMedia());
     dispatch(resetIdYT());
+    dispatch(resetMedia());
+    dispatch(getMedia());
+    dispatch(resetOption());
   }, [dispatch]);
-  useEffect(() => {
-    //dispatch(getCategorias(visorList))
-    
-  }, [cardList, dispatch]);
   
   return (
     <div className="browserBody">
       {/* ---------------------VISOR--------------------- */}
-      <Visor />
-      <InfoCanvas />
+
+        <Visor />
+        <InfoCanvas />
 
       {/* ----------------------SORT--------------------- */}
-      <Sort />
+      {/* <Sort /> */}
 
       {/* --------------------SLIDERS-------------------- */}
-      {cardList && (
+      {cardList.length>1 && (
         <Slider
           title={"Contenido"}
           cardList={cardList}

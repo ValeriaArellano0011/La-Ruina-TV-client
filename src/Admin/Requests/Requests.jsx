@@ -38,6 +38,7 @@ const Requests = () => {
             document.querySelector(`.bodyApp`).style.transitionDuration='2s',
             document.querySelector(`.navCont`).style.width='0vw',
             document.querySelector(`.navMenu`).style.display='flex',
+            document.querySelector(`.navCont`).style.width='100vw',
             document.querySelector(`.browserBody`).style.height='auto',
             document.querySelector(`.browserBody`).style.overflowY='scroll',
             document.querySelector(`.visor`).style.transform='translateX(0)',

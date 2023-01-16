@@ -16,7 +16,7 @@ const Media = ({ cardList, style, keyID }) => {
                   <div className={style.sliderItem}>
                     <Link
                       to={`/view/v=${e.idLinkYT}=_type_=${e.mediaType}=_id_=${e.id}`}
-                    >
+                    className='link' >
                       <button
                         className={style.media}
                         style={{
@@ -30,6 +30,7 @@ const Media = ({ cardList, style, keyID }) => {
                         artista={e.artist}
                         img={e.linkimg}
                         onClick={() => {
+                          document.querySelector(`.link`).style.transitionDelay='1s'
                           return window.scrollTo(0, 0);
                         }}
                       >

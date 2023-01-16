@@ -26,12 +26,20 @@
 	text-align: left;
 }
 
-.likeIcon, .listIcon, .adminIcon {
+.likeIcon, .listIcon, .userIcon, .configIcon {
 	width: 35px;
 	filter: grayscale(1);
 	transition-duration: 1s;
 	opacity: .9;
 	margin-top: 15px;
+}
+
+.adminIcon {
+	width: 35px;
+	filter: grayscale(1);
+	transition-duration: 1s;
+	opacity: .9;
+	margin-top: 20px;
 }
 
 .subscriptionIcon{
@@ -51,12 +59,12 @@
 	position: fixed;
 }
 
-.likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover, .subscriptionIcon:hover{
+.likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover, .subscriptionIcon:hover, .userIcon:hover, .configIcon:hover{
 	cursor: pointer;
 	filter: grayscale(.2);
 	opacity: 1;
-	box-shadow: 0px 0px 5px yellow;
-
+	filter: drop-shadow(0px 0px 5px yellow);
+	transition-duration: 1s;
 }
 
 

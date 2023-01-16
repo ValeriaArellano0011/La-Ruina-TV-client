@@ -15,7 +15,6 @@ import { CanvasOptions } from './Components/Utils/CanvasOptions';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 function App() {
-  console.log(localStorage.getItem('auth'))
   return (
     <div className="App">
       <Switch>

@@ -27,7 +27,7 @@ const Visor = () => {
                 <img className='visorBG' src={visorImg} alt='' />
             </div>
             <div className='visorCanvas'></div>
-            {visorList?
+            {visorList? (visorList.length>1?
             (<div className='visorPostInfo'>
                 <div className='visorPostArtista'>
                     <p>{visorArtist}</p>
@@ -54,7 +54,7 @@ const Visor = () => {
                                 document.querySelector('.visorButtonPlay').src=playIconn
                             }}
                             >
-                            <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{visorBtn1? visorBtn1 : 'Ver más'}</button></Link></li>
+                            <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{visorBtn1? visorBtn1 : 'Ver media'}</button></Link></li>
                         <li><button 
                                 className='button2'
                                 onClick={()=>{ return document.querySelector('#infoCont').style.scale='1' }} >
@@ -70,7 +70,7 @@ const Visor = () => {
                         }
                     </ul>
                 </div>
-            </div>) : null}
+            </div>): null) : null}
         </div>
     )
 }

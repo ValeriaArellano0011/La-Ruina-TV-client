@@ -8,6 +8,7 @@ import { authCss } from "./js/authCss";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 const LogIn = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser);
@@ -18,10 +19,11 @@ const LogIn = () => {
   useEffect(() => {
     if (currentUser) {
       logCss();
-      localStorage.setItem('auth', currentUser)
+      localStorage.setItem('auth', JSON.stringify(currentUser))
       history.push('/browser')
     }
   }, [currentUser, history]);
+  
   return (
     <div className="LogInBody">
       <div className="formCont">
@@ -32,6 +34,7 @@ const LogIn = () => {
             <input
               type="text"
               name="userName"
+              required
               onChange={(e) => {
                 return setEmail(e.target.value);
               }}
@@ -41,6 +44,7 @@ const LogIn = () => {
             <input
               type="password"
               name="password"
+              required
               onChange={(e) => {
                 return setPassword(e.target.value);
               }}
@@ -62,7 +66,7 @@ const LogIn = () => {
             </li>
           </form>
         </ul>
-        <h3 style={{ color: "white", fontWeigth: "thin" }}>
+        <h3 style={{ color: "white", fontWeight: 'lighter', fontSize: "15px"}}>
           o ingresa a través de
         </h3>
         <GoogleSignUp />

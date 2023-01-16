@@ -8,6 +8,8 @@ import listIcon from '../../design/lista-icon.png'
 import logoutIcon from '../../design/logout-icon.png'
 import adminIcon from '../../design/admin-icon.png'
 import subscriptionIcon from '../../design/subscription-icon.png'
+import userIcon from '../../design/user-icon.png'
+import configIcon from '../../design/config-icon.png'
 
 const RequestProfile = () => {
     const dispatch = useDispatch()
@@ -19,10 +21,14 @@ const RequestProfile = () => {
                 className={s.ulProfileMenu}>
                 <ul className={s.ulRequestProfile}>
                     <li>
-                        <img src={likeIcon} className={s.likeIcon} alt="favoritos" />
+                        <img src={userIcon} className={s.userIcon} onClick={()=>{return dispatch(getOption('profile'))}} alt="perfil" />
+                    </li>
+
+                    <li>
+                        <img src={likeIcon} className={s.likeIcon} alt="favoritos" onClick={()=>{return dispatch(getOption('favorites'))}} />
                     </li>
                     <li>
-                        <img src={listIcon} className={s.listIcon} alt="lista" />
+                        <img src={listIcon} className={s.listIcon} alt="lista" onClick={()=>{return dispatch(getOption('playlist'))}} />
                     </li>
                     {   
                         rolUser === 'admin' ?
@@ -32,7 +38,11 @@ const RequestProfile = () => {
                         :
                         <li>
                           <img src={subscriptionIcon} className={s.subscriptionIcon} onClick={()=>{return dispatch(getOption('subscription'))}} alt="lista" />
-                        </li>                     }
+                        </li>                     
+                    }
+                    <li>
+                        <img src={configIcon} className={s.configIcon} onClick={()=>{return dispatch(getOption('config'))}} alt="configuraciones" />
+                    </li>
                     <li>
                         <img 
                             src={logoutIcon} 
