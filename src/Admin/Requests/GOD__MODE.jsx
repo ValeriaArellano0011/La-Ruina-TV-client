@@ -13,7 +13,7 @@ export const GOD__MODE = () => {
     
   return (
     <div className={s.GOD_MODE}>
-        <button className={s.GOD_MODE} onClick={()=>handlerClick()}> {rolUser === 'admin'? 'GOD_MODE' : 'NOOB_MODE'}</button>
+        <button className={s.GOD_MODE} onClick={()=>handlerClick()}> {rolUser === 'admin'? 'ADMIN_MODE' : 'USER_MODE'}</button>
     </div>
   )
 }
