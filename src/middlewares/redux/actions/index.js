@@ -239,18 +239,19 @@ export function loadingSearchSet(){
 }
 
 export function getMusicName(name){
-    return async (dispatch) => {
-        try {
-            const searchMusic = await axios(`${URL_API}/search/name=${name}`);
-            return dispatch({
+    return function (dispatch){
+        axios.get(`${URL_API}/media/search?name=${name}`)
+        .then(res => {
+            dispatch({
                 type: GET_MUSIC_NAME,
-                payload: searchMusic.data
-            })
-        } catch (error) {
-            console.log(error)
+                payload: res.data,
+                });
+        })
+        .catch((e) => {
+            console.log(e)
+            });
         }
     }
-}
 
 export function searchStateChange(){
 

@@ -24,8 +24,8 @@ const Browser = () => {
   useEffect(() => {
     dispatch(resetIdYT());
     dispatch(resetMedia());
-    dispatch(resetOption());
     dispatch(getMedia());
+    dispatch(resetOption());
   }, [dispatch]);
   
   return (
