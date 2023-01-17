@@ -288,8 +288,7 @@ const CreateMedia = () => {
                       name={t.name}
                       value={t.name}
                       id={t.name}
-                      onChange={(e) => checkboxMT(e)}
-                    />
+                      onChange={(e) => checkboxMT(e)}/>
                     <label htmlFor={t.name}>{t.name}</label>
                     {t.slot % 4 === 0 ? <br /> : null}
                   </div>
@@ -304,8 +303,7 @@ const CreateMedia = () => {
                   value={data.idLinkYT}
                   onChange={(e) =>
                     setData({ ...data, idLinkYT: e.target.value })
-                  }
-                />
+                  }/>
               </p>
               <p>
                 <label>Id del link de Spotify</label>

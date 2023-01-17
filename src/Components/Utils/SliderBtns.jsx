@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import playIconb from '../../design/ruinatv-icon-play-b.png'
+import { useDispatch } from 'react-redux';
+import { getMedia } from '../../middlewares/redux/actions';
 
 const SliderBtns = (props) => {
+    const dispatch = useDispatch()
 
     const k = -210
     const [i, setPosi] = useState(k)
@@ -61,6 +64,7 @@ const SliderBtns = (props) => {
             className={`${s.sliderPostBtn}`}
             id={`${key}PostBtn`}
             onClick={()=>{
+                dispatch(getMedia())
                 setPosi(i+k)
                 setPosn(n+k)
                 if (i<0 && i>(props.categories.length-1)*k){

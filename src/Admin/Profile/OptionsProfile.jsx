@@ -17,8 +17,8 @@ const OptionsProfile = () => {
   }, [user]);
     return (
       <div className='dashControlCont'>
-        <div className={s.divProfile}>
-        <div className={s.navFixed} ></div>
+        <div className='divProfile'>
+        <div className='navFixed' ></div>
           <div className={s.profileCont}>
             <ul className={s.ulListProfile}>
               <li className={s.liProfile1}>Perfil de</li>

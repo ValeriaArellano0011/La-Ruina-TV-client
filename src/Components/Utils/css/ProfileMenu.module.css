@@ -65,3 +65,10 @@
     cursor: pointer;
     background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0.749) 99%);
 }
+
+.imgIcon{
+    filter: grayscale(1);
+    margin-left: 10px;
+    margin-right: 20px;
+    max-width: 15px;
+}

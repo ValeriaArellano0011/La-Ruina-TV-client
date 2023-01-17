@@ -10,6 +10,7 @@ import adminIcon from '../../design/admin-icon.png'
 import subscriptionIcon from '../../design/subscription-icon.png'
 import userIcon from '../../design/user-icon.png'
 import configIcon from '../../design/config-icon.png'
+import notificationIcon from '../../design/ruinatv-icon-play-b.png'
 
 const RequestProfile = () => {
     const dispatch = useDispatch()
@@ -23,7 +24,9 @@ const RequestProfile = () => {
                     <li>
                         <img src={userIcon} className={s.userIcon} onClick={()=>{return dispatch(getOption('profile'))}} alt="perfil" />
                     </li>
-
+                    <li>
+                        <img src={notificationIcon} className={s.notificationIcon} alt="notificaciones" onClick={()=>{return dispatch(getOption('notifications'))}} />
+                    </li>
                     <li>
                         <img src={likeIcon} className={s.likeIcon} alt="favoritos" onClick={()=>{return dispatch(getOption('favorites'))}} />
                     </li>

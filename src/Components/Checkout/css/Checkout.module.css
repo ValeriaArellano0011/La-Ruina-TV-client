@@ -1,24 +1,5 @@
-.checkoutCont {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
-    margin: 0px;
-    position: fixed;
-    top: 0px;
-    left: 0px
-}
-
 .checkoutFormat {
-    margin-top: 100px;
-    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
-}
-
-.navFixed {
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    height: 80px;
-    background-color: #171717;
+    margin-top: 0px;
 }
 
 .ulCheck {
@@ -27,7 +8,6 @@
     list-style: none;
     text-align: center;
     justify-content: center;
-    margin-bottom: 80px;
 }
 .liCheck {
     list-style: none;
@@ -41,7 +21,6 @@
     margin-right: 20px;
     margin-left: 20px;
     border-radius: 15px;
-    margin-bottom: 80px;
     position: relative;
     text-align: center;
     display: flex;

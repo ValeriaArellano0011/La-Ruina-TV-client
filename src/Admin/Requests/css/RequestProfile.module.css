@@ -26,7 +26,7 @@
 	text-align: left;
 }
 
-.likeIcon, .listIcon, .userIcon, .configIcon {
+.likeIcon, .listIcon, .userIcon, .configIcon{
 	width: 35px;
 	filter: grayscale(1);
 	transition-duration: 1s;
@@ -35,13 +35,21 @@
 }
 
 .adminIcon {
-	width: 35px;
+	height: 36px;
+	filter: grayscale(1);
+	transition-duration: 1s;
+	opacity: .9;
+	margin-top: 19px;
+}
+.notificationIcon {
+	width: 25px;
 	filter: grayscale(1);
 	transition-duration: 1s;
 	opacity: .9;
 	margin-top: 20px;
+	rotate: -90deg;
+	margin-left: 5px;
 }
-
 .subscriptionIcon{
 	width: 35px;
 	filter: grayscale(1);
@@ -59,7 +67,7 @@
 	position: fixed;
 }
 
-.likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover, .subscriptionIcon:hover, .userIcon:hover, .configIcon:hover{
+.likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover, .subscriptionIcon:hover, .userIcon:hover, .configIcon:hover, .notificationIcon:hover{
 	cursor: pointer;
 	filter: grayscale(.2);
 	opacity: 1;

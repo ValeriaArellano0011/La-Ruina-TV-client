@@ -37,7 +37,6 @@ const Nav = () => {
                     onClick={()=>{
                         window.scrollTo(0, 0)
                         return(
-                        (option === 'navBlack')? document.querySelector(`.navCont`).style.backgorundColor='rgb(0,0,0)' : null,
                         dispatch(resetOption()),
                         document.querySelector(`.bodyApp`).style.transform='translateX(0)',
                         document.querySelector(`.navCont`).style.transitionDuration='.2s',
@@ -130,8 +129,7 @@ const Nav = () => {
                     document.querySelector(`.browserBody`).style.height='auto',
                     document.querySelector(`.browserBody`).style.overflowY='scroll',
                     document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll"
-                    )}}>
+                    document.querySelector('#slideCanvasCont').style.overflowY="scroll")}}>
                 <Link to='/tienda'> Tienda </Link></li>
             <ul className='navSearchBar'>
                 <li><SearchBar/></li>

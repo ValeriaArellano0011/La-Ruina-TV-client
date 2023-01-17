@@ -13,8 +13,37 @@ import { Novedades } from './Components/Novedades/Novedades';
 import { Lanzamientos } from './Components/Lanzamientos/Lanzamientos';
 import { CanvasOptions } from './Components/Utils/CanvasOptions';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import AuthToken from './Components/Auth/AuthToken';
+import { URL_API } from './middlewares/misc/config';
+import React, { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    const getUser = () => {
+      fetch(`${URL_API}/auth/login/success`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+      }).then((response) => {
+        if (response.status === 200) return response.json();
+        throw new Error("authentication has been failed!");
+      })
+      .then((resObject) => {
+        console.log(resObject.user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  getUser();
+  }, [])
+  
+  
+
   return (
     <div className="App">
       <Switch>
@@ -22,6 +51,9 @@ function App() {
           <Nav/>
           <div className='bodyApp'>
             <CanvasOptions />
+            <Route path='/auth'>
+                <AuthToken/>
+            </Route>
             <Route exact path='/'>
                 <Redirect to='/browser' />
             </Route>

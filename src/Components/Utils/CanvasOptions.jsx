@@ -1,14 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import Dashboard from '../../Admin/Dashboard/Dashboard'
-import Enter from '../Auth/Enter'
-import { Checkout } from '../Checkout/Checkout'
-import { BackButton } from './BackButton'
 import s from './css/SlideCanvas.module.css'
+import Enter from '../Auth/Enter'
 import Profile from '../../Admin/Profile/Profile'
-import {Favorites} from '../UserProfile/Favorites'
-import {PlayList} from '../UserProfile/PlayList'
-import {Configurations} from '../UserProfile/Configurations'
+import Dashboard from '../../Admin/Dashboard/Dashboard'
+import { Checkout } from '../Checkout/Checkout'
+import { PlayList } from '../UserProfile/PlayList'
+import { Favorites } from '../UserProfile/Favorites'
+import { BackButton } from './BackButton'
+import { Notifications } from '../UserProfile/Notifications'
+import { Configurations } from '../UserProfile/Configurations'
 
 export const CanvasOptions = () => {
     const option = useSelector(state=>state.option)
@@ -30,6 +31,8 @@ export const CanvasOptions = () => {
                     (option === 'login')? <><Enter/></> 
                     :
                     (option === 'profile')? <><Profile/></>
+                    :
+                    (option === 'notifications')? <><Notifications/></>
                     :
                     (option === 'configuration')? <><BackButton/></>
                     :null

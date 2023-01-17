@@ -1,43 +1,41 @@
 .tiendaCont{
     width: 100vw;
-    height: auto;
-    position: absolute;
-    top: 0px;
+    height: 380px;
+    position: relative;
     font-size: larger;
     text-align: center;
     justify-content: center;
     font-weight: lighter;
     color: rgb(0, 0, 0);
-    background: linear-gradient(to bottom, #ffffffcf, rgb(0, 0, 0));
     background-repeat: no-repeat;
     background-attachment: scroll;
-    top: 70px;
     z-index: 1;
 }
 
 .tiendaSlider{
     width: 100vw;
-    height: 380px;
-    z-index: 1;
+    position: absolute;
 }
 .tiendaSliderCont{
     position: relative;
-    margin-top: 0px;
     width: 100vw;
-    height: 380px;
+    margin-left: 2px;
+    height: 379px;
     background-image: url(../../../design/banner-tienda.png);
     background-repeat: no-repeat;
     background-size: contain;
-    background-attachment: fixed;
-    z-index: 1;
+    background-attachment: scroll;
 }
 
 .tiendaBg{
     width: 100vw;
     z-index: 1;
+    position: relative;
+    top: 0px;
 }
 .tiendaMerch {
     font-size: 65px;
+    font-weight: bold;
 }
 
 .tiendaTituloSlider{
@@ -51,7 +49,6 @@
     margin-left: 10px;
     transition-duration: 1s;
     filter: drop-shadow(10px -10px 10px rgba(0, 0, 0, 0.327));
-    margin-top: 15px;
 }
 
 .productImg:hover{
@@ -64,10 +61,10 @@
     display: flex;
     list-style: none;
     width: 100vw;
-    height: 100vh;
     text-align: center;
     justify-content: center;
     left: -40px;
+    /* background-color: aqua */
 }
 
 
@@ -76,5 +73,4 @@
 }
 .cardProduct{
     color: rgb(0, 0, 0);
-
 }

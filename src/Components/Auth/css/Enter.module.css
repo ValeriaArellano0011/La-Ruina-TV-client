@@ -2,6 +2,10 @@
     text-align: center;
     overflow: hidden;
     height: 100vh;
+    background-color: #171717;
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
 
 .visor{

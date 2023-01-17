@@ -4,11 +4,9 @@ import Footer from '../Footer/Footer'
 import s from './css/Tienda.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts, resetProductDetails } from '../../middlewares/redux/actions'
-import { BodyCss } from '../../functions'
 import { Link } from 'react-router-dom'
 
 export const Tienda = () => {
-  BodyCss()
   const dispatch = useDispatch()
   const products = useSelector(state=>state.products)
   useEffect(()=>{
@@ -16,36 +14,62 @@ export const Tienda = () => {
     dispatch(getProducts())
   },[dispatch])
   return (
-    <div className={s.tiendaCont}>
-      <div className={s.tiendaBg}>
-        <div className={s.tiendaSliderCont}>
-          <div className='bgNav'></div>
-        </div>
-        <ul className={s.ulTitle}>
-          <h1 className={s.tiendaMerch}>Merchandising</h1>
+    <div className="browserBody">
+      <div className='divProfile'>
+        {/* <div className='navFixed' ></div> */}
+        <div className={s.tiendaSliderCont}></div>
+        <div className={s.tiendaMerch}>Merchandising         </div>
+
         <ul className={s.ulProducts}>
-          {
-            products?
-            products.map(e => {
-              return(
-              <>  
-                <Link to={`/tienda/product/${e.idProduct}`}><li key={products.indexOf(e)+'tienda'}>
-                  <Products 
-                    idProduct={e.idProduct} 
-                    typeProduct={e.typeProduct} 
-                    nameMerch={e.nameMerch} 
-                    stock={e.stock} 
-                    idImg={e.idImg} />
-                </li></Link>
-              </>  
-                )
+              {
+                products?
+                products.map(e => {
+                  return(
+                  <>  
+                    <Link to={`/tienda/product/${e.idProduct}`}><li key={products.indexOf(e)+'tienda'}>
+                      <Products 
+                        idProduct={e.idProduct} 
+                        typeProduct={e.typeProduct} 
+                        nameMerch={e.nameMerch} 
+                        stock={e.stock} 
+                        idImg={e.idImg} />
+                    </li></Link>
+                  </>  
+                    )
+                  }
+                ) : null
               }
-            ) : null
-          }
-          </ul>
-        </ul>
+              </ul>
+
+      {/* 
+          <ul className={s.ulTitle}>
+        <div className={s.tiendaBg}>
+          <div className={s.tiendaSliderCont}>
+          </div>
+            <h1 className={s.tiendaMerch}>Merchandising</h1>
+            <ul className={s.ulProducts}>
+              {
+                products?
+                products.map(e => {
+                  return(
+                  <>  
+                    <Link to={`/tienda/product/${e.idProduct}`}><li key={products.indexOf(e)+'tienda'}>
+                      <Products 
+                        idProduct={e.idProduct} 
+                        typeProduct={e.typeProduct} 
+                        nameMerch={e.nameMerch} 
+                        stock={e.stock} 
+                        idImg={e.idImg} />
+                    </li></Link>
+                  </>  
+                    )
+                  }
+                ) : null
+              }
+              </ul>
+        </div>
+          </ul> */}
       </div>
-      <Footer />
     </div>
   )
 }

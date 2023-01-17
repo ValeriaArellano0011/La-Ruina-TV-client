@@ -99,6 +99,22 @@ export function login(email, password){
     }
 }
 
+export function loginWithGoogle(accessToken){
+    return async function (dispatch){ 
+        await axios.post(`${URL_API}/users/loginwithgoogle`, {accessToken})
+        .then(res => {
+            console.log(res.data.msg)
+            dispatch({
+                type: 'LOGIN',
+                payload: res.data
+            })
+        })
+        .catch((e) => {
+            console.log(e);
+        })
+    }
+}
+
 export const signup =
   (alias, email, password) => async (dispatch) => {
     try {

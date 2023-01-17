@@ -6,7 +6,7 @@ export const Colaborar = () => {
   BodyCss()
   return (
     <div className={s.donateCont}>
-      <div className={s.navFixed} ></div>
+        <div className='navFixed' ></div>
       <div className={s.donateFormat} >
         <div className='donateBtn'>
           <a href="https://www.flow.cl/btn.php?token=kljrekt">DONAR</a>
