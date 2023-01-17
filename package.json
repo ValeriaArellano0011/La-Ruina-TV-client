@@ -25,7 +25,8 @@
     "redux-thunk": "^2.4.2",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
+    "homepage": ".",
+    "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test-nopanic": "react-scripts test --passWithNoTests",
