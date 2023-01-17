@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import s from './css/Checkout.module.css'
 import checkedIcon from '../../design/checked-icon.png'
 import RequestProfile from '../../Admin/Requests/RequestProfile'

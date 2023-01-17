@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import Products from '../Products/Products'
-import Footer from '../Footer/Footer'
 import s from './css/Tienda.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts, resetProductDetails } from '../../middlewares/redux/actions'
@@ -16,7 +15,6 @@ export const Tienda = () => {
   return (
     <div className="browserBody">
       <div className='divProfile'>
-        {/* <div className='navFixed' ></div> */}
         <div className={s.tiendaSliderCont}></div>
         <div className={s.tiendaMerch}>Merchandising         </div>
 

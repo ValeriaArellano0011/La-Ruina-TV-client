@@ -139,7 +139,7 @@ export const ProfileMenu = () => {
               <img 
                 className={s.imgIcon}
                 value={rolUser==='admin'? 'dashboard' : 'subscription'}
-                src={subscriptionIcon} 
+                src={rolUser==='admin'? adminIcon : subscriptionIcon} 
                 height='12px' 
                 alt="" />
                 {rolUser==='admin'? 'DASHBOARD' : 'SUSCRIPCIÓN'}

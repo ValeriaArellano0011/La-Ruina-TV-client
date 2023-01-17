@@ -23,7 +23,7 @@ const Browser = () => {
     dispatch(resetOption());
     dispatch(resetIdYT());
     dispatch(getMedia());
-  }, []);
+  }, [dispatch]);
   const cardList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
 
