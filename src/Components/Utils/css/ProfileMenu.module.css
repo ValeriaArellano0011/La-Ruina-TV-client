@@ -76,7 +76,7 @@
 }
 .ulProfileOptions{
     width: 260px;
-    height: 100vh;
+    height: auto;
     position: fixed;
     margin-top: 50px;
     right: -65px;
