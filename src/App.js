@@ -16,6 +16,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthToken from './Components/Auth/AuthToken';
 import { URL_API } from './middlewares/misc/config';
 import React, { useEffect } from 'react';
+import RequestProfile from './Admin/Requests/RequestProfile';
 
 function App() {
   useEffect(() => {
@@ -42,8 +43,6 @@ function App() {
   getUser();
   }, [])
   
-  
-
   return (
     <div className="App">
       <Switch>

@@ -61,10 +61,9 @@
 .logoutIcon{
 	width: 35px;
 	filter: grayscale(1);
-	bottom: 80px;
+	margin-top: 80px;
 	transition-duration: 1s;
 	opacity: .9;
-	position: fixed;
 }
 
 .likeIcon:hover, .listIcon:hover, .logoutIcon:hover, .adminIcon:hover, .subscriptionIcon:hover, .userIcon:hover, .configIcon:hover, .notificationIcon:hover{
@@ -81,7 +80,7 @@
 	height: 100vh;
 	left: 0px;
 	top: 0px;
-	position: absolute;
+	position: fixed;
 	overflow-y: hidden;
 	filter: drop-shadow(0px 0px 10px black);
 }

@@ -6,7 +6,7 @@ export const PlayList = () => {
     <div>
       <div className='divProfile'>
         <div className='navFixed' ></div>
-            <RequestProfile />
+        <RequestProfile />
       </div>
     </div>
   )

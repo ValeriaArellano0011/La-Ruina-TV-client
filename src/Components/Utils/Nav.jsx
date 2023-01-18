@@ -84,7 +84,7 @@ const Nav = () => {
                     document.querySelector(`.visor`).style.transform='translateX(0)',
                     document.querySelector('#slideCanvasCont').style.overflowY="scroll"
                     )}}>                
-                <Link to='/novedades'>Novedades</Link></li>
+                    <Link to='/novedades'>Novedades</Link></li>
             <li
                 onClick={()=>{
                     window.scrollTo(0, 0)
