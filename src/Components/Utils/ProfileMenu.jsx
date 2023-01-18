@@ -13,7 +13,7 @@ import likeIcon from '../../design/like-icon.png';
 import subscriptionIcon from '../../design/subscription-icon.png';
 import listaIcon from '../../design/lista-icon.png';
 import logoutIcon from '../../design/logout-icon.png';
-import notificationIcon from '../../design/ruinatv-icon-play-n.png'
+import notificationIcon from '../../design/ruinatv-icon-play-b.png'
 
 export const ProfileMenu = () => {
   const currentUser = useSelector(state=>state.currentUser)
@@ -37,7 +37,7 @@ export const ProfileMenu = () => {
     }
 }, [user]);
   return (
-    <div>
+    <div className={s.profileCont} id='profileCont'>
         <ul className={s.profileBtnCont}>
           <li 
             className={s.profileBtnMenu} 
@@ -48,6 +48,7 @@ export const ProfileMenu = () => {
             Hola, {userAlias ? userAlias.split(' ').at(0) : currentUser.userAlias} 
             <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
           </li>
+          <ul className={s.ulProfileOptions}>
           <li>
             <button 
               id='optionProfileBtn0' 
@@ -57,13 +58,12 @@ export const ProfileMenu = () => {
               onMouseEnter={() => {return profileMenuCss('enter')}}>
               <img 
                 className={s.imgIcon}
-                value='profile'
                 src={userIcon} 
-                height='12px' 
-                alt="" />
+                onClick={(e) => {return e.target.value='profile'}}
+                alt="" /> <br></br>
                   PERFIL
               </button>
-            </li>
+          </li>
             <li>
               <button 
                 id='optionProfileBtn1' 
@@ -74,10 +74,9 @@ export const ProfileMenu = () => {
               <img 
                 className={s.imgIcon}
                 style={{rotate: '-90deg'}}
-                value='notifications'
+                onClick={(e) => {return e.target.value='notifications'}}
                 src={notificationIcon} 
-                height='10.5px' 
-                alt="" />
+                alt="" /><br></br>
                 Notificaciones
               </button>
             </li>
@@ -85,16 +84,15 @@ export const ProfileMenu = () => {
               <button 
                 id='optionProfileBtn2' 
                 className={s.optionProfileBtn} 
-                value='notifications' 
+                value='favorites' 
                 onClick={(e)=>{return onClickValue(e)}}
                 onMouseEnter={() => {return profileMenuCss('enter')}}>
               <img 
                 className={s.imgIcon}
-                value='favorites'
+                onClick={(e) => {return e.target.value='favorites'}}
                 src={likeIcon} 
-                height='12px' 
-                alt="" />
-                Favoritos
+                alt="" /><br></br>
+                MIS FAVORITOS
               </button>
             </li>
             <li>
@@ -106,11 +104,10 @@ export const ProfileMenu = () => {
                 onMouseEnter={() => {return profileMenuCss('enter')}}>
               <img 
                 className={s.imgIcon}
-                value='playlist'
+                onClick={(e) => {return e.target.value='playlist'}}
                 src={listaIcon} 
-                height='12px' 
-                alt="" />
-                  LISTAS
+                alt="" /><br></br>
+                  MIS LISTAS
               </button>
             </li>
             <li>
@@ -122,10 +119,9 @@ export const ProfileMenu = () => {
                 onMouseEnter={() => {return profileMenuCss('enter')}}>
               <img 
                 className={s.imgIcon}
-                value='config'
+                onClick={(e) => {return e.target.value='config'}}
                 src={configIcon} 
-                height='12px' 
-                alt="" />
+                alt="" /><br></br>
                   CONFIGURACIÓN
               </button>
             </li>
@@ -138,10 +134,9 @@ export const ProfileMenu = () => {
                 onMouseEnter={() => {return profileMenuCss('enter')}}>
               <img 
                 className={s.imgIcon}
-                value={rolUser==='admin'? 'dashboard' : 'subscription'}
+                onClick={(e) => {return e.target.value=((rolUser==='admin')? ('dashboard') : ('subscription'))}}
                 src={rolUser==='admin'? adminIcon : subscriptionIcon} 
-                height='12px' 
-                alt="" />
+                alt="" /><br></br>
                 {rolUser==='admin'? 'DASHBOARD' : 'SUSCRIPCIÓN'}
               </button>
             </li>
@@ -161,12 +156,12 @@ export const ProfileMenu = () => {
                 className={s.imgIcon}
                 src={logoutIcon} 
                 height='12px'
-                alt="" />
+                alt="" /><br></br>
                   SALIR
               </button>
             </li>
         </ul>   
-
+      </ul>
     </div>
   )
 }

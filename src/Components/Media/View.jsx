@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom'
 import { getIdYT, getInfo } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
 import Player from './Player'
+import playIconn from '../../design/ruinatv-icon-play-n.png'
+import playIconb from '../../design/ruinatv-icon-play-b.png'
 
 const View = () => {
     const dispatch = useDispatch()
@@ -65,7 +67,8 @@ const View = () => {
                         </ul>
                         <Player idYT={idYT} />
                         {
-                        <button onClick={()=>{
+                        <button 
+                        onClick={()=>{
                             return (
                             dispatch(getIdYT(idLinkYT)),
                             document.querySelector('.playerCont').style.opacity='1',
@@ -73,7 +76,16 @@ const View = () => {
                             document.querySelector('.playerLi').style.scale='1',
                             document.querySelector('.playUl').style.scale='1'
                             )}}
-                            className='buttonVer'>Ver ahora</button>
+                            className='buttonVer'
+                        onMouseEnter={()=>{
+                            document.querySelector('.visorButtonPlay').src=playIconb
+                        }}
+
+                        onMouseLeave={()=>{
+                            document.querySelector('.visorButtonPlay').src=playIconn
+                        }}>
+                            <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />Ver ahora
+                        </button>
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
                     </div>
