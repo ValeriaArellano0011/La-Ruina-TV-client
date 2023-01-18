@@ -1,11 +1,13 @@
 .profileCont{
-    width: 250px;
-    height: 100vh;
+    width: 230px;
+    height: 99vh;
     background-color: transparent;
     float: right;
     margin-top: -5px;
     margin-right: -25px;
     transition-duration: 1s;
+    filter: drop-shadow(0px 0px 10px black);
+    border-radius: 5px;
 }
 .btnMenuTv{
     margin-left: 5px;
@@ -54,16 +56,21 @@
     color: white;
 }
 .optionProfileBtn{
-    background: transparent;
+    background: #171717;
+    box-shadow: 0px 0px 4px rgb(130, 128, 128);
     margin-top: 15px;
     margin-right: 0px;
-    border: none;
+    border: solid;
+    border-color: #8b8b8b;
+    border-width: 1px;
+    border-radius: 5px;
     font-size: 12px;
     font-family: Bebas Neue;
     color: rgb(212, 212, 212);
     transition-duration: .5s;
     width: 95px;
-    height: auto;
+    max-height: 80px;
+    min-height: 75px;
     transform: translateX(200px);
     scale: 0;
     text-align: center;
@@ -73,16 +80,15 @@
     height: 100vh;
     position: fixed;
     margin-top: 50px;
-    right: -50px;
+    right: -35px;
 }
 .optionProfileBtn>img{
     margin-right: 0px;
 }
 .optionProfileBtn:hover{
     cursor: pointer;
-    border: white;
+    border-color: white;
     background: linear-gradient(to top, rgb(255, 255, 255), transparent 99%);
-    /* margin-right: -100px; */
     color: #171717;
 }
 .imgIcon:hover{
@@ -90,8 +96,8 @@
 }
 .imgIcon{
     filter: grayscale(1);
-    margin-right: 0px;
-    max-width: 30px;
-    max-height: 30px;
+    margin-right: 10px;
+    max-width: 25px;
+    max-height: 25px;
     margin-top: 10px;
 }
