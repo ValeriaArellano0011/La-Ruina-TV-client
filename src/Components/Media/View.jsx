@@ -69,6 +69,7 @@ const View = () => {
                             return (
                             dispatch(getIdYT(idLinkYT)),
                             document.querySelector('.playerCont').style.opacity='1',
+                            document.querySelector('#ytplayer').style.display='block',
                             document.querySelector('.playerLi').style.scale='1',
                             document.querySelector('.playUl').style.scale='1'
                             )}}

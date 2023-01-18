@@ -500,6 +500,9 @@ button:hover{
   transition-duration: 1s;
   list-style: none;
 }
+#ytplayer{
+  display: none;
+}
 .playUl{
   list-style: none;
   scale: 0;
