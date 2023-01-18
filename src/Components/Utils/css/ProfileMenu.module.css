@@ -37,6 +37,7 @@
     transition-duration: .5s;
     z-index: 9999999;
     font-size: 20px;
+    margin-top: -3px;
 }
 .profileBtnMenu{
     border: none;
