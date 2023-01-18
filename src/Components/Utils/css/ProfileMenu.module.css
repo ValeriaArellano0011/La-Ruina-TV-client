@@ -1,12 +1,11 @@
 .profileCont{
-    width: 230px;
-    height: 99vh;
+    width: 220px;
+    height: 60px;
     background-color: transparent;
     float: right;
     margin-top: -5px;
-    margin-right: -25px;
+    margin-right: -20px;
     transition-duration: 1s;
-    filter: drop-shadow(0px 0px 10px black);
     border-radius: 5px;
 }
 .btnMenuTv{
@@ -26,7 +25,7 @@
     flex-direction: column;
     width: auto;
     /* height: 150px; */
-    margin-left: 15px;
+    margin-left: 0px;
     font-size: 20px;
     justify-content: left;
     text-align: left;
@@ -68,9 +67,9 @@
     font-family: Bebas Neue;
     color: rgb(212, 212, 212);
     transition-duration: .5s;
-    width: 95px;
-    max-height: 80px;
-    min-height: 75px;
+    width: 90px;
+    max-height: 75px;
+    min-height: 70px;
     transform: translateX(200px);
     scale: 0;
     text-align: center;
@@ -80,7 +79,7 @@
     height: 100vh;
     position: fixed;
     margin-top: 50px;
-    right: -35px;
+    right: -65px;
 }
 .optionProfileBtn>img{
     margin-right: 0px;
