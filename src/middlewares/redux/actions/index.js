@@ -21,6 +21,8 @@ import {
     GET_IDYT,
     RESET_IDYT,
     GET_MUSIC_NAME,
+    URL_PLAYER,
+    RESET_URL_PLAYER
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -285,3 +287,18 @@ export function totalMedia(){
 }
 
 /*--------------Pagination-------------*/
+
+/* ---------------Player-------------- */
+export function getUrlPlayer(url){
+    return {
+        type: URL_PLAYER,
+        payload: url
+    }
+}
+export function resetUrlPlayer(){
+    return {
+        type: RESET_URL_PLAYER
+    }
+}
+
+

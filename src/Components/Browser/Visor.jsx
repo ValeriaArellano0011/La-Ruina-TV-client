@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import playIconn from '../../design/ruinatv-icon-play-n.png'
 import visorIntroVideo from '../../design/laruina-intro.mp4'
-import { VisorFunction, visorPlay } from './js/VisorFunction';
+import { VisorFunction } from './js/VisorFunction';
 
 const Visor = () => {
     const { 

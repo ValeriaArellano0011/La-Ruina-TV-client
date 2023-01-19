@@ -14,7 +14,10 @@ import {
     GET_IDYT,
     GET_MUSIC_NAME,
     __GOD_MODE__,
-    RESET_IDYT} from "../../misc";
+    RESET_IDYT,
+    URL_PLAYER,
+    RESET_URL_PLAYER
+    } from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
 import iconSpty from '../../../design/spty-icon.png'
@@ -105,6 +108,8 @@ const initialState = {
 
 /*--------------Pagination--------------*/
 
+/*----------------Player----------------*/
+    urlPlayer: '',
 
 /*--------------Formulario--------------*/
 }
@@ -233,8 +238,17 @@ export default function rootReducer(state = initialState, action){
                 ...state,
                 searchedMedia: action.payload
             };
-
-
+/* ----------------------- Player ----------------------- */
+        case URL_PLAYER:
+            return{
+                ...state,
+                urlPlayer: action.payload
+            }
+        case RESET_URL_PLAYER:
+            return{
+                ...state,
+                urlPlayer: ''
+            }
         default:
             return {...state};
     }

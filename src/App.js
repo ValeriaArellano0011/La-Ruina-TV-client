@@ -12,31 +12,35 @@ import { Colaborar } from './Components/Colaborar/Colaborar';
 import { Novedades } from './Components/Novedades/Novedades';
 import { Lanzamientos } from './Components/Lanzamientos/Lanzamientos';
 import { CanvasOptions } from './Components/Utils/CanvasOptions';
+import { Playlist } from './Components/Media/Paylist';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthToken from './Components/Auth/AuthToken';
-import { URL_API } from './middlewares/misc/config';
 import React, { useEffect } from 'react';
-import RequestProfile from './Admin/Requests/RequestProfile';
+import { useCookies } from 'react-cookie';
 import axios from 'axios';
+import { useSelector } from 'react-redux'
+
 
 function App() {
-  useEffect(() => {
-    axios.get("https://la-ruina-api.fly.dev/auth/getuser", {withCredentials: true}).then((res) => {
-      console.log(res);
-      if (res.data) {
-        console.log(res.data);
-      }else{
-        console.log('no entra')
-      }
-    })
-    console.log(document.cookie);
-  }, [])
+  const url = useSelector(state=>state.urlPlayer)
+  const [cookies, setCookie] = useCookies(['name']);
 
+  useEffect(()=> {
+    axios.get('http://localhost:8080/auth/getuser', {withCredentials: true}).then(res=> console.log(res)).catch(err => console.log(err))
+    console.log(cookies.user)
+  },[])
   return (
     <div className="App">
       <Switch>
         <>
           <Nav />
+          <div className='userPlayerCont'>
+          { (url !== '')?
+            <div className='playListCont'>
+              <Playlist url={url} />
+            </div> : null
+          }  
+          </div>
           <div className='bodyApp'>
             <CanvasOptions />
             <Route path='/auth'>

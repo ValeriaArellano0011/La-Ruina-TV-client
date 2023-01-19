@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import s from "./css/Slider.module.css";
 import Visor from "./Visor";
 import Footer from "../Footer/Footer";
@@ -16,7 +16,6 @@ import {
 
 const Browser = () => {
   BodyCss();
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(resetMedia());

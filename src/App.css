@@ -9,6 +9,23 @@
   font-weight: bolder;
   font-family: 'Poppins', sans-serif;
 }
+.playListCont{
+  width: 800px;
+  position: fixed;
+  bottom: 1px;
+  z-index: 99999999999;
+}
+
+.userPlayerCont{
+  width: 100vw;
+  position: fixed;
+  bottom: 1px;
+  z-index: 99999999999;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+}
 
 .navFixed {
   position: fixed;

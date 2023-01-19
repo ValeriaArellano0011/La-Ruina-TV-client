@@ -24,7 +24,7 @@ export const EnterBtn = () => {
       }
     }>
     <img className={s.userIcon} src={userIcon} alt='userIcon' width='15px' />
-      Entrar
+      Ingresar
   </div>
   )
 }

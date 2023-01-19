@@ -20,7 +20,7 @@ const LogIn = () => {
     if (currentUser) {
       logCss();
       localStorage.setItem('auth', JSON.stringify(currentUser))
-      history.push('/browser')
+      // history.push('/browser')
     }
   }, [currentUser, history]);
   
@@ -58,7 +58,7 @@ const LogIn = () => {
                 onClick={(e) => {
                  return (
                   e.preventDefault() ,
-                  dispatch(login(email, password)));
+                  dispatch(login(email, password)))
                 }}
               >
                 Entrar

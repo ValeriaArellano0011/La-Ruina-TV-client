@@ -76,7 +76,7 @@
 }
 .ulProfileOptions{
     width: 260px;
-    height: auto;
+    height: 0;
     position: fixed;
     margin-top: 50px;
     right: -65px;
@@ -99,4 +99,12 @@
     max-width: 25px;
     max-height: 25px;
     margin-top: 10px;
+}
+.ulSalirBtn{
+    position: fixed;
+    top: 300px;
+}
+.optionSalirBtn{
+    position: fixed;
+    top: 300px;
 }

@@ -54,7 +54,7 @@ const RequestProfile = () => {
                             onClick={()=>{
                                 return (
                                 localStorage.removeItem('auth'), 
-                                history.push('/browser'),
+                                // history.push('/browser'),
                                 window.location.reload()
                                 )
                             }}/>

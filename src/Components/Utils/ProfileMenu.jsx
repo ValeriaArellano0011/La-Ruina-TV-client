@@ -140,9 +140,10 @@ export const ProfileMenu = () => {
                 {rolUser==='admin'? 'DASHBOARD' : 'SUSCRIPCIÓN'}
               </button>
             </li>
-            <li>
+            <li className={s.ulSalirBtn}>
               <button 
                 id='optionProfileBtn6' 
+                // className={s.optionSalirBtn} 
                 className={s.optionProfileBtn} 
                 onClick={()=>{
                   return (
@@ -155,7 +156,6 @@ export const ProfileMenu = () => {
               <img 
                 className={s.imgIcon}
                 src={logoutIcon} 
-                height='12px'
                 alt="" /><br></br>
                   SALIR
               </button>

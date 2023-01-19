@@ -4,7 +4,7 @@ import s from './css/SlideCanvas.module.css'
 import Enter from '../Auth/Enter'
 import Profile from '../../Admin/Profile/Profile'
 import Dashboard from '../../Admin/Dashboard/Dashboard'
-import { Checkout } from '../Checkout/Checkout'
+import { Subscription } from '../UserProfile/Subscription'
 import { PlayList } from '../UserProfile/PlayList'
 import { Favorites } from '../UserProfile/Favorites'
 import { BackButton } from './BackButton'
@@ -20,7 +20,7 @@ export const CanvasOptions = () => {
                     (option?
                     (option === 'dashboard')? <><Dashboard/></> 
                     :
-                    (option === 'subscription')? <><Checkout/></>
+                    (option === 'subscription')? <><Subscription/></>
                     :
                     (option === 'favorites')? <><Favorites/></>
                     :

@@ -11,7 +11,6 @@ export const VisorFunction = () =>{
         }
     })
     const dispatch = useDispatch()
-    // document.querySelector('.visorVideoIntro').play()
     const visorList = useSelector(state=>state.mediaList)
     const nextVisor = useSelector(state=>state.nextVisor)
     const [cont, setI] = useState(0)
