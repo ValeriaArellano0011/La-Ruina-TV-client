@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import playIconn from '../../design/ruinatv-icon-play-n.png'
 import visorIntroVideo from '../../design/laruina-intro.mp4'
-import { VisorFunction } from './js/VisorFunction';
+import { VisorFunction, visorPlay } from './js/VisorFunction';
 
 const Visor = () => {
     const { 
         visorID, 
         visorIdYT,
         visorImg, 
-        visorTag, 
+        visorTag,   
         visorBtn1, 
         visorInfo, 
         visorIcon, 
@@ -18,11 +18,12 @@ const Visor = () => {
         visorTitle, 
         visorUrlID,
         visorArtist, 
-        visorTypeMedia 
+        visorTypeMedia,
         } = VisorFunction()
+        
     return(
         <div className='visor'>
-            <video className='visorVideoIntro' src={visorIntroVideo} autoPlay={true} loop muted  type="video/mp4"/>
+            <video className='visorVideoIntro' src={visorIntroVideo} autoPlay muted loop type="video/mp4"/>
             <div className='visorBGCanvas'>
                 <img className='visorBG' src={visorImg} alt='' />
             </div>

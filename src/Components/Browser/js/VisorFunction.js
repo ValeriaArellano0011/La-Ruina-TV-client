@@ -5,13 +5,13 @@ import { getNextVisor, getResetVisor } from '../../../middlewares/redux/actions'
 export const VisorFunction = () =>{
     document.addEventListener('mouseup', function(e) {
         var container0 = document.getElementById('infoCont');
-            if (!container0.contains(e.target))
-            {
-                document.querySelector('#infoCont').style.scale='0'
-            }
-        })
-
+        if (!container0.contains(e.target))
+        {
+            document.querySelector('#infoCont').style.scale='0'
+        }
+    })
     const dispatch = useDispatch()
+    // document.querySelector('.visorVideoIntro').play()
     const visorList = useSelector(state=>state.mediaList)
     const nextVisor = useSelector(state=>state.nextVisor)
     const [cont, setI] = useState(0)
@@ -74,3 +74,4 @@ export const VisorFunction = () =>{
         visorTypeMedia
     }
 }
+

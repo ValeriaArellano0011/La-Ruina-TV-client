@@ -4,6 +4,7 @@ import checkedIcon from '../../design/checked-icon.png'
 import RequestProfile from '../../Admin/Requests/RequestProfile'
 import axios from 'axios'
 import { URL_API } from '../../middlewares/misc/config'
+import { handleCheckout2 } from './js/CheckoutFunction'
 
 export const Checkout = () => {
 
@@ -18,6 +19,18 @@ export const Checkout = () => {
       alert("Hubo un error, intenta de nuevo más tarde.");
   }
   }
+
+  // const handleCheckout2 = async () => {
+  //   try {
+  //     await axios.post(`${URL_API}/mercadopago/create-payment`)
+  //     .then(data => 
+  //       window.location.href = data.data
+  //     )
+  // } catch (error) {
+  //     console.log(error);
+  //     alert("Hubo un error, intenta de nuevo más tarde.");
+  // }
+  // }
 
   return (
     <div>
@@ -66,6 +79,8 @@ export const Checkout = () => {
                       </ul>
                     </div>
                     <button className={s.btnSubmit} onClick={() => handleCheckout()}>Comenzar</button>
+
+
                   </div>
                 </li>
                 {/* <li className={s.liCheck}>
@@ -93,7 +108,9 @@ export const Checkout = () => {
                   </div>
                 </li> */}
               </ul>
+              {/* <button className={s.btnSubmit} onClick={() => handleCheckout2()}>prueba</button> */}
               <RequestProfile />
+              {/* <button className={s.btnSubmit} onClick={() => handleCheckout2()}>prueba</button> */}
           </div>
       </div>
     </div>

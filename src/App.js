@@ -17,50 +17,39 @@ import AuthToken from './Components/Auth/AuthToken';
 import { URL_API } from './middlewares/misc/config';
 import React, { useEffect } from 'react';
 import RequestProfile from './Admin/Requests/RequestProfile';
+import axios from 'axios';
 
 function App() {
   useEffect(() => {
-    const getUser = () => {
-      fetch(`${URL_API}/auth/login/success`, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
-        },
-      }).then((response) => {
-        if (response.status === 200) return response.json();
-        throw new Error("authentication has been failed!");
-      })
-      .then((resObject) => {
-        console.log(resObject.user);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  getUser();
+    axios.get("https://la-ruina-api.fly.dev/auth/getuser", {withCredentials: true}).then((res) => {
+      console.log(res);
+      if (res.data) {
+        console.log(res.data);
+      }else{
+        console.log('no entra')
+      }
+    })
+    console.log(document.cookie);
   }, [])
-  
+
   return (
     <div className="App">
       <Switch>
         <>
-          <Nav/>
+          <Nav />
           <div className='bodyApp'>
             <CanvasOptions />
             <Route path='/auth'>
-                <AuthToken/>
+              <AuthToken />
             </Route>
             <Route exact path='/'>
-                <Redirect to='/browser' />
+              <Redirect to='/browser' />
             </Route>
             <Route exact path='/browser'>
               <Browser />
             </Route>
             <Route path='/verify'>
-              <Verify/>
+              <Verify />
             </Route>
             <Route exact path='/novedades'>
               <Novedades />
@@ -81,13 +70,13 @@ function App() {
               <View />
             </Route>
             <Route exact path='/product/create'>
-              <CreateProduct/>
+              <CreateProduct />
             </Route>
             <Route exact path='/media/create'>
-              <CreateMedia/>
+              <CreateMedia />
             </Route>
             <Route path='/search'>
-              <Search/>
+              <Search />
             </Route>
           </div>
         </>

@@ -2,16 +2,9 @@ import s from "./css/GoogleAuth.module.css";
 import googleIcon from "../../design/google-icon.png";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { URL_API } from "../../middlewares/misc/config";
 
 export default function GoogleSignUp() {
-//  const history = useHistory;
-
-//   useEffect(() => {
-//     const user = localStorage.getItem("token");
-//     if (token) {
-//       history.push("/browser");
-//     }
-//   }, [history]);
 
   return (
     <div>
