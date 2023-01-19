@@ -5,6 +5,8 @@ import RequestProfile from '../../Admin/Requests/RequestProfile'
 import axios from 'axios'
 import { URL_API } from '../../middlewares/misc/config'
 import { handleCheckout } from '../Checkout/js/CheckoutFunction'
+import { Link } from 'react-router-dom';
+
 
 export const Subscription = () => {
 
@@ -57,9 +59,9 @@ export const Subscription = () => {
                         </h5>
                       </ul>
                     </div>
-                    <button className={s.btnSubmit} onClick={() => handleCheckout()}>Comenzar</button>
-
-
+                    <Link to='/checkout/subscription'>
+                      <button className={s.btnSubmit}>Comenzar</button>
+                    </Link>
                   </div>
                 </li>
                 {/* <li className={s.liCheck}>

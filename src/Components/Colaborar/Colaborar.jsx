@@ -2,10 +2,11 @@ import React from 'react'
 import { BodyCss } from '../../functions'
 import s from './css/Colaborar.module.css'
 import { handleCheckout2 } from "../Checkout/js/CheckoutFunction"
+import { Link } from 'react-router-dom';
 
 export const Colaborar = () => {
   BodyCss()
-  const urlFlow = "https://www.flow.cl/btn.php?token=kljrekt"
+  // const urlFlow = "https://www.flow.cl/btn.php?token=kljrekt"
   return (
     <div className={s.donateCont}>
         <div className='navFixed' ></div>
@@ -13,17 +14,17 @@ export const Colaborar = () => {
         DONAR
         <ul className={s.ulContBtn}>
         <li className={s.donateBtn}>
-          <a href={urlFlow}>
+          <Link to='/checkout/donation'>
             <button className={s.btnSubmit}>
-              Flow.cl
+              Ir al Checkout
             </button>
-          </a>
+          </Link>
         </li>
-        <li className={s.donateBtn}>
+        {/* <li className={s.donateBtn}>
           <button className={s.btnSubmit} onClick={() => handleCheckout2()}>
               MercadoPago
           </button>
-        </li>
+        </li> */}
         </ul>
       </div>
     </div>

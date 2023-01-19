@@ -13,6 +13,7 @@ import { Novedades } from './Components/Novedades/Novedades';
 import { Lanzamientos } from './Components/Lanzamientos/Lanzamientos';
 import { CanvasOptions } from './Components/Utils/CanvasOptions';
 import { Playlist } from './Components/Media/Paylist';
+import { Checkout } from './Components/Checkout/Checkout';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthToken from './Components/Auth/AuthToken';
 import React, { useEffect } from 'react';
@@ -80,6 +81,9 @@ function App() {
             </Route>
             <Route path='/search'>
               <Search />
+            </Route>
+            <Route path='/checkout/:type'>
+              <Checkout />
             </Route>
           </div>
         </>

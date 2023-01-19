@@ -11,7 +11,6 @@ import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
 import { getOption } from '../../middlewares/redux/actions';
 import OptionCanvas from '../../functions';
-// import { HandleOnClickValue } from '../../handlers/login'
 
 const View = () => {
     const dispatch = useDispatch()
