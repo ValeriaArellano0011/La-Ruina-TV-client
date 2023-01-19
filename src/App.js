@@ -24,7 +24,6 @@ import { useSelector } from 'react-redux'
 function App() {
   const url = useSelector(state=>state.urlPlayer)
   const [cookies, setCookie] = useCookies(['name']);
-
   useEffect(()=> {
     axios.get('http://localhost:8080/auth/getuser', {withCredentials: true}).then(res=> console.log(res)).catch(err => console.log(err))
     console.log(cookies.user)

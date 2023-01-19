@@ -22,7 +22,8 @@ import {
     RESET_IDYT,
     GET_MUSIC_NAME,
     URL_PLAYER,
-    RESET_URL_PLAYER
+    RESET_URL_PLAYER,
+    CURRENT_USER
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -84,6 +85,12 @@ export function resetOption() {
 
 export async function googleAuth(){
     return await axios.get(`${URL_API}/auth/google`)
+}
+
+export function getCurrentUser() {
+    return{
+        type: CURRENT_USER
+    }
 }
 
 export function login(email, password){

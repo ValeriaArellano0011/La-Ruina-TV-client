@@ -25,6 +25,8 @@ const View = () => {
     useEffect(()=>{
         dispatch(getInfo(id))
     },[dispatch, id])
+    const auth = localStorage.getItem('auth');
+    const user = auth ? JSON.parse(auth) : null;
     const infoDetailViewer = useSelector(state=>state.infoDetailViewer)
     const currentUser = useSelector(state=>state.currentUser)
     const idYT = useSelector(state=>state.ytPlayerState)
@@ -77,7 +79,7 @@ const View = () => {
                             } */}
                         </ul>
                         <Player idYT={idYT} />
-                        { currentUser?
+                        { (currentUser || user)?
                         (<button 
                             className='buttonVer'
                             onClick={()=>{

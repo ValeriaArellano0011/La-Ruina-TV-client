@@ -3,6 +3,7 @@ export const OPTION = 'OPTION'
 export const RESET_OPTION = 'RESET_OPTION'
 export const LOGIN = 'LOGIN'
 export const SIGNUP = 'SIGNUP'
+export const CURRENT_USER = 'CURRENT_USER' 
 
 /* -------------------Media------------------- */
 export const GET_CATEGORIAS = 'GET_CATEGORIAS'

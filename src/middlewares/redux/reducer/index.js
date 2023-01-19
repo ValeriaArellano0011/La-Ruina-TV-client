@@ -16,7 +16,8 @@ import {
     __GOD_MODE__,
     RESET_IDYT,
     URL_PLAYER,
-    RESET_URL_PLAYER
+    RESET_URL_PLAYER,
+    CURRENT_USER
     } from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
@@ -115,6 +116,8 @@ const initialState = {
 }
 
 export default function rootReducer(state = initialState, action){
+    const auth = localStorage.getItem('auth');
+    const user = auth ? JSON.parse(auth) : null;        
     switch (action.type){
 /*----------------Admin----------------*/
         case __GOD_MODE__:
@@ -124,11 +127,15 @@ export default function rootReducer(state = initialState, action){
             };
 
 /*----------------Auth----------------*/
-
+        case CURRENT_USER:
+            return {
+            ...state,
+            currentUser: action.payload.msg? action.payload.msg : user,
+            };
         case LOGIN:
             return {
             ...state,
-            currentUser: action.payload.msg,
+            currentUser: action.payload.msg? action.payload.msg : user,
             rolUser: action.payload.msg.role
             };
         case OPTION:

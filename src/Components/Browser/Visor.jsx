@@ -19,8 +19,10 @@ const Visor = () => {
         visorUrlID,
         visorArtist, 
         visorTypeMedia,
+        currentUser,
+        user
         } = VisorFunction()
-        
+    
     return(
         <div className='visor'>
             <video className='visorVideoIntro' src={visorIntroVideo} autoPlay muted loop type="video/mp4"/>
@@ -55,7 +57,7 @@ const Visor = () => {
                                 document.querySelector('.visorButtonPlay').src=playIconn
                             }}
                             >
-                            <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{visorBtn1? visorBtn1 : 'Ver media'}</button></Link></li>
+                            <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{!(user || currentUser)?  'Previsualizar' : 'Ir al contenido'}</button></Link></li>
                         <li><button 
                                 className='button2'
                                 onClick={()=>{ return document.querySelector('#infoCont').style.scale='1' }} >

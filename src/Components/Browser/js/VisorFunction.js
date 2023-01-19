@@ -10,9 +10,12 @@ export const VisorFunction = () =>{
             document.querySelector('#infoCont').style.scale='0'
         }
     })
+    const auth = localStorage.getItem('auth');
+    const user = auth ? JSON.parse(auth) : null;
     const dispatch = useDispatch()
     const visorList = useSelector(state=>state.mediaList)
     const nextVisor = useSelector(state=>state.nextVisor)
+    const currentUser = useSelector(state=>state.currentUser)
     const [cont, setI] = useState(0)
     const [visorID, setVisorID] = useState()
     const [visorTag, setVisorTag] = useState()
@@ -70,7 +73,9 @@ export const VisorFunction = () =>{
         visorUrlID, 
         visorTitle, 
         visorArtist, 
-        visorTypeMedia
+        visorTypeMedia,
+        currentUser,
+        user
     }
 }
 
