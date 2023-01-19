@@ -5,11 +5,15 @@ import RequestProfile from '../../Admin/Requests/RequestProfile'
 import axios from 'axios'
 import { URL_API } from '../../middlewares/misc/config'
 import { handleCheckout } from '../Checkout/js/CheckoutFunction'
-import { Link } from 'react-router-dom';
+import { BodyCss } from '../../functions'
+import { useDispatch } from 'react-redux'
+import { resetOption } from '../../middlewares/redux/actions'
+import { useHistory } from "react-router-dom";
 
 
 export const Subscription = () => {
-
+  const dispatch = useDispatch()
+  const history = useHistory()
   return (
     <div>
       <div className='divProfile'>
@@ -59,9 +63,26 @@ export const Subscription = () => {
                         </h5>
                       </ul>
                     </div>
-                    <Link to='/checkout/subscription'>
-                      <button className={s.btnSubmit}>Comenzar</button>
-                    </Link>
+                    <button 
+                      className={s.btnSubmit} 
+                      onClick={()=>{
+                        return(
+                            dispatch(resetOption()),
+                            BodyCss(),
+                            history.push('/checkout/subscription'),
+                            document.querySelector(`.bodyApp`).style.transform='translateX(0)',
+                            document.querySelector(`.navCont`).style.transitionDuration='.2s',
+                            document.querySelector(`.bodyApp`).style.transitionDuration='2s',
+                            document.querySelector(`.navCont`).style.width='100vw',
+                            document.querySelector(`.navMenu`).style.display='flex',
+                            document.querySelector(`.browserBody`).style.height='auto',
+                            document.querySelector(`.browserBody`).style.overflowY='scroll',
+                            document.querySelector(`.visor`).style.transform='translateX(0)',
+                            document.querySelector('#slideCanvasCont').style.overflowY="scroll"
+                        )
+                      }
+                    }>
+                      Comenzar</button>
                   </div>
                 </li>
                 {/* <li className={s.liCheck}>

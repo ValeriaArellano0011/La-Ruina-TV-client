@@ -4,6 +4,7 @@ import s from './css/Colaborar.module.css'
 import { handleCheckout2 } from "../Checkout/js/CheckoutFunction"
 import { Link } from 'react-router-dom';
 
+
 export const Colaborar = () => {
   BodyCss()
   // const urlFlow = "https://www.flow.cl/btn.php?token=kljrekt"
