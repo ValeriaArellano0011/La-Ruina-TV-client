@@ -6,7 +6,7 @@ import Slider from "./Slider";
 import { BodyCss } from "../../functions";
 import { useDispatch, useSelector } from "react-redux";
 import { InfoCanvas } from '../Utils/InfoCanvas'
-
+import axios from "axios";
 import {
   getMedia,
   resetIdYT,
@@ -26,6 +26,7 @@ const Browser = () => {
   const cardList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
 
+  
   
   return (
     <div className="browserBody">

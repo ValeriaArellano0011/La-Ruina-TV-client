@@ -11,9 +11,8 @@ export default function GoogleSignUp() {
       <ul className={s.contGoogleAuth}>
         <a
           className={s.googleBtn}
-          href="https://la-ruina-api.fly.dev/auth/google"
+          href="https://la-ruina-api.fly.dev/auth"
         >
-
             <img
               src={googleIcon}
               height="40px"

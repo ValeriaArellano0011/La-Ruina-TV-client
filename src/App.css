@@ -180,6 +180,416 @@ button:hover{
   bottom: 0px;
   position: fixed;
 }
+/* --------------------------paylist----------------- */
+
+.bodyplay{
+  background-color: gray;
+  animation: acercar;
+  animation-duration: 500ms;
+  animation-iteration-count: 50;
+  animation-delay: 24s;
+  width: 1000px;
+  height: 350px;
+}
+.music{
+
+ display: none;
+}
+@keyframes acercar {
+  10%{
+      transform: scale(0.5);
+      background-color: black;
+  }
+  50%{
+      transform: scale(0.7);
+    }
+  
+  100%{
+      transform: scale(1.0);
+      background-color: white;
+  }
+}
+.contenedor-barra{
+  width: 800px;
+  height: 250px;
+  margin: auto;
+  display: flex;
+  transform: rotate(180deg);
+  
+}
+
+.line1{
+  width: 50px;
+  height: 300px;
+  background-color: black;
+  animation: uno .5s infinite ease-out;
+  border-radius: 10px;
+}
+@keyframes uno{
+50%{
+  height: 30px;
+}
+
+100%{
+  height: 250px;
+}
+
+}
+
+.line2{
+width: 50px;
+height: 300px;
+background-color: white;
+animation: dos .5s infinite ease-out;
+animation-duration: 1s;
+border-radius: 10px;
+
+}
+@keyframes dos{
+50%{
+   height: 20px;
+}
+
+100%{
+   height: 300px;
+}
+}
+.line3{
+width: 50px;
+height: 300px;
+background-color: black;
+animation: tres .5s infinite ease-out;
+border-radius: 10px;
+}
+@keyframes tres{
+50%{
+   height: 0px;
+}
+
+100%{
+   height: 180px;
+}
+}
+.line4{
+width: 50px;
+height: 300px;
+background-color: white;
+animation: cuatro .5s infinite ease-out;
+border-radius: 10px;
+}
+@keyframes cuatro{
+50%{
+   height: 90px;
+}
+
+100%{
+   height: 300px;
+}
+}
+.line5{
+width: 50px;
+height: 300px;
+background-color: black;
+animation: cinco .5s infinite ease-out;
+border-radius: 10px;
+}
+@keyframes cinco{
+50%{
+   height: 50px;
+}
+
+100%{
+   height: 200px;
+}
+}
+.line6{
+width: 50px;
+height: 300px;
+background-color: white;
+animation: seis .5s infinite ease-out;
+border-radius: 10px;
+}
+@keyframes seis{
+50%{
+   height: 200px;
+}
+
+100%{
+   height: 250px;
+}
+}
+
+.line8{
+width: 50px;
+height: 300px;
+background-color: black;
+animation: ocho .5s infinite ease-out;
+border-radius: 10px;
+}
+
+@keyframes ocho{
+50%{
+   height: 10px;
+}
+
+100%{
+   height: 300px;
+}
+}
+
+.line9{
+width: 50px;
+height: 300px;
+background-color: white;
+animation: nueve .5s infinite ease-out;
+border-radius: 10px;
+}
+
+@keyframes nueve{
+50%{
+   height: 60px;
+}
+
+100%{
+   height: 100px;
+}
+}
+
+.line10{
+width: 50px;
+height: 300px;
+background-color: black;
+animation: diez .5s infinite ease-out;
+border-radius: 10px;
+}
+
+@keyframes diez{
+50%{
+   height: 15px;
+}
+
+100%{
+   height: 270px;
+}
+}
+
+.line11{
+width: 50px;
+height: 300px;
+background-color: white;
+animation: once .5s infinite ease-out;
+border-radius: 10px;
+}
+
+@keyframes once{
+50%{
+   height: 50px;
+}
+
+100%{
+   height: 180px;
+}
+}
+
+.line12{
+width: 50px;
+height: 300px;
+background-color: black;
+animation: doce .5s infinite ease-out;
+border-radius: 10px;
+}
+
+@keyframes doce{
+50%{
+   height: 80px;
+}
+
+100%{
+   height: 180px;
+}
+}
+
+.line13{
+width: 50px;
+height: 300px;
+background-color: white;
+animation: trece .5s infinite ease-out;
+border-radius: 10px;
+}
+
+@keyframes trece{
+50%{
+   height: 140px;
+}
+
+100%{
+   height: 250px;
+}
+}
+
+.line14{
+width: 50px;
+height: 300px;
+background-color: black;
+animation: catorce .5s infinite ease-out;
+border-radius: 10px;
+}
+
+@keyframes catorce{
+50%{
+   height: 110px;
+}
+
+100%{
+   height: 290px;
+}
+}
+
+.line15{
+width: 50px;
+height: 300px;
+background-color: white;
+animation: quince .5s infinite ease-out;
+border-radius: 10px;
+}
+
+@keyframes quince{
+50%{
+   height: 250px;
+}
+
+100%{
+   height: 300px;
+}
+}
+
+.line16{
+width: 50px;
+height: 300px;
+background-color: black;
+animation: diezyseis .5s infinite ease-out;
+border-radius: 10px;
+}
+
+@keyframes diezyseis{
+50%{
+   height: 100px;
+}
+
+100%{
+   height: 220px;
+}
+}
+
+.line17{ 
+width: 50px;
+height: 300px;
+background-color: white;
+animation: diezisiete .5s infinite ease-out;
+border-radius: 10px;
+}
+
+@keyframes diezisiete{
+50%{
+   height: 150px;
+}
+
+100%{
+   height: 250px;
+}
+}
+
+
+
+
+
+.contenedor-avatar{
+  width: 100%;
+  height: 250px;
+  margin-top: 5px
+  
+}
+.cuerpo{
+  width: 80px;
+  background-color: white;
+  height: 80px;
+  margin: auto;
+  border: 5px solid;
+  border-radius: 10px;
+}
+
+.ojos{
+  width: 100%;
+  height: 90px;
+  display: flex;
+}
+
+
+.content-1{
+  width: 100px;
+  height: 90px;
+  margin-left: 5px
+}
+
+.content-2{
+  width: 90px;
+  height: 90px;
+  margin-left: 50px;
+}
+
+.content-1:before{
+  content: '';
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 440px;
+  left: 605px;
+}
+
+.content-1:after{
+  content: '';
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(-45deg);
+  top: 440px;
+  left: 605px;
+}
+
+.content-2:before{
+  content: '';
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 440px;
+  left: 640px;
+}
+
+.content-2:after{
+  content: '';
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(-45deg);
+  top: 440px;
+  left: 640px;
+}
+
+.boca{
+  width: 70%;
+  margin: auto;
+  height: 10px;
+  margin-top: -30px;
+  background-color: black;
+}
+
+/* --------------------------paylist----------------- */
 
 .tog{
   position: absolute;

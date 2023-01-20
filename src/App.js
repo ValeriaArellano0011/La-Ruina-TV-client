@@ -20,14 +20,20 @@ import React, { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import { useSelector } from 'react-redux'
+import Something from './Components/Something/Something';
 
 
 function App() {
   const url = useSelector(state=>state.urlPlayer)
-  const [cookies, setCookie] = useCookies(['name']);
-  useEffect(()=> {
-    axios.get('http://localhost:8080/auth/getuser', {withCredentials: true}).then(res=> console.log(res)).catch(err => console.log(err))
-    console.log(cookies.user)
+  const [cookies, setCookie] = useCookies(['user']);
+  axios.defaults.withCredentials = true
+  useEffect( ()=> {
+    // axios.get('https://la-ruina-api.fly.dev/auth/getuser', {withCredentials: true}).then(res=> console.log('EL PUTO CONSOLE LOG: ', res.data)).catch(err => console.log(err))
+    const myFunc = async () => {
+      const resp = await axios.get("https://la-ruina-api.fly.dev/auth/getuser", {withCredentials: true})
+      console.log(resp.data)
+    }
+    myFunc()
   },[])
   return (
     <div className="App">
@@ -51,6 +57,9 @@ function App() {
             </Route>
             <Route exact path='/browser'>
               <Browser />
+            </Route>
+            <Route exact path='/something'>
+              <Something/>
             </Route>
             <Route path='/verify'>
               <Verify />
