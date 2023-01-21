@@ -28,13 +28,13 @@ const OptionsProfile = () => {
             <ul className={s.ulListProfile}>
               <li className={s.liProfile1}>Perfil de</li>
               <li className={s.liProfile2}><h1>{userAlias ? userAlias : currentUser.userAlias}</h1></li>
-              <li><img className={s.userIcon} referrerPolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} height='80px' alt="foto de perfil" /></li>
+              <li><img className={s.userIcon} referrerPolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} height='100px' alt="foto de perfil" /></li>
               <li className={s.liProfile3}>{rolUser}</li>
             </ul>
           </div>
           <ul>
             <li>
-              <RequestProfile />
+              <RequestProfile/>
             </li>
           </ul>
         </div>

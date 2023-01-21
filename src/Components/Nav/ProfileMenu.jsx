@@ -61,7 +61,7 @@ export const ProfileMenu = () => {
               onClick={(e)=>{return onClickValue(e)}}
               onMouseEnter={() => {return profileMenuCss('enter')}}>
               <img 
-                className={s.imgIcon}
+                className={s.imgIconProf}
                 referrerPolicy="no-referrer" 
                 src={userPicGoogle ? userPicGoogle : userIcon}
                 onClick={(e) => {return e.target.value='profile'}}

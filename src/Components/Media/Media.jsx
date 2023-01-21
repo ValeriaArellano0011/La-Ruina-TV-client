@@ -1,6 +1,6 @@
 import React from "react";
 import playIconn from "../../design/ruinatv-icon-play-n.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import editIcon from '../../design/edit-icon.png';
 import deleteIcon from '../../design/delete-icon.png';
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import s from './css/Media.module.css';
 import { getDeleteMedia, getEditMedia } from "../../middlewares/redux/actions";
 
 const Media = ({ cardList, style, keyID }) => {
+  const history = useHistory();
   const rolUser = useSelector(state=>state.rolUser)
   const dispatch = useDispatch()
   return (
@@ -42,20 +43,25 @@ const Media = ({ cardList, style, keyID }) => {
                         }}
                       >
                         {/* <img src={e.icon} alt="logo" className={style.logoItem} /> */}
-                        {rolUser==='admin'?(
+                        
+                      </button>
+                    </Link>
+                    {rolUser==='admin'?(
                           <ul className={s.adminRequest}>
                             <li className={s.adminBtn}>
-                              <img src={editIcon} onClick={()=>{return dispatch(getEditMedia(e.id))}} className={s.editImg} alt='edit' width='15px' />
+                              <img src={editIcon} 
+                              onClick={()=>{
+                                dispatch(getEditMedia(e.connectionId))
+                                history.push(`/media/edit/${e.connectionId}`)
+                              }} className={s.editImg} alt='edit' width='15px' />
                             </li>
                             <li className={s.adminBtn}>
-                              <img src={deleteIcon} onClick={()=>{return dispatch(getDeleteMedia(e.id))}} className={s.deleteImg} alt='delete' width='15px' />
+                              <img src={deleteIcon} onClick={()=>{dispatch(getDeleteMedia(e.id)) }} className={s.deleteImg} alt='delete' width='15px' />
                             </li>
                           </ul>
                         )
                         : null
                         }
-                      </button>
-                    </Link>
                     <Link to={``} className={style.link}>
                       <p>
                         <img

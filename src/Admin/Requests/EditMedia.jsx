@@ -2,15 +2,42 @@ import { Card } from "@mui/material";
 import { Title } from "react-admin";
 import CardContent from "@mui/material/CardContent";
 import styles from "../css/CreatePost.module.scss";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { postMedia } from "../../middlewares/redux/actions/index";
-import axios from "axios";
-import { URL_API } from "../../middlewares/misc/config";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getEditMedia, postMedia } from "../../middlewares/redux/actions/index";
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const EditMedia = () => {
   const dispatch = useDispatch();
+  const objofarrs = useSelector(state => state.mediaWithConnectionId)
+  const { connectionId } = useParams()
+
+  useEffect(() => {
+    if (connectionId) {
+      console.log('el conid: ', connectionId)
+      dispatch(getEditMedia(connectionId))
+    }
+  }, [connectionId, dispatch, useParams()])
+
+  useEffect(() => {
+    if (objofarrs) {
+      setData({
+        title: objofarrs[0]?.appProperties?.title || "",
+        artist: objofarrs[0]?.appProperties.artist || "",
+        info: objofarrs[0]?.appProperties.info || "",
+        categories: objofarrs[0]?.categories?.match(/[^,]+/g) || [],
+        genre: objofarrs[0]?.genre?.match(/[^,]+/g) || [],
+        idLinkYT: objofarrs[0]?.appProperties.idLinkYT || "",
+        mediaType: objofarrs[0]?.mediaType?.match(/[^,]+/g) || [],
+        idLinkSPOTY: objofarrs[0]?.appProperties.idLinkSPOTY || "",
+        idLinkDRIVE: objofarrs[0]?.appProperties.idLinkDRIVE || "",
+        urlLinkWEB: objofarrs[0]?.appProperties.urlLinkWEB || "",
+        urlLinkDOWNLOAD: objofarrs[0]?.appProperties.urlLinkDOWNLOAD || "",
+      })
+    }
+  }, [objofarrs ,connectionId])
+
   const handleInputChange = (e) => {
     if (
       e.target.name !== "title" &&
@@ -32,20 +59,18 @@ const EditMedia = () => {
   };
 
   const [res, setRes] = useState(null)
-
   const [data, setData] = useState({
-    title: "",
-    artist: "",
-    info: "",
-    category: [],
-    genre: [],
-    categories: [],
-    idLinkYT: "",
-    mediaType: [],
-    idLinkSPOTY: "",
-    idLinkDRIVE: "",
-    urlLinkWEB: "",
-    urlLinkDOWNLOAD: "",
+    title: objofarrs[0]?.appProperties?.title || "",
+    artist: objofarrs[0]?.appProperties.artist || "",
+    info: objofarrs[0]?.appProperties.info || "",
+    categories: objofarrs[0]?.categories?.match(/[^,]+/g) || [],
+    genre: objofarrs[0]?.genre?.match(/[^,]+/g) || [],
+    idLinkYT: objofarrs[0]?.appProperties.idLinkYT || "",
+    mediaType: objofarrs[0]?.mediaType?.match(/[^,]+/g) || [],
+    idLinkSPOTY: objofarrs[0]?.appProperties.idLinkSPOTY || "",
+    idLinkDRIVE: objofarrs[0]?.appProperties.idLinkDRIVE || "",
+    urlLinkWEB: objofarrs[0]?.appProperties.urlLinkWEB || "",
+    urlLinkDOWNLOAD: objofarrs[0]?.appProperties.urlLinkDOWNLOAD || "",
   });
 
   const optionsMediaType = [
@@ -186,6 +211,8 @@ const EditMedia = () => {
 
   const [imgSlider, setImgSlider] = useState(null);
   const [imgVisor, setImgVisor] = useState(null);
+  const [previewSlider, setPreviewSlider] = useState('');
+  const [previewVisor, setPreviewVisor] = useState('');
 
   const submit = (e) => {
     e.preventDefault();
@@ -228,182 +255,198 @@ const EditMedia = () => {
       <div className={styles.CreateProduct}>
         <Card>
           <Title title="Nuevo Post" />
-          <h1 className={styles.createTitle}>Crear un Nuevo Post</h1>
+          <h1 className={styles.createTitle}>Modificar Post</h1>
           <CardContent>Rellena el siguiente formulario</CardContent>
-          <form onSubmit={submit}>
-            <div>
-              <p>
-                <label>Titulo</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="title"
-                  value={data.title}
-                  onChange={handleInputChange}
-                />
-              </p>
-              <p>
-                <label>Artista</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="artist"
-                  value={data.artist}
-                  onChange={handleInputChange}
-                />
-              </p>
-              <p>
-                <label>Descripción</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="info"
-                  value={data.info}
-                  onChange={handleInputChange}
-                />
-              </p>
-              <p>
-                <label>Imagen del Slider</label>
-                <br></br>
-                <input
-                  type="file"
-                  name="file"
-                  onChange={(e) => setImgSlider(e.target.files[0])}
-                />
-              </p>
-              <p>
-                <label>Imagen del Visor</label>
-                <br></br>
-                <input
-                  type="file"
-                  name="file"
-                  onChange={(e) => setImgVisor(e.target.files[0])}
-                />
-              </p>
-              <h1>Media Type</h1>
-              <div className={styles.types}>
-                {optionsMediaType?.map((t) => (
-                  <div key={`${t.name}-${t.slot}`}>
-                    <input
-                      type="checkbox"
-                      name={t.name}
-                      value={t.name}
-                      id={t.name}
-                      onChange={(e) => checkboxMT(e)}/>
-                    <label htmlFor={t.name}>{t.name}</label>
-                    {t.slot % 4 === 0 ? <br /> : null}
-                  </div>
-                ))}
-              </div>
-              <p>
-                <label>Id del link de YouTube</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="idLinkYT"
-                  value={data.idLinkYT}
-                  onChange={(e) =>
-                    setData({ ...data, idLinkYT: e.target.value })
-                  }/>
-              </p>
-              <p>
-                <label>Id del link de Spotify</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="idLinkSPOTY"
-                  value={data.idLinkSPOTY}
-                  onChange={(e) =>
-                    setData({ ...data, idLinkSPOTY: e.target.value })
-                  }
-                />
-              </p>
-              <p>
-                <label>Id del link de Drive</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="idLinkDRIVE"
-                  value={data.idLinkDRIVE}
-                  onChange={(e) =>
-                    setData({ ...data, idLinkDRIVE: e.target.value })
-                  }
-                />
-              </p>
-              <p>
-                <label>url de la Web</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="urlLinkWEB"
-                  value={data.urlLinkWEB}
-                  onChange={(e) =>
-                    setData({ ...data, urlLinkWEB: e.target.value })
-                  }
-                />
-              </p>
-              <p>
-                <label>Link de descarga</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="urlLinkDOWNLOAD"
-                  value={data.urlLinkDOWNLOAD}
-                  onChange={(e) =>
-                    setData({ ...data, urlLinkDOWNLOAD: e.target.value })
-                  }
-                />
-              </p>
+          {objofarrs ?
+            (<form onSubmit={submit}>
               <div>
-                <h1>Categoria</h1>
+                <p>
+                  <label>Titulo</label>
+                  <br></br>
+                  <input
+                    type="text"
+                    name="title"
+                    value={data.title}
+                    onChange={handleInputChange}
+                  />
+                </p>
+                <p>
+                  <label>Artista</label>
+                  <br></br>
+                  <input
+                    type="text"
+                    name="artist"
+                    value={data.artist}
+                    onChange={handleInputChange}
+                  />
+                </p>
+                <p>
+                  <label>Descripción</label>
+                  <br></br>
+                  <input
+                    type="text"
+                    name="info"
+                    value={data.info}
+                    onChange={handleInputChange}
+                  />
+                </p>
+                <p>
+                  <label>Imagen del Slider</label>
+                  <br></br>
+                  <img src={previewSlider ? previewSlider : objofarrs[0]?.appProperties.imgLink} alt="slider" width="200px" height="100px" />
+                  <br></br>
+                  <input
+                    type="file"
+                    name="file"
+                    onChange={(e) => {
+                      setImgSlider(e.target.files[0])
+                      const file = e.target.files[0];
+                      const reader = new FileReader();
+                      reader.onloadend = () => {
+                        setPreviewSlider(reader.result);
+                      }
+                      reader.readAsDataURL(file);
+                    }}
+                  />
+                </p>
+                <p>
+                  <label>Imagen del Visor</label>
+                  <br></br>
+                  <img src={previewVisor ? previewVisor : objofarrs[1]?.appProperties.imgLink} alt="visor" width="200px" height="100px" />
+                  <br></br>
+                  <input
+                    type="file"
+                    name="file"
+                    onChange={(e) => {
+                      setImgVisor(e.target.files[0])
+                      const file = e.target.files[0];
+                      const reader = new FileReader();
+                      reader.onloadend = () => {
+                        setPreviewVisor(reader.result);
+                      }
+                      reader.readAsDataURL(file);
+                    }}
+                  />
+                </p>
+                <h1>Media Type</h1>
                 <div className={styles.types}>
-                  {optionsCategories?.map((t) => (
+                  {optionsMediaType?.map((t) => (
                     <div key={`${t.name}-${t.slot}`}>
                       <input
                         type="checkbox"
                         name={t.name}
                         value={t.name}
+                        defaultChecked={objofarrs[0] && objofarrs[0].appProperties.mediaType && objofarrs[0].appProperties.mediaType.includes(t.name)}
                         id={t.name}
-                        onChange={(e) => checkboxCat(e)}
-                      />
+                        onChange={(e) => checkboxMT(e)} />
                       <label htmlFor={t.name}>{t.name}</label>
                       {t.slot % 4 === 0 ? <br /> : null}
                     </div>
                   ))}
                 </div>
+                <p>
+                  <label>Id del link de YouTube</label>
+                  <br></br>
+                  <input
+                    type="text"
+                    name="idLinkYT"
+                    value={data.idLinkYT}
+                    onChange={(e) =>
+                      setData({ ...data, idLinkYT: e.target.value })
+                    } />
+                </p>
+                <p>
+                  <label>Id del link de Spotify</label>
+                  <br></br>
+                  <input
+                    type="text"
+                    name="idLinkSPOTY"
+                    value={data.idLinkSPOTY}
+                    onChange={(e) =>
+                      setData({ ...data, idLinkSPOTY: e.target.value })
+                    }
+                  />
+                </p>
+                <p>
+                  <label>Id del link de Drive</label>
+                  <br></br>
+                  <input
+                    type="text"
+                    name="idLinkDRIVE"
+                    value={data.idLinkDRIVE}
+                    onChange={(e) =>
+                      setData({ ...data, idLinkDRIVE: e.target.value })
+                    }
+                  />
+                </p>
+                <p>
+                  <label>url de la Web</label>
+                  <br></br>
+                  <input
+                    type="text"
+                    name="urlLinkWEB"
+                    value={data.urlLinkWEB}
+                    onChange={(e) =>
+                      setData({ ...data, urlLinkWEB: e.target.value })
+                    }
+                  />
+                </p>
+                <p>
+                  <label>Link de descarga</label>
+                  <br></br>
+                  <input
+                    type="text"
+                    name="urlLinkDOWNLOAD"
+                    value={data.urlLinkDOWNLOAD}
+                    onChange={(e) =>
+                      setData({ ...data, urlLinkDOWNLOAD: e.target.value })
+                    }
+                  />
+                </p>
+                <div>
+                  <h1>Categoria</h1>
+                  <div className={styles.types}>
+                    {optionsCategories?.map((t) => (
+                      <div key={`${t.name}-${t.slot}`}>
+                        <input
+                          type="checkbox"
+                          name={t.name}
+                          value={t.name}
+                          defaultChecked={objofarrs[0] && objofarrs[0].appProperties.categories && objofarrs[0].appProperties.categories.includes(t.name)}
+                          id={t.name}
+                          onChange={(e) => checkboxCat(e)}
+                        />
+                        <label htmlFor={t.name}>{t.name}</label>
+                        {t.slot % 4 === 0 ? <br /> : null}
+                      </div>
+                    ))}
+                  </div>
 
-                <h1>Género</h1>
-                <div className={styles.types}>
-                  {optionsGenre?.map((t) => (
-                    <div key={`${t.name}-${t.slot}`}>
-                      <input
-                        type="checkbox"
-                        name={t.name}
-                        value={t.name}
-                        id={t.name}
-                        onChange={(e) => checkboxGen(e)}
-                      />
-                      <label htmlFor={t.name}>{t.name}</label>
-                      {t.slot % 4 === 0 ? <br /> : null}
-                    </div>
-                  ))}
+                  <h1>Género</h1>
+                  <div className={styles.types}>
+                    {optionsGenre?.map((t) => (
+                      <div key={`${t.name}-${t.slot}`}>
+                        <input
+                          type="checkbox"
+                          name={t.name}
+                          value={t.name}
+                          defaultChecked={objofarrs[0] && objofarrs[0].appProperties.genre && objofarrs[0].appProperties.genre.includes(t.name)}
+                          id={t.name}
+                          onChange={(e) => checkboxGen(e)}
+                        />
+                        <label htmlFor={t.name}>{t.name}</label>
+                        {t.slot % 4 === 0 ? <br /> : null}
+                      </div>
+                    ))}
+                  </div>
+                  <input
+                    type="submit"
+                    value="Actualizar"
+                    className={styles.submit}
+                  />
                 </div>
-                <input
-                  type="submit"
-                  value="Publicar"
-                  className={styles.submit}
-                />
               </div>
-            </div>
-          </form>
-          <button onClick={async () => {
-            await axios.get(
-                `${URL_API}/mercadopago/generate`).then(res => setRes(res.data))
-                .catch(e => console.log(e))
-            }}>
-
-          </button>
-          <a href={res && res}>Pay here</a>
+            </form>) : null}
         </Card>
       </div>
     </div>

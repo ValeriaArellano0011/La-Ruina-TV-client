@@ -17,7 +17,8 @@ import {
     RESET_IDYT,
     URL_PLAYER,
     RESET_URL_PLAYER,
-    CURRENT_USER
+    CURRENT_USER,
+    EDIT_MEDIA
     } from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
@@ -106,7 +107,7 @@ const initialState = {
     filteredMedia: [],
     searchedMedia: [],
     mediaFound: {},
-
+    mediaWithConnectionId: [],
 /*--------------Pagination--------------*/
 
 /*----------------Player----------------*/
@@ -126,6 +127,11 @@ export default function rootReducer(state = initialState, action){
             rolUser: state.rolUser !== 'admin'?  'admin' : 'free'
             };
 
+            case EDIT_MEDIA:
+                return{
+                    ...state,
+                    mediaWithConnectionId: action.payload.files
+                };  
 /*----------------Auth----------------*/
         case CURRENT_USER:
             return {
@@ -152,7 +158,7 @@ export default function rootReducer(state = initialState, action){
             return{
                 ...state
             };     
-
+            
 /*----------------Tienda----------------*/
         case GET_PRODUCTS:
             return{
@@ -243,7 +249,7 @@ export default function rootReducer(state = initialState, action){
         case GET_MUSIC_NAME:
             return{
                 ...state,
-                searchedMedia: action.payload
+                searchedMedia: [...action.payload]
             };
 /* ----------------------- Player ----------------------- */
         case URL_PLAYER:

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { getOption } from '../../middlewares/redux/actions'
@@ -16,13 +16,24 @@ const RequestProfile = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const rolUser = useSelector(state=>state.rolUser)
+    const auth = localStorage.getItem('auth');
+    const user = auth ? JSON.parse(auth) : null;
+    const [ userPicGoogle, setUserPicGoogle ] = useState('')
+    useEffect(() => {
+        if (user) {
+          if(user.googlePic){
+            setUserPicGoogle(user.googlePic)
+            console.log(user.googlePic)
+          }
+        }
+    }, [user]);
     return (
         <div className={s.divProfileMenu}>
             <ul
                 className={s.ulProfileMenu}>
                 <ul className={s.ulRequestProfile}>
                     <li>
-                        <img src={userIcon} className={s.userIcon} onClick={()=>{return dispatch(getOption('profile'))}} alt="perfil" />
+                        <img referrerPolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} className={s.userIcon} onClick={()=>{return dispatch(getOption('profile'))}} alt="perfil" />
                     </li>
                     <li>
                         <img src={notificationIcon} className={s.notificationIcon} alt="notificaciones" onClick={()=>{return dispatch(getOption('notifications'))}} />

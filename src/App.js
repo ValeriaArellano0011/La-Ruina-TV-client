@@ -19,16 +19,12 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthToken from './Components/Auth/AuthToken';
 import React, { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
-import axios from 'axios';
 import { useSelector } from 'react-redux'
-import Something from './Components/Something/Something';
 import { YtSubscribeButton } from './Components/Utils/YtSubscribeButton';
 
 
 function App() {
   const url = useSelector(state=>state.urlPlayer)
-  const [cookies, setCookie] = useCookies(['user']);
-  //axios.defaults.withCredentials = true
   return (
     <div className="App">
       <Switch>
@@ -54,9 +50,6 @@ function App() {
             </Route>
             <Route exact path='/yt'>
               <YtSubscribeButton />
-            </Route>
-            <Route exact path='/something'>
-              <Something/>
             </Route>
             <Route path='/verify'>
               <Verify />
@@ -85,7 +78,7 @@ function App() {
             <Route exact path='/media/create'>
               <CreateMedia />
             </Route>
-            <Route exact path='/media/edit'>
+            <Route exact path='/media/edit/:connectionId'>
               <EditMedia />
             </Route>
 

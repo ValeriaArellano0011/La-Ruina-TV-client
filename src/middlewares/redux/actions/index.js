@@ -32,6 +32,7 @@ import {
     export const getEditMedia = (id) =>   {
         return async function (dispatch) {
             let res = await axios.get(`${URL_API}/media/edit/${id}`);
+            console.log(res.data)
             return dispatch ({
                 type: EDIT_MEDIA,
                 payload: res.data
