@@ -6,6 +6,7 @@ export const Search = () => {
     <div className={s.searchCont}>
         <div className={s.searchFormat} >
             <div className={s.navFixed} ></div>
+
         </div>
     </div>
   )

@@ -294,13 +294,13 @@ export function loadingSearchSet(){
 }
 
 export function getMusicName(name){
-    return function (dispatch){
-        axios.get(`${URL_API}/media/search?name=${name}`)
+    return async function (dispatch){
+        await axios.get(`${URL_API}/media/search/s?name=${name}`)
         .then(res => {
             dispatch({
                 type: GET_MUSIC_NAME,
                 payload: res.data,
-                });
+            });
         })
         .catch((e) => {
             console.log(e)

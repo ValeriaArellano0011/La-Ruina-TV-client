@@ -22,6 +22,7 @@ import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import { useSelector } from 'react-redux'
 import Something from './Components/Something/Something';
+import { YtSubscribeButton } from './Components/Utils/YtSubscribeButton';
 
 
 function App() {
@@ -50,6 +51,9 @@ function App() {
             </Route>
             <Route exact path='/browser'>
               <Browser />
+            </Route>
+            <Route exact path='/yt'>
+              <YtSubscribeButton />
             </Route>
             <Route exact path='/something'>
               <Something/>

@@ -15,19 +15,17 @@ import {
 } from "../../middlewares/redux/actions";
 
 const Browser = () => {
-  BodyCss();
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(getMedia());
     dispatch(resetMedia());
     dispatch(resetOption());
     dispatch(resetIdYT());
-    dispatch(getMedia());
+    BodyCss();
   }, [dispatch]);
   const cardList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
 
-  
-  
   return (
     <div className="browserBody">
       {/* ---------------------VISOR--------------------- */}

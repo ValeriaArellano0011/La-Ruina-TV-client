@@ -21,7 +21,6 @@ const Nav = () => {
     const currentUser = useSelector(state=>state.currentUser)
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
-    console.log(user)
     window.onscroll = function() {navBack(setPosNav, posNav)};
 
     return (
