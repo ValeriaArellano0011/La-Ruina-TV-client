@@ -100,7 +100,7 @@ const Nav = () => {
                     document.querySelector(`.visor`).style.transform='translateX(0)',
                     document.querySelector('#slideCanvasCont').style.overflowY="scroll"
                     )}}>
-                <Link to='/lanzamientos'>Lanzamientos</Link></li>
+                <Link to='/lanzamientos'>Back&Amp</Link></li>
             <li
                 onClick={()=>{
                     window.scrollTo(0, 0)
@@ -131,7 +131,8 @@ const Nav = () => {
                     document.querySelector(`.browserBody`).style.overflowY='scroll',
                     document.querySelector(`.visor`).style.transform='translateX(0)',
                     document.querySelector('#slideCanvasCont').style.overflowY="scroll")}}>
-                <Link to='/tienda'> Tienda </Link></li>
+                {/* <Link to='/tienda'> Tienda </Link> */}
+            </li>
             <ul className='navSearchBar'>
                 <li><SearchBar/></li>
                 <ul className={s.profileMenuBtn}>

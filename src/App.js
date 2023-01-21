@@ -3,14 +3,14 @@ import Nav from './Components/Utils/Nav';
 import View from './Components/Media/View';
 import Verify from './Components/Auth/Verify';
 import Browser from './Components/Browser/Browser';
-import Product from './Components/Products/Product';
+// import Product from './Components/Products/Product';
 import CreateMedia from './Admin/Requests/CreateMedia';
 import CreateProduct from './Admin/Requests/CreateProduct';
-import { Tienda } from './Components/Tienda/Tienda';
+// import { Tienda } from './Components/Tienda/Tienda';
 import { Search } from './Components/Filter/Search';
 import { Colaborar } from './Components/Colaborar/Colaborar';
 import { Novedades } from './Components/Novedades/Novedades';
-import { Lanzamientos } from './Components/Lanzamientos/Lanzamientos';
+import { BackAmp } from './Components/Back&Amp/BackAmp';
 import { CanvasOptions } from './Components/Utils/CanvasOptions';
 import { Playlist } from './Components/Media/Paylist';
 import { Checkout } from './Components/Checkout/Checkout';
@@ -60,17 +60,17 @@ function App() {
               <Novedades />
             </Route>
             <Route exact path='/lanzamientos'>
-              <Lanzamientos />
+              <BackAmp />
             </Route>
             <Route exact path='/colaborar'>
               <Colaborar />
             </Route>
-            <Route exact path='/tienda'>
+            {/* <Route exact path='/tienda'>
               <Tienda />
             </Route>
             <Route path={'/tienda/product/:id'}>
               <Product />
-            </Route>
+            </Route> */}
             <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
               <View />
             </Route>
