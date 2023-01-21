@@ -1,10 +1,11 @@
 import './App.css';
-import Nav from './Components/Utils/Nav';
+import Nav from './Components/Nav/Nav';
 import View from './Components/Media/View';
 import Verify from './Components/Auth/Verify';
 import Browser from './Components/Browser/Browser';
 // import Product from './Components/Products/Product';
 import CreateMedia from './Admin/Requests/CreateMedia';
+import EditMedia from './Admin/Requests/EditMedia';
 import CreateProduct from './Admin/Requests/CreateProduct';
 // import { Tienda } from './Components/Tienda/Tienda';
 import { Search } from './Components/Filter/Search';
@@ -80,6 +81,10 @@ function App() {
             <Route exact path='/media/create'>
               <CreateMedia />
             </Route>
+            <Route exact path='/media/edit'>
+              <EditMedia />
+            </Route>
+
             <Route path='/search'>
               <Search />
             </Route>

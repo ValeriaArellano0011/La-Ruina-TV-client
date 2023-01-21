@@ -35,7 +35,7 @@ const AuthToken = () => {
       height: '20px',
       width: '100%', 
       textAlign: 'right'
-    }} >AuthToken: <br></br> {authToken}</div>
+    }} > <br></br></div>
   )
 }
 

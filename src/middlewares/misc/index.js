@@ -28,6 +28,8 @@ export const GET_MUSIC_NAME = 'GET_MUSIC_NAME'
 
 /* -----------------Admin----------------- */
 export const __GOD_MODE__ = '__GOD_MODE__'
+export const EDIT_MEDIA = 'EDIT_MEDIA'
+export const REMOVE_MEDIA = 'REMOVE_MEDIA'
 
 /* -----------------Player----------------- */
 export const URL_PLAYER = 'URL_PLAYER'

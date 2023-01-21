@@ -23,10 +23,33 @@ import {
     GET_MUSIC_NAME,
     URL_PLAYER,
     RESET_URL_PLAYER,
-    CURRENT_USER
+    CURRENT_USER,
+    EDIT_MEDIA,
+    REMOVE_MEDIA
     } from '../../misc'
 
 /*-----------------Admin----------------*/
+    export const getEditMedia = (id) =>   {
+        return async function (dispatch) {
+            let res = await axios.get(`${URL_API}/media/edit/${id}`);
+            return dispatch ({
+                type: EDIT_MEDIA,
+                payload: res.data
+            })
+        }
+    }
+
+    export const getDeleteMedia = (id) =>   {
+        return async function (dispatch) {
+            let res = await axios.get(`${URL_API}/media/delete/${id}`);
+            return dispatch ({
+                type: EDIT_MEDIA,
+                payload: res.data
+            })
+        }
+    }
+
+
     export const _GOD_MODE_ = () => {
         return async function (dispatch) {
             return dispatch ({
