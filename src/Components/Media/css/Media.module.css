@@ -1,0 +1,25 @@
+.adminBtn{
+    background-color: #b9b9b9c9;
+    width: 25px;
+    height: 25px;
+    border: 5px;
+    position: relative;
+    margin-top: 5px;
+    scale: .9;
+    opacity: .7;
+    transition-duration: .4s;
+}
+
+.adminRequest{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    text-align: center;
+    flex-direction: column;
+    margin-top: -60px;
+}
+
+.adminBtn:hover{
+    opacity: 1;
+    scale: 1.02
+}
