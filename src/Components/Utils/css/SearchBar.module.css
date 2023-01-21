@@ -18,9 +18,10 @@
     transition-duration: .5s;
 }
 .liSearchBar:hover, .liSearchBar:active,.liSearchBar:focus {
-    border-radius: 0%;
+    border-radius: 5px;
     width: 200px;
     opacity: .9;
+    background-color: transparent;
 }
 .mediaSearch{
     opacity: .8;
