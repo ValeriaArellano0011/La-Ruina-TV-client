@@ -26,15 +26,7 @@ import Something from './Components/Something/Something';
 function App() {
   const url = useSelector(state=>state.urlPlayer)
   const [cookies, setCookie] = useCookies(['user']);
-  axios.defaults.withCredentials = true
-  useEffect( ()=> {
-    // axios.get('https://la-ruina-api.fly.dev/auth/getuser', {withCredentials: true}).then(res=> console.log('EL PUTO CONSOLE LOG: ', res.data)).catch(err => console.log(err))
-    const myFunc = async () => {
-      const resp = await axios.get("https://la-ruina-api.fly.dev/auth/getuser", {withCredentials: true})
-      console.log(resp.data)
-    }
-    myFunc()
-  },[])
+  //axios.defaults.withCredentials = true
   return (
     <div className="App">
       <Switch>
