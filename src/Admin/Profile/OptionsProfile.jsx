@@ -6,6 +6,7 @@ import userIcon from '../../design/user-icon.png';
 
 const OptionsProfile = () => {
     const [ userAlias, setUserAlias ] = useState('')
+    const [ userPicGoogle, setUserPicGoogle ] = useState('')
     const currentUser = useSelector(state=>state.currentUser)
     const rolUser = useSelector(state=>state.rolUser)
     const auth = localStorage.getItem('auth');
@@ -13,6 +14,10 @@ const OptionsProfile = () => {
     useEffect(() => {
       if (user) {
         setUserAlias(user.userAlias)
+        if(user.googlePic){
+          setUserPicGoogle(user.googlePic)
+          console.log(user.googlePic)
+        }
       }
   }, [user]);
     return (
@@ -23,7 +28,7 @@ const OptionsProfile = () => {
             <ul className={s.ulListProfile}>
               <li className={s.liProfile1}>Perfil de</li>
               <li className={s.liProfile2}><h1>{userAlias ? userAlias : currentUser.userAlias}</h1></li>
-              <li><img className={s.userIcon} src={userIcon} height='80px' alt="foto de perfil" /></li>
+              <li><img className={s.userIcon} referrerpolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} height='80px' alt="foto de perfil" /></li>
               <li className={s.liProfile3}>{rolUser}</li>
             </ul>
           </div>

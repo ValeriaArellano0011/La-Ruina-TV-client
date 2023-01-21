@@ -24,6 +24,7 @@ export const ProfileMenu = () => {
   const user = auth ? JSON.parse(auth) : null;
   
   const [ userAlias, setUserAlias ] = useState('')
+  const [ userPicGoogle, setUserPicGoogle ] = useState('')
 
   function onClickValue(e){
     return (
@@ -34,6 +35,10 @@ export const ProfileMenu = () => {
   useEffect(() => {
     if (user) {
       setUserAlias(user.userAlias)
+      if(user.googlePic){
+        setUserPicGoogle(user.googlePic)
+        console.log(user.googlePic)
+      }
     }
 }, [user]);
   return (
@@ -44,7 +49,7 @@ export const ProfileMenu = () => {
             onClick={() => {return profileMenuCss('enter')}}
             onMouseLeave={() => {return profileMenuCss('leave')}}
             >
-            <img className={s.userIcon} src={userIcon} alt='userIcon' width='15px' />
+            <img className={s.userIcon} referrerpolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} alt='userIcon' width='25px' />
             Hola, {userAlias ? userAlias.split(' ').at(0) : currentUser.userAlias} 
             <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
           </li>
