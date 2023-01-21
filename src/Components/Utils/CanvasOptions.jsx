@@ -7,7 +7,7 @@ import Dashboard from '../../Admin/Dashboard/Dashboard'
 import { Subscription } from '../UserProfile/Subscription'
 import { PlayList } from '../UserProfile/PlayList'
 import { Favorites } from '../UserProfile/Favorites'
-import { BackButton } from './BackButton'
+import { BackButton } from '../Nav/BackButton'
 import { Notifications } from '../UserProfile/Notifications'
 import { Configurations } from '../UserProfile/Configurations'
 
