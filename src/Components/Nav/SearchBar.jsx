@@ -6,6 +6,7 @@ import { searchBarFunction } from './js/SearchBar';
 import { useState } from "react";
 import { getMusicName } from "../../middlewares/redux/actions";
 import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function SearchBar(){
     const dispatch = useDispatch()
@@ -15,8 +16,11 @@ export default function SearchBar(){
     function handleInputChange(e){
         e.preventDefault();
         setName(e.target.value)
-        console.log(name)
     }
+
+    useEffect(() => {
+      dispatch(getMusicName(name))
+    },[dispatch, name])
 
     function handleSubmit(e){
         e.preventDefault();

@@ -19,3 +19,9 @@
     height: 80px;
     background-color: #171717;
 }
+
+.ulSearchedItem{
+    width: 100vw;
+    height: 100vh;
+    background-color: blue;
+}

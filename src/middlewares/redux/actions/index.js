@@ -297,6 +297,7 @@ export function getMusicName(name){
     return async function (dispatch){
         await axios.get(`${URL_API}/media/search/s?name=${name}`)
         .then(res => {
+            console.log('el obj music name', res.data)
             dispatch({
                 type: GET_MUSIC_NAME,
                 payload: res.data,

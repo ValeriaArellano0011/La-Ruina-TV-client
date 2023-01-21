@@ -37,7 +37,6 @@ export const ProfileMenu = () => {
       setUserAlias(user.userAlias)
       if(user.googlePic){
         setUserPicGoogle(user.googlePic)
-        console.log(user.googlePic)
       }
     }
 }, [user]);
@@ -49,8 +48,8 @@ export const ProfileMenu = () => {
             onClick={() => {return profileMenuCss('enter')}}
             onMouseLeave={() => {return profileMenuCss('leave')}}
             >
-            <img className={s.userIcon} referrerpolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} alt='userIcon' width='25px' />
-            Hola, {userAlias ? userAlias.split(' ').at(0) : currentUser.userAlias} 
+            <img className={s.userIcon} referrerPolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} alt='userIcon' width='25px' />
+            Hola, {currentUser? currentUser.userAlias : userAlias.split(' ').at(0) } 
             <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
           </li>
           <ul className={s.ulProfileOptions}>
@@ -63,7 +62,8 @@ export const ProfileMenu = () => {
               onMouseEnter={() => {return profileMenuCss('enter')}}>
               <img 
                 className={s.imgIcon}
-                src={userIcon} 
+                referrerPolicy="no-referrer" 
+                src={userPicGoogle ? userPicGoogle : userIcon}
                 onClick={(e) => {return e.target.value='profile'}}
                 alt="" /> <br></br>
                   PERFIL
