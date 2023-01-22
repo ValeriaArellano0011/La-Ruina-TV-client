@@ -13,7 +13,7 @@ export const VisorFunction = () =>{
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
     const dispatch = useDispatch()
-    const visorList = useSelector(state=>state.mediaList)
+    const visorList = useSelector(state=>state.visorList)
     const nextVisor = useSelector(state=>state.nextVisor)
     const currentUser = useSelector(state=>state.currentUser)
     const [cont, setI] = useState(0)

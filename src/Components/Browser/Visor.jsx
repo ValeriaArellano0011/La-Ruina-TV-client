@@ -52,7 +52,6 @@ const Visor = () => {
                             onMouseEnter={()=>{
                                 document.querySelector('.visorButtonPlay').src=playIconb
                             }}
-
                             onMouseLeave={()=>{
                                 document.querySelector('.visorButtonPlay').src=playIconn
                             }}

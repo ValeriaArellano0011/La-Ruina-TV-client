@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import styles from "../css/CreatePost.module.scss";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getEditMedia, postMedia } from "../../middlewares/redux/actions/index";
+import { editMedia, getEditMedia, postMedia } from "../../middlewares/redux/actions/index";
 import React from "react";
 import { useParams } from "react-router-dom";
 
@@ -34,27 +34,55 @@ const EditMedia = () => {
         idLinkDRIVE: objofarrs[0]?.appProperties.idLinkDRIVE || "",
         urlLinkWEB: objofarrs[0]?.appProperties.urlLinkWEB || "",
         urlLinkDOWNLOAD: objofarrs[0]?.appProperties.urlLinkDOWNLOAD || "",
+        id: objofarrs[0]?.appProperties.id || "",
+        idFileSlider: objofarrs[0]?.id || "",
+        idFileVisor: objofarrs[1]?.id || "",
       })
     }
   }, [objofarrs ,connectionId])
 
+  // const handleInputChange = (e) => {
+  //   if (
+  //     e.target.name !== "title" &&
+  //     e.target.name !== "artist" &&
+  //     e.target.name !== "info" &&
+  //     e.target.name !== "categories"
+  //   ) {
+  //     console.log("la imagen", e.target.files[0]);
+  //     setData({
+  //       ...data,
+  //       [e.target.name]: e.target.files[0],
+  //     });
+  //   } else {
+  //     setData({
+  //       ...data,
+  //       [e.target.name]: e.target.value,
+  //     });
+  //   }
+  // };
+
+
   const handleInputChange = (e) => {
-    if (
-      e.target.name !== "title" &&
-      e.target.name !== "artist" &&
-      e.target.name !== "info" &&
-      e.target.name !== "categories"
-    ) {
-      console.log("la imagen", e.target.files[0]);
-      setData({
-        ...data,
-        [e.target.name]: e.target.files[0],
-      });
-    } else {
-      setData({
-        ...data,
-        [e.target.name]: e.target.value,
-      });
+    switch (e.target.name) {
+      case "imageSlider":
+        console.log("image slider selected: ", e.target.files[0]);
+        setData({
+          ...data,
+          [e.target.name]: e.target.files[0],
+        });
+        break;
+      case "imageVisor":
+        console.log("image visor selected: ", e.target.files[0]);
+        setData({
+          ...data,
+          [e.target.name]: e.target.files[0],
+        });
+        break;
+      default:
+        setData({
+          ...data,
+          [e.target.name]: e.target.value,
+        });
     }
   };
 
@@ -71,6 +99,8 @@ const EditMedia = () => {
     idLinkDRIVE: objofarrs[0]?.appProperties.idLinkDRIVE || "",
     urlLinkWEB: objofarrs[0]?.appProperties.urlLinkWEB || "",
     urlLinkDOWNLOAD: objofarrs[0]?.appProperties.urlLinkDOWNLOAD || "",
+    idFileSlider: objofarrs[0]?.appProperties.idFileSlider || "",
+    idFileVisor: objofarrs[0]?.appProperties.idFileVisor || "",
   });
 
   const optionsMediaType = [
@@ -230,8 +260,13 @@ const EditMedia = () => {
     formData.append("idLinkDRIVE", data.idLinkDRIVE);
     formData.append("urlLinkWEB", data.urlLinkWEB);
     formData.append("urlLinkDOWNLOAD", data.urlLinkDOWNLOAD);
+    formData.append("connectionId", connectionId);
+    formData.append("id", data.id);
+    formData.append("idFileSlider", data.idFileSlider);
+    formData.append("idFileVisor", data.idFileVisor);
 
-    dispatch(postMedia(formData));
+    dispatch(editMedia(formData));
+
     setData({
       title: "",
       artist: "",
@@ -297,7 +332,7 @@ const EditMedia = () => {
                   <br></br>
                   <input
                     type="file"
-                    name="file"
+                    name="imageSlider"
                     onChange={(e) => {
                       setImgSlider(e.target.files[0])
                       const file = e.target.files[0];
@@ -316,7 +351,7 @@ const EditMedia = () => {
                   <br></br>
                   <input
                     type="file"
-                    name="file"
+                    name="imageVisor"
                     onChange={(e) => {
                       setImgVisor(e.target.files[0])
                       const file = e.target.files[0];

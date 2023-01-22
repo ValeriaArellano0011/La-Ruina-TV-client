@@ -11,7 +11,10 @@ import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
 import { getOption } from '../../middlewares/redux/actions';
 import OptionCanvas from '../../functions';
-import { YtSubscribeButton } from '../Utils/YtSubscribeButton'
+import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
+import { EditBtn } from '../Utils/EditBtn'
+import likeIcon from '../../design/like-icon.png'
+import s from './css/View.module.css'
 
 const View = () => {
     const dispatch = useDispatch()
@@ -28,6 +31,7 @@ const View = () => {
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
     const infoDetailViewer = useSelector(state=>state.infoDetailViewer)
+    const rolUser = useSelector(state=>state.rolUser)
     const currentUser = useSelector(state=>state.currentUser)
     const idYT = useSelector(state=>state.ytPlayerState)
     const {
@@ -78,10 +82,21 @@ const View = () => {
                                     }))
                                 })
                             } */}
+                        {(currentUser || user)? <button className='buttonAddToFavorites'>
+                            <img 
+                                className={s.favIcon}
+                                src={likeIcon} 
+                                alt='add favorites' 
+                                width='25px' 
+                            /></button> : null}
+                        {(currentUser || user)? <button className='buttonAddToPlaylist'>+</button> : null}
                         </ul>
                         <Player idYT={idYT} />
                         { (currentUser || user)?
-                        (<button 
+                        (
+                        
+                        
+                        <button 
                             className='buttonVer'
                             onClick={()=>{
                                 return (
@@ -100,9 +115,11 @@ const View = () => {
                                 document.querySelector('.visorButtonPlay').src=playIconn
                             }}>
                                 <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />Ver ahora
-                        </button>)
+                        </button>
+                        )
                         : 
-                        (<button 
+                        (
+                        <button 
                             className='buttonVer'
                             id='login'
                             onClick={(e) => {
@@ -115,6 +132,9 @@ const View = () => {
                         </button>)
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
+                        {rolUser==='admin'?
+                            <EditBtn connectionId={connectionId} /> : null
+                        }
                     </div>
                     </div>
                 </div>

@@ -18,7 +18,8 @@ import {
     URL_PLAYER,
     RESET_URL_PLAYER,
     CURRENT_USER,
-    EDIT_MEDIA
+    EDIT_MEDIA,
+    GET_EDIT_MEDIA
     } from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
@@ -81,6 +82,23 @@ const initialState = {
             genre: ['']
         }
     ],
+    visorList: [
+        {
+            id:'',
+            idMedia:[''],
+            mediaType:[''],
+            title:[''],
+            artist:[''],
+            tag:[''],
+            visorImage:[''],
+            sliderImage:[''],
+            icon:[''],
+            categories:[''],
+            actionButton:[''],
+            info:[''],
+            genre: ['']
+        }
+    ],
     nextVisor: false,
     infoDetailViewer:[{
         linkimg:"",
@@ -127,7 +145,7 @@ export default function rootReducer(state = initialState, action){
             rolUser: state.rolUser !== 'admin'?  'admin' : 'free'
             };
 
-            case EDIT_MEDIA:
+            case GET_EDIT_MEDIA:
                 return{
                     ...state,
                     mediaWithConnectionId: action.payload.files
@@ -190,11 +208,24 @@ export default function rootReducer(state = initialState, action){
             
         case GET_MEDIA:
             var hash = {};
+            var hash2 = {};
+            var hash3 = {};
             return {
                 ...state,
-                mediaList: [...state.mediaList, ...action.payload].filter(e=> e.id !== '').filter(function(current) {
+                mediaList: [...state.mediaList, ...action.payload.slider].filter(e=> e.id !== '').filter(function(current) {
                     var exists = !hash[current.id];
                     hash[current.id] = true;
+                    return exists;
+                  }),
+                  visorList: [...state.visorList, ...action.payload.visor].filter(e=> e.id !== '').filter(function(current) {
+                    var exists = !hash2[current.id];
+                    hash2[current.id] = true;
+                    return exists;
+                  }),
+                  
+                searchedMedia: [...state.mediaList, ...action.payload.slider].filter(e=> e.id !== '').filter(function(current) {
+                    var exists = !hash3[current.id];
+                    hash3[current.id] = true;
                     return exists;
                   })
             };
@@ -236,7 +267,7 @@ export default function rootReducer(state = initialState, action){
         case NEXT_VISOR:
             return{
                 ...state,
-                nextVisor: state.mediaList.length>1? [state.mediaList[action.payload]] : false
+                nextVisor: state.visorList.length>1? [state.visorList[action.payload]] : false
             };
         case RESET_VISOR:
             return{

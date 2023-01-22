@@ -266,7 +266,7 @@ const CreateMedia = () => {
                 <br></br>
                 <input
                   type="file"
-                  name="file"
+                  name="imageSlider"
                   onChange={(e) => setImgSlider(e.target.files[0])}
                 />
               </p>
@@ -275,7 +275,7 @@ const CreateMedia = () => {
                 <br></br>
                 <input
                   type="file"
-                  name="file"
+                  name="imageVisor"
                   onChange={(e) => setImgVisor(e.target.files[0])}
                 />
               </p>

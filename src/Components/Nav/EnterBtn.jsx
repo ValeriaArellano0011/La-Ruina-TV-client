@@ -23,7 +23,7 @@ export const EnterBtn = () => {
         )
       }
     }>
-    <img className={s.userIcon} src={userIcon} alt='userIcon' width='15px' />
+    <img className={s.userIconEnter} src={userIcon} alt='userIcon' width='15px' />
       Ingresar
   </div>
   )

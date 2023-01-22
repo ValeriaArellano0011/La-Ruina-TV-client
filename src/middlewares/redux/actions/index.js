@@ -24,8 +24,9 @@ import {
     URL_PLAYER,
     RESET_URL_PLAYER,
     CURRENT_USER,
-    EDIT_MEDIA,
-    REMOVE_MEDIA
+    GET_EDIT_MEDIA,
+    REMOVE_MEDIA,
+    EDIT_MEDIA
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -34,9 +35,21 @@ import {
             let res = await axios.get(`${URL_API}/media/edit/${id}`);
             console.log(res.data)
             return dispatch ({
-                type: EDIT_MEDIA,
+                type: GET_EDIT_MEDIA,
                 payload: res.data
             })
+        }
+    }
+
+    export const editMedia = (formdata) =>   {
+        return async function (dispatch) {
+            let res = await axios.post(
+                `${URL_API}/media/edit`, 
+                formdata,
+                {headers: {'Content-Type': 'multipart/form-data'}}
+            );
+            console.log(res.data)
+            getMedia()
         }
     }
 
@@ -185,12 +198,12 @@ export function getMedia() {
         try {
             await axios.get(`${URL_API}/media/getall`)
             .then(res =>{
+                console.log(res.data)
                 dispatch({
                     type: GET_MEDIA,
                     payload: res.data
                 })
             })
-            
         } catch(e) {
             console.log(e)
         }

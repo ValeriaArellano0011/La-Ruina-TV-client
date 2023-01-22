@@ -27,7 +27,7 @@ const Browser = () => {
   const categoryList = useSelector((state) => state.categoryList);
 
   return (
-    <div className="browserBody">
+    <div className="browserBody"> 
       {/* ---------------------VISOR--------------------- */}
 
         <Visor />
@@ -37,7 +37,7 @@ const Browser = () => {
       {/* <Sort /> */}
 
       {/* --------------------SLIDERS-------------------- */}
-      {cardList.length>1 && (
+      {cardList && cardList.length>0 && (
         <Slider
           title={"Contenido"}
           cardList={cardList}
@@ -49,8 +49,8 @@ const Browser = () => {
 
       {
         categoryList.map((category) => {
-            const filteredList = cardList.filter(card => card.categories.includes(category));
-            return filteredList.length ? (
+            const filteredList = cardList?.filter(card => card.categories.includes(category));
+            return filteredList?.length ? (
                 <Slider
                   title={category}
                   cardList={filteredList}
@@ -64,7 +64,7 @@ const Browser = () => {
 
       {/* ---------------------FOOTER--------------------- */}
 
-      {cardList.length > 1 && <Footer />}
+      {cardList?.length > 0 && <Footer />}
     </div>
   );
 };
