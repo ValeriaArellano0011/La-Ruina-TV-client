@@ -17,11 +17,11 @@ export const PlayList = () => {
           <button className={s.urlBtn} onClick={()=>{return dispatch(getUrlPlayer(audio))}}>TEST</button>
           <button className={s.urlBtn} onClick={()=>{return dispatch(resetUrlPlayer())}}>RESET</button>
         </div>
-        <div className='.bodyplay'><SpectreVisor/></div>
+        <div className='bodyplay'>
+          <SpectreVisor/>
+        </div>
         <RequestProfile/>
       </div>
     </div>
-
-    
   )
 }

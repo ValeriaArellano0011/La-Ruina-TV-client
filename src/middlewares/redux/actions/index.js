@@ -26,7 +26,11 @@ import {
     CURRENT_USER,
     GET_EDIT_MEDIA,
     REMOVE_MEDIA,
-    EDIT_MEDIA
+    EDIT_MEDIA,
+    ADD_TO_PLAYLIST,
+    DELETE_FROM_PLAYLIST,
+    CREATE_PLAYLIST,
+    DELETE_PLAYLIST
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -149,7 +153,6 @@ export function loginWithGoogle(accessToken){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/users/loginwithgoogle`, {accessToken})
         .then(res => {
-            console.log(res.data.msg)
             dispatch({
                 type: 'LOGIN',
                 payload: res.data
@@ -331,7 +334,7 @@ export function totalMedia(){
     
 }
 
-/*--------------Pagination-------------*/
+/* -------------Pagination------------ */
 
 /* ---------------Player-------------- */
 export function getUrlPlayer(url){
@@ -347,3 +350,33 @@ export function resetUrlPlayer(){
 }
 
 
+/* -------------PlayList------------- */
+export function CreatePlaylist(item){
+    return async function (dispatch){ 
+        await axios.post(`${URL_API}/users/playlists/create`, item)
+        .then(res => {
+            dispatch({
+                type: CREATE_PLAYLIST,
+                payload: res.data
+            })
+        })
+        .catch((e) => {
+            console.log(e);
+        })
+    }
+}
+
+export function addToPlaylist(item){
+    return async function (dispatch){ 
+        await axios.post(`${URL_API}/users/playlists/add`, item)
+        .then(res => {
+            dispatch({
+                type: ADD_TO_PLAYLIST,
+                payload: res.data
+            })
+        })
+        .catch((e) => {
+            console.log(e);
+        })
+    }
+}

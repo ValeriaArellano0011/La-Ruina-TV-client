@@ -17,6 +17,12 @@ export const GET_INFO = 'GET_INFO'
 export const GET_IDYT = 'GET_IDYT'
 export const RESET_IDYT = 'RESET_IDYT'
 
+/* -----------------PlayLists----------------- */
+export const CREATE_PLAYLIST = 'CREATE_PLAYLIST'
+export const DELETE_PLAYLIST = 'DELETE_PLAYLIST'
+export const ADD_TO_PLAYLIST = 'ADD_TO_PLAYLIST'
+export const DELETE_FROM_PLAYLIST = 'DELETE_FROM_PLAYLIST'
+
 /* -----------------Tienda----------------- */
 export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const GET_PRODUCT_DETAILS = 'GET_PRODUCT_DETAILS'

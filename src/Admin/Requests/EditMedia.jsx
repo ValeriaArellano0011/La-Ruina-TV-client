@@ -241,8 +241,8 @@ const EditMedia = () => {
 
   const [imgSlider, setImgSlider] = useState(null);
   const [imgVisor, setImgVisor] = useState(null);
-  const [previewSlider, setPreviewSlider] = useState('');
-  const [previewVisor, setPreviewVisor] = useState('');
+  const [previewSlider, setPreviewSlider] = useState(null);
+  const [previewVisor, setPreviewVisor] = useState(null);
 
   const submit = (e) => {
     e.preventDefault();

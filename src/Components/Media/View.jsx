@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getIdYT, getInfo, resetUrlPlayer } from '../../middlewares/redux/actions'
+import { getIdYT, getInfo, resetUrlPlayer, addToPlaylist } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
 import Player from './Player'
 import playIconn from '../../design/ruinatv-icon-play-n.png'
@@ -89,7 +89,7 @@ const View = () => {
                                 alt='add favorites' 
                                 width='25px' 
                             /></button> : null}
-                        {(currentUser || user)? <button className='buttonAddToPlaylist'>+</button> : null}
+                        {(currentUser || user)? <button className='buttonAddToPlaylist' onClick={()=>addToPlaylist()} >+</button> : null}
                         </ul>
                         <Player idYT={idYT} />
                         { (currentUser || user)?

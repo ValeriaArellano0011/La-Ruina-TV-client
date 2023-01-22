@@ -8,6 +8,7 @@ import { postMedia } from "../../middlewares/redux/actions/index";
 import axios from "axios";
 import { URL_API } from "../../middlewares/misc/config";
 import React from "react";
+import defaultPreview from '../../design/ruina-records-logo.png'
 const CreateMedia = () => {
   const dispatch = useDispatch();
   const handleInputChange = (e) => {
@@ -42,7 +43,7 @@ const CreateMedia = () => {
     idLinkYT: "",
     mediaType: [],
     idLinkSPOTY: "",
-    idLinkDRIVE: "",
+    audioFile: "",
     urlLinkWEB: "",
     urlLinkDOWNLOAD: "",
   });
@@ -185,6 +186,8 @@ const CreateMedia = () => {
 
   const [imgSlider, setImgSlider] = useState(null);
   const [imgVisor, setImgVisor] = useState(null);
+  const [previewSlider, setPreviewSlider] = useState(null);
+  const [previewVisor, setPreviewVisor] = useState(null);
 
   const submit = (e) => {
     e.preventDefault();
@@ -264,19 +267,39 @@ const CreateMedia = () => {
               <p>
                 <label>Imagen del Slider</label>
                 <br></br>
+                <img src={previewSlider ? previewSlider : defaultPreview} alt="visor" width="200px" height="100px" />
+                <br></br>
                 <input
                   type="file"
                   name="imageSlider"
-                  onChange={(e) => setImgSlider(e.target.files[0])}
+                  onChange={(e) => {
+                    setImgSlider(e.target.files[0])
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                      setPreviewSlider(reader.result);
+                    }
+                    reader.readAsDataURL(file);
+                  }}
                 />
               </p>
               <p>
                 <label>Imagen del Visor</label>
                 <br></br>
+                <img src={previewVisor ? previewVisor : defaultPreview} alt="visor" width="200px" height="100px" />
+                <br></br>
                 <input
                   type="file"
                   name="imageVisor"
-                  onChange={(e) => setImgVisor(e.target.files[0])}
+                  onChange={(e) => {
+                    setImgVisor(e.target.files[0])
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                      setPreviewVisor(reader.result);
+                    }
+                    reader.readAsDataURL(file);
+                  }}
                 />
               </p>
               <h1>Media Type</h1>
@@ -318,14 +341,28 @@ const CreateMedia = () => {
                 />
               </p>
               <p>
-                <label>Id del link de Drive</label>
+                <label>Archivo de audio</label>
                 <br></br>
                 <input
-                  type="text"
-                  name="idLinkDRIVE"
-                  value={data.idLinkDRIVE}
+                  type="file"
+                  name="audioFile"
+                  value={data.audioFile}
+                  accept="audio/*"
                   onChange={(e) =>
-                    setData({ ...data, idLinkDRIVE: e.target.value })
+                    setData({ ...data, audioFile: e.target.value })
+                  }
+                />
+              </p>
+              <p>
+                <label>Archivo de video</label>
+                <br></br>
+                <input
+                  type="file"
+                  name="audioFile"
+                  value={data.videoFile}
+                  accept="video/*"
+                  onChange={(e) =>
+                    setData({ ...data, videoFile: e.target.value })
                   }
                 />
               </p>
