@@ -1,0 +1,19 @@
+.canvasYtSubBtn{
+    width: 90vw;
+    height: 90vh;
+    position: fixed;
+    background-color: aqua;
+    z-index: 98;
+    left: 5vw;
+    top: 5vh;
+    display: flex;
+
+}
+.yt{
+    background-color: beige;
+    z-index: 99;
+    width: 90vw;
+    height: 90vh;
+    position: relative;
+    display: flex;
+}

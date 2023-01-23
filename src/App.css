@@ -9,6 +9,33 @@
   font-weight: bolder;
   font-family: 'Poppins', sans-serif;
 }
+.playListCont{
+  width: 800px;
+  position: fixed;
+  bottom: 1px;
+  z-index: 99999999999;
+}
+.userPlayerCont{
+  width: 100vw;
+  position: fixed;
+  bottom: 1px;
+  z-index: 99999999999;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+}
+
+.navFixed {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 80px;
+  background-color: #171717;
+  z-index: 98;
+}
+
 
 .dashControlCont{
   margin-top: 80px;
@@ -119,21 +146,163 @@ button:hover{
   height: 100vh;
   overflow-x: 'hidden';
   overflow-y: 'scroll';
-  background-color: #000000;
+  background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);
   z-index: 99999;
   position: fixed;
   transform: translateY(100vh);
+  left: 0px;
+  top: 0px;
 }
 .LogInBody{
   width: 100vw;
   height: 100vh;
   overflow-x: 'hidden';
   overflow-y: 'hidden';
-  background-color: #000000;
+  background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);
   z-index: 99999;
   position: fixed;
   transform: translateY(-100vh);
+  left: 0px;
+  top: 0px;
 }
+.divProfile{
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+  left: 0px;
+  bottom: 0px;
+  position: fixed;
+}
+/* --------------------------paylist----------------- */
+
+.bodyplay{
+  background-color: gray;
+  animation: acercar;
+  animation-duration: 500ms;
+  animation-iteration-count: 50;
+  animation-delay: 24s;
+  width: 1000px;
+  height: 350px;
+}
+.music{
+
+ display: none;
+}
+@keyframes acercar {
+  10%{
+      transform: scale(0.5);
+      background-color: black;
+  }
+  50%{
+      transform: scale(0.7);
+    }
+  
+  100%{
+      transform: scale(1.0);
+      background-color: white;
+  }
+}
+.contenedor-barra{
+  width: 800px;
+  height: 250px;
+  margin: auto;
+  display: flex;
+  transform: rotate(180deg);
+}
+.contenedor-avatar{
+  width: 100%;
+  height: 250px;
+  margin-top: 5px
+  
+}
+.cuerpo{
+  width: 80px;
+  background-color: white;
+  height: 80px;
+  margin: auto;
+  border: 5px solid;
+  border-radius: 10px;
+}
+
+.ojos{
+  width: 100%;
+  height: 90px;
+  display: flex;
+}
+
+
+.content-1{
+  width: 100px;
+  height: 90px;
+  margin-left: 5px
+}
+
+.content-2{
+  width: 90px;
+  height: 90px;
+  margin-left: 50px;
+}
+
+.content-1:before{
+  content: '';
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 440px;
+  left: 605px;
+}
+
+.content-1:after{
+  content: '';
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(-45deg);
+  top: 440px;
+  left: 605px;
+}
+
+.content-2:before{
+  content: '';
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 440px;
+  left: 640px;
+}
+
+.content-2:after{
+  content: '';
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(-45deg);
+  top: 440px;
+  left: 640px;
+}
+
+.boca{
+  width: 70%;
+  margin: auto;
+  height: 10px;
+  margin-top: -30px;
+  background-color: black;
+}
+
+/* --------------------------paylist----------------- */
+
 .tog{
   position: absolute;
   right: 50px;
@@ -155,7 +324,8 @@ button:hover{
   background-color: #171717c1;
   position: relative;
   left: 25vw;
-  top: 100px;
+  top: 60px;
+  border-radius: 15px;
 }
 
 /* ---------------VISOR--------------- */
@@ -174,7 +344,7 @@ button:hover{
   left: 0;
   right: 0;
   top: 0;
-  z-index: -1;
+  z-index: 0;
   margin-right: 10px;
 
 }
@@ -388,9 +558,41 @@ button:hover{
   left: 45px;
   text-decoration: none;
 }
-.buttonVolver:hover{
+
+.buttonAddToPlaylist{
+  font-family: bebas neue;
+  background-color: #84848446;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin-right: 10px;
+  left: 8px;
+  border: none;
+  border-radius: 2%;
+  font-size: 30px;
+}
+.buttonAddToFavorites{
+  font-family: bebas neue;
+  background-color: #84848446;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin-right: 10px;
+  left: 8px;
+  border: none;
+  border-radius: 2%;
+  font-size: 10px;
+  filter: grayscale(1);
+  transition-duration: .4s;
+}
+
+.buttonVolver:hover, .buttonAddToPlaylist:hover, .buttonAddToFavorites:hover{
   background-color: #171717;
   transition-duration: 0.5s;
+  filter: grayscale(.1);
+
 }
 
 .viewMediaTypesCont{
@@ -424,7 +626,7 @@ button:hover{
   opacity: 1;
   transition-duration: 1s;
 }
-.buttonVolver{
+.buttonVolver {
   height: 50px;
   width: 200px;
   position: relative;
@@ -439,7 +641,7 @@ button:hover{
   left: 45px;
   text-decoration: none;
 }
-.buttonVolver:hover{
+.buttonVolver:hover, .buttonAddToPlaylist:hover, .buttonAddToFavorites:hover{
   background-color: #171717;
   transition-duration: 0.5s;
 }
@@ -458,6 +660,7 @@ button:hover{
   z-index: 0;
   opacity: 0;
 }
+
 .playerLi{
   width: 640px;
   height: 360px;
@@ -468,6 +671,9 @@ button:hover{
   scale: 0;
   transition-duration: 1s;
   list-style: none;
+}
+#ytplayer{
+  display: none;
 }
 .playUl{
   list-style: none;
@@ -495,12 +701,3 @@ button:hover{
 }
 
 /* ----------------TIENDA----------------- */
-
-.bgNav{
-  position: fixed;
-  width: 100vw;
-  height: 80px;
-  background-color: #171717;
-  top: 0px;
-  z-index: 99;
-}

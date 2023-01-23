@@ -1,0 +1,43 @@
+.donateCont {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+    margin: 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px
+}
+
+.donateFormat {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.ulContBtn{
+    display: flex;
+    flex: column;
+    justify-content: center;
+}
+
+.btnSubmit {
+    background: transparent;
+    margin: 20px;
+    height: 40px;
+    width: 200px;
+    bottom: 30px;
+    border: none;
+    border-radius: 70px;
+    background-color: #171717;
+    filter: drop-shadow(0px 0px 4px black);
+    color: aliceblue;
+    font-family: Bebas Neue;
+    font-size: 20px;
+    transition-duration: .3s;
+    border: none;
+}
+
+.btnSubmit:hover{
+    background-color: aliceblue;
+    color: #171717;
+}

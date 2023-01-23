@@ -1,0 +1,89 @@
+.checkoutFormat {
+    margin-top: 0px;
+}
+
+.ulCheck {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    text-align: center;
+    justify-content: center;
+}
+.liCheck {
+    list-style: none;
+    text-align: center;
+}
+.divCheckCont{
+    list-style: none;
+    width: 300px;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 15px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    filter: drop-shadow(0px 0px 3px black);
+}
+h2{
+    margin-top: 15px;
+    position: absolute;
+}
+
+.divDescription{
+    width: 250px;
+    height: 300px;
+    margin-top: 100px;
+    left: 10px;
+    position: absolute;
+    text-align: start;
+    font-family: Product Sans, sans-serif;
+    font-weight: thin;
+    list-style: none;
+}
+.btnSubmit{
+    height: 40px;
+    width: 200px;
+    bottom: 30px;
+    position: absolute;
+    border: none;
+    border-radius: 70px;
+    background-color: #171717;
+    filter: drop-shadow(0px 0px 4px black);
+    color: aliceblue;
+    font-family: Bebas Neue;
+    font-size: 20px;
+    transition-duration: .3s;
+}
+.btnSubmitFree{
+    height: 40px;
+    width: 200px;
+    bottom: 30px;
+    position: absolute;
+    border: none;
+    border-radius: 70px;
+    color: aliceblue;
+    font-family: Bebas Neue;
+    font-size: 20px;
+    background-color: #bababa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnSubmitFree{
+    cursor: not-allowed;
+}
+.btnSubmit:hover{
+    background-color: aliceblue;
+    color: #171717;
+}
+.divPrice{
+    width: 250px;
+    height: 40px;
+    /* background-color: blueviolet; */
+    position: absolute;
+    margin-top: 50px;
+}

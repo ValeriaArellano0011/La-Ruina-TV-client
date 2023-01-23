@@ -1,0 +1,34 @@
+.adminRequest{
+    /* background-color: #b9b9b9c9; */
+    width: 50px;
+    height: auto;
+    position: fixed;
+    border-radius: 5px;
+    top: 90px;
+}
+
+.adminBtn{
+    background-color: #b9b9b9c9;
+    border: 5px;
+    position: relative;
+    margin-top: 0px;
+    scale: .9;
+    margin-right: 3px;
+    opacity: .8;
+    transition-duration: .4s;
+    border-radius: 5px;
+}
+
+
+.deleteImg, .editImg{
+    /* position: relative; */
+    /* left: -40px; */
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.adminBtn:hover{
+    opacity: 1;
+    scale: 1.02;
+    cursor: pointer;
+}

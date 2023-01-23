@@ -27,7 +27,7 @@ const CreateProduct = () => {
 };
 
 const handleSubmit = (e) => {
-  if (input.name == undefined 
+  if (input.name === undefined 
   ) {
       document.getElementById("DoNotSubmit"); 
       return alert("Please complete the fields with valid data");

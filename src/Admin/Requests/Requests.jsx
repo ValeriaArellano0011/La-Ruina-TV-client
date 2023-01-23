@@ -8,7 +8,7 @@ const Requests = () => {
   const dispatch = useDispatch()
   return (
     <div>
-      <Link to='/product/create'> 
+      {/* <Link to='/product/create'> 
         <button 
           className={s.crearProducto}
           onClick={()=>{
@@ -26,8 +26,8 @@ const Requests = () => {
               )}}>
         Crear Producto
         </button>
-      </Link>
-      <Link to='/post/create'>
+      </Link> */}
+      <Link to='/media/create'>
         <button 
           className={s.crearPost}
           onClick={()=>{
@@ -36,14 +36,35 @@ const Requests = () => {
             document.querySelector(`.bodyApp`).style.transform='translateX(0)',
             document.querySelector(`.navCont`).style.transitionDuration='.2s',
             document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-            document.querySelector(`.navCont`).style.width='100vw',
+            document.querySelector(`.navCont`).style.width='0vw',
             document.querySelector(`.navMenu`).style.display='flex',
+            document.querySelector(`.navCont`).style.width='100vw',
             document.querySelector(`.browserBody`).style.height='auto',
             document.querySelector(`.browserBody`).style.overflowY='scroll',
             document.querySelector(`.visor`).style.transform='translateX(0)',
             document.querySelector('#slideCanvasCont').style.overflowY="scroll"
             )}}>
-        Crear Post
+        Crear Media
+        </button>
+      </Link>
+      <Link to='/media/edit'>
+        <button 
+          className={s.crearPost}
+          onClick={()=>{
+            return(
+            dispatch(resetOption()),
+            document.querySelector(`.bodyApp`).style.transform='translateX(0)',
+            document.querySelector(`.navCont`).style.transitionDuration='.2s',
+            document.querySelector(`.bodyApp`).style.transitionDuration='2s',
+            document.querySelector(`.navCont`).style.width='0vw',
+            document.querySelector(`.navMenu`).style.display='flex',
+            document.querySelector(`.navCont`).style.width='100vw',
+            document.querySelector(`.browserBody`).style.height='auto',
+            document.querySelector(`.browserBody`).style.overflowY='scroll',
+            document.querySelector(`.visor`).style.transform='translateX(0)',
+            document.querySelector('#slideCanvasCont').style.overflowY="scroll"
+            )}}>
+        Modificar Media
         </button>
       </Link>
     </div>

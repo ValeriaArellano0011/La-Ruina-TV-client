@@ -1,0 +1,57 @@
+.ulListProfile{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+}
+.ulListProfile>li{
+    margin-top: 10px;
+    margin-left: -30px;
+}
+.userIcon{
+    margin-top: -30px;
+    border-radius: 100%;
+    border: solid;
+    border-width: 2px;
+    filter: drop-shadow(0px 0px 4px black)
+}
+.liProfile1{
+    top: 20px;
+}
+.liProfile2>h1{
+    margin-top: -15px;
+}
+.liProfile3{
+    margin-top: -20px;
+}
+#divProfile{
+    width: 100vw;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+    right: 0px;
+    /* left: 0px; */
+    position: absolute;
+}
+.profileCont{
+    background-color: rgb(255, 255, 255);
+    filter: drop-shadow(0px 0px 4px black);
+    width: 500px;
+    height: 200px;
+    top: 90px;
+    border-radius: 15px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+}
