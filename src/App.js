@@ -81,7 +81,6 @@ function App() {
             <Route exact path='/media/edit/:connectionId'>
               <EditMedia />
             </Route>
-
             <Route path='/search'>
               <Search />
             </Route>

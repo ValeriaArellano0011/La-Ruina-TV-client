@@ -1,8 +1,41 @@
-.playListCont{
-    /* background-color: aqua; */
-    width: 800px;
-    position: fixed;
-    bottom: 10px;
+.itemListBtn{
+    width: 100%;
+    height: 35px;
+    background-color: transparent;
+    position: relative;
+    margin-top: 5px;
+    margin-right: 0px;
+    margin-left: 0px;
+    border-radius: 30%;
+    font-family: Bebas Neue;
+    font-size: 15px;
+    background-color: white;
+}
+
+.itemListBtn:hover{
+    color: white;
+    background-color: black;
+}
+
+
+.ulPlaylistCont{
+	width: 70vw;
+	height: 70vh;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+}
+
+.liPlaylists{
+	width: 30%;
+	height: 100%;
+	/* background-color: rgba(0, 0, 0, 0.461); */
+	position: relative;
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align: center;
+
 }
 
 /* ----------------------------------------------------- */

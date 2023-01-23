@@ -432,14 +432,6 @@ const CreateMedia = () => {
               </div>
             </div>
           </form>
-          <button onClick={async () => {
-            await axios.get(
-                `${URL_API}/mercadopago/generate`).then(res => setRes(res.data))
-                .catch(e => console.log(e))
-            }}>
-
-          </button>
-          <a href={res && res}>Pay here</a>
         </Card>
       </div>
     </div>
