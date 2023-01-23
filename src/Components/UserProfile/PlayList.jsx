@@ -2,7 +2,7 @@ import React from 'react'
 import RequestProfile from '../../Admin/Requests/RequestProfile'
 import s from './css/PlayList.module.css'
 import audio from '../../audio/audio.mp3'
-import lists from '../../audio/consts'
+import { lists } from '../../audio/consts'
 import { useDispatch } from 'react-redux'
 import { getUrlPlayer, resetUrlPlayer } from '../../middlewares/redux/actions'
 
@@ -15,7 +15,7 @@ export const PlayList = () => {
         <ul className={s.ulListCont}>
           {
             lists?.map((e,index)=>{
-              return(
+              return( 
               <li key={index} className={s.liListCont}>
                 <h2>{e.listName}</h2>
                 {
