@@ -22,3 +22,7 @@ export const GET_PRODUCT_DETAILS = 'GET_PRODUCT_DETAILS'
 export const RESET_PRODUCT_DETAILS = 'RESET_PRODUCT_DETAILS'
 export const POST_PRODUCT = 'POST_PRODUCT'
 export const POST_POST = 'POST_POST'
+
+/* -----------------Fav----------------- */
+export const GET_FAV = 'GET_FAV'
+
