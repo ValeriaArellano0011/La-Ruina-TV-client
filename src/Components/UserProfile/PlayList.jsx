@@ -12,26 +12,28 @@ export const PlayList = () => {
     <div>
       <div className='divProfile'>
         <div className='navFixed' ></div>
-        <ul className={s.ulListCont}>
+        <ul className={s.ulPlaylistCont}>
           {
             lists?.map((e,index)=>{
               return( 
-              <li key={index} className={s.liListCont}>
-                <h2>{e.listName}</h2>
+              <>
+              <li className={s.liPlaylistsNames}><h2 className={s.listName}>{e.listName}</h2></li>
+              <li key={index} className={s.liPlaylists}>
                 {
                   e.items?.map((e,index)=>{
                     return(
                       <li key={index}>
-                        <button 
-                          className={s.buttonItem}
+                        <button
+                          className={s.itemListBtn}
                           onClick={()=>{return dispatch(getUrlPlayer(e.itemUrl))}}>
-                            <h3>{e.itemId} - {e.itemName}</h3>
-                          </button>
+                            {e.itemId} - {e.itemName}
+                        </button>
                       </li>
                     )
                   })
                 }
               </li>
+              </>
             )})
           }
         </ul>

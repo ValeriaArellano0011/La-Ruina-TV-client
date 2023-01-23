@@ -7,11 +7,13 @@ export const lists = [
         items: [
             {
                 itemId: 1,
+                itemArtist: 'nombre artista',
                 itemName: 'nombre ítem1',
                 itemUrl: audio
             },
             {
                 itemId: 2,
+                itemArtist: 'nombre artista',
                 itemName: 'nombre ítem2',
                 itemUrl: audio
             }
@@ -23,11 +25,13 @@ export const lists = [
         items: [
             {
                 itemId: 1,
+                itemArtist: 'nombre artista',
                 itemName: 'nombre ítem1',
                 itemUrl: audio
             },
             {
                 itemId: 2,
+                itemArtist: 'nombre artista',
                 itemName: 'nombre ítem2',
                 itemUrl: audio
             }

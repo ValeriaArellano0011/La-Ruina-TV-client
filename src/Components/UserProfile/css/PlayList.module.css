@@ -4,19 +4,29 @@
     background-color: transparent;
     position: relative;
     margin-top: 5px;
-    margin-right: 0px;
-    margin-left: 0px;
+    /* margin-right: 0px;
+    margin-left: 0px; */
     border-radius: 30%;
     font-family: Bebas Neue;
     font-size: 15px;
     background-color: white;
+}
+.liPlaylistsNames{
+	background-color: aquamarine;
+	height: 300px;
+	width: 300px;
+	position: relative;
+	top: 100px;
+}
+.listName{
+	margin-bottom: 10px;
+	position: relative;
 }
 
 .itemListBtn:hover{
     color: white;
     background-color: black;
 }
-
 
 .ulPlaylistCont{
 	width: 70vw;
@@ -30,11 +40,13 @@
 .liPlaylists{
 	width: 30%;
 	height: 100%;
-	/* background-color: rgba(0, 0, 0, 0.461); */
 	position: relative;
 	margin-left: 10px;
 	margin-right: 10px;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	/* background-color: aqua; */
 
 }
 
