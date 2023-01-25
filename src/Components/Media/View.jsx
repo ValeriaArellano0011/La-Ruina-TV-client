@@ -130,10 +130,10 @@ const View = () => {
                             document.querySelector('.ulButtonAddItem').style.transitionDuration='.3s'
                             document.querySelector('.ulButtonAddItem').style.display='block'
                             document.querySelector('.ulButtonAddItem').style.opacity='1'
-                            if(myPlaylists?.length===0) return document.querySelector('.divButtonAddItem').style.maxHeight='0px'
-                            if(myPlaylists?.length===1) return document.querySelector('.divButtonAddItem').style.maxHeight='40px'
-                            if(myPlaylists?.length===2) return document.querySelector('.divButtonAddItem').style.maxHeight='80px'
-                            else return document.querySelector('.divButtonAddItem').style.maxHeight='120px'
+                            if(myPlaylists?.length===0) return document.querySelector('.divButtonAddItem').style.height='0px'
+                            if(myPlaylists?.length===1) return document.querySelector('.divButtonAddItem').style.height='40px'
+                            if(myPlaylists?.length===2) return document.querySelector('.divButtonAddItem').style.height='80px'
+                            if(myPlaylists?.length>2) return document.querySelector('.divButtonAddItem').style.maxHeight='120px'
                             }}
                         >+</button> : null}
                         {(currentUser || user)?
