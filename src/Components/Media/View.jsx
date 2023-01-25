@@ -127,6 +127,7 @@ const View = () => {
                         {(currentUser || user)? <button 
                         className='buttonAddToPlaylist' 
                         onClick={()=>{
+                            dispatch(getAllPlaylist(user.userId))
                             document.querySelector('.ulButtonAddItem').style.transitionDuration='.3s'
                             document.querySelector('.ulButtonAddItem').style.display='block'
                             document.querySelector('.ulButtonAddItem').style.opacity='1'
