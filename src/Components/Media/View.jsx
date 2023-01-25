@@ -126,11 +126,15 @@ const View = () => {
                         <><ul>
                         {(currentUser || user)? <button 
                         className='buttonAddToPlaylist' 
-                        onClick={()=>{return(
-                            document.querySelector('.ulButtonAddItem').style.transitionDuration='.3s',
-                            document.querySelector('.ulButtonAddItem').style.display='block',
+                        onClick={()=>{
+                            document.querySelector('.ulButtonAddItem').style.transitionDuration='.3s'
+                            document.querySelector('.ulButtonAddItem').style.display='block'
                             document.querySelector('.ulButtonAddItem').style.opacity='1'
-                            )}}
+                            if(myPlaylists?.length===0) return document.querySelector('.ulButtonAddItem').style.maxHeight='0px'
+                            if(myPlaylists?.length===1) return document.querySelector('.ulButtonAddItem').style.maxHeight='40px'
+                            if(myPlaylists?.length===2) return document.querySelector('.ulButtonAddItem').style.maxHeight='80px'
+                            else return document.querySelector('.ulButtonAddItem').style.maxHeight='120px'
+                            }}
                         >+</button> : null}
                         {(currentUser || user)?
                                 <ul
@@ -150,23 +154,23 @@ const View = () => {
                                                                 className='buttonAddItem' 
                                                                 value='id de este item' 
                                                                 onClick={(e)=>addToPlaylist(e.id, listId)} >
-                                                                Añadir a {e.title}
+                                                                    Añadir a {e.title}
                                                             </button>
                                                         </li>
                                                     </>
                                                 )
                                             })
                                         }
-                                        <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista1</button></li>
+                                        {/* <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista1</button></li>
                                         <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista2</button></li>
                                         <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista3</button></li>
-                                        <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista4</button></li>
+                                        <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista4</button></li> */}
                                     </div>
                                     <li><button 
                                         onClick={()=>{return(
                                             document.querySelector('.divCanvasAddListForm').style.display='block'
                                         )}}
-                                        className='buttonCreateNewPlaylist' >Crear una nueva lista</button></li>
+                                        className='buttonCreateNewPlaylist'>Crear una nueva lista</button></li>
                                 </ul>
                                 : null}
                         </ul>
