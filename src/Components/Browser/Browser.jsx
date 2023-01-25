@@ -30,7 +30,10 @@ const Browser = () => {
 
   useEffect(() => {
     axios.post(`${URL_API}/mercadopago/getplan`, {userId})
-    .then(res => console.log(res))
+    .then(res => {
+      console.log(res)
+      
+    })
     .catch(err => console.log(err))
   }, [])
   return (
