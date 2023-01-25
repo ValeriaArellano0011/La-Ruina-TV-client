@@ -637,7 +637,6 @@ button:hover{
 
 .ulButtonAddItem{
   position: relative;
-  bottom: 160px;
   left: 48px;
   width: 240px;
   opacity: 0;

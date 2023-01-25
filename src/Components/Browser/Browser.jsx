@@ -66,7 +66,7 @@ const Browser = () => {
       {/* ---------------------FOOTER--------------------- */}
 
       <button onClick={() => {
-        axios.post(`${URL_API}/playlist/create`, {id: 2, title: 'arianagrande'})
+        axios.post(`${URL_API}/li/create`, {id: 2, title: 'arianagrande'})
         .then((res) => console.log(res.data)).catch(error => console.log)
       }
       }>
