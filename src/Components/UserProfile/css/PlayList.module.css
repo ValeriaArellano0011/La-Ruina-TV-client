@@ -77,6 +77,7 @@
 	position: relative;
 	top: 180px;
 	left: 0px;
+	border-bottom: solid;
 }
 .ulPlaylistsNames>li{
 	margin-top: 10px;

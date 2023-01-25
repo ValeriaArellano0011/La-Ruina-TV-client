@@ -7,9 +7,9 @@ const Fav = ({ urlID }) => {
     const dispatch = useDispatch()
     const auth = localStorage.getItem('auth');
     const userId = auth ? JSON.parse(auth).userId : null;
-
+    const urlId = urlID
     const handleClick = () => {
-        dispatch(addLike(userId, urlID))
+        dispatch(addLike(userId, urlId))
     }
     return (
         <button className={s.CardFav} onClick={handleClick}>
