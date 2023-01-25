@@ -77,7 +77,7 @@ const Media = ({ cardList, style, keyID }) => {
                             alt="play" />
                           <p style={{color: 'black'}}>{e.title}</p>
                         </div>
-                        {(user || currentUser)?<Fav id={e.urlID} style={{marginTop: '-10px'}}/>:null}
+                        {(user || currentUser)?<Fav urlID={e.urlID} style={{marginTop: '-10px'}}/>:null}
                       </div>
                     </div>
                   </Link>
