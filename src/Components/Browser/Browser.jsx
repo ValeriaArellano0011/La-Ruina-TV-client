@@ -25,6 +25,8 @@ const Browser = () => {
     BodyCss();
   }, [dispatch]);
   const cardList = useSelector((state) => state.mediaList);
+  const auth = localStorage.getItem('auth');
+  const userId = auth ? JSON.parse(auth).userId : null;
   const categoryList = useSelector((state) => state.categoryList);
 
   useEffect(() => {
