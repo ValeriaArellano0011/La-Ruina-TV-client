@@ -10,7 +10,7 @@ import favIcon from '../../design/like-icon.png'
 export const PlayList = () => {
   const dispatch = useDispatch()
   const itemList = useSelector(state=>state.itemList)
-  const myPlaylists = useSelector(state=>)
+  const myPlaylists = useSelector(state=>state.myPlaylists)
   return (
     <div>
       <div className='divProfile'>
