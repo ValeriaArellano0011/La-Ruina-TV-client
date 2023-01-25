@@ -35,7 +35,7 @@ export const PlayList = () => {
                         <button 
                           onClick={()=>{return dispatch(getItemList(e))}}
                           className={s.btnPlaylistNames}>
-                          <h2 className={s.listName}>{e.listName}</h2>
+                          <h2 className={s.listName}>{e.title}</h2>
                         </button>
                       </li>
                     )}
@@ -69,11 +69,11 @@ export const PlayList = () => {
                   <img className={s.imgList} src={defaultImg} alt="default" height='100px' />
                 </div>
                 <div  className={s.titleList}>
-                  {!itemList.listName? 'Seleccione una lista de reproducción'
+                  {!itemList.title? 'Seleccione una lista de reproducción'
                   :
                   <>
                     <h3>Lista</h3><br/>
-                    <h1>{itemList.listName}</h1><br/>
+                    <h1>{itemList.title}</h1><br/>
                     <h2>{itemList.items.length} items</h2>
                   </>
                   }

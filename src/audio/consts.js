@@ -2,8 +2,8 @@ import audio from './audio.mp3'
 
 export const lists = [
     {
-        listId: 1,
-        listName: 'nombre lista1',
+        id: 1,
+        title: 'nombre lista1',
         items: [
             {
                 itemId: 1,
@@ -26,8 +26,8 @@ export const lists = [
         ]
     },
     {
-        listId: 2,
-        listName: 'nombre lista2',
+        id: 2,
+        title: 'nombre lista2',
         items: [
             {
                 itemId: 1,
