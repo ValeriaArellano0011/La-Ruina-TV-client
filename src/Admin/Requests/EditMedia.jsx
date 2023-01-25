@@ -15,12 +15,12 @@ const EditMedia = () => {
 
   useEffect(() => {
     if (connectionId) {
-      console.log('el conid: ', connectionId)
       dispatch(getEditMedia(connectionId))
     }
   }, [connectionId, dispatch, useParams()])
 
   useEffect(() => {
+    console.log(objofarrs)
     if (objofarrs) {
       setData({
         title: objofarrs[0]?.appProperties?.title || "",
@@ -37,8 +37,12 @@ const EditMedia = () => {
         id: objofarrs[0]?.appProperties.id || "",
         idFileSlider: objofarrs[0]?.id || "",
         idFileVisor: objofarrs[1]?.id || "",
+        idAudioFile: objofarrs[2]?.id ||"",
+        idVideoFile: objofarrs[3]?.id ||"",
       })
     }
+    setPreviewSlider(objofarrs[0]?.appProperties.imgLink)
+    setPreviewVisor(objofarrs[1]?.appProperties.imgLink)
   }, [objofarrs ,connectionId])
 
   // const handleInputChange = (e) => {
@@ -86,7 +90,6 @@ const EditMedia = () => {
     }
   };
 
-  const [res, setRes] = useState(null)
   const [data, setData] = useState({
     title: objofarrs[0]?.appProperties?.title || "",
     artist: objofarrs[0]?.appProperties.artist || "",
@@ -241,8 +244,8 @@ const EditMedia = () => {
 
   const [imgSlider, setImgSlider] = useState(null);
   const [imgVisor, setImgVisor] = useState(null);
-  const [previewSlider, setPreviewSlider] = useState(null);
-  const [previewVisor, setPreviewVisor] = useState(null);
+  const [previewSlider, setPreviewSlider] = useState('');
+  const [previewVisor, setPreviewVisor] = useState('');
 
   const submit = (e) => {
     e.preventDefault();
@@ -264,6 +267,8 @@ const EditMedia = () => {
     formData.append("id", data.id);
     formData.append("idFileSlider", data.idFileSlider);
     formData.append("idFileVisor", data.idFileVisor);
+    formData.append("idAudioFile", data.idAudioFile);
+    formData.append("idVideoFile", data.idVideoFile);
 
     dispatch(editMedia(formData));
 
@@ -328,7 +333,7 @@ const EditMedia = () => {
                 <p>
                   <label>Imagen del Slider</label>
                   <br></br>
-                  <img src={previewSlider ? previewSlider : objofarrs[0]?.appProperties.imgLink} alt="slider" width="200px" height="100px" />
+                  <img src={previewSlider ? previewSlider : null} alt="slider" width="200px" height="100px" />
                   <br></br>
                   <input
                     type="file"

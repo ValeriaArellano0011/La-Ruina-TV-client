@@ -16,6 +16,12 @@ export const lists = [
                 itemArtist: 'nombre artista',
                 itemName: 'nombre ítem2',
                 itemUrl: audio
+            },
+            {
+                itemId: 3,
+                itemArtist: 'nombre artista',
+                itemName: 'nombre ítem3',
+                itemUrl: audio
             }
         ]
     },

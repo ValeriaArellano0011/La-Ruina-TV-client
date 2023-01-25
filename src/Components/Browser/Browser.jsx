@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import s from "./css/Slider.module.css";
 import Visor from "./Visor";
 import Footer from "../Footer/Footer";
@@ -13,6 +13,7 @@ import {
   resetMedia,
   resetOption,
 } from "../../middlewares/redux/actions";
+import { URL_API } from "../../middlewares/misc/config";
 
 const Browser = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,13 @@ const Browser = () => {
 
       {/* ---------------------FOOTER--------------------- */}
 
+      <button onClick={() => {
+        axios.post(`${URL_API}/playlist/create`, {id: 2, title: 'arianagrande'})
+        .then((res) => console.log(res.data)).catch(error => console.log)
+      }
+      }>
+
+      </button>
       {cardList?.length > 0 && <Footer />}
     </div>
   );

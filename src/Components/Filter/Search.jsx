@@ -8,9 +8,9 @@ export const Search = () => {
   return (
     <div className={s.searchCont}>
         <div className={s.searchFormat} >
+          <div className={s.navFixed} ></div> 
           <h1>Estos son los resultados de tu búsqueda</h1>
             <ul className={s.ulSearchedItem}>
-            <div className={s.navFixed} ></div> 
                {searchedMedia.length? searchedMedia.map((e, index)=>{
                 return (
                   <li key={index}>

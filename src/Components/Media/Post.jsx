@@ -1,7 +1,7 @@
 import React from "react";
 import playIconn from "../../design/ruinatv-icon-play-n.png";
 import { Link } from "react-router-dom";
-import Fav from "../Fav/fav"
+import Fav from "../Fav/fav";
 import s from "./css/Post.module.css"
 //falta importar el modulo para saber si esta loggeado o no 
 
@@ -18,13 +18,9 @@ const Post = ({ cardList, style }) => {
             return (
               <li value={e.id} key={i}>
                 <div className={style.sliderItem}>
-
-                    <p>
                   <div className={s.giftButton}>
-                    <Fav className={s.giftButton} idFav={e.id}></Fav>
+                    <Fav id={e.id} />
                   </div>
-                    </p>
-
                   <Link
                     to={`/view/v=${e.idLinkYT}=_type_=${e.mediaType}=_id_=${e.id}`}
                   >
@@ -47,6 +43,7 @@ const Post = ({ cardList, style }) => {
                       <img src={e.icon} alt="" className={style.logoItem} />
                     </button>
                   </Link>
+
                   <Link to={``} className={style.link}>
                     <p>
                       <img
@@ -56,7 +53,9 @@ const Post = ({ cardList, style }) => {
                       />
                       {e.title}
                     </p>
+
                   </Link>
+
                 </div>
               </li>
             );

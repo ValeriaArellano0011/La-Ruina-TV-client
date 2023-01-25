@@ -4,14 +4,21 @@
     flex-direction: column;
     line-height: 1;
     font-family: inherit;
-    width: 100%;
+    width: auto;
+    /* right: 5vw; */
+  
+    left: 0px;
+    margin-left: 0px;
+    right: 0px;
+    bottom: 0px;
+    position: fixed;
     padding: 10px 15px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.216);
+    background-color: #000000fc;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+    transition-duration: .4s;
   }
   .rhap_container:hover {
-    background-color: rgba(0, 0, 0, 0.631);
+    background-color: rgba(0, 0, 0, 1);
   }
   .rhap_container:focus:not(:focus-visible) {
     outline: 0;

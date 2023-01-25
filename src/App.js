@@ -13,7 +13,7 @@ import { Colaborar } from './Components/Colaborar/Colaborar';
 import { Novedades } from './Components/Novedades/Novedades';
 import { BackAmp } from './Components/Back&Amp/BackAmp';
 import { CanvasOptions } from './Components/Utils/CanvasOptions';
-import { Playlist } from './Components/Media/Paylist';
+import { PlayerList } from './Components/Media/PlayerList'
 import { Checkout } from './Components/Checkout/Checkout';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthToken from './Components/Auth/AuthToken';
@@ -21,19 +21,21 @@ import React, { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import { useSelector } from 'react-redux'
 import { YtSubscribeButton } from './Components/Utils/YtSubscribeButton';
+import { EditMediaList } from './Admin/Requests/EditMediaList';
 
 
 function App() {
   const url = useSelector(state=>state.urlPlayer)
+  const option = useSelector(state=>state.option)
   return (
     <div className="App">
       <Switch>
         <>
           <Nav />
           <div className='userPlayerCont'>
-          { (url !== '')?
+          { (url !== '') || (option === 'playlist')?
             <div className='playListCont'>
-              <Playlist url={url} />
+              <PlayerList url={url} />
             </div> : null
           }  
           </div>
@@ -80,6 +82,9 @@ function App() {
             </Route>
             <Route exact path='/media/edit/:connectionId'>
               <EditMedia />
+            </Route>
+            <Route exact path='/media/edit'>
+              <EditMediaList />
             </Route>
             <Route path='/search'>
               <Search />

@@ -42,7 +42,7 @@ export default function SearchBar(){
     }
 
     return (
-        <div className={s.barCont}>
+      <div className={s.barCont}>
         <form className={s.form_search_bar} onSubmit={(e) => handleSubmit(e)}>
           <input 
             className={s.liSearchBar}

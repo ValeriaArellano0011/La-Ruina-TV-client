@@ -18,6 +18,7 @@ import s from './css/View.module.css'
 
 const View = () => {
     const dispatch = useDispatch()
+    
     const {id} = useParams()
     function onClickValue(e){
         return (
@@ -89,13 +90,64 @@ const View = () => {
                                 alt='add favorites' 
                                 width='25px' 
                             /></button> : null}
-                        {(currentUser || user)? <button className='buttonAddToPlaylist' onClick={()=>addToPlaylist()} >+</button> : null}
+                        <><ul>
+                        {(currentUser || user)? <button 
+                        className='buttonAddToPlaylist' 
+                        onClick={()=>{return(
+                            document.querySelector('.ulButtonAddItem').style.transitionDuration='.3s',
+                            document.querySelector('.ulButtonAddItem').style.display='block',
+                            document.querySelector('.ulButtonAddItem').style.opacity='1'
+                            )}}
+                        >+</button> : null}
+                        {(currentUser || user)?
+                                <ul
+                                className={'ulButtonAddItem'}
+                                onMouseLeave={()=>{return(
+                                    document.querySelector('.ulButtonAddItem').style.opacity='0',
+                                    document.querySelector('.ulButtonAddItem').style.display='none'
+                                )}}>
+                                    <div className='divButtonAddItem'>
+                                        <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista1</button></li>
+                                        <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista2</button></li>
+                                        <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista3</button></li>
+                                        <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista4</button></li>
+                                    </div>
+                                    <li><button 
+                                        onClick={()=>{return(
+                                            document.querySelector('.divCanvasAddListForm').style.display='block'
+                                        )}}
+                                        className='buttonCreateNewPlaylist' >Crear una nueva lista</button></li>
+                                </ul>
+                                : null}
+                        </ul>
+                        </>
                         </ul>
                         <Player idYT={idYT} />
+                        <div className={'divCanvasAddListForm'}>
+                            <h1>Crear una nueva Playlist</h1>
+                            <form>
+                                <h3 style={{fontWeight:'thin'}}>Nombre de la lista</h3>
+                                <input type="text" name='listName' placeholder='Ingresa un nombre para tu lista' /> <br/>
+                                <input 
+                                    type="submit" 
+                                    value="Crear"
+                                    onChange={(e)=> setName(e)}
+                                    onClick={()=>{return(
+                                        dispatch()
+                                    )}}
+                                    />
+                                <input 
+                                    type="submit" 
+                                    onClick={(e)=>{return(
+                                        e.preventDefault(),
+                                        document.querySelector('.divCanvasAddListForm').style.display='none'
+                                    )}}
+                                    value="Cancelar" />
+                            
+                            </form>
+                        </div>
                         { (currentUser || user)?
-                        (
-                        
-                        
+                        (                        
                         <button 
                             className='buttonVer'
                             onClick={()=>{
@@ -110,7 +162,6 @@ const View = () => {
                             onMouseEnter={()=>{
                                 document.querySelector('.visorButtonPlay').src=playIconb
                             }}
-
                             onMouseLeave={()=>{
                                 document.querySelector('.visorButtonPlay').src=playIconn
                             }}>

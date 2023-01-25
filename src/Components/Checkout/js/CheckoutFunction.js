@@ -4,11 +4,13 @@ import { URL_API } from '../../../middlewares/misc/config'
 export const handleCheckout = async () => {
   try {
     await axios.post(`${URL_API}/mercadopago/create-checkout`)
-    .then(data => 
+    .then(data => {
+      console.log('entra genial')
       window.location.href = data.data
-    )
+    })
   } catch (error) {
       console.log(error);
+      console.log('entra genial')
       alert("Hubo un error, intenta de nuevo más tarde.");
   }
 }

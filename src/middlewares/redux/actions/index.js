@@ -30,7 +30,9 @@ import {
     ADD_TO_PLAYLIST,
     DELETE_FROM_PLAYLIST,
     CREATE_PLAYLIST,
-    DELETE_PLAYLIST
+    DELETE_PLAYLIST,
+    GET_ITEM_LIST,
+    GET_PLAYLIST
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -351,14 +353,12 @@ export function resetUrlPlayer(){
 
 
 /* -------------PlayList------------- */
-export function CreatePlaylist(item){
+export function CreatePlaylist(item, idUser){
     return async function (dispatch){ 
-        await axios.post(`${URL_API}/users/playlists/create`, item)
+        await axios.post(`${URL_API}/playlists/create`, {item, idUser})
         .then(res => {
             dispatch({
-                type: CREATE_PLAYLIST,
-                payload: res.data
-            })
+                type: CREATE_PLAYLIST            })
         })
         .catch((e) => {
             console.log(e);
@@ -378,5 +378,12 @@ export function addToPlaylist(item){
         .catch((e) => {
             console.log(e);
         })
+    }
+}
+
+export function getItemList(items){
+    return {
+        type: GET_ITEM_LIST,
+        payload: items
     }
 }

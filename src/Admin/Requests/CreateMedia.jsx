@@ -5,8 +5,8 @@ import styles from "../css/CreatePost.module.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postMedia } from "../../middlewares/redux/actions/index";
-import axios from "axios";
-import { URL_API } from "../../middlewares/misc/config";
+import defaultVideo from '../../design/laruina-intro.mp4';
+import defaultImage from '../../design/defaultImage.jpg'
 import React from "react";
 import defaultPreview from '../../design/ruina-records-logo.png'
 const CreateMedia = () => {
@@ -46,6 +46,8 @@ const CreateMedia = () => {
     audioFile: "",
     urlLinkWEB: "",
     urlLinkDOWNLOAD: "",
+    audioFile: null,
+    videoFile: null
   });
 
   const optionsMediaType = [
@@ -186,14 +188,33 @@ const CreateMedia = () => {
 
   const [imgSlider, setImgSlider] = useState(null);
   const [imgVisor, setImgVisor] = useState(null);
+  const [audioFile, setAudioFile] = useState(null);
+  const [videoFile, setVideoFile] = useState(null);
+
   const [previewSlider, setPreviewSlider] = useState(null);
   const [previewVisor, setPreviewVisor] = useState(null);
 
   const submit = (e) => {
     e.preventDefault();
+
+    console.log(videoFile)
+
     let formData = new FormData();
-    formData.append("imageSlider", imgSlider);
-    formData.append("imageVisor", imgVisor);
+    if(imgSlider === null && imgVisor === null){
+      formData.append('imageSlider', defaultImage)
+    }
+    if (imgSlider !== null) {
+      formData.append("imageSlider", imgSlider);
+    }
+    if (imgVisor !== null) {
+      formData.append("imageVisor", imgVisor);
+    }
+    if (audioFile !== null) {
+      formData.append("audioFile", audioFile);
+    }
+    if (videoFile !== null) {
+      formData.append("videoFile", videoFile);
+    }
     formData.append("title", data.title);
     formData.append("artist", data.artist);
     formData.append("info", data.info);
@@ -272,6 +293,7 @@ const CreateMedia = () => {
                 <input
                   type="file"
                   name="imageSlider"
+                  accept="image/jpeg"
                   onChange={(e) => {
                     setImgSlider(e.target.files[0])
                     const file = e.target.files[0];
@@ -291,6 +313,7 @@ const CreateMedia = () => {
                 <input
                   type="file"
                   name="imageVisor"
+                  accept="image/jpeg"
                   onChange={(e) => {
                     setImgVisor(e.target.files[0])
                     const file = e.target.files[0];
@@ -311,7 +334,7 @@ const CreateMedia = () => {
                       name={t.name}
                       value={t.name}
                       id={t.name}
-                      onChange={(e) => checkboxMT(e)}/>
+                      onChange={(e) => checkboxMT(e)} />
                     <label htmlFor={t.name}>{t.name}</label>
                     {t.slot % 4 === 0 ? <br /> : null}
                   </div>
@@ -326,7 +349,7 @@ const CreateMedia = () => {
                   value={data.idLinkYT}
                   onChange={(e) =>
                     setData({ ...data, idLinkYT: e.target.value })
-                  }/>
+                  } />
               </p>
               <p>
                 <label>Id del link de Spotify</label>
@@ -346,10 +369,8 @@ const CreateMedia = () => {
                 <input
                   type="file"
                   name="audioFile"
-                  value={data.audioFile}
-                  accept="audio/*"
                   onChange={(e) =>
-                    setData({ ...data, audioFile: e.target.value })
+                    setAudioFile(e.target.files[0])
                   }
                 />
               </p>
@@ -358,11 +379,9 @@ const CreateMedia = () => {
                 <br></br>
                 <input
                   type="file"
-                  name="audioFile"
-                  value={data.videoFile}
-                  accept="video/*"
+                  name="videoFile"
                   onChange={(e) =>
-                    setData({ ...data, videoFile: e.target.value })
+                    setVideoFile(e.target.files[0])
                   }
                 />
               </p>

@@ -1,21 +1,20 @@
 .giftButton {
     position: relative;
     top: 1px;
-    left: 165px;
-    z-index: 1;
-    /* width: 12px;
-    position: relative;
-    margin-right: 50px; */
+    width: 12px;
+    margin-right: 50px;
+    background-color: aqua;
+    z-index: 99999999999999999999
 }
-
+/* 
 .giftButton p{
     align-items: center;
     position: absolute;
     bottom: -10px;
     left: 10px;
     opacity: 0;
-}
-
+} */
+/* 
 .giftButton:hover p{
     align-items: center;
     position: absolute;
@@ -24,4 +23,4 @@
     opacity: 1;
     transition-delay: 0.2s;
     transition-duration: 0.3s;
-}
+}  */

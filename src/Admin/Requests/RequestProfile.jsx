@@ -35,9 +35,9 @@ const RequestProfile = () => {
                     <li>
                         <img referrerPolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} className={s.userIcon} onClick={()=>{return dispatch(getOption('profile'))}} alt="perfil" />
                     </li>
-                    <li>
+                    {/* <li>
                         <img src={notificationIcon} className={s.notificationIcon} alt="notificaciones" onClick={()=>{return dispatch(getOption('notifications'))}} />
-                    </li>
+                    </li> */}
                     <li>
                         <img src={likeIcon} className={s.likeIcon} alt="favoritos" onClick={()=>{return dispatch(getOption('favorites'))}} />
                     </li>

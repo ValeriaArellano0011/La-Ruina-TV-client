@@ -28,15 +28,7 @@ export const GET_PRODUCTS = 'GET_PRODUCTS'
 export const GET_PRODUCT_DETAILS = 'GET_PRODUCT_DETAILS'
 export const RESET_PRODUCT_DETAILS = 'RESET_PRODUCT_DETAILS'
 export const POST_PRODUCT = 'POST_PRODUCT'
-<<<<<<< HEAD
-export const POST_POST = 'POST_POST'
-
-/* -----------------Fav----------------- */
-export const GET_FAV = 'GET_FAV'
-
-=======
 export const POST_MEDIA = 'POST_MEDIA'
-
 export const GET_MUSIC_NAME = 'GET_MUSIC_NAME'
 
 /* -----------------Admin----------------- */
@@ -48,4 +40,5 @@ export const REMOVE_MEDIA = 'REMOVE_MEDIA'
 /* -----------------Player----------------- */
 export const URL_PLAYER = 'URL_PLAYER'
 export const RESET_URL_PLAYER = 'RESET_URL_PLAYER'
->>>>>>> ae0d93e05517e9feff7b641cb8361f991fd0bb9f
+export const GET_ITEM_LIST = 'GET_ITEM_LIST'
+export const GET_PLAYLIST = 'GET_PLAYLIST'

@@ -61,6 +61,7 @@ button:hover{
   display: flex;
   justify-content: center;
 }
+
 .navCont:hover{
   transition-duration: 1s;
   filter: drop-shadow(2px 5px 8px);
@@ -346,7 +347,6 @@ button:hover{
   top: 0;
   z-index: 0;
   margin-right: 10px;
-
 }
 .visorBG{
   min-width: 100%;
@@ -497,6 +497,7 @@ button:hover{
   left: 30px;
   top:16px;
 }
+
 .visorInfo{
   width: 410px;
   height: 100px;
@@ -506,11 +507,11 @@ button:hover{
   font-family: Product Sans, sans-serif;
   font-size: 13.5px;
 }
+
 .visorInfo h3{
   font-weight:100;
 }
 /* ------------------VIEW----------------- */
-
 
 .viewMediaTypesCont{
   width: min-content;
@@ -519,6 +520,7 @@ button:hover{
   top: 150px;
   left: -45px;
 }
+
 .viewMediaTypesList{
   color: white;
   display: flex;
@@ -529,20 +531,24 @@ button:hover{
   width: 420px;
   height: 50px;
 }
+
 .viewLiImg{
   position: relative;
   margin-right: 10px;
 }
+
 .viewLiIcon{
   position: relative;
   height: 30px;
   opacity: .7;
 }
+
 .viewLiIcon:hover{
   cursor: pointer;
   opacity: 1;
   transition-duration: 1s;
 }
+
 .buttonVolver{
   height: 50px;
   width: 200px;
@@ -559,19 +565,6 @@ button:hover{
   text-decoration: none;
 }
 
-.buttonAddToPlaylist{
-  font-family: bebas neue;
-  background-color: #84848446;
-  color: #ffffff;
-  width: 40px;
-  height: 40px;
-  position: relative;
-  margin-right: 10px;
-  left: 8px;
-  border: none;
-  border-radius: 2%;
-  font-size: 30px;
-}
 .buttonAddToFavorites{
   font-family: bebas neue;
   background-color: #84848446;
@@ -579,16 +572,90 @@ button:hover{
   width: 40px;
   height: 40px;
   position: relative;
-  margin-right: 10px;
+  margin-right: -35px;
   left: 8px;
   border: none;
   border-radius: 2%;
   font-size: 10px;
   filter: grayscale(1);
-  transition-duration: .4s;
+  transition-duration: .8s;
 }
 
-.buttonVolver:hover, .buttonAddToPlaylist:hover, .buttonAddToFavorites:hover{
+.buttonAddToPlaylist{
+  font-family: bebas neue;
+  background-color: #84848446;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin-right: 1px;
+  left: 8px;
+  border: none;
+  border-radius: 2%;
+  font-size: 30px;
+}
+
+.buttonCreateNewPlaylist, .buttonAddItem{
+  font-family: bebas neue;
+  color: #ffffff;
+  width: 100%;
+  height: 40px;
+  position: relative;
+  left: -40px;
+  border: none;
+  border-radius: 2%;
+  font-size: 13px;
+  font-weight: thin;
+  background-color: #353535fd;
+}
+
+.buttonAddItem{
+  margin-bottom: 0px;
+  margin-left: 40px
+}
+
+.buttonCreateNewPlaylist{
+  margin-bottom: 0px;
+}
+
+.divCanvasAddListForm{
+  width: 80vw;
+  height: 300px;
+  top: 10vh;
+  left: 10vw;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px black;
+  position: fixed;
+  background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);
+  z-index: 99999999999999999;
+  color: white;
+  text-align: center;
+  display: none;
+}
+
+.ulButtonAddItem{
+  position: relative;
+  bottom: 160px;
+  left: 51px;
+  width: 170px;
+  opacity: 0;
+  display: none;
+  border-radius: 0px;
+}
+
+.divButtonAddItem{
+  overflow-y: scroll;
+  position: relative;
+  left: -40px;
+  width: 170px;
+  max-height: 120px;
+}
+
+.buttonVolver:hover,
+.buttonAddToPlaylist:hover, 
+.buttonAddToFavorites:hover, 
+.buttonCreateNewPlaylist:hover, 
+.buttonAddItem:hover{
   background-color: #171717;
   transition-duration: 0.5s;
   filter: grayscale(.1);
@@ -602,6 +669,7 @@ button:hover{
   top: 150px;
   left: -45px;
 }
+
 .viewMediaTypesList{
   color: white;
   display: flex;
@@ -612,20 +680,24 @@ button:hover{
   width: 420px;
   height: 50px;
 }
+
 .viewLiImg{
   position: relative;
   margin-right: 10px;
 }
+
 .viewLiIcon{
   position: relative;
   height: 30px;
   opacity: .7;
 }
+
 .viewLiIcon:hover{
   cursor: pointer;
   opacity: 1;
   transition-duration: 1s;
 }
+
 .buttonVolver {
   height: 50px;
   width: 200px;
@@ -641,6 +713,7 @@ button:hover{
   left: 45px;
   text-decoration: none;
 }
+
 .buttonVolver:hover, .buttonAddToPlaylist:hover, .buttonAddToFavorites:hover{
   background-color: #171717;
   transition-duration: 0.5s;
@@ -672,6 +745,7 @@ button:hover{
   transition-duration: 1s;
   list-style: none;
 }
+
 #ytplayer{
   display: none;
 }
@@ -687,8 +761,6 @@ button:hover{
   width: 100%;
   overflow: hidden;
 }
-
-
 
 /* ----------------DONATE----------------- */
 

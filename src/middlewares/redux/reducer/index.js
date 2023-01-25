@@ -19,7 +19,9 @@ import {
     RESET_URL_PLAYER,
     CURRENT_USER,
     EDIT_MEDIA,
-    GET_EDIT_MEDIA
+    GET_EDIT_MEDIA,
+    GET_PLAYLIST,
+    GET_ITEM_LIST
     } from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
@@ -130,6 +132,7 @@ const initialState = {
 
 /*----------------Player----------------*/
     urlPlayer: '',
+    itemList: [],
 
 /*--------------Formulario--------------*/
 }
@@ -291,7 +294,13 @@ export default function rootReducer(state = initialState, action){
         case RESET_URL_PLAYER:
             return{
                 ...state,
-                urlPlayer: ''
+                urlPlayer: '',
+                itemList: []
+            }
+        case GET_ITEM_LIST:
+            return{
+                ...state,
+                itemList: action.payload
             }
         default:
             return {...state};

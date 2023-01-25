@@ -1,0 +1,15 @@
+.editListCont{
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+    margin: 0px;
+    overflow: scroll;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+}
+
+.editListFormat{
+    margin-top: 100px
+}

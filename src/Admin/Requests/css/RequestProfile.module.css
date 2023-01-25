@@ -24,17 +24,16 @@
 	flex-direction: column;
 	justify-content: left;
 	text-align: left;
-	
 }
 
 .likeIcon, .listIcon, .userIcon, .configIcon{
-	width: 35px;
+	width: 30px;
 	filter: grayscale(1);
 	transition-duration: 1s;
 	opacity: .9;
 	margin-top: 15px;
-	
 }
+
 .userIcon{
 	border-radius: 100%;
     border: solid;
@@ -43,14 +42,15 @@
 }
 
 .adminIcon {
-	height: 36px;
+	height: 30px;
 	filter: grayscale(1);
 	transition-duration: 1s;
 	opacity: .9;
 	margin-top: 19px;
 }
+
 .notificationIcon {
-	width: 25px;
+	width: 30px;
 	filter: grayscale(1);
 	transition-duration: 1s;
 	opacity: .9;
@@ -58,8 +58,9 @@
 	rotate: -90deg;
 	margin-left: 5px;
 }
+
 .subscriptionIcon{
-	width: 35px;
+	width: 30px;
 	filter: grayscale(1);
 	transition-duration: 1s;
 	opacity: .9;
@@ -67,7 +68,7 @@
 }
 
 .logoutIcon{
-	width: 35px;
+	width: 30px;
 	filter: grayscale(1);
 	margin-top: 80px;
 	transition-duration: 1s;
@@ -78,13 +79,12 @@
 	cursor: pointer;
 	filter: grayscale(.2);
 	opacity: 1;
-	filter: drop-shadow(0px 0px 5px yellow);
+	filter: drop-shadow(0px 0px 8px rgb(255, 255, 255));
 	transition-duration: 1s;
 }
 
-
 .divProfileMenu{
-	width: 55px;
+	width: 50px;
 	height: 100vh;
 	left: 0px;
 	top: 0px;

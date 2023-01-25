@@ -1,6 +1,20 @@
-.gwerh_player{
+.audioPlayer{
     bottom: 0px;
     /* display: none; */
     border-radius: 20px;
+    background-color: aqua;
+}   
 
+.closeBtn{
+    position: fixed;
+    right: 0px;
+    bottom: 88px;
+    border: none;
+    background-color: rgba(42, 42, 42, 0.908);
+    color: white;
+    font-size: 8px;
+}
+
+.closeBtn:hover{
+    background-color: rgba(255, 0, 0, 0.398);
 }
