@@ -188,7 +188,7 @@ const View = () => {
                                     onClick={(e)=>{
                                         e.preventDefault()
                                         dispatch(createPlaylist(playlistName, user.userId))
-                                        dispatch(getAllPlaylist())
+                                        dispatch(getAllPlaylist(user.userId))
                                         showToast('success', `Playlist "${playlistName}" creada!`)
                                         setPlaylistName('')
                                         document.querySelector('.divCanvasAddListForm').style.display='none'
