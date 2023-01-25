@@ -9,10 +9,10 @@ const PlanMP = () => {
 
     const location = useLocation();
     const params = new URLSearchParams(location.search);
-    const prea = params.get('preapproval_id');
+    const preapproval_id = params.get('preapproval_id');
 
     useEffect(() => {
-        console.log('el preeeeeeeea', prea)
+        console.log('el preeeeeeeea', preapproval_id)
         axios.post(`${URL_API}/mercadopago/plan`, {userId, preapproval_id})
         .then(res=> console.log(res))
         .catch(err => console.log(err))
