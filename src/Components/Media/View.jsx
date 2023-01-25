@@ -18,6 +18,36 @@ import s from './css/View.module.css'
 
 
 const View = () => {
+
+    const [list, setList] = useState([]);
+    let toastProperties = null;
+    const showToast = (type, description) => {
+      console.log('entrooo')
+      switch(type) {
+        case 'success':
+          toastProperties = {
+            id: list.length+1,
+            title: 'Success',
+            description: description,
+            backgroundColor: '#5cb85c'
+          }
+          break;
+        case 'danger':
+          toastProperties = {
+            id: list.length+1,
+            title: 'Error',
+            description: description,
+            backgroundColor: '#d9534f'
+          }
+          break;
+        default:
+          toastProperties = [];
+      }
+      setList([...list, toastProperties]);
+    };
+  
+
+
     const dispatch = useDispatch()
     const[playlistName, setPlaylistName] = useState('')
     const {id} = useParams()
@@ -158,14 +188,19 @@ const View = () => {
                                     onClick={(e)=>{
                                         e.preventDefault()
                                         dispatch(createPlaylist(playlistName, user.userId))
+                                        dispatch(getAllPlaylist())
+                                        showToast('success', `Playlist "${playlistName}" creada!`)
+                                        setPlaylistName('')
+                                        document.querySelector('.divCanvasAddListForm').style.display='none'
                                     }}
                                     />
                                 <input 
                                     type="submit" 
-                                    onClick={(e)=>{return(
-                                        e.preventDefault(),
+                                    onClick={(e)=>{
+                                        e.preventDefault()
+                                        setPlaylistName('')
                                         document.querySelector('.divCanvasAddListForm').style.display='none'
-                                    )}}
+                                    }}
                                     value="Cancelar" />
                             
                             </form>
