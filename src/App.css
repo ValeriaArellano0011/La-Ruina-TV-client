@@ -606,16 +606,18 @@ button:hover{
   border-radius: 2%;
   font-size: 13px;
   font-weight: thin;
-  background-color: #353535fd;
 }
 
 .buttonAddItem{
   margin-bottom: 0px;
-  margin-left: 40px
+  margin-left: 40px;
+  background-color: #353535fd;
+
 }
 
 .buttonCreateNewPlaylist{
   margin-bottom: 0px;
+  background-color: #292929fd;
 }
 
 .divCanvasAddListForm{
@@ -636,8 +638,8 @@ button:hover{
 .ulButtonAddItem{
   position: relative;
   bottom: 160px;
-  left: 51px;
-  width: 170px;
+  left: 48px;
+  width: 240px;
   opacity: 0;
   display: none;
   border-radius: 0px;
@@ -647,7 +649,7 @@ button:hover{
   overflow-y: scroll;
   position: relative;
   left: -40px;
-  width: 170px;
+  width: 240px;
   max-height: 120px;
 }
 

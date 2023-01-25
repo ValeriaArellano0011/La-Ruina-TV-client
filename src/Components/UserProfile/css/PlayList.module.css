@@ -19,6 +19,14 @@
 
 }
 
+.favIcon{
+	filter: grayscale(1);
+	transition-duration: .4s;
+
+}
+.favIcon:hover{
+	filter: grayscale(0)
+}
 .itemInfo{
 	display: flex;
 	justify-content: space-around;

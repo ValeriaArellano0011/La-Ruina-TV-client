@@ -5,6 +5,7 @@ import { lists } from '../../audio/consts'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUrlPlayer, getItemList} from '../../middlewares/redux/actions'
 import defaultImg from '../../design/lista-icon.png'
+import favIcon from '../../design/like-icon.png'
 
 export const PlayList = () => {
   const dispatch = useDispatch()
@@ -69,7 +70,7 @@ export const PlayList = () => {
                           className={s.itemListBtn}
                           onClick={()=>{return dispatch(getUrlPlayer(e.itemUrl))}}>
                             <ul className={s.itemInfo}>
-                              <li>{e.itemId}</li> - <li>{e.itemName}</li>
+                              <li>{e.itemId}</li> - <li>{e.itemName}</li> - <li>{e.itemArtist}</li> - <li><img className={s.favIcon} src={favIcon} alt='fav' height='20px' /></li>
                             </ul>
                         </button>
                       </li>

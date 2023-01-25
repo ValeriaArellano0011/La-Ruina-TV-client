@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -9,16 +9,17 @@ import Player from './Player'
 import playIconn from '../../design/ruinatv-icon-play-n.png'
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
-import { getOption } from '../../middlewares/redux/actions';
+import { getOption, createPlaylist, getAllPlaylist } from '../../middlewares/redux/actions';
 import OptionCanvas from '../../functions';
 import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
 import { EditBtn } from '../Utils/EditBtn'
 import likeIcon from '../../design/like-icon.png'
 import s from './css/View.module.css'
 
+
 const View = () => {
     const dispatch = useDispatch()
-    
+    const[playlistName, setPlaylistName] = useState('')
     const {id} = useParams()
     function onClickValue(e){
         return (
@@ -28,10 +29,12 @@ const View = () => {
 
     useEffect(()=>{
         dispatch(getInfo(id))
+        dispatch(getAllPlaylist(user.userId))
     },[dispatch, id])
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
     const infoDetailViewer = useSelector(state=>state.infoDetailViewer)
+    const myPlaylists = useSelector(state=>state.myPlaylists)
     const rolUser = useSelector(state=>state.rolUser)
     const currentUser = useSelector(state=>state.currentUser)
     const idYT = useSelector(state=>state.ytPlayerState)
@@ -107,6 +110,23 @@ const View = () => {
                                     document.querySelector('.ulButtonAddItem').style.display='none'
                                 )}}>
                                     <div className='divButtonAddItem'>
+                                        {
+                                            myPlaylists?.map(e=>{
+                                                const listId = e.id
+                                                return (
+                                                    <>
+                                                        <li>
+                                                            <button 
+                                                                className='buttonAddItem' 
+                                                                value='id de este item' 
+                                                                onClick={(e)=>addToPlaylist(e.id, listId)} >
+                                                                Añadir a {e.title}
+                                                            </button>
+                                                        </li>
+                                                    </>
+                                                )
+                                            })
+                                        }
                                         <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista1</button></li>
                                         <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista2</button></li>
                                         <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista3</button></li>
@@ -127,13 +147,18 @@ const View = () => {
                             <h1>Crear una nueva Playlist</h1>
                             <form>
                                 <h3 style={{fontWeight:'thin'}}>Nombre de la lista</h3>
-                                <input type="text" name='listName' placeholder='Ingresa un nombre para tu lista' /> <br/>
+                                <input 
+                                    type="text" 
+                                    name='listName'
+                                    onChange={(e)=> setPlaylistName(e.target.value)}
+                                    placeholder='Ingresa un nombre para tu lista' /> <br/>
                                 <input 
                                     type="submit" 
                                     value="Crear"
-                                    onClick={()=>{return(
-                                        dispatch()
-                                    )}}
+                                    onClick={(e)=>{
+                                        e.preventDefault()
+                                        dispatch(createPlaylist(playlistName, user.userId))
+                                    }}
                                     />
                                 <input 
                                     type="submit" 

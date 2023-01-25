@@ -22,6 +22,7 @@ import { useCookies } from 'react-cookie';
 import { useSelector } from 'react-redux'
 import { YtSubscribeButton } from './Components/Utils/YtSubscribeButton';
 import { EditMediaList } from './Admin/Requests/EditMediaList';
+import PlanMP from './Components/MercadopagoPlan/PlanMP.jsx';
 
 
 function App() {
@@ -91,6 +92,9 @@ function App() {
             </Route>
             <Route path='/checkout/:type'>
               <Checkout />
+            </Route>
+            <Route path='/mercadopago/plan'>
+              <PlanMP/>
             </Route>
           </div>
         </>

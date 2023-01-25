@@ -32,7 +32,8 @@ import {
     CREATE_PLAYLIST,
     DELETE_PLAYLIST,
     GET_ITEM_LIST,
-    GET_PLAYLIST
+    GET_PLAYLIST,
+    GET_ALL_PLAYLIST
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -353,12 +354,25 @@ export function resetUrlPlayer(){
 
 
 /* -------------PlayList------------- */
-export function CreatePlaylist(item, idUser){
-    return async function (dispatch){ 
-        await axios.post(`${URL_API}/playlists/create`, {item, idUser})
+export function getAllPlaylist(userId){
+    return async function (dispatch){
+        await axios.post(`${URL_API}/playlist/all`, {userId})
         .then(res => {
+            console.log(res.data)
             dispatch({
-                type: CREATE_PLAYLIST            })
+                type: GET_ALL_PLAYLIST,
+                payload: res.data
+            })
+        })
+    }
+}
+
+export function createPlaylist(playlistName, idUser){
+    return async function (){ 
+        console.log(idUser)
+        await axios.post(`${URL_API}/playlist/create`, {playlistName, idUser})
+        .then(res => {
+            console.log(res.data)
         })
         .catch((e) => {
             console.log(e);

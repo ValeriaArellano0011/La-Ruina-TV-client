@@ -21,7 +21,8 @@ import {
     EDIT_MEDIA,
     GET_EDIT_MEDIA,
     GET_PLAYLIST,
-    GET_ITEM_LIST
+    GET_ITEM_LIST,
+    GET_ALL_PLAYLIST
     } from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
@@ -133,6 +134,7 @@ const initialState = {
 /*----------------Player----------------*/
     urlPlayer: '',
     itemList: [],
+    myPlaylists: []
 
 /*--------------Formulario--------------*/
 }
@@ -301,6 +303,11 @@ export default function rootReducer(state = initialState, action){
             return{
                 ...state,
                 itemList: action.payload
+            }
+        case GET_ALL_PLAYLIST:
+            return{
+                ...state,
+                myPlaylists: action.payload
             }
         default:
             return {...state};
