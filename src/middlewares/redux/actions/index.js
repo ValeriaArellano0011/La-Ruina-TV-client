@@ -352,6 +352,19 @@ export function resetUrlPlayer(){
     }
 }
 
+export function addLike(idSong, urlId) {
+    return async function(dispatch) {
+        await axios.post(`${URL_API}/likes/add`, {idSong, urlId})
+        .then(res =>{
+            console.log('like id qcyoo', res.data)
+            dispatch({
+                type: 'LIKE',
+                payload: res.data
+            })
+        })
+        .catch(e => console.log(e))
+    }
+}
 
 /* -------------PlayList------------- */
 export function getAllPlaylist(userId){

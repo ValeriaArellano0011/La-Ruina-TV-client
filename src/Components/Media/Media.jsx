@@ -5,7 +5,7 @@ import editIcon from '../../design/edit-icon.png';
 import deleteIcon from '../../design/delete-icon.png';
 import { useDispatch, useSelector } from "react-redux";
 import s from './css/Media.module.css';
-import { getDeleteMedia, getEditMedia } from "../../middlewares/redux/actions";
+import { addLike, getDeleteMedia, getEditMedia } from "../../middlewares/redux/actions";
 import Fav from "../Fav/fav";
 
 const Media = ({ cardList, style, keyID }) => {
@@ -77,7 +77,7 @@ const Media = ({ cardList, style, keyID }) => {
                             alt="play" />
                           <p style={{color: 'black'}}>{e.title}</p>
                         </div>
-                        {(user || currentUser)?<Fav id={e.id} style={{marginTop: '-10px'}}/>:null}
+                        {(user || currentUser)?<Fav onClick={() => dispatch(addLike(user.userId, e.urlID))} id={e.id} style={{marginTop: '-10px'}}/>:null}
                       </div>
                     </div>
                   </Link>

@@ -25,8 +25,14 @@ const Browser = () => {
     BodyCss();
   }, [dispatch]);
   const cardList = useSelector((state) => state.mediaList);
+  const userId = JSON.parse(localStorage.getItem('auth')).userId
   const categoryList = useSelector((state) => state.categoryList);
 
+  useEffect(() => {
+    axios.post(`${URL_API}/mercadopago/getplan`, {userId})
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }, [])
   return (
     <div className="browserBody"> 
       {/* ---------------------VISOR--------------------- */}
@@ -66,8 +72,8 @@ const Browser = () => {
       {/* ---------------------FOOTER--------------------- */}
 
       <button onClick={() => {
-        axios.post(`${URL_API}/li/create`, {id: 2, title: 'arianagrande'})
-        .then((res) => console.log(res.data)).catch(error => console.log)
+        axios.post(`${URL_API}/likes/add`, {id: 1})
+        .then((res) => console.log(res.data)).catch(error => console.log(error))
       }
       }>
 

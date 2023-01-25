@@ -645,7 +645,7 @@ button:hover{
 }
 
 .divButtonAddItem{
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   position: relative;
   left: -40px;
   width: 240px;

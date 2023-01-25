@@ -134,7 +134,10 @@ const View = () => {
                             if(myPlaylists?.length===0) return document.querySelector('.ulButtonAddItem').style.bottom='40px'
                             if(myPlaylists?.length===1) return document.querySelector('.ulButtonAddItem').style.bottom='80px'
                             if(myPlaylists?.length===2) return document.querySelector('.ulButtonAddItem').style.bottom='120px'
-                            if(myPlaylists?.length>2) return document.querySelector('.ulButtonAddItem').style.bottom='160px'
+                            if(myPlaylists?.length>2) return (
+                                document.querySelector('.ulButtonAddItem').style.bottom='160px',
+                                document.querySelector('.ulButtonAddItem').style.overflowY='scroll'
+                                )
                             }}
                         >+</button> : null}
                         {(currentUser || user)?
