@@ -131,7 +131,6 @@ const View = () => {
                                 <input 
                                     type="submit" 
                                     value="Crear"
-                                    onChange={(e)=> setName(e)}
                                     onClick={()=>{return(
                                         dispatch()
                                     )}}
