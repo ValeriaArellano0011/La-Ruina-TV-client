@@ -204,6 +204,7 @@ export default function rootReducer(state = initialState, action) {
         /*----------------Media----------------*/
         case GET_ALL_LIKES:
             return {
+
                 ...state,
                 allUserLikes: action.payload
             };

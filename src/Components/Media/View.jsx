@@ -9,7 +9,7 @@ import Player from './Player'
 import playIconn from '../../design/ruinatv-icon-play-n.png'
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
-import { getOption, createPlaylist, getAllPlaylist } from '../../middlewares/redux/actions';
+import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes } from '../../middlewares/redux/actions';
 import OptionCanvas from '../../functions';
 import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
 import { EditBtn } from '../Utils/EditBtn'
@@ -58,7 +58,7 @@ const View = () => {
 
     useEffect(()=>{
         dispatch(getInfo(id))
-        dispatch(getAllPlaylist(user.userId))
+        dispatch(getAllPlaylist(user?.userId))
     },[dispatch, id])
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
@@ -115,7 +115,10 @@ const View = () => {
                                     }))
                                 })
                             } */}
-                        {(currentUser || user)? <button className='buttonAddToFavorites'>
+                        {(currentUser || user)? <button className='buttonAddToFavorites' onClick={() => {
+                            dispatch(addLike(user.userId, id))
+                            dispatch(getAllLikes(user.userId))
+                        }}>
                             <img 
                                 className={s.favIcon}
                                 src={likeIcon} 
@@ -150,13 +153,14 @@ const View = () => {
                                         {
                                             myPlaylists?.map(e=>{
                                                 const listId = e.id
+                                                console.log(listId)
                                                 return (
                                                     <>
                                                         <li>
                                                             <button 
                                                                 className='buttonAddItem' 
                                                                 value='id de este item' 
-                                                                onClick={(e)=>addToPlaylist(e.id, listId)} >
+                                                                onClick={(e)=>dispatch(addToPlaylist(listId, connectionId))} >
                                                                     Añadir a {e.title}
                                                             </button>
                                                         </li>

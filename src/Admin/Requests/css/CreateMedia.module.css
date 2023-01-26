@@ -16,7 +16,7 @@
     color: white;
     background: linear-gradient(#303030, #171717 80%);
     position: relative;
-    filter: drop-shadow(0px 0px 10px black)
+    /* filter: drop-shadow(0px 0px 10px black) */
 }
 .cont0{
     height: 100vh;
@@ -24,11 +24,10 @@
     position: absolute;
     left: 0px;
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 40px;
     z-index: 0;
     overflow-y: hidden;
     background-color: white;
-
 }
 .cont1{
     background-color: white;
@@ -36,7 +35,8 @@
     width: 100vw;
     height: 100vh;
     transition-duration: 1s;
-    margin-top: 110px
+    margin-top: 60px;
+    overflow-y: scroll;
 }
 .cont2{
     background-color: white;
@@ -44,7 +44,9 @@
     width: 100vw;
     height: 100vh;
     transition-duration: 1s;
-    margin-top: -25px;
+    margin-top: 0px;
+    bottom: 0px;
+    overflow-y: scroll;
 }
 .imgSlrVsr {
     display: flex; 
@@ -61,7 +63,7 @@
     border-bottom-right-radius: 55px;
     color: white;
     text-align: center;
-    filter: drop-shadow(0px 0px 10px black)
+    /* filter: drop-shadow(0px 0px 10px black) */
 
 }
 .inputBtn:hover{
@@ -74,7 +76,7 @@ textarea {
 
 .btnVolver{
     position: fixed;
-    top: 0px;
+    top: 30px;
     left: 50px;
     width: 180px;
     height: 40px;

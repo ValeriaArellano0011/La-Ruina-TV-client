@@ -66,13 +66,6 @@ const Browser = () => {
 
       {/* ---------------------FOOTER--------------------- */}
 
-      <button onClick={() => {
-        axios.post(`${URL_API}/likes/add`, {id: 1})
-        .then((res) => console.log(res.data)).catch(error => console.log(error))
-      }
-      }>
-
-      </button>
       {cardList?.length > 0 && <Footer />}
     </div>
   );

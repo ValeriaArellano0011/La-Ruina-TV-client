@@ -25,6 +25,7 @@
 }
 .liProfile3{
     margin-top: -20px;
+    margin-bottom: 10px
 }
 #divProfile{
     width: 100vw;
@@ -54,4 +55,17 @@
     align-items: center;
     text-align: center;
     list-style: none;
+}
+
+.deleteAccount{
+    background-color: rgba(0, 0, 0, 0.98);
+    width: 500px;
+    height: 400px;
+    position: fixed;
+    box-shadow: 0px 0px 10px red;
+    display: none;
+    border-radius: 15px;
+    text-align: center;
+    justify-content: center;
+    color: white;
 }

@@ -12,7 +12,21 @@
 	opacity: .8;
 	transition-duration: 1s;
 }
+/* .spanProfile{
+	font-size: 13px;
+	font-weight: 100;
+	text-align: center;
+	margin-left: 3px;
+}
 
+.spanLists */
+.spanOpt{
+	margin-left: 3px;
+}
+
+.spanFavs{
+	margin-left: 5px;
+}
 .ulRequestProfile {
 	text-decoration: none;
 	width: 100%;

@@ -1,0 +1,29 @@
+.contLikes{
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 1px black;
+    font-weight: 100;
+    width: 80%;
+    margin-left: 50px;
+    margin-right: 50px;
+    position: relative;
+    text-align: left;
+    display: flex;
+    top: -100px;
+    
+}
+
+.contTitle{
+    position: relative;
+    margin-bottom: 100px;
+    margin-top: -100px;
+    color: black;
+}
+
+.liLikes{
+    margin-right: 10px;
+}
+
+.likeImg{
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px black
+}

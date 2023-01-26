@@ -258,7 +258,7 @@ const CreateMedia = () => {
             <div className={s.cont1} id='cont1'>
           <Title title="Nuevo Contenido" />
           <h1 className={styles.createTitle}>Crear un Nuevo Contenido</h1>
-          <CardContent>Rellena el siguiente formulario</CardContent>
+          {/* <CardContent>Rellena el siguiente formulario</CardContent> */}
             <div className={s.contTitleArtistDesc}>
             <div className={s.divTitleArtistDesc}>
                 <p>
@@ -267,6 +267,7 @@ const CreateMedia = () => {
                   <input
                     type="text"
                     name="title"
+                    placeholder="Título de la publicación"
                     value={data.title}
                     onChange={handleInputChange}
                   />
@@ -277,6 +278,7 @@ const CreateMedia = () => {
                   <input
                     type="text"
                     name="artist"
+                    placeholder="Nombre del intérprete"
                     value={data.artist}
                     onChange={handleInputChange}
                   />
@@ -285,7 +287,8 @@ const CreateMedia = () => {
                   <label>Descripción</label>
                   <br></br>
                   <textarea
-                    rows="5" 
+                    placeholder="Escribe una breve reseña..."
+                    rows="3" 
                     minlength='1'
                     type="text"
                     name="info"

@@ -642,6 +642,7 @@ button:hover{
   opacity: 0;
   display: none;
   border-radius: 0px;
+  z-index: 99999999;
 }
 
 .divButtonAddItem{

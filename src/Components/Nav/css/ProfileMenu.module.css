@@ -88,7 +88,7 @@
     color: white;
 }
 .optionProfileBtn{
-    background-color: #171717;
+    background: linear-gradient(to top, #171717, #171717 99%);
     box-shadow: 0px 0px 4px rgb(130, 128, 128);
     margin-top: 15px;
     margin-right: 0px;
@@ -121,7 +121,7 @@
 .optionProfileBtn:hover{
     cursor: pointer;
     border-color: white;
-    background: linear-gradient(to top, rgb(255, 255, 255), transparent 99%);
+    background: linear-gradient(to top, rgb(255, 255, 255), #171717 99%);
     color: #171717;
 }
 .imgIcon:hover, .imgIconProf:hover{

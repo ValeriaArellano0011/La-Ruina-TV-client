@@ -410,9 +410,9 @@ export function resetUrlPlayer(){
     }
 }
 
-export function addLike(userId, urlId) {
+export function addLike(idUser, urlId) {
     return async function(dispatch) {
-        await axios.post(`${URL_API}/likes/add`, {userId, urlId})
+        await axios.post(`${URL_API}/likes/add`, {idUser, urlId})
         .then(res =>{
             console.log('like id qcyoo', res.data)
             dispatch({
@@ -466,10 +466,11 @@ export function createPlaylist(playlistName, idUser){
     }
 }
 
-export function addToPlaylist(item){
+export function addToPlaylist(playlistId, connectionId){
     return async function (dispatch){ 
-        await axios.post(`${URL_API}/users/playlists/add`, item)
+        await axios.post(`${URL_API}/playlist/add`, {playlistId, connectionId})
         .then(res => {
+            console.log(res.data)
             dispatch({
                 type: ADD_TO_PLAYLIST,
                 payload: res.data
