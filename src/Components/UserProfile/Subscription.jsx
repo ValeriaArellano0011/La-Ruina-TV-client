@@ -83,6 +83,7 @@ export const Subscription = () => {
                     </div>
                     <button 
                       className={s.btnSubmit} 
+                      disabled={disabled}
                       onClick={()=>{
                         return(
                             dispatch(resetOption()),
