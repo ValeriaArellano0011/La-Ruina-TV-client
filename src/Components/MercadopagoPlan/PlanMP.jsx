@@ -11,10 +11,10 @@ const PlanMP = () => {
     const params = new URLSearchParams(location.search);
     const preapproval_id = params.get('preapproval_id');
 
-    useEffect(() => {
+    useEffect(async () => {
         if(preapproval_id){
         console.log('el preeeeeeeea', preapproval_id)
-        axios.post(`${URL_API}/mercadopago/plan`, {userId, preapproval_id})
+        await axios.post(`${URL_API}/mercadopago/plan`, {userId, preapproval_id})
         .then(res=> {
             console.log(res)
             history.push('/browser')
