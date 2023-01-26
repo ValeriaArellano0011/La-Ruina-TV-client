@@ -14,8 +14,16 @@ import { useHistory } from "react-router-dom";
 export const Subscription = () => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const auth = localStorage.getItem('auth');
+  const userId = auth ? JSON.parse(auth).userId : null;
 
-  
+  useEffect(() => {
+    axios.post(`${URL_API}/mercadopago/getplan`, {userId})
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => console.log(err))
+  }, [])
 
   return (
     <div>
