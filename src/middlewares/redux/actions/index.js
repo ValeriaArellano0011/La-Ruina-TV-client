@@ -366,6 +366,21 @@ export function addLike(idSong, urlId) {
     }
 }
 
+export function getAllLikes(userId) {
+    return async function(dispatch) {
+        await axios.post(`${URL_API}/likes/getAll`, {userId})
+        .then(res =>{
+            console.log(res.data)
+            dispatch({
+                type: 'GET_ALL_LIKES',
+                payload: res.data
+            })
+        })
+        .catch(e => console.log(e))
+    }
+}
+
+
 /* -------------PlayList------------- */
 export function getAllPlaylist(userId){
     return async function (dispatch){
