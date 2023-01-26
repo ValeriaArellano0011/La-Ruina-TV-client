@@ -16,14 +16,21 @@ export const Subscription = () => {
   const history = useHistory()
   const auth = localStorage.getItem('auth');
   const userId = auth ? JSON.parse(auth).userId : null;
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     axios.post(`${URL_API}/mercadopago/getplan`, {userId})
     .then(res => {
       console.log(res.data)
+      if(res.data === 'Plan Subscriptor'){
+        setDisabled(true);
+      }else{
+        setDisabled(false)
+      }
     })
     .catch(err => console.log(err))
   }, [])
+
 
   return (
     <div>
