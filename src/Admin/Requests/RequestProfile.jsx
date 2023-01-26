@@ -54,9 +54,9 @@ const RequestProfile = () => {
                           <img src={subscriptionIcon} className={s.subscriptionIcon} onClick={()=>{return dispatch(getOption('subscription'))}} alt="lista" />
                         </li>                     
                     }
-                    <li>
+                    {/* <li>
                         <img src={configIcon} className={s.configIcon} onClick={()=>{return dispatch(getOption('config'))}} alt="configuraciones" />
-                    </li>
+                    </li> */}
                     <li>
                         <img 
                             src={logoutIcon} 

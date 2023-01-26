@@ -58,6 +58,15 @@ export const PlayList = () => {
                   )
                 }
               </ul>
+              <li  
+                // onClick={()=>{return dispatch(getItemList(e))}}
+                className={s.liPlaylistsNames}>
+                <button 
+                  // onClick={()=>{return dispatch(getItemList(e))}}
+                  className={s.btnCreateList}>
+                  <h2 className={s.title}>Crear una lista</h2>
+                </button>
+              </li>
             </div>
           </ul>
         </div>

@@ -6,10 +6,10 @@ import s from "./css/Fav.module.css"
 const Fav = ({ urlID }) => {
     const dispatch = useDispatch()
     const auth = localStorage.getItem('auth');
-    const userId = auth ? JSON.parse(auth).userId : null;
+    const user = JSON.parse(auth)
     const urlId = urlID
     const handleClick = () => {
-        dispatch(addLike(userId, urlId))
+        dispatch(addLike(user.userId, urlId))
     }
     return (
         <button className={s.CardFav} onClick={handleClick}>

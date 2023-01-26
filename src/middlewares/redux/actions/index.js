@@ -410,9 +410,9 @@ export function resetUrlPlayer(){
     }
 }
 
-export function addLike(idSong, urlId) {
+export function addLike(userId, urlId) {
     return async function(dispatch) {
-        await axios.post(`${URL_API}/likes/add`, {idSong, urlId})
+        await axios.post(`${URL_API}/likes/add`, {userId, urlId})
         .then(res =>{
             console.log('like id qcyoo', res.data)
             dispatch({

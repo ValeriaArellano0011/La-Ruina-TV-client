@@ -69,7 +69,7 @@ export const ProfileMenu = () => {
                   PERFIL
               </button>
           </li>
-            <li>
+            {/* <li>
               <button 
                 id='optionProfileBtn1' 
                 className={s.optionProfileBtn} 
@@ -84,7 +84,7 @@ export const ProfileMenu = () => {
                 alt="" /><br></br>
                 Notificaciones
               </button>
-            </li>
+            </li> */}
             <li>
               <button 
                 id='optionProfileBtn2' 
@@ -115,7 +115,7 @@ export const ProfileMenu = () => {
                   MIS LISTAS
               </button>
             </li>
-            <li>
+            {/* <li>
               <button 
                 id='optionProfileBtn4' 
                 className={s.optionProfileBtn} 
@@ -129,7 +129,7 @@ export const ProfileMenu = () => {
                 alt="" /><br></br>
                   CONFIGURACIÓN
               </button>
-            </li>
+            </li> */}
             <li>
               <button                                 
                 id='optionProfileBtn5' 

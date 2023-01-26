@@ -22,7 +22,6 @@ const View = () => {
     const [list, setList] = useState([]);
     let toastProperties = null;
     const showToast = (type, description) => {
-      console.log('entrooo')
       switch(type) {
         case 'success':
           toastProperties = {

@@ -72,15 +72,48 @@
 }
 
 .ulPlaylistsNames{
-	width: 260px;
+	width: 230px;
 	height: auto;
 	position: relative;
 	top: 180px;
 	left: 0px;
 	border-bottom: solid;
+	border-width: 1px;
+	border-color: #616161;
+	border-spacing: 10px;
+	margin-bottom: 10px;
+	/* background-color: aqua; */
+}
+.btnCreateList{
+	border-radius: 5px;
+	color: rgb(187, 185, 185);
+	text-shadow: 0px 0px 1px black;
+	background-color: #3f3f3f;
+	font-weight: thin;
+	border: none;
+	width: 90px;
+	height: 30px;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	justify-content: center;
+	align-items: flex-start;
+	font-family: Bebas Neue;
+	font-size: 10px;
+	transition-duration: .4s;
+	box-shadow: 0px 0px 3px black;
+	bottom: 100px;
+	left: 100px;
+}
+.btnCreateList:hover{
+	background-color: rgb(143, 143, 143);
+	cursor: pointer;
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 0px 1px rgb(0, 0, 0);
 }
 .ulPlaylistsNames>li{
-	margin-top: 10px;
+	margin-bottom: 10px;
 	/* background-color: aqua; */
 	left: -20px;
 	position: relative;
@@ -113,6 +146,7 @@
 	color: white;
 	text-shadow: 0px 0px 2px black;
 }
+
 .imgList{
 	margin-top: 15px;
 }
@@ -126,12 +160,14 @@
 	position: relative;
 	text-align: left;
 }
+
 .titleList>h1{
 	font-size: 40px;
 	margin-top: -40px;
 	margin-bottom: 0px;
 	font-weight: thin;
 }
+
 .titleList>h2{
 	font-size: 20px;
 	margin-top: -5px;
@@ -187,6 +223,7 @@
 	color: rgb(255, 255, 255);
 	text-shadow: 0px 0px 1px rgb(0, 0, 0);
 }
+
 .listBannerCont{
 	/* background-color: rgba(0, 255, 255, 0.271); */
 	width: 100vw;
@@ -214,6 +251,7 @@
 	display: flex;
 	flex-direction: row;
 }
+
 .contImg{
 	position: absolute;
 	width: 150px;
