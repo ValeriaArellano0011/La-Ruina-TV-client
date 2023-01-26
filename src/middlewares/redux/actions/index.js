@@ -33,7 +33,8 @@ import {
     DELETE_PLAYLIST,
     GET_ITEM_LIST,
     GET_PLAYLIST,
-    GET_ALL_PLAYLIST
+    GET_ALL_PLAYLIST,
+    GET_ALL_LIKES
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -372,7 +373,7 @@ export function getAllLikes(userId) {
         .then(res =>{
             console.log(res.data)
             dispatch({
-                type: 'GET_ALL_LIKES',
+                type: GET_ALL_LIKES,
                 payload: res.data
             })
         })
