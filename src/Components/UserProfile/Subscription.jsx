@@ -16,6 +16,13 @@ export const Subscription = () => {
   const history = useHistory()
 
   
+  useEffect(() => {
+    axios.post(`${URL_API}/mercadopago/getplan`, {userId})
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => console.log(err))
+  }, [])
 
   return (
     <div>

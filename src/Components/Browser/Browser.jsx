@@ -29,14 +29,6 @@ const Browser = () => {
   const userId = auth ? JSON.parse(auth).userId : null;
   const categoryList = useSelector((state) => state.categoryList);
 
-  useEffect(() => {
-    axios.post(`${URL_API}/mercadopago/getplan`, {userId})
-    .then(res => {
-      console.log(res)
-      
-    })
-    .catch(err => console.log(err))
-  }, [])
   return (
     <div className="browserBody"> 
       {/* ---------------------VISOR--------------------- */}
