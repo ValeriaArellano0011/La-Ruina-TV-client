@@ -14,7 +14,7 @@ const PlanMP = () => {
     useEffect(() => {
         if(preapproval_id){
         console.log('el preeeeeeeea', preapproval_id)
-        axios.post(`${URL_API}/mercadopago/plan`, {userId, preapproval_id}, {withCredentials: true})
+        axios.post(`${URL_API}/mercadopago/plan`, {userId, preapproval_id})
         .then(res=> {
             console.log(res)
             history.push('/browser')
