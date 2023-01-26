@@ -4,7 +4,7 @@ import { URL_API } from '../../../middlewares/misc/config'
 export const handleCheckout = async () => {
 
   const userId = JSON.parse(localStorage.getItem('auth')).userId
-
+  
   try {
     await axios.post(`${URL_API}/mercadopago/create-checkout`, {userId})
     .then(data => {
