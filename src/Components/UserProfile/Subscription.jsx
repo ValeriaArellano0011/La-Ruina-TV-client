@@ -23,7 +23,7 @@ export const Subscription = () => {
     .then(res => {
       console.log(res.data)
       if(res.data === 'Plan Subscriptor'){
-        setDisabled(true);
+        setDisabled(true);        
       }else{
         setDisabled(false)
       }
@@ -82,7 +82,7 @@ export const Subscription = () => {
                       </ul>
                     </div>
                     <button 
-                      className={s.btnSubmit} 
+                      className={!disabled? s.btnSubmitEnabled : s.btnSubmitDisabled }
                       disabled={disabled}
                       onClick={()=>{
                         return(

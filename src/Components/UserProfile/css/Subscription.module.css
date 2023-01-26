@@ -44,7 +44,7 @@ h2{
     font-weight: thin;
     list-style: none;
 }
-.btnSubmit{
+.btnSubmitEnabled{
     height: 40px;
     width: 200px;
     bottom: 30px;
@@ -58,7 +58,7 @@ h2{
     font-size: 20px;
     transition-duration: .3s;
 }
-.btnSubmitFree{
+.btnSubmitFree, .btnSubmitDisabled{
     height: 40px;
     width: 200px;
     bottom: 30px;
@@ -73,10 +73,10 @@ h2{
     justify-content: center;
     align-items: center;
 }
-.btnSubmitFree{
+.btnSubmitFree, .btnSubmitDisabled{
     cursor: not-allowed;
 }
-.btnSubmit:hover{
+.btnSubmitEnabled:hover{
     background-color: aliceblue;
     color: #171717;
 }
