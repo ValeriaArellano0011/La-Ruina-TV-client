@@ -22,6 +22,7 @@ import { useCookies } from 'react-cookie';
 import { useSelector } from 'react-redux'
 import { YtSubscribeButton } from './Components/Utils/YtSubscribeButton';
 import { EditMediaList } from './Admin/Requests/EditMediaList';
+import { EditUsersList } from './Admin/Requests/EditUsersList';
 import PlanMP from './Components/MercadopagoPlan/PlanMP.jsx';
 
 
@@ -86,6 +87,9 @@ function App() {
             </Route>
             <Route exact path='/media/edit'>
               <EditMediaList />
+            </Route>            
+            <Route exact path='/users/edit'>
+              <EditUsersList />
             </Route>
             <Route path='/search'>
               <Search />
