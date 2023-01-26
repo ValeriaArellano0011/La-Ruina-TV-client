@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { URL_API } from '../../middlewares/misc/config';
 
 const PlanMP = () => {
 
     const userId = JSON.parse(localStorage.getItem('auth')).userId
-
+    const history = useHistory()
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const preapproval_id = params.get('preapproval_id');
