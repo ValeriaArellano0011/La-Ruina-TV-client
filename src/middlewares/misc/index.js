@@ -37,6 +37,9 @@ export const __GOD_MODE__ = '__GOD_MODE__'
 export const GET_EDIT_MEDIA = 'GET_EDIT_MEDIA'
 export const EDIT_MEDIA = 'EDIT_MEDIA'
 export const REMOVE_MEDIA = 'REMOVE_MEDIA'
+export const GET_USERS = ' GET_USERS'
+export const GET_EDIT_USERS = 'GET_EDIT_USERS'
+export const DELETE_USERS = 'DELETE_USERS'
 
 /* -----------------Player----------------- */
 export const URL_PLAYER = 'URL_PLAYER'

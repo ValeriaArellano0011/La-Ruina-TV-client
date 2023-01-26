@@ -13,7 +13,7 @@ const PlanMP = () => {
 
     useEffect(() => {
         console.log('el preeeeeeeea', preapproval_id)
-        axios.post(`${URL_API}/mercadopago/plan`, {userId, preapproval_id})
+        axios.post(`${URL_API}/mercadopago/plan`, {userId, preapproval_id}, {withCredentials: true})
         .then(res=> console.log(res))
         .catch(err => console.log(err))
     }, [])

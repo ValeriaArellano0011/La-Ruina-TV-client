@@ -34,10 +34,67 @@ import {
     GET_ITEM_LIST,
     GET_PLAYLIST,
     GET_ALL_PLAYLIST,
-    GET_ALL_LIKES
+    GET_ALL_LIKES,
+    GET_USERS,
+    GET_EDIT_USERS,
+    DELETE_USERS
     } from '../../misc'
 
 /*-----------------Admin----------------*/
+
+//----------------USERS-----------------
+export function getUsers() {
+    return async function(dispatch) {
+        try {
+            await axios.get(`${URL_API}/users/getall`)
+            .then(res =>{
+                console.log(res.data)
+                dispatch({
+                    type: GET_USERS,
+                    payload: res.data
+                })
+            })
+        } catch(e) {
+            console.log(e)
+        }
+    }
+}
+
+export const getEditUsers = (id) =>   {
+    return async function (dispatch) {
+        let res = await axios.get(`${URL_API}/users/edit/${id}`);
+        console.log(res.data)
+        return dispatch ({
+            type: GET_EDIT_USERS,
+            payload: res.data
+        })
+    }
+}
+
+export const editUsers = (formdata) =>   {
+    return async function (dispatch) {
+        let res = await axios.post(
+            `${URL_API}/users/edit`, 
+            formdata,
+            {headers: {'Content-Type': 'multipart/form-data'}}
+        );
+        console.log(res.data)
+        getMedia()
+    }
+}
+
+export const getDeleteUsers = (id) =>   {
+    return async function (dispatch) {
+        let res = await axios.get(`${URL_API}/users/delete/${id}`);
+        return dispatch ({
+            type: DELETE_USERS,
+            payload: res.data
+        })
+    }
+}
+
+//------------------------MEDIA-------------------------------
+
     export const getEditMedia = (id) =>   {
         return async function (dispatch) {
             let res = await axios.get(`${URL_API}/media/edit/${id}`);
