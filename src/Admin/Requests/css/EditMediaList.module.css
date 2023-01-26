@@ -48,8 +48,8 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    text-align: left;
+    justify-content: space-between;
+    text-align: center;
     align-items: center;
     position: relative;
 }
@@ -59,13 +59,12 @@
     height: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    text-align: left;
+    justify-content: space-between;
+    text-align: center;
     align-items: center;
     position: relative;
 }
 .ulList2{
-    overflow-y: scroll;
     width: 90vw;
     height: 50px;
     display: flex;
