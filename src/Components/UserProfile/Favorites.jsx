@@ -13,7 +13,7 @@ export const Favorites = () => {
   useEffect(() => {
     dispatch(getAllLikes(userId))
     console.log('ALL USER LIKES: ',userLikes)
-  }, [dispatch, userLikes])
+  }, [dispatch])
 
   return (
     <div>
