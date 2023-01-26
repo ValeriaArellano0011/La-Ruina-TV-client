@@ -73,7 +73,7 @@ h2{
     justify-content: center;
     align-items: center;
 }
-.btnSubmitFree, .btnSubmitDisabled{
+.btnSubmitFree, .btnSubmitDisabled:hover{
     cursor: not-allowed;
 }
 .btnSubmitEnabled:hover{

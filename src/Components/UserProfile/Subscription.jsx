@@ -57,7 +57,7 @@ export const Subscription = () => {
                         </h5>
                       </ul>                  
                     </div>
-                    <div className={s.btnSubmitFree} >Por defecto</div>
+                    <div className={s.btnSubmitFree} >Activo</div>
                   </div>
                 </li>
                 <li className={s.liCheck}>
@@ -101,7 +101,7 @@ export const Subscription = () => {
                         )
                       }
                     }>
-                      Comenzar</button>
+                      {!disabled? 'Comenzar' : 'Plan Actual' }</button>
                   </div>
                 </li>
                 {/* <li className={s.liCheck}>
