@@ -45,7 +45,7 @@
 .ulList1{
     min-width: 300px;
     width: 90%;
-    height: 50px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
