@@ -15,7 +15,10 @@ const PlanMP = () => {
         if(preapproval_id){
         console.log('el preeeeeeeea', preapproval_id)
         axios.post(`${URL_API}/mercadopago/plan`, {userId, preapproval_id}, {withCredentials: true})
-        .then(res=> console.log(res))
+        .then(res=> {
+            console.log(res)
+            history.push('/browser')
+        })
         .catch(err => console.log(err))
         }
     }, [])
