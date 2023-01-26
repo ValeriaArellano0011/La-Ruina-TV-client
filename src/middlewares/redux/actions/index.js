@@ -33,7 +33,8 @@ import {
     DELETE_PLAYLIST,
     GET_ITEM_LIST,
     GET_PLAYLIST,
-    GET_ALL_PLAYLIST
+    GET_ALL_PLAYLIST,
+    GET_ALL_LIKES
     } from '../../misc'
 
 /*-----------------Admin----------------*/
@@ -365,6 +366,21 @@ export function addLike(idSong, urlId) {
         .catch(e => console.log(e))
     }
 }
+
+export function getAllLikes(userId) {
+    return async function(dispatch) {
+        await axios.post(`${URL_API}/likes/getAll`, {userId})
+        .then(res =>{
+            console.log(res.data)
+            dispatch({
+                type: GET_ALL_LIKES,
+                payload: res.data
+            })
+        })
+        .catch(e => console.log(e))
+    }
+}
+
 
 /* -------------PlayList------------- */
 export function getAllPlaylist(userId){
