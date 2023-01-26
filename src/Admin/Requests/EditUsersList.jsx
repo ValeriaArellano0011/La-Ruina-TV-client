@@ -5,7 +5,7 @@ import s from './css/EditMediaList.module.css'
 import {
     getUsers,
     resetOption,
-    getEditusers,
+    getEditUsers,
     getDeleteUsers
   } from "../../middlewares/redux/actions";
 
@@ -15,7 +15,6 @@ export const EditUsersList = () => {
     const usersList = useSelector(state=>state.usersList)
     useEffect(() => {
         dispatch(getUsers());
-        dispatch(resetMedia());
         dispatch(resetOption());
       }, [dispatch]);
     return(
