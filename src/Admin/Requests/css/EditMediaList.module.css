@@ -17,6 +17,7 @@
     margin-left: 40px;
 }
 .divList{
+    top: 200px;
     width: 90vw;
     margin-left: 50px;
     margin-top: -50px;
@@ -41,6 +42,10 @@
     box-shadow: 0px 0px 4px #171717;
     margin-top: 40px;
     transition-duration: .4s;
+}
+.ulList0>li{
+    text-align: center;
+    width: 20%;
 }
 .ulList1{
     min-width: 300px;
@@ -76,8 +81,12 @@
     color: rgba(255, 255, 255, 0.854);
     border-radius: 15px;
     box-shadow: 0px 0px 4px #171717;
-    margin-top: 10px;
+    margin-top: -10px;
     transition-duration: .4s;
+}
+.ulList2>li{
+    width: 20%;
+    text-align: center;
 }
 
 

@@ -2,6 +2,7 @@ import { Card } from "@mui/material";
 import { Title } from "react-admin";
 import CardContent from "@mui/material/CardContent";
 import styles from "../css/CreatePost.module.scss";
+import s from './css/CreateMedia.module.css'
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postMedia } from "../../middlewares/redux/actions/index";
@@ -250,85 +251,166 @@ const CreateMedia = () => {
     <div className={styles.createBody}>
       <div className={styles.CreateProduct}>
         <Card>
-          <Title title="Nuevo Post" />
-          <h1 className={styles.createTitle}>Crear un Nuevo Post</h1>
-          <CardContent>Rellena el siguiente formulario</CardContent>
           <form onSubmit={submit}>
-            <div>
+          <div className='navFixed' ></div>
+
+            <div className={s.cont0} id='cont0'>
+            <div className={s.cont1} id='cont1'>
+          <Title title="Nuevo Contenido" />
+          <h1 className={styles.createTitle}>Crear un Nuevo Contenido</h1>
+          <CardContent>Rellena el siguiente formulario</CardContent>
+            <div className={s.contTitleArtistDesc}>
+            <div className={s.divTitleArtistDesc}>
+                <p>
+                  <label>Titulo</label>
+                  {/* <br></br> */}
+                  <input
+                    type="text"
+                    name="title"
+                    value={data.title}
+                    onChange={handleInputChange}
+                  />
+                </p>
+                <p>
+                  <label>Artista</label>
+                  {/* <br></br> */}
+                  <input
+                    type="text"
+                    name="artist"
+                    value={data.artist}
+                    onChange={handleInputChange}
+                  />
+                </p>
+                <p style={{textAlign:'center', marginLeft:'10px'}}>
+                  <label>Descripción</label>
+                  <br></br>
+                  <textarea
+                    rows="5" 
+                    minlength='1'
+                    type="text"
+                    name="info"
+                    value={data.info}
+                    onChange={handleInputChange}
+                  />
+                </p>
+                </div>
+                </div>
+              <div className={s.imgSlrVsr}>
+                <p>
+                  <label>Imagen del Slider</label>
+                  <br></br>
+                  <img src={previewSlider ? previewSlider : defaultPreview} alt="visor" height="120px" />
+                  <br></br>
+                  <input
+                    className={s.inputBtn}
+                    style={{cursor: 'pointer'}}
+                    type="file"
+                    name="imageSlider"
+                    accept="image/jpeg"
+                    onChange={(e) => {
+                      setImgSlider(e.target.files[0])
+                      const file = e.target.files[0];
+                      const reader = new FileReader();
+                      reader.onloadend = () => {
+                        setPreviewSlider(reader.result);
+                      }
+                      reader.readAsDataURL(file);
+                    }}
+                  />
+                </p>
+                <p>
+                  <label>Imagen del Visor</label>
+                  <br></br>
+                  <img src={previewVisor ? previewVisor : defaultPreview} alt="visor" height="120px" />
+                  <br></br>
+                  <input
+                    className={s.inputBtn}
+                    type="file"
+                    name="imageVisor"
+                    accept="image/jpeg"
+                    onChange={(e) => {
+                      setImgVisor(e.target.files[0])
+                      const file = e.target.files[0];
+                      const reader = new FileReader();
+                      reader.onloadend = () => {
+                        setPreviewVisor(reader.result);
+                      }
+                      reader.readAsDataURL(file);
+                    }}
+                  />
+                </p>
+                </div>
+                  {/*----------------------*/}
+                  {/*----------------------*/}
+                  {/*----------------------*/}
+                <button className={s.btnContinuar} onClick={()=>{return (
+                  document.querySelector('#cont1').style.transform='translateY(-100vh)',
+                  document.querySelector('#cont2').style.transform='translateY(-100vh)'
+                  )}}>Continuar</button>
+                </div>
+              <div className={s.cont2} id='cont2'>
+              <button className={s.btnVolver} onClick={()=>{return (
+                  document.querySelector('#cont1').style.transform='translateY(0)',
+                  document.querySelector('#cont2').style.transform='translateY(0)'
+                  )}}>Volver al paso anterior</button>
+                  {/*----------------------*/}
+                  {/*----------------------*/}
+                  {/*----------------------*/}
+              <h1>Detalles del contenido</h1>
+
+            <div className={s.contTitleArtistDesc}>
+            <div className={s.divTitleArtistDesc}>
+
               <p>
-                <label>Titulo</label>
-                <br></br>
+                <label>Id del link de YouTube</label>
                 <input
                   type="text"
-                  name="title"
-                  value={data.title}
-                  onChange={handleInputChange}
-                />
+                  name="idLinkYT"
+                  value={data.idLinkYT}
+                  onChange={(e) =>
+                    setData({ ...data, idLinkYT: e.target.value })
+                  } />
               </p>
               <p>
-                <label>Artista</label>
-                <br></br>
+                <label>Id del link de Spotify</label>
                 <input
                   type="text"
-                  name="artist"
-                  value={data.artist}
-                  onChange={handleInputChange}
+                  name="idLinkSPOTY"
+                  value={data.idLinkSPOTY}
+                  onChange={(e) =>
+                    setData({ ...data, idLinkSPOTY: e.target.value })
+                  }
                 />
               </p>
               <p>
-                <label>Descripción</label>
-                <br></br>
+                <label>url de la Web</label>
                 <input
                   type="text"
-                  name="info"
-                  value={data.info}
-                  onChange={handleInputChange}
+                  name="urlLinkWEB"
+                  value={data.urlLinkWEB}
+                  onChange={(e) =>
+                    setData({ ...data, urlLinkWEB: e.target.value })
+                  }
                 />
               </p>
               <p>
-                <label>Imagen del Slider</label>
-                <br></br>
-                <img src={previewSlider ? previewSlider : defaultPreview} alt="visor" width="200px" height="100px" />
-                <br></br>
+                <label>Link de descarga</label>
                 <input
-                  type="file"
-                  name="imageSlider"
-                  accept="image/jpeg"
-                  onChange={(e) => {
-                    setImgSlider(e.target.files[0])
-                    const file = e.target.files[0];
-                    const reader = new FileReader();
-                    reader.onloadend = () => {
-                      setPreviewSlider(reader.result);
-                    }
-                    reader.readAsDataURL(file);
-                  }}
+                  type="text"
+                  name="urlLinkDOWNLOAD"
+                  value={data.urlLinkDOWNLOAD}
+                  onChange={(e) =>
+                    setData({ ...data, urlLinkDOWNLOAD: e.target.value })
+                  }
                 />
               </p>
-              <p>
-                <label>Imagen del Visor</label>
-                <br></br>
-                <img src={previewVisor ? previewVisor : defaultPreview} alt="visor" width="200px" height="100px" />
-                <br></br>
-                <input
-                  type="file"
-                  name="imageVisor"
-                  accept="image/jpeg"
-                  onChange={(e) => {
-                    setImgVisor(e.target.files[0])
-                    const file = e.target.files[0];
-                    const reader = new FileReader();
-                    reader.onloadend = () => {
-                      setPreviewVisor(reader.result);
-                    }
-                    reader.readAsDataURL(file);
-                  }}
-                />
-              </p>
-              <h1>Media Type</h1>
+              </div>
+              </div>
+              <div className={s.divisor}></div>
+                <label>Tipo de contenido (selecciona uno)</label><br></br>
               <div className={styles.types}>
                 {optionsMediaType?.map((t) => (
-                  <div key={`${t.name}-${t.slot}`}>
+                  <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
                     <input
                       type="checkbox"
                       name={t.name}
@@ -340,30 +422,40 @@ const CreateMedia = () => {
                   </div>
                 ))}
               </div>
-              <p>
-                <label>Id del link de YouTube</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="idLinkYT"
-                  value={data.idLinkYT}
-                  onChange={(e) =>
-                    setData({ ...data, idLinkYT: e.target.value })
-                  } />
-              </p>
-              <p>
-                <label>Id del link de Spotify</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="idLinkSPOTY"
-                  value={data.idLinkSPOTY}
-                  onChange={(e) =>
-                    setData({ ...data, idLinkSPOTY: e.target.value })
-                  }
-                />
-              </p>
-              <p>
+              <br/><label>Género</label><br/>
+              <div className={styles.types}>
+                  {optionsGenre?.map((t) => (
+                    <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
+                      <input
+                        type="checkbox"
+                        name={t.name}
+                        value={t.name}
+                        id={t.name}
+                        onChange={(e) => checkboxGen(e)}
+                      />
+                      <label htmlFor={t.name}>{t.name}</label>
+                      {t.slot % 4 === 0 ? <br /> : null}
+                    </div>
+                  ))}
+                </div>
+                <br/><label>Categoria</label><br/>
+                <div className={styles.types}>
+                  {optionsCategories?.map((t) => (
+                    <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
+                      <input
+                        type="checkbox"
+                        name={t.name}
+                        value={t.name}
+                        id={t.name}
+                        onChange={(e) => checkboxCat(e)}
+                      />
+                      <label htmlFor={t.name}>{t.name}</label>
+                      {t.slot % 4 === 0 ? <br /> : null}
+                    </div>
+                  ))}
+                </div>
+              <div>             
+                <p>
                 <label>Archivo de audio</label>
                 <br></br>
                 <input
@@ -385,64 +477,7 @@ const CreateMedia = () => {
                   }
                 />
               </p>
-              <p>
-                <label>url de la Web</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="urlLinkWEB"
-                  value={data.urlLinkWEB}
-                  onChange={(e) =>
-                    setData({ ...data, urlLinkWEB: e.target.value })
-                  }
-                />
-              </p>
-              <p>
-                <label>Link de descarga</label>
-                <br></br>
-                <input
-                  type="text"
-                  name="urlLinkDOWNLOAD"
-                  value={data.urlLinkDOWNLOAD}
-                  onChange={(e) =>
-                    setData({ ...data, urlLinkDOWNLOAD: e.target.value })
-                  }
-                />
-              </p>
-              <div>
-                <h1>Categoria</h1>
-                <div className={styles.types}>
-                  {optionsCategories?.map((t) => (
-                    <div key={`${t.name}-${t.slot}`}>
-                      <input
-                        type="checkbox"
-                        name={t.name}
-                        value={t.name}
-                        id={t.name}
-                        onChange={(e) => checkboxCat(e)}
-                      />
-                      <label htmlFor={t.name}>{t.name}</label>
-                      {t.slot % 4 === 0 ? <br /> : null}
-                    </div>
-                  ))}
-                </div>
 
-                <h1>Género</h1>
-                <div className={styles.types}>
-                  {optionsGenre?.map((t) => (
-                    <div key={`${t.name}-${t.slot}`}>
-                      <input
-                        type="checkbox"
-                        name={t.name}
-                        value={t.name}
-                        id={t.name}
-                        onChange={(e) => checkboxGen(e)}
-                      />
-                      <label htmlFor={t.name}>{t.name}</label>
-                      {t.slot % 4 === 0 ? <br /> : null}
-                    </div>
-                  ))}
-                </div>
                 <input
                   type="submit"
                   value="Publicar"
@@ -450,10 +485,11 @@ const CreateMedia = () => {
                 />
               </div>
             </div>
+            </div>
           </form>
         </Card>
       </div>
-    </div>
+      </div>
   );
 };
 

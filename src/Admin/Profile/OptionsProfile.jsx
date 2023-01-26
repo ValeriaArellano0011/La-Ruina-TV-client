@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import RequestProfile from '../Requests/RequestProfile';
 import { useSelector } from 'react-redux';
 import s from './css/Profile.module.css';
@@ -11,6 +12,56 @@ const OptionsProfile = () => {
     const rolUser = useSelector(state=>state.rolUser)
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
+
+
+    {/* aqui */}
+
+    function DeleteAccount(props) {
+      const [email, setEmail] = useState('');
+      const [password, setPassword] = useState('');
+      const [error, setError] = useState(null);
+      const [success, setSuccess] = useState(null);
+
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          const res = await axios.delete(`/delete-account/${props.userId}`, {
+            data: {email, password},
+          });
+          setSuccess(res.data.msg);
+        } catch (err) {
+          setError(err.response.data.msg);
+        }
+      }
+
+      return (
+        <form>
+
+            <label>
+              Email:
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            </label>
+
+            <label>
+              Password:
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            </label>
+
+            <button type="submit" onClick={handleSubmit}>Eliminar Cuenta</button>
+            {error && <p>{error}</p>}
+            {success && <p>{success}</p>}
+
+          </form>
+      );
+    }
+
+    {/* aqui */}
+
+
+
+
+
+
     useEffect(() => {
       if (user) {
         setUserAlias(user.userAlias)
@@ -34,6 +85,11 @@ const OptionsProfile = () => {
           </div>
 
           {/* aqui */}
+
+          
+
+          {/* aqui */}
+
           <ul>
             <li>
               <RequestProfile/>
@@ -44,4 +100,4 @@ const OptionsProfile = () => {
       )
 }
 
-export default OptionsProfile
+export default {OptionsProfile}
