@@ -67,9 +67,9 @@ const Requests = () => {
         Modificar Contenido
         </button>
       </Link>
-      <Link to='/media/edit'>
+      <Link to='/users/edit'>
         <button 
-          className={s.crearPost}
+          className={s.editUsers}
           onClick={()=>{
             return(
             dispatch(resetOption()),
