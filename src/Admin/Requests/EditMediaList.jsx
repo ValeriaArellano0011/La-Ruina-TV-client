@@ -24,21 +24,26 @@ export const EditMediaList = () => {
     return(
         <div className={s.editListCont}>
             <div className={s.editListFormat} >
-                Listado de contenido
-                <div>
-                    <ul>
+                <h1>Listado de contenido</h1>
+                <div className={s.divList}>
+                    <div className={s.divFixed}>
+                        <ul className={s.ulList0}>
+                            <li>Índice</li> - <li>Título</li> - <li>id</li> - <li>Editar</li> - <li>Eliminar</li>
+                        </ul>
+                    </div>
+                    <ul className={s.ulList1}>
                         {
                             mediaList?.map((e, index)=>{
                                 return(
                                     <li key={index}>
-                                        {index} - {e.title} - {e.id}
-                                        <button onClick={() => {
+                                        <ul className={s.ulList2}><li>{index}</li> - <li>{e.title}</li> - <li>{e.id}</li> - 
+                                        <li><button className={s.btnEdit} onClick={() => {
                                             dispatch(getEditMedia(e.connectionId))
                                             history.push(`/media/edit/${e.connectionId}`)
-                                        }}> Edit </button>
-                                        <button onClick={() => {
+                                        }}>  </button></li> - 
+                                        <li><button className={s.btnDelete} onClick={() => {
                                             dispatch(getDeleteMedia(e.connectionId))
-                                        }}> Delete </button>
+                                        }}>  </button></li></ul>
                                     </li>
                                 )
                             })
