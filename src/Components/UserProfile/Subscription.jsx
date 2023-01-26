@@ -101,7 +101,7 @@ export const Subscription = () => {
                         )
                       }
                     }>
-                      {!disabled? 'Comenzar' : 'Plan Actual' }</button>
+                      {!disabled? 'Comenzar' : 'Activo' }</button>
                   </div>
                 </li>
                 {/* <li className={s.liCheck}>
