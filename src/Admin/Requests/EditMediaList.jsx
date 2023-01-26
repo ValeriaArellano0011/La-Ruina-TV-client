@@ -26,7 +26,7 @@ export const EditMediaList = () => {
             <div className={s.editListFormat} >
                 <h1>Listado de contenido</h1>
                 <div className={s.divList}>
-                    <ul className={s.ulList1}>
+                    <div className={s.ulList1}>
                         <ul className={s.ulList0}>
                             <li>Índice</li> - <li>Título</li> - <li>id</li> - <li>Editar</li> - <li>Eliminar</li>
                         </ul>
@@ -46,7 +46,7 @@ export const EditMediaList = () => {
                                 )
                             })
                         }
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
