@@ -27,7 +27,11 @@ const NavSearchBar = () => {
 
     return (
         <ul className='navSearchBar'>
-            <li><SearchBar/></li>
+            <li>
+                <div className='divSearchBarResponsive'>
+                    <SearchBar/>
+                </div>
+            </li>
             <NavProfileMenu/>
         </ul>
     )

@@ -76,7 +76,7 @@ button:hover{
   font-size: 25px;
 }
 .navSearchBar{
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: flex-end;
   list-style-type: none;
@@ -108,6 +108,7 @@ button:hover{
 .menuIcon{
   opacity: .7;
   margin-top: 5px;
+  z-index: 99999;
 }
 .menuIcon:hover{
   opacity: 1;
@@ -812,6 +813,10 @@ button:hover{
   .navMenu{
     display: none;
   }
+  #profileContPhone{
+    display: flex;
+  }
+
 }
 
 /* Small screen devices (600px and above) */
@@ -822,7 +827,12 @@ button:hover{
   .navMenu{
     display: none;
   }
-
+  .navSearchBar{
+    display: flex;
+  }
+  .divSearchBarResponsive{
+    display: none;
+  }
 }
 
 /* Medium screen devices (768px and above) */
@@ -867,7 +877,13 @@ button:hover{
   }
 
 }
- 
+@media only screen and (min-width: 1180px) {
+
+  .divSearchBarResponsive{
+    display: flex;
+  }
+
+}
 /* Extra big screen devices (1200px and above) */
 @media only screen and (min-width: 1320px) {
   .navBurgerTabletCont{
@@ -876,4 +892,5 @@ button:hover{
   .navMenu{
     display: flex;
   }
+
 }

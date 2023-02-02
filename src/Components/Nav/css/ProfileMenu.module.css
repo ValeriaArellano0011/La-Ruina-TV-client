@@ -71,7 +71,7 @@
     max-height: 25px;
     margin-top: 10px;
 }
-.profileBtnMenu{
+.profileBtnMenu {
     border: none;
     font-family: Bebas Neue;
     color: rgba(255, 255, 255, 0.781);
@@ -87,6 +87,7 @@
     cursor: pointer;
     color: white;
 }
+
 .optionProfileBtn{
     background: linear-gradient(to top, #171717, #171717 99%);
     box-shadow: 0px 0px 4px rgb(130, 128, 128);
