@@ -83,10 +83,27 @@ button:hover{
   height: 100%;
   position: absolute;
   right: 20px;
-  top: 11px;
+  top: 0px;
+}
+.navBurgerTabletCont{
+  width: 100vw;
+  height: 80px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navCont li{
+.menuIcon{
+  opacity: .7;
+  margin-top: 5px;
+}
+.menuIcon:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+
+.navCont li {
   display: inline;
   text-align: center;
   color: #dfdfdfbe;
@@ -781,13 +798,18 @@ button:hover{
   .navCont{
     display: flex;
   }
-
+  .navMenu{
+    display: none;
+  }
 }
 
 /* Small screen devices (600px and above) */
 @media only screen and (min-width: 400px) {
   .navCont{
     display: flex;
+  }
+  .navMenu{
+    display: none;
   }
 
 }
@@ -829,14 +851,17 @@ button:hover{
  
 /* Big screen devices (889px and above) */
 @media only screen and (min-width: 889px) {
-  .navMenu{
-    display: none;
+  .navBurgerTabletCont{
+    display: flex;
   }
+
 }
  
 /* Extra big screen devices (1200px and above) */
 @media only screen and (min-width: 1320px) {
-
+  .navBurgerTabletCont{
+    display: none;
+  }
   .navMenu{
     display: flex;
   }

@@ -12,14 +12,11 @@ import { EnterBtn } from './EnterBtn';
 import { BackButton } from './BackButton';
 import { ProfileMenu } from './ProfileMenu';
 import { GOD__MODE } from '../../Admin/Requests/GOD__MODE';
-import NavMenu from './NavMenu'
 import Logo from './Logo';
 import NavProfileMenu from './NavProfileMenu';
-import NavSearchBar from './NavSearchBar';
-import { NavBurgerMenuTablet } from './NavBurgerMenuTablet';
 
 
-const Nav = () => {
+const NavSearchBar = () => {
     const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
     const option = useSelector(state=>state.option)
@@ -29,14 +26,11 @@ const Nav = () => {
     window.onscroll = function() {navBack(setPosNav, posNav)};
 
     return (
-
-    <div className='navCont'>
-        <Logo/>
-        <NavMenu/>
-        <NavBurgerMenuTablet/>
-        <NavSearchBar/>
-    </div>
+        <ul className='navSearchBar'>
+            <li><SearchBar/></li>
+            <NavProfileMenu/>
+        </ul>
     )
 }
 
-export default Nav
+export default NavSearchBar
