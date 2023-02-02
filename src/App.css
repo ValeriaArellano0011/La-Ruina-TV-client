@@ -64,7 +64,7 @@ button:hover{
 
 .navCont:hover{
   transition-duration: 1s;
-  filter: drop-shadow(2px 5px 8px);
+  filter: drop-shadow(2px 5px 8px black);
 }
 .navMenu{
   display: flex;
@@ -93,7 +93,18 @@ button:hover{
   justify-content: center;
   align-items: center;
 }
-
+.contCanvasMenu{
+  width: 100vw;
+  height: auto;
+  text-align: center;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.856);
+  position: fixed;
+  z-index: 9;
+  justify-content: center;
+  filter: drop-shadow(2px 5px 8px black);
+  display: none;
+}
 .menuIcon{
   opacity: .7;
   margin-top: 5px;

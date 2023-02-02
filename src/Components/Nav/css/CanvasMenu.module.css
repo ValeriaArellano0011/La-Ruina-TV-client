@@ -1,0 +1,22 @@
+.contMenu{
+    width: 100%;
+    margin-top: 0px;
+    list-style: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.856);
+
+}
+
+.navBurgerMenu{
+    margin-top: 85px;
+}
+
+.navBurgerMenu li{
+    margin-left: -40px;
+    margin-top: 8px;
+    font-size: 18px;
+}
+
+.navBurgerMenu li:hover{
+    background-color: rgb(0, 0, 0);
+}

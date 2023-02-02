@@ -24,6 +24,7 @@ import { YtSubscribeButton } from './Components/Utils/YtSubscribeButton';
 import { EditMediaList } from './Admin/Requests/EditMediaList';
 import { EditUsersList } from './Admin/Requests/EditUsersList';
 import PlanMP from './Components/MercadopagoPlan/PlanMP.jsx';
+import { CanvasMenu } from './Components/Nav/CanvasMenu';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Switch>
         <>
           <Nav />
+            <CanvasMenu/>
           <div className='userPlayerCont'>
           { (url !== '') || (option === 'playlist')?
             <div className='playListCont'>
@@ -42,7 +44,7 @@ function App() {
           }  
           </div>
           <div className='bodyApp'>
-            <CanvasOptions />
+            <CanvasOptions/>
             <Route path='/auth'>
               <AuthToken />
             </Route>

@@ -42,6 +42,7 @@ const Logo = () => {
                     document.querySelector(`.browserBody`).style.height='auto',
                     document.querySelector(`.browserBody`).style.overflowY='scroll',
                     document.querySelector(`.visor`).style.transform='translateX(0)',
+                    document.querySelector('.contCanvasMenu').style.display='none',
                     document.querySelector('#slideCanvasCont').style.overflowY="scroll"
                     )}}
             />
