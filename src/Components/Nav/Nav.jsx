@@ -130,7 +130,7 @@ const Nav = () => {
                     document.querySelector(`.browserBody`).style.overflowY='scroll',
                     document.querySelector(`.visor`).style.transform='translateX(0)',
                     document.querySelector('#slideCanvasCont').style.overflowY="scroll")}}>
-                <a href='https://merch.laruinarecords.cl'  > Merch </a>
+                <a href='https://merch.laruinarecords.cl' target=' _blank' > Merch </a>
             </li>
             <ul className='navSearchBar'>
                 <li><SearchBar/></li>
