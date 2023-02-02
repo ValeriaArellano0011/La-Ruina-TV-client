@@ -12,6 +12,7 @@ import { EnterBtn } from './EnterBtn';
 import { BackButton } from './BackButton';
 import { ProfileMenu } from './ProfileMenu';
 import { GOD__MODE } from '../../Admin/Requests/GOD__MODE';
+import NavMenu from './NavMenu'
 
 
 const Nav = () => {
@@ -26,122 +27,7 @@ const Nav = () => {
     return (
 
     <div className='navCont'>
-        <div className='ruinaLogoCont'>
-            <Link to='/browser'>
-                <img 
-                    className='ruinaLogo' 
-                    src={ruinaLogo} 
-                    alt="La Ruina TV"
-                    width='120' 
-                    onClick={()=>{
-                        window.scrollTo(0, 0)
-                        return(
-                        dispatch(resetOption()),
-                        document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                        document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                        document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                        document.querySelector(`.navCont`).style.width='100vw',
-                        document.querySelector(`.navMenu`).style.display='flex',
-                        document.querySelector(`.browserBody`).style.height='auto',
-                        document.querySelector(`.browserBody`).style.overflowY='scroll',
-                        document.querySelector(`.visor`).style.transform='translateX(0)',
-                        document.querySelector('#slideCanvasCont').style.overflowY="scroll"
-                        )}}
-                />
-            </Link>
-        <GOD__MODE/>
-        </div>
-        <ul className='navMenu'>
-            <li
-                onClick={()=>{
-                    window.scrollTo(0, 0)
-                    return(
-                    dispatch(resetOption()),
-                    document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                    document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                    document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                    document.querySelector(`.navCont`).style.width='100vw',
-                    document.querySelector(`.navMenu`).style.display='flex',
-                    document.querySelector(`.browserBody`).style.height='auto',
-                    document.querySelector(`.browserBody`).style.overflowY='scroll',
-                    document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll"
-                    )}}>
-                <Link to='/browser'>Inicio</Link></li>
-            <li
-                onClick={()=>{
-                    window.scrollTo(0, 0)
-                    return(
-                    dispatch(resetOption()),
-                    document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                    document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                    document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                    document.querySelector(`.navCont`).style.width='100vw',
-                    document.querySelector(`.navMenu`).style.display='flex',
-                    document.querySelector(`.browserBody`).style.height='auto',
-                    document.querySelector(`.browserBody`).style.overflowY='scroll',
-                    document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll"
-                    )}}>
-                <Link to='/novedades'>Novedades</Link></li>
-            <li
-                onClick={()=>{
-                    window.scrollTo(0, 0)
-                    return(
-                    dispatch(resetOption()),
-                    document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                    document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                    document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                    document.querySelector(`.navCont`).style.width='100vw',
-                    document.querySelector(`.navMenu`).style.display='flex',
-                    document.querySelector(`.browserBody`).style.height='auto',
-                    document.querySelector(`.browserBody`).style.overflowY='scroll',
-                    document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll"
-                    )}}>
-                <Link to='/lanzamientos'>Back&Amp</Link></li>
-            <li
-                onClick={()=>{
-                    window.scrollTo(0, 0)
-                    return(
-                    dispatch(resetOption()),
-                    document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                    document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                    document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                    document.querySelector(`.navCont`).style.width='100vw',
-                    document.querySelector(`.navMenu`).style.display='flex',
-                    document.querySelector(`.browserBody`).style.height='auto',
-                    document.querySelector(`.browserBody`).style.overflowY='scroll',
-                    document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll"
-                    )}}>
-                <Link to='/checkout/donation'>Colaborar</Link></li>
-            <li
-                onClick={()=>{
-                    window.scrollTo(0, 0)
-                    return(
-                    dispatch(resetOption()),
-                    document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                    document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                    document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                    document.querySelector(`.navCont`).style.width='100vw',
-                    document.querySelector(`.navMenu`).style.display='flex',
-                    document.querySelector(`.browserBody`).style.height='auto',
-                    document.querySelector(`.browserBody`).style.overflowY='scroll',
-                    document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll")}}>
-                <a href='https://merch.laruinarecords.cl' target=' _blank' > Merch </a>
-            </li>
-            <ul className='navSearchBar'>
-                <li><SearchBar/></li>
-                <ul className={s.profileMenuBtn}>
-                    {!(user || currentUser)? 
-                    (option==='login'? <li><BackButton /></li> : <li><EnterBtn /></li>)
-                    : (option === '' || option==='login' )? <li><ProfileMenu/></li> : <li><BackButton /></li> }
-                </ul>
-            </ul>
-        </ul>
-
+        <NavMenu/>
         </div>
     )
 }
