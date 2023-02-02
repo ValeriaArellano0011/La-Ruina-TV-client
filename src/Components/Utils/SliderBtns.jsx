@@ -60,6 +60,7 @@ const SliderBtns = (props) => {
             >
             <img className={s.sliderBtnPrevImg} alt='prevBtn' src={playIconb} />
             </button>
+            {!props.categories.length>1? null : 
             <button 
             className={`${s.sliderPostBtn}`}
             id={`${key}PostBtn`}
@@ -106,7 +107,7 @@ const SliderBtns = (props) => {
             onMouseLeave={()=>
                 {   
                     return(
-                        document.querySelector(`#${key}PostBtn`).style.opacity='0',
+                        document.querySelector(`#${key}PostBtn`).style.opacity='0.5',
                         document.querySelector(`#${key}PostBtn`).style.transitionDuration='1s',
                         document.querySelector(`#${key}PostBtn`).style.background='linear-gradient(to left, rgb(225, 225, 225), transparent)'
                         )   
@@ -115,7 +116,7 @@ const SliderBtns = (props) => {
             }
             >
                 <img className={s.sliderBtnPostImg} alt='postBtn' src={playIconb} />
-            </button>
+            </button>}
         </>
     )
 }

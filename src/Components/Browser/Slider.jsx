@@ -8,9 +8,33 @@ const Slider = (props) => {
     const id = (props.id)
 
     return(
-        <div className={s.sliderCont} >
+        <div className={s.sliderCont}
+
+
+        >
             <h3>{sliderTitle}</h3>
-            <div className={s.slidercategories}>
+            <div 
+                className={s.slidercategories}
+                onMouseEnter={()=>
+                    {
+                        return(
+                            document.querySelector(`#${id}PostBtn`).style.transitionDuration='1s',
+                            document.querySelector(`#${id}PostBtn`).style.cursor='pointer',
+                            document.querySelector(`#${id}PostBtn`).style.opacity='1',
+                            document.querySelector(`#${id}PostBtn`).style.background='linear-gradient(to left, rgb(0, 0, 0), transparent)'
+                            )
+                    }
+                }
+                onMouseLeave={()=>
+                    {
+                        return(
+                            document.querySelector(`#${id}PostBtn`).style.transitionDuration='1s',
+                            document.querySelector(`#${id}PostBtn`).style.opacity='0.5',
+                            document.querySelector(`#${id}PostBtn`).style.background='linear-gradient(to left, rgb(255, 255, 255), transparent)'
+                            )   
+                    }
+                }
+            >
                 <div className={s.sliderContItems}>
                     <SliderBtns
                         name = {sliderTitle}
