@@ -33,11 +33,11 @@ export const Subscription = () => {
 
 
   return (
-    <div>
+    <div className={s.subCont}>
       <div className='divProfile'>
-        <div className={s.checkoutFormat} >
           <div className='navFixed' ></div>
-            <h1>Elegí tu plan</h1>
+        <div className={s.checkoutFormat} >
+            <h1 className={s.title}>Elegí tu plan</h1>
               <ul className={s.ulCheck}>
                 <li className={s.liCheck}>
                   <div className={s.divCheckCont}>

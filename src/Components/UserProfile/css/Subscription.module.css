@@ -1,13 +1,54 @@
 .checkoutFormat {
-    margin-top: 0px;
+    margin-top: -80px;
 }
-
-.ulCheck {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    text-align: center;
-    justify-content: center;
+@media only screen and (max-width: 768px) {
+    .ulCheck {
+        display: flex;
+        list-style: none;
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 0px;
+    }
+    .checkoutFormat{
+        position: relative;
+        max-height: 100vh;
+        width: 100vw;
+        top: 180px;
+        overflow-y: scroll;
+        margin-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .subCont{
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+    }
+    .divCheckCont{
+        margin-bottom: 200px;
+    }
+    .liCheck{
+        margin-bottom: -150px;
+    }
+    .ulCheck{
+        margin-left: -40px;
+    }
+    
+}
+@media only screen and (min-width: 768px) {
+    .ulCheck {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        text-align: center;
+        justify-content: center;
+    }
+    .title{
+        margin-left: 40px;
+    }
 }
 .liCheck {
     list-style: none;
@@ -28,7 +69,8 @@
     justify-content: center;
     filter: drop-shadow(0px 0px 3px black);
 }
-h2{
+
+.divCheckCont>h2{
     margin-top: 15px;
     position: absolute;
 }

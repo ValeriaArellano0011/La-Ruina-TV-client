@@ -36,8 +36,10 @@ const Profile = () => {
             </ul>
           </div>
 
-          <button className='button1'>Editar cuenta</button><br/>
-          <button className='button2' onClick={()=>{return document.querySelector('#deleteAccount').style.display='flex'}} >Eliminar cuenta</button>
+          <div className={s.buttons}>
+            <button className='button1'>Editar cuenta</button><br/>
+            <button className='button2' onClick={()=>{return document.querySelector('#deleteAccount').style.display='flex'}} >Eliminar cuenta</button>
+          </div>
           <div className={s.deleteAccount} id={'deleteAccount'}>
             <DeleteAccount/>
           </div>

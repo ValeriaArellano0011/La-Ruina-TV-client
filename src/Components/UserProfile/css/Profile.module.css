@@ -51,6 +51,7 @@
     height: 200px;
     margin-left: 60px;
     margin-right: 60px;
+    margin-bottom: 100px;
     top: 90px;
     border-radius: 15px;
     position: absolute;
@@ -60,6 +61,12 @@
     align-items: center;
     text-align: center;
     list-style: none;
+}
+.buttons{
+    margin-top: 100px;
+}
+.buttons>button{
+    margin-bottom: 10px;
 }
 
 .deleteAccount{
