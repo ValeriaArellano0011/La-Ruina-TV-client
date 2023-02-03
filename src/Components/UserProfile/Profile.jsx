@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import RequestProfile from '../Requests/RequestProfile';
+import RequestProfile from '../../Admin/Requests/RequestProfile';
 import { useSelector } from 'react-redux';
 import s from './css/Profile.module.css';
 import userIcon from '../../design/user-icon.png';
