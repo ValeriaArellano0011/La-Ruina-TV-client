@@ -47,7 +47,7 @@ const Logo = () => {
                     )}}
             />
         </Link>
-        <GOD__MODE/>
+        {/* <GOD__MODE/> */}
     </div>
 )}
 
