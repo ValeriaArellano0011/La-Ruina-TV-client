@@ -35,14 +35,13 @@ const Profile = () => {
               <li className={s.liProfile3}>{currentUser? currentUser.subs : 'Free Plan'}</li>
             </ul>
           </div>
-
-          <div className={s.buttons}>
-            <button className='button1'>Editar cuenta</button><br/>
-            <button className='button2' onClick={()=>{return document.querySelector('#deleteAccount').style.display='flex'}} >Eliminar cuenta</button>
-          </div>
           <div className={s.deleteAccount} id={'deleteAccount'}>
             <DeleteAccount/>
           </div>
+              <div className={s.buttons}>
+                <button className='button1'>Editar cuenta</button><br/>
+                <button className='button2' onClick={()=>{return document.querySelector('#deleteAccount').style.display='flex'}} >Eliminar cuenta</button>
+              </div>
 
 
           <ul>

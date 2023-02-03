@@ -43,7 +43,7 @@ export const Subscription = () => {
                   <div className={s.divCheckCont}>
                     <h2>Plan Freemium</h2>
                     <div className={s.divPrice}>
-                      gratuito
+                      Gratuito
                     </div>
                     <div className={s.divDescription}>
                       <ul>

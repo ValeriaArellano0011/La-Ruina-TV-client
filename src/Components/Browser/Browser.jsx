@@ -39,7 +39,7 @@ const Browser = () => {
       {/* <Sort /> */}
 
       {/* --------------------SLIDERS-------------------- */}
-      {cardList && cardList.length>0 && (
+      {cardList && cardList.length>1 && (
         <Slider
           title={"Contenido"}
           cardList={cardList}
@@ -66,7 +66,7 @@ const Browser = () => {
 
       {/* ---------------------FOOTER--------------------- */}
 
-      {cardList?.length > 0 && <Footer />}
+      {cardList?.length > 1 && <Footer />}
     </div>
   );
 };
