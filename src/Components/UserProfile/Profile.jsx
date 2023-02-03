@@ -36,13 +36,12 @@ const Profile = () => {
             </ul>
           </div>
 
-          {/* aqui */}
-          <button className={s.btnDeleteAccount} onClick={()=>{return document.querySelector('#deleteAccount').style.display='flex'}} >Eliminar cuenta</button>
+          <button className='button1'>Editar cuenta</button><br/>
+          <button className='button2' onClick={()=>{return document.querySelector('#deleteAccount').style.display='flex'}} >Eliminar cuenta</button>
           <div className={s.deleteAccount} id={'deleteAccount'}>
             <DeleteAccount/>
           </div>
 
-          {/* aqui */}
 
           <ul>
             <li>
