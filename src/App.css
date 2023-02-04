@@ -407,10 +407,12 @@ button:hover{
 .visorPostInfo{
   height: 300px;
   width: 50vw;
+  min-width: 400px;
   position: absolute;
   bottom: 20vh;
   left: 50px;
   animation-timing-function: ease-in-out;
+  /* background-color: aqua; */
 }
 
 @keyframes infoScale{
@@ -752,29 +754,35 @@ button:hover{
 
 /* ------------------PLAY----------------- */
 .playerCont{
-  width: 50vw;
+  width: 100vw;
   height: 100vh;
   position: fixed;
-  right: 0px;
   z-index: 9999;
-  top: 0;
+  top: 0px;
   transition-duration: 1s;
   filter: drop-shadow(0px 0px 20px black);
   background: linear-gradient(to right, #00000000, rgba(0, 0, 0, 0.579));
   z-index: 0;
   opacity: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0px;
 }
 
 .playerLi{
+  /* width: 500px;
+  height: 281.25px; */
   width: 640px;
   height: 360px;
   background-color: #171717;
   position: relative;
-  margin-top: 100px;
-  right: 65px;
   scale: 0;
   transition-duration: 1s;
   list-style: none;
+  bottom: 10vh;
+  right: 20px;
 }
 
 #ytplayer{

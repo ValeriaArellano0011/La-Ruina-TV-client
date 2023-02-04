@@ -267,7 +267,7 @@
 	height: 250px;
 	margin-left: 380px;
 	top: 275px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 /* ----------------------------------------------------- */

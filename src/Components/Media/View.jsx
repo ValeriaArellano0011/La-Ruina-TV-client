@@ -95,6 +95,7 @@ const View = () => {
                 </div>
                 <div className='visorCanvas'></div>
                 <div className='visorPostInfo'>
+
                     <div className='visorPostArtista'>
                         <p>{artist}</p>
                     </div>
@@ -105,6 +106,8 @@ const View = () => {
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
+                        <Player idYT={idYT} />              
+
                             {/* {
                                 Object.entries(type).map((el)=>{
                                     return(
@@ -126,6 +129,7 @@ const View = () => {
                                 width='25px' 
                             /></button> : null}
                         <><ul>
+
                         {(currentUser || user)? <button 
                         className='buttonAddToPlaylist' 
                         onClick={()=>{
@@ -180,10 +184,11 @@ const View = () => {
                                         className='buttonCreateNewPlaylist'>Crear una nueva lista</button></li>
                                 </ul>
                                 : null}
+
                         </ul>
                         </>
                         </ul>
-                        <Player idYT={idYT} />
+
                         <div className={'divCanvasAddListForm'}>
                             <h1>Crear una nueva Playlist</h1>
                             <form>
@@ -217,7 +222,7 @@ const View = () => {
                             </form>
                         </div>
                         { (currentUser || user)?
-                        (                        
+                        (          
                         <button 
                             className='buttonVer'
                             onClick={()=>{
@@ -257,6 +262,7 @@ const View = () => {
                             <EditBtn connectionId={connectionId} /> : null
                         }
                     </div>
+
                     </div>
                 </div>
             </div>
