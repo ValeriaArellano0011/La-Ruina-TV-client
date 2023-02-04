@@ -22,7 +22,6 @@ export const Favorites = () => {
     <div>
       <div className='divProfile'>
         <div className='navFixed' ></div>
-            <RequestProfile />
           <div className={s.divContLikes}>
             <div className={s.contTitle}>
             {userLikes.length>0? <h1>Tus favoritos</h1>: <><h1>Nada por aquí....</h1><br/><h3>¡Agrega contenido a tus favoritos!</h3></>}
@@ -68,6 +67,7 @@ export const Favorites = () => {
               }
             </ul>
           </div>
+          <RequestProfile />
       </div>
     </div>
   )
