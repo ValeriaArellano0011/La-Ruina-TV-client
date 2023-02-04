@@ -13,8 +13,8 @@ const Fav = ({ urlID }) => {
     const [color, setColor] = useState('black')
     useEffect(()=>{
         setColor(ActiveFav(urlId, favs)? 'red':'black')
-        dispatch(getAllLikes(user.userId))
-    },[urlId, favs])
+        dispatch(getAllLikes(user?.userId))
+    },[urlId, favs, user, dispatch])
 
     const handleClick = (e) => {
         e.preventDefault()
