@@ -27,3 +27,8 @@ export default function OptionCanvas(){
     document.querySelector(`#optionProfileBtn6`).style.scale='0'
 }
 
+export function OptionProfile(option){
+    document.querySelector(`#${option}Icon`).style.opacity='1'
+    document.querySelector(`#${option}Icon`).style.filter='grayscale(.2)'
+    document.querySelector(`#${option}Icon`).style.filter='drop-shadow(0px 0px 8px rgb(255, 255, 255))'
+}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { getOption } from '../../middlewares/redux/actions'
 import s from './css/RequestProfile.module.css'
 import likeIcon from '../../design/like-icon.png'
@@ -11,11 +10,12 @@ import subscriptionIcon from '../../design/subscription-icon.png'
 import userIcon from '../../design/user-icon.png'
 import configIcon from '../../design/config-icon.png'
 import notificationIcon from '../../design/ruinatv-icon-play-b.png'
+import { OptionProfile } from '../../functions'
 
 const RequestProfile = () => {
     const dispatch = useDispatch()
-    const history = useHistory()
     const rolUser = useSelector(state=>state.rolUser)
+    const option = useSelector(state=>state.option)
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
     const [ userPicGoogle, setUserPicGoogle ] = useState('')
@@ -23,9 +23,9 @@ const RequestProfile = () => {
         if (user) {
           if(user.googlePic){
             setUserPicGoogle(user.googlePic)
-            console.log(user.googlePic)
           }
         }
+        OptionProfile(option)
     }, [user]);
     return (
         <div className={s.divProfileMenu}>
@@ -33,30 +33,30 @@ const RequestProfile = () => {
                 className={s.ulProfileMenu}>
                 <ul className={s.ulRequestProfile}>
                     <li>
-                        <img referrerPolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} className={s.userIcon} onClick={()=>{return dispatch(getOption('profile'))}} alt="perfil" />
+                        <img referrerPolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} className={s.userIcon} id='profileIcon' onClick={()=>{return dispatch(getOption('profile'))}} alt="perfil" />
                         <span id='spanProfile' className={s.spanProfile}>Perfil</span>
                     </li>
                     {/* <li>
                         <img src={notificationIcon} className={s.notificationIcon} alt="notificaciones" onClick={()=>{return dispatch(getOption('notifications'))}} />
                     </li> */}
                     <li>
-                        <img src={likeIcon} className={s.likeIcon} alt="favoritos" onClick={()=>{return dispatch(getOption('favorites'))}} />
+                        <img src={likeIcon} className={s.likeIcon} id='favoritesIcon' alt="favoritos" onClick={()=>{return dispatch(getOption('favorites'))}} />
                         <span id='spanFavs' className={s.spanFavs}>Favs</span>
                     </li>
                     <li>
-                        <img src={listIcon} className={s.listIcon} alt="lista" onClick={()=>{return dispatch(getOption('playlist'))}} />
+                        <img src={listIcon} className={s.listIcon} id='playlistIcon' alt="lista" onClick={()=>{return dispatch(getOption('playlist'))}} />
                         <span id='spanList' className={s.spanLists}>Listas</span>                    
                     </li>
                     {   
                         rolUser === 'admin' ?
                         <li>
-                            <img src={adminIcon} className={s.adminIcon} onClick={()=>{return dispatch(getOption('dashboard'))}} alt="lista" />
+                            <img src={adminIcon} className={s.adminIcon} id='dashboardIcon' onClick={()=>{return dispatch(getOption('dashboard'))}} alt="lista" />
                             <span id='spanAdmin' className={s.spanOpt}>Dash</span>                    
                         
                         </li> 
                         :
                         <li>
-                          <img src={subscriptionIcon} className={s.subscriptionIcon} onClick={()=>{return dispatch(getOption('subscription'))}} alt="lista" />
+                          <img src={subscriptionIcon} className={s.subscriptionIcon} id='subscriptionIcon' onClick={()=>{return dispatch(getOption('subscription'))}} alt="lista" />
                           <span id='spaSubs' className={s.spanOpt}>Subs</span>                    
                         </li>                     
                     }
