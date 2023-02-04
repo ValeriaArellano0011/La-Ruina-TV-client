@@ -32,3 +32,11 @@ export function OptionProfile(option){
     document.querySelector(`#${option}Icon`).style.filter='grayscale(.2)'
     document.querySelector(`#${option}Icon`).style.filter='drop-shadow(0px 0px 8px rgb(255, 255, 255))'
 }
+
+export function ActiveFav(id, arr){
+    const active = []
+    active.push(arr.find(e => {return e.find(e=> {return e.id === id})}))
+    const res = active? active.at(0)?.at(0).id===id : false
+    console.log('active: ', res)
+    return res
+}

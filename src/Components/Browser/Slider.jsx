@@ -8,10 +8,7 @@ const Slider = (props) => {
     const id = (props.id)
 
     return(
-        <div className={s.sliderCont}
-
-
-        >
+        <div className={s.sliderCont}>
             <h3>{sliderTitle}</h3>
             <div 
                 className={s.slidercategories}

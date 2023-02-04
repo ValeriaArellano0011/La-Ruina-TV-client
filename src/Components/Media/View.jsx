@@ -10,7 +10,7 @@ import playIconn from '../../design/ruinatv-icon-play-n.png'
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
 import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes } from '../../middlewares/redux/actions';
-import OptionCanvas from '../../functions';
+import OptionCanvas, { ActiveFav } from '../../functions';
 import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
 import { EditBtn } from '../Utils/EditBtn'
 import likeIcon from '../../design/like-icon.png'
@@ -18,7 +18,7 @@ import s from './css/View.module.css'
 
 
 const View = () => {
-
+    const favs = useSelector(state=>state.allUserLikes);
     const [list, setList] = useState([]);
     let toastProperties = null;
     const showToast = (type, description) => {
@@ -59,7 +59,9 @@ const View = () => {
     useEffect(()=>{
         dispatch(getInfo(id))
         dispatch(getAllPlaylist(user?.userId))
-    },[dispatch, id])
+        dispatch(getAllLikes(user?.userId))
+        setColor(ActiveFav(id, favs)? 0:1)
+    },[dispatch, id, favs])
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
     const infoDetailViewer = useSelector(state=>state.infoDetailViewer)
@@ -67,6 +69,8 @@ const View = () => {
     const rolUser = useSelector(state=>state.rolUser)
     const currentUser = useSelector(state=>state.currentUser)
     const idYT = useSelector(state=>state.ytPlayerState)
+    const [color, setColor] = useState(0)
+
     const {
         linkimg,
         idLinkSPOTY,
@@ -124,6 +128,7 @@ const View = () => {
                         }}>
                             <img 
                                 className={s.favIcon}
+                                style={{filter: `grayscale(${color})`}}
                                 src={likeIcon} 
                                 alt='add favorites' 
                                 width='25px' 

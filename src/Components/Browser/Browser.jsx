@@ -3,30 +3,33 @@ import s from "./css/Slider.module.css";
 import Visor from "./Visor";
 import Footer from "../Footer/Footer";
 import Slider from "./Slider";
-import { BodyCss } from "../../functions";
+import { ActiveFav, BodyCss } from "../../functions";
 import { useDispatch, useSelector } from "react-redux";
-import { InfoCanvas } from '../Utils/InfoCanvas'
-import axios from "axios";
+import { InfoCanvas } from '../Utils/InfoCanvas';
 import {
   getMedia,
   resetIdYT,
   resetMedia,
   resetOption,
+  getAllLikes
 } from "../../middlewares/redux/actions";
 import { URL_API } from "../../middlewares/misc/config";
 
 const Browser = () => {
   const dispatch = useDispatch();
+  const auth = localStorage.getItem('auth');
+  const user = JSON.parse(auth);
+  const cardList = useSelector((state) => state.mediaList);
+  const categoryList = useSelector((state) => state.categoryList);
+
   useEffect(() => {
     dispatch(getMedia());
     dispatch(resetMedia());
     dispatch(resetOption());
     dispatch(resetIdYT());
+    dispatch(getAllLikes(user.userId));
     BodyCss();
   }, [dispatch]);
-  const cardList = useSelector((state) => state.mediaList);
-  
-  const categoryList = useSelector((state) => state.categoryList);
 
   return (
     <div className="browserBody"> 
