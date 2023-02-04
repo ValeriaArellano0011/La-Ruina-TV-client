@@ -21,7 +21,8 @@ const Slider = (props) => {
                             document.querySelector(`#${id}PostBtn`).style.transitionDuration='1s',
                             document.querySelector(`#${id}PostBtn`).style.cursor='pointer',
                             document.querySelector(`#${id}PostBtn`).style.opacity='1',
-                            document.querySelector(`#${id}PostBtn`).style.background='linear-gradient(to left, rgb(0, 0, 0), transparent)'
+                            document.querySelector(`#${id}PrevBtn`).style.opacity='1',
+                            document.querySelector(`#${id}PostBtn`).style.background='linear-gradient(to left, rgb(255, 255, 255), transparent)'
                             )
                     }
                 }
@@ -29,7 +30,8 @@ const Slider = (props) => {
                     {
                         return(
                             document.querySelector(`#${id}PostBtn`).style.transitionDuration='1s',
-                            document.querySelector(`#${id}PostBtn`).style.opacity='0.5',
+                            document.querySelector(`#${id}PrevBtn`).style.opacity='.7',
+                            document.querySelector(`#${id}PostBtn`).style.opacity='.7',
                             document.querySelector(`#${id}PostBtn`).style.background='linear-gradient(to left, rgb(255, 255, 255), transparent)'
                             )   
                     }

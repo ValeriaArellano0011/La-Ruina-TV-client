@@ -31,7 +31,6 @@ const SliderBtns = (props) => {
                 {
                     return(
                         document.querySelector(`#${key}PrevBtn`).style.transitionDuration='1s',
-                        document.querySelector(`#${key}PrevBtn`).style.opacity='0.5',
                         document.querySelector(`#${key}PrevBtn`).style.background='linear-gradient(to right, rgb(255, 255, 255), transparent)'
                         )   
                 }
@@ -107,11 +106,9 @@ const SliderBtns = (props) => {
             onMouseLeave={()=>
                 {   
                     return(
-                        document.querySelector(`#${key}PostBtn`).style.opacity='0.5',
                         document.querySelector(`#${key}PostBtn`).style.transitionDuration='1s',
                         document.querySelector(`#${key}PostBtn`).style.background='linear-gradient(to left, rgb(225, 225, 225), transparent)'
                         )   
-
                 }
             }
             >

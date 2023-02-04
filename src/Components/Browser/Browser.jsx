@@ -44,20 +44,20 @@ const Browser = () => {
           title={"Contenido"}
           cardList={cardList}
           style={s}
-          id={`s${0}`}
-          key={`s${0}`}
+          id={`s${-1}`}
+          key={`s${-1}`}
         />
       )}
 
       {
-        categoryList.map((category) => {
+        categoryList.map((category, index) => {
             const filteredList = cardList?.filter(card => card.categories.includes(category));
             return filteredList?.length ? (
                 <Slider
                   title={category}
                   cardList={filteredList}
                   style={s}
-                  id={`s${category}`}
+                  id={`s${index}`}
                   key={category}
                 />
             ) : null;
