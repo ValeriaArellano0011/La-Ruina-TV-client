@@ -27,7 +27,7 @@ const Browser = () => {
     dispatch(resetMedia());
     dispatch(resetOption());
     dispatch(resetIdYT());
-    dispatch(getAllLikes(user.userId));
+    dispatch(getAllLikes(user?.userId));
     BodyCss();
   }, [dispatch]);
 
@@ -35,8 +35,8 @@ const Browser = () => {
     <div className="browserBody"> 
       {/* ---------------------VISOR--------------------- */}
 
-        <Visor />
-        <InfoCanvas />
+        <Visor/>
+        <InfoCanvas/>
 
       {/* ----------------------SORT--------------------- */}
       {/* <Sort /> */}
@@ -69,7 +69,7 @@ const Browser = () => {
 
       {/* ---------------------FOOTER--------------------- */}
 
-      {cardList?.length > 1 && <Footer />}
+      {cardList?.length > 1 && <Footer/>}
     </div>
   );
 };
