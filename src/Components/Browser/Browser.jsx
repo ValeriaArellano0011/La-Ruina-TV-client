@@ -21,7 +21,7 @@ const Browser = () => {
   const user = JSON.parse(auth);
   const cardList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
-
+  
   useEffect(() => {
     dispatch(getMedia());
     dispatch(resetMedia());

@@ -14,7 +14,7 @@ const Fav = ({ urlID }) => {
     useEffect(()=>{
         setColor(ActiveFav(urlId, favs)? 'red':'black')
         dispatch(getAllLikes(user?.userId))
-    },[urlId, favs, user, dispatch])
+    },[urlId, favs, user, dispatch, setColor])
 
     const handleClick = (e) => {
         e.preventDefault()
