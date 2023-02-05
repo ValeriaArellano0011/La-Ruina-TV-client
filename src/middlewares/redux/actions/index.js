@@ -468,7 +468,7 @@ export function createPlaylist(playlistName, idUser){
 
 export function addToPlaylist(playlistId, connectionId){
     return async function (dispatch){ 
-        await axios.post(`${URL_API}/playlist/add`, {playlistId, connectionId})
+        await axios.post(`${URL_API}/playlist/add`, {Id, connectionId})
         .then(res => {
             console.log(res.data)
             dispatch({
