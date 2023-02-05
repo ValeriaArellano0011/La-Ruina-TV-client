@@ -10,7 +10,7 @@ import playIconn from '../../design/ruinatv-icon-play-n.png'
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
 import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes } from '../../middlewares/redux/actions';
-import OptionCanvas, { ActiveFav } from '../../functions';
+import OptionCanvas from '../../functions';
 import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
 import { EditBtn } from '../Utils/EditBtn'
 import likeIcon from '../../design/like-icon.png'
@@ -60,7 +60,6 @@ const View = () => {
         dispatch(getInfo(id))
         dispatch(getAllPlaylist(user?.userId))
         dispatch(getAllLikes(user?.userId))
-        setColor(ActiveFav(id, favs)? 0:1)
     },[dispatch, id, favs])
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
@@ -70,6 +69,11 @@ const View = () => {
     const currentUser = useSelector(state=>state.currentUser)
     const idYT = useSelector(state=>state.ytPlayerState)
     const [color, setColor] = useState(0)
+
+    useEffect(() => {
+        (favs?.filter(fav => fav.id === id).length > 0) ? setColor(0) : setColor(1)
+        document.querySelector('#favViewIcon').style.filter = `grayscale(${color})` 
+    },[favs, color])
 
     const {
         linkimg,
@@ -128,7 +132,7 @@ const View = () => {
                         }}>
                             <img 
                                 className={s.favIcon}
-                                style={{filter: `grayscale(${color})`}}
+                                id="favViewIcon"
                                 src={likeIcon} 
                                 alt='add favorites' 
                                 width='25px' 

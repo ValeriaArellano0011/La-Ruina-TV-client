@@ -608,7 +608,6 @@ button:hover{
   border: none;
   border-radius: 2%;
   font-size: 10px;
-  filter: grayscale(1);
   transition-duration: .8s;
 }
 

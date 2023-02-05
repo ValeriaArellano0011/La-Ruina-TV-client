@@ -5,7 +5,7 @@ import editIcon from '../../design/edit-icon.png';
 import deleteIcon from '../../design/delete-icon.png';
 import { useDispatch, useSelector } from "react-redux";
 import s from './css/Media.module.css';
-import { addLike, getDeleteMedia, getEditMedia } from "../../middlewares/redux/actions";
+import { addLike, getAllLikes, getDeleteMedia, getEditMedia } from "../../middlewares/redux/actions";
 import Fav from "../Fav/fav";
 
 const Media = ({ cardList, style, keyID }) => {
@@ -15,6 +15,10 @@ const Media = ({ cardList, style, keyID }) => {
   const auth = localStorage.getItem('auth');
   const user = auth ? JSON.parse(auth) : null;
   const currentUser = useSelector(state=>state.currentUser)
+
+  const favs = useSelector(state => state.allUserLikes)
+
+  console.log(favs)
 
   return (
     <div className={style.sliderItems}>
@@ -77,7 +81,8 @@ const Media = ({ cardList, style, keyID }) => {
                             alt="play" />
                           <p style={{color: 'black'}}>{e.title}</p>
                         </div>
-                        {(user || currentUser)?<Fav urlID={e.id} style={{marginTop: '-10px'}}/>:null}
+                        {(user || currentUser) && favs?.filter(fav => fav.id === e.id).length > 0 ?
+                        <Fav urlID={e.id} color={'red'} style={{marginTop: '-10px'}}/>:null}
                       </div>
                     </div>
                   </Link>

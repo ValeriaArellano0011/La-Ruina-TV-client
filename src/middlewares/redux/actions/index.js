@@ -194,6 +194,7 @@ export function login(email, password){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/users/login`, {email, password})
         .then(res => {
+            console.log(res.data)
             dispatch({
                 type: LOGIN,
                 payload: res.data
@@ -458,7 +459,7 @@ export function createPlaylist(playlistName, idUser){
 
 export function addToPlaylist(playlistId, connectionId){
     return async function (dispatch){ 
-        await axios.post(`${URL_API}/playlist/add`, {Id, connectionId})
+        await axios.post(`${URL_API}/playlist/add`, {playlistId, connectionId})
         .then(res => {
             dispatch({
                 type: ADD_TO_PLAYLIST,
