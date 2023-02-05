@@ -27,7 +27,7 @@ const Browser = () => {
     dispatch(resetMedia());
     dispatch(resetOption());
     dispatch(resetIdYT());
-    dispatch(getAllLikes(user?.userId));
+    // dispatch(getAllLikes(user?.userId));
     BodyCss();
   }, [dispatch]);
 
