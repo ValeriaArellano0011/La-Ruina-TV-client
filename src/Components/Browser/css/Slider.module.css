@@ -35,7 +35,7 @@
     width: 50px;
     right: 0px;
     background: linear-gradient(to left, rgb(255, 255, 255), transparent);
-    opacity: 0;
+    opacity: 0.5;
 }
 
 .sliderPrevBtn,

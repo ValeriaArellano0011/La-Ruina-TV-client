@@ -15,7 +15,7 @@
 .infoContText{
     width: 200px;
     height: 100%;
-    background-color: aqua;
+    /* background-color: aqua; */
     position: relative;
     margin-top: -19px;
 }

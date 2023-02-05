@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import s from './css/SlideCanvas.module.css'
 import Enter from '../Auth/Enter'
-import Profile from '../../Admin/Profile/Profile'
+import Profile from '../UserProfile/Profile'
 import Dashboard from '../../Admin/Dashboard/Dashboard'
 import { Subscription } from '../UserProfile/Subscription'
 import { PlayList } from '../UserProfile/PlayList'
@@ -11,7 +11,7 @@ import { BackButton } from '../Nav/BackButton'
 import { Notifications } from '../UserProfile/Notifications'
 import { Configurations } from '../UserProfile/Configurations'
 
-export const CanvasOptions = () => {
+export const OptionsCanvas = () => {
     const option = useSelector(state=>state.option)
     return (
         <div className={s.slideCanvasCont} id='slideCanvasCont'>

@@ -64,7 +64,7 @@ button:hover{
 
 .navCont:hover{
   transition-duration: 1s;
-  filter: drop-shadow(2px 5px 8px);
+  filter: drop-shadow(2px 5px 8px black);
 }
 .navMenu{
   display: flex;
@@ -76,17 +76,46 @@ button:hover{
   font-size: 25px;
 }
 .navSearchBar{
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: flex-end;
   list-style-type: none;
   height: 100%;
   position: absolute;
   right: 20px;
-  top: 11px;
+  top: 0px;
+}
+.navBurgerTabletCont{
+  width: 100vw;
+  height: 80px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contCanvasMenu{
+  width: 100vw;
+  height: auto;
+  text-align: center;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.856);
+  position: fixed;
+  z-index: 9;
+  justify-content: center;
+  filter: drop-shadow(2px 5px 8px black);
+  display: none;
+}
+.menuIcon{
+  opacity: .7;
+  margin-top: 5px;
+  z-index: 99999;
+}
+.menuIcon:hover{
+  opacity: 1;
+  cursor: pointer;
 }
 
-.navCont li{
+.navCont li {
   display: inline;
   text-align: center;
   color: #dfdfdfbe;
@@ -378,10 +407,12 @@ button:hover{
 .visorPostInfo{
   height: 300px;
   width: 50vw;
+  min-width: 400px;
   position: absolute;
   bottom: 20vh;
   left: 50px;
   animation-timing-function: ease-in-out;
+  /* background-color: aqua; */
 }
 
 @keyframes infoScale{
@@ -723,29 +754,35 @@ button:hover{
 
 /* ------------------PLAY----------------- */
 .playerCont{
-  width: 50vw;
+  width: 100vw;
   height: 100vh;
   position: fixed;
-  right: 0px;
   z-index: 9999;
-  top: 0;
+  top: 0px;
   transition-duration: 1s;
   filter: drop-shadow(0px 0px 20px black);
   background: linear-gradient(to right, #00000000, rgba(0, 0, 0, 0.579));
   z-index: 0;
   opacity: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0px;
 }
 
 .playerLi{
+  /* width: 500px;
+  height: 281.25px; */
   width: 640px;
   height: 360px;
   background-color: #171717;
   position: relative;
-  margin-top: 100px;
-  right: 65px;
   scale: 0;
   transition-duration: 1s;
   list-style: none;
+  bottom: 10vh;
+  right: 20px;
 }
 
 #ytplayer{
@@ -774,4 +811,111 @@ button:hover{
   font-size: 50px;
 }
 
-/* ----------------TIENDA----------------- */
+/* ----------------RESPONSIVE----------------- */
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  .navCont{
+    display: flex;
+  }
+  .navMenu{
+    display: none;
+  }
+  #profileContPhone{
+    display: flex;
+  }
+
+}
+
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 400px) {
+  .navCont{
+    display: flex;
+  }
+  .navMenu{
+    display: none;
+  }
+  .navSearchBar{
+    display: flex;
+  }
+  .divSearchBarResponsive{
+    display: none;
+  }
+}
+.visorPostTitulo p{
+  position: absolute;
+  top: 20px;
+  font-size: 30px;
+  color: #ffffff;
+  text-shadow: #000000;
+  filter: drop-shadow( 1px 1px 2px #000000);
+  height: fit-content;
+}
+
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 768px) {
+
+
+}
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+
+
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+
+
+}
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+
+
+}
+ 
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 600px) {
+
+
+}
+ 
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 768px) {
+  .visorPostTitulo p{
+    position: absolute;
+    top: 0px;
+    font-size: 50px;
+    color: #ffffff;
+    text-shadow: #000000;
+    filter: drop-shadow( 1px 1px 2px #000000);
+    height: fit-content;
+  }
+
+}
+ 
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+  .navBurgerTabletCont{
+    display: flex;
+  }
+
+}
+@media only screen and (min-width: 1180px) {
+
+  .divSearchBarResponsive{
+    display: flex;
+  }
+
+}
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1320px) {
+  .navBurgerTabletCont{
+    display: none;
+  }
+  .navMenu{
+    display: flex;
+  }
+
+}

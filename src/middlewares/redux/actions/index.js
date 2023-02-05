@@ -48,7 +48,6 @@ export function getUsers() {
         try {
             await axios.get(`${URL_API}/users/getall`)
             .then(res =>{
-                console.log(res.data)
                 dispatch({
                     type: GET_USERS,
                     payload: res.data
@@ -63,7 +62,6 @@ export function getUsers() {
 export const getEditUsers = (id) =>   {
     return async function (dispatch) {
         let res = await axios.get(`${URL_API}/users/edit/${id}`);
-        console.log(res.data)
         return dispatch ({
             type: GET_EDIT_USERS,
             payload: res.data
@@ -78,7 +76,6 @@ export const editUsers = (formdata) =>   {
             formdata,
             {headers: {'Content-Type': 'multipart/form-data'}}
         );
-        console.log(res.data)
         getMedia()
     }
 }
@@ -98,7 +95,6 @@ export const getDeleteUsers = (id) =>   {
     export const getEditMedia = (id) =>   {
         return async function (dispatch) {
             let res = await axios.get(`${URL_API}/media/edit/${id}`);
-            console.log(res.data)
             return dispatch ({
                 type: GET_EDIT_MEDIA,
                 payload: res.data
@@ -113,7 +109,6 @@ export const getDeleteUsers = (id) =>   {
                 formdata,
                 {headers: {'Content-Type': 'multipart/form-data'}}
             );
-            console.log(res.data)
             getMedia()
         }
     }
@@ -262,7 +257,6 @@ export function getMedia() {
         try {
             await axios.get(`${URL_API}/media/getall`)
             .then(res =>{
-                console.log(res.data)
                 dispatch({
                     type: GET_MEDIA,
                     payload: res.data
@@ -375,7 +369,6 @@ export function getMusicName(name){
     return async function (dispatch){
         await axios.get(`${URL_API}/media/search/s?name=${name}`)
         .then(res => {
-            console.log('el obj music name', res.data)
             dispatch({
                 type: GET_MUSIC_NAME,
                 payload: res.data,
@@ -414,7 +407,6 @@ export function addLike(idUser, urlId) {
     return async function(dispatch) {
         await axios.post(`${URL_API}/likes/add`, {idUser, urlId})
         .then(res =>{
-            console.log('like id qcyoo', res.data)
             dispatch({
                 type: 'LIKE',
                 payload: res.data
@@ -428,7 +420,6 @@ export function getAllLikes(userId) {
     return async function(dispatch) {
         await axios.post(`${URL_API}/likes/getAll`, {userId})
         .then(res =>{
-            console.log(res.data)
             dispatch({
                 type: GET_ALL_LIKES,
                 payload: res.data
@@ -455,7 +446,6 @@ export function getAllPlaylist(userId){
 
 export function createPlaylist(playlistName, idUser){
     return async function (){ 
-        console.log(idUser)
         await axios.post(`${URL_API}/playlist/create`, {playlistName, idUser})
         .then(res => {
             console.log(res.data)
@@ -470,7 +460,6 @@ export function addToPlaylist(playlistId, connectionId){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/playlist/add`, {Id, connectionId})
         .then(res => {
-            console.log(res.data)
             dispatch({
                 type: ADD_TO_PLAYLIST,
                 payload: res.data

@@ -33,17 +33,17 @@ export const Subscription = () => {
 
 
   return (
-    <div>
+    <div className={s.subCont}>
       <div className='divProfile'>
-        <div className={s.checkoutFormat} >
           <div className='navFixed' ></div>
-            <h1>Elegí tu plan</h1>
+        <div className={s.checkoutFormat} >
+            <h1 className={s.title}>Elegí tu plan</h1>
               <ul className={s.ulCheck}>
                 <li className={s.liCheck}>
                   <div className={s.divCheckCont}>
                     <h2>Plan Freemium</h2>
                     <div className={s.divPrice}>
-                      gratuito
+                      Gratuito
                     </div>
                     <div className={s.divDescription}>
                       <ul>
@@ -93,7 +93,6 @@ export const Subscription = () => {
                             document.querySelector(`.navCont`).style.transitionDuration='.2s',
                             document.querySelector(`.bodyApp`).style.transitionDuration='2s',
                             document.querySelector(`.navCont`).style.width='100vw',
-                            document.querySelector(`.navMenu`).style.display='flex',
                             document.querySelector(`.browserBody`).style.height='auto',
                             document.querySelector(`.browserBody`).style.overflowY='scroll',
                             document.querySelector(`.visor`).style.transform='translateX(0)',

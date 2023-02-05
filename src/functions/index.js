@@ -2,12 +2,12 @@
 
 export const BodyCss= () => {
     return (
-        document.querySelector('body').style.overflowY="scroll"
+        document.querySelector('body').style.overflowY="auto"
     )
 }
 
 export default function OptionCanvas(){
-    document.querySelector('body').style.overflowY="scroll"
+    document.querySelector('body').style.overflowY="auto"
     document.querySelector(`.bodyApp`).style.transitionDuration='2s'
     document.querySelector(`.bodyApp`).style.transform='translateX(-100vw)'
     document.querySelector(`.browserBody`).style.height='100vh'
@@ -27,3 +27,16 @@ export default function OptionCanvas(){
     document.querySelector(`#optionProfileBtn6`).style.scale='0'
 }
 
+export function OptionProfile(option){
+    document.querySelector(`#${option}Icon`).style.opacity='1'
+    document.querySelector(`#${option}Icon`).style.filter='grayscale(.2)'
+    document.querySelector(`#${option}Icon`).style.filter='drop-shadow(0px 0px 8px rgb(255, 255, 255))'
+}
+
+export function ActiveFav(id, arr){
+    const active = []
+    active.push(arr.find(e => {return e.find(e=> {return e.id === id})}))
+    const res = active? active.at(0)?.at(0).id===id : false
+    console.log('active: ', res)
+    return res
+}

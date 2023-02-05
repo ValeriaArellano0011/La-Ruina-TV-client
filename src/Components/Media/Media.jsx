@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import playIconn from "../../design/ruinatv-icon-play-n.png";
 import { Link, useHistory } from "react-router-dom";
 import editIcon from '../../design/edit-icon.png';
@@ -25,7 +25,7 @@ const Media = ({ cardList, style, keyID }) => {
         {
           cardList ? cardList.map((e, i) => {
             return (
-              <li value={e.id} key={i}>
+              <li value={e.id} key={i} >
                 <div className={style.sliderItem}>
                   <Link
                     to={`/view/v=${e.idLinkYT}=_type_=${e.mediaType}=_id_=${e.id}`}

@@ -31,7 +31,6 @@ const SliderBtns = (props) => {
                 {
                     return(
                         document.querySelector(`#${key}PrevBtn`).style.transitionDuration='1s',
-                        document.querySelector(`#${key}PrevBtn`).style.opacity='0.5',
                         document.querySelector(`#${key}PrevBtn`).style.background='linear-gradient(to right, rgb(255, 255, 255), transparent)'
                         )   
                 }
@@ -60,6 +59,7 @@ const SliderBtns = (props) => {
             >
             <img className={s.sliderBtnPrevImg} alt='prevBtn' src={playIconb} />
             </button>
+            {!props.categories.length>1? null : 
             <button 
             className={`${s.sliderPostBtn}`}
             id={`${key}PostBtn`}
@@ -87,35 +87,34 @@ const SliderBtns = (props) => {
                     )}
                 }
             } onMouseEnter={()=>{
+                if(props.categories.length <= 1){
+                    return(
+                        document.querySelector(`#${key}PostBtn`).style.display="none",
+                        document.querySelector(`#${key}PostBtn`).style.transitionDuration='1s'
+                    )
+                }
                 if(props.categories.length > 1){
                     return(
+                        document.querySelector(`#${key}PostBtn`).style.display="block",
                         document.querySelector(`#${key}PostBtn`).style.transitionDuration='1s',
                         document.querySelector(`#${key}PostBtn`).style.cursor='pointer',
                         document.querySelector(`#${key}PostBtn`).style.opacity='1',
                         document.querySelector(`#${key}PostBtn`).style.background='linear-gradient(to left, rgb(0, 0, 0), transparent)'
 
                 )}
-                if(props.categories.length === 1){
-                    return(
-                        document.querySelector(`#${key}PostBtn`).style.display="none",
-                        document.querySelector(`#${key}PostBtn`).style.transitionDuration='1s'
-                    )
-                }
                 else return document.querySelector(`#${key}PostBtn`).style.opacity='0'
             }}
             onMouseLeave={()=>
                 {   
                     return(
-                        document.querySelector(`#${key}PostBtn`).style.opacity='0',
                         document.querySelector(`#${key}PostBtn`).style.transitionDuration='1s',
                         document.querySelector(`#${key}PostBtn`).style.background='linear-gradient(to left, rgb(225, 225, 225), transparent)'
                         )   
-
                 }
             }
             >
                 <img className={s.sliderBtnPostImg} alt='postBtn' src={playIconb} />
-            </button>
+            </button>}
         </>
     )
 }

@@ -12,7 +12,7 @@ import { Search } from './Components/Filter/Search';
 import { Colaborar } from './Components/Colaborar/Colaborar';
 import { Novedades } from './Components/Novedades/Novedades';
 import { BackAmp } from './Components/Back&Amp/BackAmp';
-import { CanvasOptions } from './Components/Utils/CanvasOptions';
+import { OptionsCanvas } from './Components/Utils/OptionsCanvas';
 import { PlayerList } from './Components/Media/PlayerList'
 import { Checkout } from './Components/Checkout/Checkout';
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -24,6 +24,7 @@ import { YtSubscribeButton } from './Components/Utils/YtSubscribeButton';
 import { EditMediaList } from './Admin/Requests/EditMediaList';
 import { EditUsersList } from './Admin/Requests/EditUsersList';
 import PlanMP from './Components/MercadopagoPlan/PlanMP.jsx';
+import { CanvasMenu } from './Components/Nav/CanvasMenu';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Switch>
         <>
           <Nav />
+            <CanvasMenu/>
           <div className='userPlayerCont'>
           { (url !== '') || (option === 'playlist')?
             <div className='playListCont'>
@@ -42,7 +44,7 @@ function App() {
           }  
           </div>
           <div className='bodyApp'>
-            <CanvasOptions />
+            <OptionsCanvas/>
             <Route path='/auth'>
               <AuthToken />
             </Route>

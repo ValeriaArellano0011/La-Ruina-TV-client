@@ -1,8 +1,10 @@
 .profileMenuBtn{
     width: 150px;
     height: 70px;
-    margin-right: 30px;
+    margin-right: -20px;
     margin-top: -3px;
     display: flex;
     justify-content: center;    
 }
+
+
