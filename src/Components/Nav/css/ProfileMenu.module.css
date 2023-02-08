@@ -1,6 +1,6 @@
 .profileCont{
-    width: 220px;
-    height: 75px;
+    width: 200px;
+    height: 65px;
     background-color: transparent;
     margin-top: -5px;
     margin-right: 0px;
@@ -93,8 +93,8 @@
 .optionProfileBtn{
     background: linear-gradient(to top, #171717, #171717 99%);
     box-shadow: 0px 0px 4px rgb(130, 128, 128);
-    margin-top: 15px;
-    margin-right: 0px;
+    margin-top: 10px;
+    margin-right: -10px;
     border: solid;
     border-color: #8b8b8b;
     border-width: 1px;
@@ -103,9 +103,9 @@
     font-family: Bebas Neue;
     color: rgb(212, 212, 212);
     transition-duration: .5s;
-    width: 90px;
-    max-height: 75px;
-    min-height: 70px;
+    width: 80px;
+    max-height: 70px;
+    min-height: 65px;
     transform: translateX(200px);
     scale: 0;
     text-align: center;
