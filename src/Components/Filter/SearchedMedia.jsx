@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 export const SearchedMedia = (props) => {
-    const {id, title, img, categories, artist, idLinkYT, mediaType } = props
+    const {id, title, img, artist, idLinkYT, mediaType } = props
     return(
         <div className={s.searchedCont1}>
             <Link to={`/view/v=${idLinkYT}=_type_=${mediaType}=_id_=${id}`}>

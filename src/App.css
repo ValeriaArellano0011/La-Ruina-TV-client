@@ -827,7 +827,7 @@ button:hover{
 }
 
 /* Small screen devices (600px and above) */
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 300px) {
   .navCont{
     display: flex;
   }

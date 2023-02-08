@@ -11,7 +11,7 @@ import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
 import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes } from '../../middlewares/redux/actions';
 import OptionCanvas from '../../functions';
-import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
+// import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
 import { EditBtn } from '../Utils/EditBtn'
 import likeIcon from '../../design/like-icon.png'
 import s from './css/View.module.css'
@@ -50,6 +50,15 @@ const View = () => {
     const dispatch = useDispatch()
     const[playlistName, setPlaylistName] = useState('')
     const {id} = useParams()
+    const auth = localStorage.getItem('auth');
+    const user = auth ? JSON.parse(auth) : null;
+    const infoDetailViewer = useSelector(state=>state.infoDetailViewer)
+    const myPlaylists = useSelector(state=>state.myPlaylists)
+    const rolUser = useSelector(state=>state.rolUser)
+    const currentUser = useSelector(state=>state.currentUser)
+    const idYT = useSelector(state=>state.ytPlayerState)
+    const [color, setColor] = useState(0)
+
     function onClickValue(e){
         return (
             dispatch(getOption(e.target.id)),
@@ -60,35 +69,27 @@ const View = () => {
         dispatch(getInfo(id))
         dispatch(getAllPlaylist(user?.userId))
         dispatch(getAllLikes(user?.userId))
-    },[dispatch, id, favs])
-    const auth = localStorage.getItem('auth');
-    const user = auth ? JSON.parse(auth) : null;
-    const infoDetailViewer = useSelector(state=>state.infoDetailViewer)
-    const myPlaylists = useSelector(state=>state.myPlaylists)
-    const rolUser = useSelector(state=>state.rolUser)
-    const currentUser = useSelector(state=>state.currentUser)
-    const idYT = useSelector(state=>state.ytPlayerState)
-    const [color, setColor] = useState(0)
+    },[dispatch, id, favs, user])
 
     useEffect(() => {
         (favs?.filter(fav => fav.id === id).length > 0) ? setColor(0) : setColor(1)
         document.querySelector('#favViewIcon').style.filter = `grayscale(${color})` 
-    },[favs, color])
+    },[favs, color, id])
 
     const {
         linkimg,
-        idLinkSPOTY,
-        idLinkDRIVE,
-        urlLinkWEB,
-        urlLinkDOWNLOAD,
-        categories,
+        // idLinkSPOTY,
+        // idLinkDRIVE,
+        // urlLinkWEB,
+        // urlLinkDOWNLOAD,
+        // categories,
         info,
         connectionId,
         title,
-        genre,
+        // genre,
         artist,
         idLinkYT,
-        mediaType
+        // mediaType
         } = infoDetailViewer?.at(0)
     // useEffect(()=>{
     //     setType(typeMediaList[dispatch(getMediaType(typeMedia)).payload])

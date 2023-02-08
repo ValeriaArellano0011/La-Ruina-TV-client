@@ -25,14 +25,14 @@ import {
     RESET_URL_PLAYER,
     CURRENT_USER,
     GET_EDIT_MEDIA,
-    REMOVE_MEDIA,
+    // REMOVE_MEDIA,
     EDIT_MEDIA,
     ADD_TO_PLAYLIST,
-    DELETE_FROM_PLAYLIST,
-    CREATE_PLAYLIST,
-    DELETE_PLAYLIST,
+    // DELETE_FROM_PLAYLIST,
+    // CREATE_PLAYLIST,
+    // DELETE_PLAYLIST,
     GET_ITEM_LIST,
-    GET_PLAYLIST,
+    // GET_PLAYLIST,
     GET_ALL_PLAYLIST,
     GET_ALL_LIKES,
     GET_USERS,
@@ -71,7 +71,7 @@ export const getEditUsers = (id) =>   {
 
 export const editUsers = (formdata) =>   {
     return async function (dispatch) {
-        let res = await axios.post(
+        await axios.post(
             `${URL_API}/users/edit`, 
             formdata,
             {headers: {'Content-Type': 'multipart/form-data'}}
@@ -104,7 +104,7 @@ export const getDeleteUsers = (id) =>   {
 
     export const editMedia = (formdata) =>   {
         return async function (dispatch) {
-            let res = await axios.post(
+            await axios.post(
                 `${URL_API}/media/edit`, 
                 formdata,
                 {headers: {'Content-Type': 'multipart/form-data'}}

@@ -1,7 +1,6 @@
 import React from 'react'
 import { BodyCss } from '../../functions'
 import s from './css/Colaborar.module.css'
-import { handleCheckout2 } from "../Checkout/js/CheckoutFunction"
 import { Link } from 'react-router-dom';
 
 

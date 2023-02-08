@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import styles from "../css/CreatePost.module.scss";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editMedia, getEditMedia, postMedia } from "../../middlewares/redux/actions/index";
+import { editMedia, getEditMedia } from "../../middlewares/redux/actions/index";
 import React from "react";
 import { useParams } from "react-router-dom";
 
@@ -17,7 +17,7 @@ const EditMedia = () => {
     if (connectionId) {
       dispatch(getEditMedia(connectionId))
     }
-  }, [connectionId, dispatch, useParams()])
+  }, [connectionId, dispatch])
 
   useEffect(() => {
     console.log(objofarrs)
@@ -44,27 +44,6 @@ const EditMedia = () => {
     setPreviewSlider(objofarrs[0]?.appProperties.imgLink)
     setPreviewVisor(objofarrs[1]?.appProperties.imgLink)
   }, [objofarrs ,connectionId])
-
-  // const handleInputChange = (e) => {
-  //   if (
-  //     e.target.name !== "title" &&
-  //     e.target.name !== "artist" &&
-  //     e.target.name !== "info" &&
-  //     e.target.name !== "categories"
-  //   ) {
-  //     console.log("la imagen", e.target.files[0]);
-  //     setData({
-  //       ...data,
-  //       [e.target.name]: e.target.files[0],
-  //     });
-  //   } else {
-  //     setData({
-  //       ...data,
-  //       [e.target.name]: e.target.value,
-  //     });
-  //   }
-  // };
-
 
   const handleInputChange = (e) => {
     switch (e.target.name) {

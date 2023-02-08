@@ -6,14 +6,12 @@ import OptionCanvas from '../../functions';
 import { getOption } from '../../middlewares/redux/actions';
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import configIcon from '../../design/config-icon.png';
 import userIcon from '../../design/user-icon.png';
 import adminIcon from '../../design/admin-icon.png';
 import likeIcon from '../../design/like-icon.png';
 import subscriptionIcon from '../../design/subscription-icon.png';
 import listaIcon from '../../design/lista-icon.png';
 import logoutIcon from '../../design/logout-icon.png';
-import notificationIcon from '../../design/ruinatv-icon-play-b.png'
 
 export const ProfileMenu = () => {
   const currentUser = useSelector(state=>state.currentUser)

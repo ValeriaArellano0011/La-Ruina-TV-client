@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import playIconn from '../../design/ruinatv-icon-play-n.png'
@@ -11,7 +11,6 @@ const Visor = () => {
         visorIdYT,
         visorImg, 
         visorTag,   
-        visorBtn1, 
         visorInfo, 
         visorIcon, 
         visorList,
