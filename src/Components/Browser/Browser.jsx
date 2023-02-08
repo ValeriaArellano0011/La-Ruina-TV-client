@@ -21,10 +21,13 @@ const Browser = () => {
   const cardList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
   
+  useEffect(()=>{
+    dispatch(resetOption());
+  },[dispatch])
+
   useEffect(() => {
     dispatch(getMedia());
     dispatch(resetMedia());
-    dispatch(resetOption());
     dispatch(resetIdYT());
     dispatch(getAllLikes(user?.userId));
     BodyCss();
