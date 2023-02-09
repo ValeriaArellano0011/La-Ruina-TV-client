@@ -43,6 +43,13 @@ import {
 /*-----------------Admin----------------*/
 
 //----------------USERS-----------------
+
+export const logIn = (url) => {
+    return async function () {
+        await axios.get(`${URL_API}/media/edit/${url}`)
+    }
+}
+
 export function getUsers() {
     return async function(dispatch) {
         try {
