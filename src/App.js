@@ -53,9 +53,6 @@ function App() {
             <Route exact path='/browser'>
               <Browser />
             </Route>
-            <Route exact path='/yt'>
-              <YtSubscribeButton />
-            </Route>
             <Route path='/verify'>
               <Verify />
             </Route>
