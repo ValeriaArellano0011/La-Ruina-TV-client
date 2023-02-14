@@ -24,13 +24,14 @@ const SliderBtns = (props) => {
                         document.querySelector(`#${key}PrevBtn`).style.cursor='pointer',
                         document.querySelector(`#${key}PrevBtn`).style.opacity='1',
                         document.querySelector(`#${key}PrevBtn`).style.background='linear-gradient(to right, rgb(0, 0, 0), transparent)'
-                        )
+                    )
                 }
             }
             onMouseLeave={()=>
                 {
                     return(
                         document.querySelector(`#${key}PrevBtn`).style.transitionDuration='1s',
+                        document.querySelector(`#${key}PrevBtn`).style.opacity='0',
                         document.querySelector(`#${key}PrevBtn`).style.background='linear-gradient(to right, rgb(255, 255, 255), transparent)'
                         )   
                 }
@@ -78,9 +79,9 @@ const SliderBtns = (props) => {
                     
                 if (i===(props.categories.length-1)*k){
                 return (
+                    document.querySelector(`#${key}PostBtn`).style.display="none",
                     document.querySelector(`#${key}ListaItems`).style.transform=`translate(${i}px)`,
                     document.querySelector(`#${key}ListaItems`).style.transitionDuration='1s',
-                    document.querySelector(`#${key}PostBtn`).style.display="none",
                     document.querySelector(`#${key}PrevBtn`).style.transform='translate(0)',
                     document.querySelector(`#${key}PrevBtn`).style.transitionDuration='1s'
 
