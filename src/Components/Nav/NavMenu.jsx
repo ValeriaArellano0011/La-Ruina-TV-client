@@ -55,7 +55,8 @@ const NavMenu = () => {
                     document.querySelector(`.visor`).style.transform='translateX(0)',
                     document.querySelector('#slideCanvasCont').style.overflowY="scroll"
                     )}}>
-                <Link to='/lanzamientos'>Back&Amp</Link></li>
+                <a href='https://laruinarecords.cl/back&amp' target=' _blank' > Back&Amp </a>
+            </li>
             <li
                 onClick={()=>{
                     window.scrollTo(0, 0)
