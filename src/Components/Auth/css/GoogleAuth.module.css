@@ -7,16 +7,16 @@
     justify-content: center;
     margin-top: 10px;
     font-family: 'Poppins', sans-serif;
-    /* background-color: aqua; */
     margin-bottom: 30px;
     position: relative;
+    justify-items: center;
+    text-align: center;
 }
-
 
 .googleBtn{
     border: none;
     border-radius: 5px;
-    background-color: rgb(255, 255, 255);
+    background: linear-gradient(to bottom, #ffffff, rgb(203, 203, 203));
     width: 200px;
     height: 40px;
     font-size: 13px;
@@ -26,6 +26,11 @@
     font-family: 'Poppins', sans-serif;
     text-align: center;
     justify-items: center;
-    margin-right: 40px;
+    margin-left: -40px;
+    transition-duration: .4s;
+}
 
+.googleBtn:hover{
+    background: linear-gradient(to bottom, #ffffff, rgb(255, 255, 255));
+    scale: 1.02;
 }

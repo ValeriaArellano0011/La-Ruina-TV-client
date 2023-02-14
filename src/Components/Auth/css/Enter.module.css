@@ -39,18 +39,18 @@
     position: relative;
     list-style: none;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 }
 .button1,.button2{
     height: 50px;
     width: 200px;
     position: relative;
-    margin-right: 10px;
     font-family: bebas neue;
     font-size: 20px;
     border: none;
     border-radius: 2%;
+    left: -10px;
 }
 .button1{
     background: linear-gradient(to bottom, #ffffff, rgba(0, 0, 0, 0.679));

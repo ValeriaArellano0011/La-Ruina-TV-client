@@ -14,7 +14,7 @@ export default function GoogleSignUp() {
                 src={googleIcon}
                 height="40px"
                 className={s.googleImg}
-                alt="sign up with google"
+                alt="Sign Up with Google"
               />
 
           </a>
