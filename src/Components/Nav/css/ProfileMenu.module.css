@@ -78,7 +78,7 @@
     font-family: Bebas Neue;
     color: rgba(255, 255, 255, 0.781);
     transition-duration: .5s;
-    z-index: 9999999;
+    z-index: 999999999999999999999999999;
     justify-content: center;
     text-align: center;
     margin-left: 0px;
@@ -116,7 +116,7 @@
     position: fixed;
     margin-top: 50px;
     right: -8px;
-
+    z-index: 999999999999999999999999999;
 }
 .optionProfileBtn>img{
     margin-right: 0px;

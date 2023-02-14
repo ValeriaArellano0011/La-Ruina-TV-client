@@ -199,17 +199,19 @@ const View = () => {
                             </ul></>
                         </ul>
                         <div className={'divCanvasAddListForm'}>
-                            <h1>Crear una nueva Playlist</h1>
+                            <h1>Crear una nueva Lista</h1>
                             <form>
                                 <h3 style={{fontWeight:'thin'}}>Nombre de la lista</h3>
                                 <input 
                                     type="text" 
                                     name='listName'
                                     onChange={(e)=> setPlaylistName(e.target.value)}
-                                    placeholder='Ingresa un nombre para tu lista' /> <br/>
+                                    placeholder='Ingresa un nombre' /> <br/><br/>
                                 <input 
+                                    className='button1'
                                     type="submit" 
                                     value="Crear"
+                                    style={{cursor: 'pointer'}}
                                     onClick={(e)=>{
                                         e.preventDefault()
                                         dispatch(createPlaylist(playlistName, user.userId))
@@ -218,7 +220,7 @@ const View = () => {
                                         setPlaylistName('')
                                         document.querySelector('.divCanvasAddListForm').style.display='none'
                                     }}
-                                    />
+                                    /><br/><br/>
                                 <input 
                                     type="submit" 
                                     onClick={(e)=>{
@@ -226,6 +228,8 @@ const View = () => {
                                         setPlaylistName('')
                                         document.querySelector('.divCanvasAddListForm').style.display='none'
                                     }}
+                                    className='button2'
+                                    style={{cursor: 'pointer'}}
                                     value="Cancelar" />
                             
                             </form>

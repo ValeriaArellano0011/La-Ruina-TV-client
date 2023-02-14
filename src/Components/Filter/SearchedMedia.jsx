@@ -6,12 +6,12 @@ export const SearchedMedia = (props) => {
     const {id, title, img, artist, idLinkYT, mediaType } = props
     return(
         <div className={s.searchedCont1}>
-            <Link to={`/view/v=${idLinkYT}=_type_=${mediaType}=_id_=${id}`}>
-                <div className={s.searchedCont2} style={{backgroundImage: `url(${img})`}}>
+            <div className={s.searchedCont2} style={{backgroundImage: `url(${img})`}}>
+                <Link to={`/view/v=${idLinkYT}=_type_=${mediaType}=_id_=${id}`}>
                     <h2 className={s.titles}>{artist}</h2><br/>
                     <h1 className={s.titles}>{title}</h1>
-                </div>
-            </Link>
+                </Link>
+            </div>
         </div>
     )
 }
