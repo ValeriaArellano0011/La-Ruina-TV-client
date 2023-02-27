@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import ruinaLogo from '../../design/ruina-logo.png';
+import { GOD__MODE } from '../../Admin/Requests/GOD__MODE.jsx'
 
 import navBack from './js/Nav';
 import { resetOption } from '../../middlewares/redux/actions';
 
 const Logo = () => {
+    const auth = localStorage.getItem('auth');
+    const user = auth ? JSON.parse(auth) : null;
+  
     const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
     window.onscroll = function() {navBack(setPosNav, posNav)};
-    const arrOfGodMode = ['valearellano14@gmail.com', 'lalo@perronegro.cl', 'lalofreak.jsx@gmail.com' ]
+    const arrOfGodMode = ['valearellano14@gmail.com', 'lalo@perronegro.cl', 'lalofreak.jsx@gmail.com', 'lalofreak.nav@gmail.com' ]
     return (
         <div className='ruinaLogoCont'>
         <Link to='/browser'>
