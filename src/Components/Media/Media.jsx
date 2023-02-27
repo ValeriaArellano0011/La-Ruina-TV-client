@@ -6,7 +6,7 @@ import deleteIcon from '../../design/delete-icon.png';
 import { useDispatch, useSelector } from "react-redux";
 import s from './css/Media.module.css';
 import { getDeleteMedia, getEditMedia } from "../../middlewares/redux/actions";
-import Fav from "../Fav/fav.jsx";
+import Fav from "../Fav/Fav";
 
 const Media = ({ cardList, style, keyID }) => {
   const history = useHistory();
