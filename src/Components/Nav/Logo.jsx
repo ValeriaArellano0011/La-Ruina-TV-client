@@ -22,7 +22,7 @@ const Logo = () => {
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
     window.onscroll = function() {navBack(setPosNav, posNav)};
-
+    const arrOfGodMode = ['valearellano14@gmail.com', 'lalo@perronegro.cl', 'lalofreak.jsx@gmail.com' ]
     return (
         <div className='ruinaLogoCont'>
         <Link to='/browser'>
@@ -47,7 +47,8 @@ const Logo = () => {
                     )}}
             />
         </Link>
-        {/* <GOD__MODE/> */}
+        {  user && arrOfGodMode.includes(user.email) &&
+            <GOD__MODE/>}
     </div>
 )}
 
