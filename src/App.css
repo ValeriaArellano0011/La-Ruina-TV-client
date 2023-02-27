@@ -94,8 +94,8 @@ button:hover{
   align-items: center;
 }
 .contCanvasMenu{
-  width: 100vw;
-  height: auto;
+  width: 210px;
+  height: 100vh;
   text-align: center;
   display: flex;
   background-color: rgba(0, 0, 0, 0.856);
@@ -107,7 +107,6 @@ button:hover{
 }
 .menuIcon{
   opacity: .7;
-  margin-top: 5px;
   z-index: 99999;
 }
 .menuIcon:hover{
@@ -183,18 +182,7 @@ button:hover{
   left: 0px;
   top: 0px;
 }
-.LogInBody{
-  width: 100vw;
-  height: 100vh;
-  overflow-x: 'hidden';
-  overflow-y: 'hidden';
-  background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);
-  z-index: 99999;
-  position: fixed;
-  transform: translateY(-100vh);
-  left: 0px;
-  top: 0px;
-}
+
 .divProfile{
   width: 100vw;
   min-height: 100vh;
@@ -351,10 +339,8 @@ button:hover{
 .formCont{
   width: 50vw;
   height: 500px;
-  background-color: #171717c1;
   position: relative;
   left: 25vw;
-  top: 60px;
   border-radius: 15px;
 }
 
@@ -827,7 +813,7 @@ button:hover{
 }
 
 /* Small screen devices (600px and above) */
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 300px) {
   .navCont{
     display: flex;
   }

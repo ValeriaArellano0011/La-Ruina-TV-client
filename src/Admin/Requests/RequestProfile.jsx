@@ -8,8 +8,6 @@ import logoutIcon from '../../design/logout-icon.png'
 import adminIcon from '../../design/admin-icon.png'
 import subscriptionIcon from '../../design/subscription-icon.png'
 import userIcon from '../../design/user-icon.png'
-import configIcon from '../../design/config-icon.png'
-import notificationIcon from '../../design/ruinatv-icon-play-b.png'
 import { OptionProfile } from '../../functions'
 
 const RequestProfile = () => {
@@ -26,7 +24,7 @@ const RequestProfile = () => {
           }
         }
         OptionProfile(option)
-    }, [user]);
+    }, [user, option]);
     return (
         <div className={s.divProfileMenu}>
             <ul

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { resetOption } from '../../middlewares/redux/actions'
 import s from './css/CanvasMenu.module.css'
@@ -9,10 +9,6 @@ import navBack from './js/Nav'
 export const CanvasMenu = () => {
     const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
-    const option = useSelector(state=>state.option)
-    const currentUser = useSelector(state=>state.currentUser)
-    const auth = localStorage.getItem('auth');
-    const user = auth ? JSON.parse(auth) : null;
     window.onscroll = function() {navBack(setPosNav, posNav)};
     CanvasMenuFunction()
     return(

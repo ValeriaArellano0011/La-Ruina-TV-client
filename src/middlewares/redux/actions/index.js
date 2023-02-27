@@ -25,14 +25,14 @@ import {
     RESET_URL_PLAYER,
     CURRENT_USER,
     GET_EDIT_MEDIA,
-    REMOVE_MEDIA,
+    // REMOVE_MEDIA,
     EDIT_MEDIA,
     ADD_TO_PLAYLIST,
-    DELETE_FROM_PLAYLIST,
-    CREATE_PLAYLIST,
-    DELETE_PLAYLIST,
+    // DELETE_FROM_PLAYLIST,
+    // CREATE_PLAYLIST,
+    // DELETE_PLAYLIST,
     GET_ITEM_LIST,
-    GET_PLAYLIST,
+    // GET_PLAYLIST,
     GET_ALL_PLAYLIST,
     GET_ALL_LIKES,
     GET_USERS,
@@ -43,6 +43,13 @@ import {
 /*-----------------Admin----------------*/
 
 //----------------USERS-----------------
+
+    export const logIn = (url) => {
+        return async function () {
+            await axios.get(`${URL_API}/media/edit/${url}`)
+        }
+    }
+
 export function getUsers() {
     return async function(dispatch) {
         try {
@@ -71,7 +78,7 @@ export const getEditUsers = (id) =>   {
 
 export const editUsers = (formdata) =>   {
     return async function (dispatch) {
-        let res = await axios.post(
+        await axios.post(
             `${URL_API}/users/edit`, 
             formdata,
             {headers: {'Content-Type': 'multipart/form-data'}}
@@ -104,7 +111,7 @@ export const getDeleteUsers = (id) =>   {
 
     export const editMedia = (formdata) =>   {
         return async function (dispatch) {
-            let res = await axios.post(
+            await axios.post(
                 `${URL_API}/media/edit`, 
                 formdata,
                 {headers: {'Content-Type': 'multipart/form-data'}}
@@ -173,23 +180,19 @@ export function getOption(e) {
         payload: e
     })
 }
-
 export function resetOption() {
     return({
         type: RESET_OPTION
     })
 }
-
 export async function googleAuth(){
     return await axios.get(`${URL_API}/auth/google`)
 }
-
 export function getCurrentUser() {
     return{
         type: CURRENT_USER
     }
 }
-
 export function login(email, password){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/users/login`, {email, password})
@@ -205,7 +208,6 @@ export function login(email, password){
         })
     }
 }
-
 export function loginWithGoogle(accessToken){
     return async function (dispatch){ 
         await axios.post(`${URL_API}/users/loginwithgoogle`, {accessToken})
@@ -220,7 +222,6 @@ export function loginWithGoogle(accessToken){
         })
     }
 }
-
 export const signup =
   (alias, email, password) => async (dispatch) => {
     try {
@@ -252,7 +253,6 @@ export function resetIdYT() {
         type: RESET_IDYT
     }
 }
-
 export function getMedia() {
     return async function(dispatch) {
         try {
@@ -268,7 +268,6 @@ export function getMedia() {
         }
     }
 }
-
 export function getInfo(id) {
     return async function(dispatch) {
         try{
@@ -285,7 +284,6 @@ export function getInfo(id) {
         }
     }
 }
-
 export function getCategorias(lista) {
     const listCat = []
     lista.map((e)=>{return e.categories.map(el=>{return listCat.push(el)})})
@@ -294,34 +292,29 @@ export function getCategorias(lista) {
         payload: new Set(listCat)
     }
 }
-
 export function getMediaType(mediainfo) {
     return {
         type: GET_MEDIATYPE,
         payload: mediainfo
     }
 }
-
 export function getMediaUrl(mediainfo) {
     return {
         type: GET_MEDIAURL,
         payload: mediainfo
     }
 }
-
 export function resetMedia() {
     return {
         type: RESET_MEDIA
     }
 }
-
 export function getNextVisor(index){
     return {
         type: NEXT_VISOR,
         payload: index
     }
 }
-
 export function getResetVisor(){
     return {
         type: RESET_VISOR
@@ -341,7 +334,6 @@ export function getProducts(){
         .catch(e => console.log(e))
     }
 }
-
 export function getProductDetails(id) {
     return async function(dispatch) {
         await axios.get(`${URL_API}/product/${id}`)
@@ -354,7 +346,6 @@ export function getProductDetails(id) {
         .catch(e => console.log(e))
     }
 }
-
 export function resetProductDetails() {
     return {
         type: RESET_PRODUCT_DETAILS
@@ -403,7 +394,6 @@ export function resetUrlPlayer(){
         type: RESET_URL_PLAYER
     }
 }
-
 export function addLike(idUser, urlId) {
     return async function(dispatch) {
         await axios.post(`${URL_API}/likes/add`, {idUser, urlId})

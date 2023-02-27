@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import RequestProfile from '../../Admin/Requests/RequestProfile'
 import { getAllLikes, resetOption } from '../../middlewares/redux/actions'
@@ -10,13 +10,12 @@ export const Favorites = () => {
   const auth = localStorage.getItem('auth');
   const userId = auth ? JSON.parse(auth).userId : null;
   const userLikes = useSelector(state => state.allUserLikes)
-  const mediaList = useSelector(state=>state.mediaList)
 
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getAllLikes(userId))
     console.log('ALL USER LIKES: ',userLikes)
-  }, [dispatch])
+  }, [dispatch, userId, userLikes])
   
   return (
     <div>

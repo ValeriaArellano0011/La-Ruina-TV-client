@@ -14,6 +14,12 @@ const Slider = (props) => {
                 className={s.slidercategories}
                 onMouseEnter={()=>
                     {
+                        if(cardList?.length <= 1){
+                            return(
+                                document.querySelector(`#${id}PostBtn`).style.display="none",
+                                document.querySelector(`#${id}PostBtn`).style.transitionDuration='1s'
+                            )
+                        }
                         return(
                             document.querySelector(`#${id}PostBtn`).style.transitionDuration='1s',
                             document.querySelector(`#${id}PostBtn`).style.cursor='pointer',
@@ -27,8 +33,8 @@ const Slider = (props) => {
                     {
                         return(
                             document.querySelector(`#${id}PostBtn`).style.transitionDuration='1s',
-                            document.querySelector(`#${id}PrevBtn`).style.opacity='.7',
-                            document.querySelector(`#${id}PostBtn`).style.opacity='.7',
+                            document.querySelector(`#${id}PrevBtn`).style.opacity='0',
+                            document.querySelector(`#${id}PostBtn`).style.opacity='0',
                             document.querySelector(`#${id}PostBtn`).style.background='linear-gradient(to left, rgb(255, 255, 255), transparent)'
                             )   
                     }

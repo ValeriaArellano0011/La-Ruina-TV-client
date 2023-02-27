@@ -4,7 +4,6 @@ import checkedIcon from '../../design/checked-icon.png'
 import RequestProfile from '../../Admin/Requests/RequestProfile'
 import axios from 'axios'
 import { URL_API } from '../../middlewares/misc/config'
-import { handleCheckout } from '../Checkout/js/CheckoutFunction'
 import { BodyCss } from '../../functions'
 import { useDispatch } from 'react-redux'
 import { resetOption } from '../../middlewares/redux/actions'
@@ -29,8 +28,7 @@ export const Subscription = () => {
       }
     })
     .catch(err => console.log(err))
-  }, [])
-
+  }, [userId])
 
   return (
     <div className={s.subCont}>

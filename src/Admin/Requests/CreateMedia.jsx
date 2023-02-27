@@ -1,15 +1,14 @@
+import React from "react";
+import { useState } from "react";
+import { postMedia } from "../../middlewares/redux/actions/index";
+import { useDispatch } from "react-redux";
 import { Card } from "@mui/material";
 import { Title } from "react-admin";
-import CardContent from "@mui/material/CardContent";
+import defaultPreview from '../../design/ruina-records-logo.png'
+import defaultImage from '../../design/defaultImage.jpg'
 import styles from "../css/CreatePost.module.scss";
 import s from './css/CreateMedia.module.css'
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { postMedia } from "../../middlewares/redux/actions/index";
-import defaultVideo from '../../design/laruina-intro.mp4';
-import defaultImage from '../../design/defaultImage.jpg'
-import React from "react";
-import defaultPreview from '../../design/ruina-records-logo.png'
+
 const CreateMedia = () => {
   const dispatch = useDispatch();
   const handleInputChange = (e) => {
@@ -32,8 +31,6 @@ const CreateMedia = () => {
     }
   };
 
-  const [res, setRes] = useState(null)
-
   const [data, setData] = useState({
     title: "",
     artist: "",
@@ -44,7 +41,6 @@ const CreateMedia = () => {
     idLinkYT: "",
     mediaType: [],
     idLinkSPOTY: "",
-    audioFile: "",
     urlLinkWEB: "",
     urlLinkDOWNLOAD: "",
     audioFile: null,
@@ -252,29 +248,25 @@ const CreateMedia = () => {
       <div className={styles.CreateProduct}>
         <Card>
           <form onSubmit={submit}>
-          <div className='navFixed' ></div>
-
-            <div className={s.cont0} id='cont0'>
+          <div className='navFixed'/>
+          <div className={s.cont0} id='cont0'>
             <div className={s.cont1} id='cont1'>
-          <Title title="Nuevo Contenido" />
-          <h1 className={styles.createTitle}>Crear un Nuevo Contenido</h1>
-          {/* <CardContent>Rellena el siguiente formulario</CardContent> */}
-            <div className={s.contTitleArtistDesc}>
-            <div className={s.divTitleArtistDesc}>
-                <p>
-                  <label>Titulo</label>
-                  {/* <br></br> */}
-                  <input
-                    type="text"
-                    name="title"
-                    placeholder="Título de la publicación"
-                    value={data.title}
-                    onChange={handleInputChange}
-                  />
-                </p>
+              <Title title="Nuevo Contenido"/>
+              <h1 className={styles.createTitle}>Crear un Nuevo Contenido</h1>
+              <div className={s.contTitleArtistDesc}>
+                <div className={s.divTitleArtistDesc}>
+                  <p>
+                    <label>Titulo</label>
+                    <input
+                      type="text"
+                      name="title"
+                      placeholder="Título de la publicación"
+                      value={data.title}
+                      onChange={handleInputChange}
+                    />
+                  </p>
                 <p>
                   <label>Artista</label>
-                  {/* <br></br> */}
                   <input
                     type="text"
                     name="artist"
@@ -404,26 +396,24 @@ const CreateMedia = () => {
                   value={data.urlLinkDOWNLOAD}
                   onChange={(e) =>
                     setData({ ...data, urlLinkDOWNLOAD: e.target.value })
-                  }
-                />
+                  }/>
               </p>
-              </div>
-              </div>
-              <div className={s.divisor}></div>
-                <label>Tipo de contenido (selecciona uno)</label><br></br>
-              <div className={styles.types}>
-                {optionsMediaType?.map((t) => (
-                  <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
-                    <input
-                      type="checkbox"
-                      name={t.name}
-                      value={t.name}
-                      id={t.name}
-                      onChange={(e) => checkboxMT(e)} />
-                    <label htmlFor={t.name}>{t.name}</label>
+            </div>
+          </div>
+          <div className={s.divisor}></div>
+              <label>Tipo de contenido (selecciona uno)</label><br></br>
+            <div className={styles.types}>
+              {optionsMediaType?.map((t) => (
+                <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
+                  <input
+                    type="checkbox"
+                    name={t.name}
+                    value={t.name}
+                    id={t.name}
+                    onChange={(e) => checkboxMT(e)} />
+                  <label htmlFor={t.name}>{t.name}</label>
                     {t.slot % 4 === 0 ? <br /> : null}
-                  </div>
-                ))}
+                </div>))}
               </div>
               <br/><label>Género</label><br/>
               <div className={styles.types}>
@@ -486,13 +476,13 @@ const CreateMedia = () => {
                   value="Publicar"
                   className={styles.submit}
                 />
-              </div>
             </div>
-            </div>
-          </form>
+          </div>
+        </div>
+        </form>
         </Card>
       </div>
-      </div>
+    </div>
   );
 };
 

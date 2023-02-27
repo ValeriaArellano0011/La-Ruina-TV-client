@@ -17,10 +17,8 @@ import { PlayerList } from './Components/Media/PlayerList'
 import { Checkout } from './Components/Checkout/Checkout';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthToken from './Components/Auth/AuthToken';
-import React, { useEffect } from 'react';
-import { useCookies } from 'react-cookie';
+import React from 'react';
 import { useSelector } from 'react-redux'
-import { YtSubscribeButton } from './Components/Utils/YtSubscribeButton';
 import { EditMediaList } from './Admin/Requests/EditMediaList';
 import { EditUsersList } from './Admin/Requests/EditUsersList';
 import PlanMP from './Components/MercadopagoPlan/PlanMP.jsx';
@@ -53,9 +51,6 @@ function App() {
             </Route>
             <Route exact path='/browser'>
               <Browser />
-            </Route>
-            <Route exact path='/yt'>
-              <YtSubscribeButton />
             </Route>
             <Route path='/verify'>
               <Verify />

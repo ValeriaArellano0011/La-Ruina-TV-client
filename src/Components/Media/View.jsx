@@ -11,7 +11,7 @@ import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
 import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes } from '../../middlewares/redux/actions';
 import OptionCanvas from '../../functions';
-import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
+// import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
 import { EditBtn } from '../Utils/EditBtn'
 import likeIcon from '../../design/like-icon.png'
 import s from './css/View.module.css'
@@ -44,23 +44,10 @@ const View = () => {
       }
       setList([...list, toastProperties]);
     };
-  
-
 
     const dispatch = useDispatch()
     const[playlistName, setPlaylistName] = useState('')
     const {id} = useParams()
-    function onClickValue(e){
-        return (
-            dispatch(getOption(e.target.id)),
-            OptionCanvas(e.target.id)
-        )}
-
-    useEffect(()=>{
-        dispatch(getInfo(id))
-        dispatch(getAllPlaylist(user?.userId))
-        dispatch(getAllLikes(user?.userId))
-    },[dispatch, id, favs])
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
     const infoDetailViewer = useSelector(state=>state.infoDetailViewer)
@@ -68,27 +55,42 @@ const View = () => {
     const rolUser = useSelector(state=>state.rolUser)
     const currentUser = useSelector(state=>state.currentUser)
     const idYT = useSelector(state=>state.ytPlayerState)
-    const [color, setColor] = useState(0)
+    const [color, setColor] = useState(1)
+
+    function onClickValue(e){
+        return (
+            dispatch(getOption(e.target.id)),
+            OptionCanvas(e.target.id),
+            dispatch(getAllLikes(user?.userId))
+        )}
+
+    useEffect(()=>{
+        dispatch(getInfo(id))
+        dispatch(getAllPlaylist(user?.userId))
+        dispatch(getAllLikes(user?.userId))
+    },[dispatch, id, favs, user])
 
     useEffect(() => {
         (favs?.filter(fav => fav.id === id).length > 0) ? setColor(0) : setColor(1)
-        document.querySelector('#favViewIcon').style.filter = `grayscale(${color})` 
-    },[favs, color])
-
+    },[favs, color, id])
+    function colorLike(color){
+        if(favs?.length>1 && (user || currentUser)) return document.querySelector('#favViewIcon').style.filter = `grayscale(${color})`       
+    }
+    colorLike(color)
     const {
         linkimg,
-        idLinkSPOTY,
-        idLinkDRIVE,
-        urlLinkWEB,
-        urlLinkDOWNLOAD,
-        categories,
+        // idLinkSPOTY,
+        // idLinkDRIVE,
+        // urlLinkWEB,
+        // urlLinkDOWNLOAD,
+        // categories,
         info,
         connectionId,
         title,
-        genre,
+        // genre,
         artist,
         idLinkYT,
-        mediaType
+        // mediaType
         } = infoDetailViewer?.at(0)
     // useEffect(()=>{
     //     setType(typeMediaList[dispatch(getMediaType(typeMedia)).payload])
@@ -127,8 +129,8 @@ const View = () => {
                                 })
                             } */}
                         {(currentUser || user)? <button className='buttonAddToFavorites' onClick={() => {
-                            dispatch(addLike(user.userId, id))
-                            dispatch(getAllLikes(user.userId))
+                            dispatch(addLike(user?.userId, id))
+                            dispatch(getAllLikes(user?.userId))
                         }}>
                             <img 
                                 className={s.favIcon}
@@ -138,7 +140,6 @@ const View = () => {
                                 width='25px' 
                             /></button> : null}
                         <><ul>
-
                         {(currentUser || user)? <button 
                         className='buttonAddToPlaylist' 
                         onClick={()=>{
@@ -166,14 +167,13 @@ const View = () => {
                                         {
                                             myPlaylists?.map(e=>{
                                                 const listId = e.id
-                                                console.log(listId)
                                                 return (
                                                     <>
                                                         <li>
                                                             <button 
                                                                 className='buttonAddItem' 
                                                                 value='id de este item' 
-                                                                onClick={(e)=>dispatch(addToPlaylist(listId, connectionId))} >
+                                                                onClick={()=>dispatch(addToPlaylist(listId, connectionId))} >
                                                                     Añadir a {e.title}
                                                             </button>
                                                         </li>
@@ -186,30 +186,32 @@ const View = () => {
                                         <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista3</button></li>
                                         <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista4</button></li> */}
                                     </div>
-                                    <li><button 
+                                    <li>
+                                        <button 
                                         onClick={()=>{return(
                                             document.querySelector('.divCanvasAddListForm').style.display='block'
                                         )}}
-                                        className='buttonCreateNewPlaylist'>Crear una nueva lista</button></li>
+                                        className='buttonCreateNewPlaylist'>Crear una nueva lista
+                                        </button>
+                                    </li>
                                 </ul>
                                 : null}
-
+                            </ul></>
                         </ul>
-                        </>
-                        </ul>
-
                         <div className={'divCanvasAddListForm'}>
-                            <h1>Crear una nueva Playlist</h1>
+                            <h1>Crear una nueva Lista</h1>
                             <form>
                                 <h3 style={{fontWeight:'thin'}}>Nombre de la lista</h3>
                                 <input 
                                     type="text" 
                                     name='listName'
                                     onChange={(e)=> setPlaylistName(e.target.value)}
-                                    placeholder='Ingresa un nombre para tu lista' /> <br/>
+                                    placeholder='Ingresa un nombre' /> <br/><br/>
                                 <input 
+                                    className='button1'
                                     type="submit" 
                                     value="Crear"
+                                    style={{cursor: 'pointer'}}
                                     onClick={(e)=>{
                                         e.preventDefault()
                                         dispatch(createPlaylist(playlistName, user.userId))
@@ -218,7 +220,7 @@ const View = () => {
                                         setPlaylistName('')
                                         document.querySelector('.divCanvasAddListForm').style.display='none'
                                     }}
-                                    />
+                                    /><br/><br/>
                                 <input 
                                     type="submit" 
                                     onClick={(e)=>{
@@ -226,6 +228,8 @@ const View = () => {
                                         setPlaylistName('')
                                         document.querySelector('.divCanvasAddListForm').style.display='none'
                                     }}
+                                    className='button2'
+                                    style={{cursor: 'pointer'}}
                                     value="Cancelar" />
                             
                             </form>
@@ -267,15 +271,14 @@ const View = () => {
                         </button>)
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
-                        {rolUser==='admin'?
-                            <EditBtn connectionId={connectionId} /> : null
+                        {
+                            rolUser==='admin'? <EditBtn connectionId={connectionId} /> : null
                         }
-                    </div>
-
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     )
 }
 

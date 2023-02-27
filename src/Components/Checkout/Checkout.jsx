@@ -2,18 +2,18 @@ import React from 'react'
 import { BodyCss } from '../../functions'
 import s from './css/Checkout.module.css'
 import { handleCheckout, handleCheckout2 } from "../Checkout/js/CheckoutFunction"
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export const Checkout = () => {
   BodyCss()
   const {type} = useParams()
-  console.log('type', type)
   const urlFlow = "https://www.flow.cl/btn.php?token=kljrekt"
+  const typeCheck = (type === "donation"? "colaborar" : "browser")
   return (
     <div className={s.donateCont}>
         <div className='navFixed' ></div>
       <div className={s.donateFormat} >
-        {type}
+        Plataforma de pago
         <ul className={s.ulContBtn}>
         <li className={s.donateBtn}>
           <a href={urlFlow}>
@@ -28,6 +28,13 @@ export const Checkout = () => {
           </button>
         </li>
         </ul>
+        <li className={s.salirBtn}>
+          <Link to={`/${typeCheck}`}>
+            <button className={s.salirSubmit}>
+                Volver
+            </button>
+          </Link>
+        </li>
       </div>
     </div>
   )

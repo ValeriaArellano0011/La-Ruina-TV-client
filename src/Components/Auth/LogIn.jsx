@@ -4,7 +4,6 @@ import GoogleSignUp from "./GoogleSignUp";
 
 import { login } from "../../middlewares/redux/actions";
 import { logCss } from "./js/logCss";
-import { authCss } from "./js/authCss";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,10 +24,8 @@ const LogIn = () => {
   }, [currentUser, history]);
   
   return (
-    <div className="LogInBody">
       <div className="formCont">
         <ul className={s.form_ul}>
-          <h1>Iniciar Sesión</h1>
           <form className={s.form}>
             <li className={s.form_li}>Nombre de usuario</li>
             <input
@@ -63,20 +60,11 @@ const LogIn = () => {
               >
                 Entrar
               </button>
+              <GoogleSignUp/>
             </li>
           </form>
         </ul>
-        <h3 style={{ color: "white", fontWeight: 'lighter', fontSize: "15px"}}>
-          o ingresa a través de
-        </h3>
-        <GoogleSignUp />
       </div>
-      <ul className={s.btn_ul}>
-        <button className="tog" onClick={() => authCss("togCreate")}>
-          Crear cuenta
-        </button>
-      </ul>
-    </div>
   );
 };
 

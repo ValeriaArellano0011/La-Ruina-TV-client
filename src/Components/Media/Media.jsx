@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import playIconn from "../../design/ruinatv-icon-play-n.png";
 import { Link, useHistory } from "react-router-dom";
 import editIcon from '../../design/edit-icon.png';
 import deleteIcon from '../../design/delete-icon.png';
 import { useDispatch, useSelector } from "react-redux";
 import s from './css/Media.module.css';
-import { addLike, getAllLikes, getDeleteMedia, getEditMedia } from "../../middlewares/redux/actions";
-import Fav from "../Fav/fav";
+import { getDeleteMedia, getEditMedia } from "../../middlewares/redux/actions";
+import Fav from "../Fav/Fav";
 
 const Media = ({ cardList, style, keyID }) => {
   const history = useHistory();
@@ -15,10 +15,7 @@ const Media = ({ cardList, style, keyID }) => {
   const auth = localStorage.getItem('auth');
   const user = auth ? JSON.parse(auth) : null;
   const currentUser = useSelector(state=>state.currentUser)
-
   const favs = useSelector(state => state.allUserLikes)
-
-  console.log(favs)
 
   return (
     <div className={style.sliderItems}>
