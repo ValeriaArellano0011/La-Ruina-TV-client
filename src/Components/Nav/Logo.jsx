@@ -7,8 +7,8 @@ import navBack from './js/Nav';
 import { resetOption } from '../../middlewares/redux/actions';
 
 const Logo = () => {
-    const auth = localStorage.getItem('auth');
-    const user = auth ? JSON.parse(auth) : null;
+    // const auth = localStorage.getItem('auth');
+    // const user = auth ? JSON.parse(auth) : null;
     const rolUser = useSelector(state=>state.rolUser)
     const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
