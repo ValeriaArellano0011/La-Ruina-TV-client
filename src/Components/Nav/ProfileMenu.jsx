@@ -47,7 +47,7 @@ export const ProfileMenu = () => {
             onMouseLeave={() => {return profileMenuCss('leave')}}
             >
             <img className={s.userIcon} referrerPolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} alt='userIcon' width='25px' />
-            Hola, {currentUser? currentUser.userAlias : userAlias? userAlias.split(' ').at(0) : "Usuario"}
+            Hola, {currentUser?.userAlias? currentUser.userAlias : userAlias? userAlias.split(' ').at(0) : "Usuario"}
             <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
           </li>
           <ul className={s.ulProfileOptions}>

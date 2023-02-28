@@ -32,7 +32,7 @@ const Profile = () => {
             <ul className={s.ulListProfile}>
               <li className={s.liProfile1}>Perfil de</li>
               <li className={s.liProfile2}>
-                <h1>{userAlias ? userAlias : currentUser? currentUser.userAlias : "Usuario"}</h1>
+                <h1>{userAlias ? userAlias : currentUser?.userAlias? currentUser.userAlias : "Usuario"}</h1>
               </li>
               <li>
                 <img 
