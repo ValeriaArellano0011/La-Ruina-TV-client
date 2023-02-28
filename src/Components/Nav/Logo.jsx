@@ -9,7 +9,7 @@ import { resetOption } from '../../middlewares/redux/actions';
 const Logo = () => {
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
-    const role = useSelector(state=>state.rolUser)
+    const rolUser = useSelector(state=>state.rolUser)
     const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
     window.onscroll = function() {navBack(setPosNav, posNav)};
@@ -38,7 +38,7 @@ const Logo = () => {
                     )}}
                 />
             </Link>
-            { user && role==='admin' && <GOD__MODE/> }
+            { rolUser==='admin'? <GOD__MODE/> : null }
         </div>
     )
 }
