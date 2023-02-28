@@ -4,7 +4,7 @@ import btnMenuTv from '../../design/ruinatv-icon-play-b.png';
 import profileMenuCss from './js/ProfileMenu';
 import OptionCanvas from '../../functions';
 import { getOption } from '../../middlewares/redux/actions';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import userIcon from '../../design/user-icon.png';
 import adminIcon from '../../design/admin-icon.png';
