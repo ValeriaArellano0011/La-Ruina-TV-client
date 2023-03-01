@@ -7,10 +7,7 @@ import {
     OPTION,
     RESET_OPTION,
     LOGIN,
-    GET_PRODUCTS,
     POST_PRODUCT,
-    GET_PRODUCT_DETAILS,
-    RESET_PRODUCT_DETAILS,
     GET_IDYT,
     GET_MUSIC_NAME,
     __GOD_MODE__,
@@ -35,7 +32,7 @@ import iconDescarga from '../../../design/descarga-icon.png'
 const initialState = {
 
     /*----------------Admin----------------*/
-    rolUser: 'free', // s: 'admin', 'subscriber', 'colaborator', 'free'
+    rolUser: '', // s: 'admin', 'subscriber', 'colaborator', 'free'
 
     /*----------------Auth----------------*/
     currentUser: false,
@@ -149,7 +146,7 @@ export default function rootReducer(state = initialState, action) {
         case __GOD_MODE__:
             return {
                 ...state,
-                rolUser: state.rolUser !== 'admin' ? 'admin' : 'free'
+                rolUser: ''
             };
 
         case GET_EDIT_MEDIA:
@@ -182,23 +179,6 @@ export default function rootReducer(state = initialState, action) {
         case POST_PRODUCT:
             return {
                 ...state
-            };
-
-        /*----------------Tienda----------------*/
-        case GET_PRODUCTS:
-            return {
-                ...state,
-                products: action.payload
-            };
-        case GET_PRODUCT_DETAILS:
-            return {
-                ...state,
-                productDetails: action.payload
-            };
-        case RESET_PRODUCT_DETAILS:
-            return {
-                ...state,
-                productDetails: [{ idProduct: '', categoryProduct: '', typeProduct: '', nameMerch: '', stock: '', idImg: '' }],
             };
 
         /*----------------Media----------------*/

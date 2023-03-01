@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ruinaLogo from '../../design/ruina-logo.png';
-import { GOD__MODE } from '../../Admin/Requests/GOD__MODE.jsx'
-
+import { GOD__MODE } from '../../Admin/Requests/GOD__MODE.jsx';
 import navBack from './js/Nav';
 import { resetOption } from '../../middlewares/redux/actions';
 
 const Logo = () => {
-    const auth = localStorage.getItem('auth');
-    const user = auth ? JSON.parse(auth) : null;
-  
+    // const auth = localStorage.getItem('auth');
+    // const user = auth ? JSON.parse(auth) : null;
+    const rolUser = useSelector(state=>state.rolUser)
     const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
     window.onscroll = function() {navBack(setPosNav, posNav)};
-    const arrOfGodMode = ['valearellano14@gmail.com', 'lalo@perronegro.cl', 'lalofreak.jsx@gmail.com', 'lalofreak.nav@gmail.com' ]
+
     return (
         <div className='ruinaLogoCont'>
         <Link to='/browser'>
@@ -37,11 +36,11 @@ const Logo = () => {
                     document.querySelector('.contCanvasMenu').style.display='none',
                     document.querySelector('#slideCanvasCont').style.overflowY="scroll"
                     )}}
-            />
-        </Link>
-        {  user && arrOfGodMode.includes(user.email) &&
-            <GOD__MODE/>}
-    </div>
-)}
+                />
+            </Link>
+            { rolUser==='admin'? <GOD__MODE/> : null }
+        </div>
+    )
+}
 
 export default Logo

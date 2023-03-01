@@ -10,7 +10,7 @@ export const GOD__MODE = () => {
     function handlerClick(){
         dispatch(_GOD_MODE_())
     }
-    
+
   return (
     <div className={s.GOD_MODE}>
         <button className={s.GOD_MODE} onClick={()=>handlerClick()}> {rolUser === 'admin'? 'ADMIN_MODE' : 'USER_MODE'}</button>

@@ -13,3 +13,8 @@
     background-color: rgb(231, 231, 231);
     font-family: Bebas Neue;
 }
+
+.ulCont{
+    margin-left: -20px;
+    padding: 150px;
+}
