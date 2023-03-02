@@ -11,19 +11,20 @@ import {
   resetIdYT,
   resetMedia,
   resetOption,
-  getAllLikes
+  getAllLikes,
 } from "../../middlewares/redux/actions";
 
 const Browser = () => {
   const dispatch = useDispatch();
   const auth = localStorage.getItem('auth');
   const user = JSON.parse(auth);
+  const currentUser = useSelector((state) => state.currentUser)
   const cardList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
   
   useEffect(()=>{
-    dispatch(resetOption());
-  },[dispatch])
+    dispatch(resetOption())
+  },[dispatch, currentUser])
 
   useEffect(() => {
     dispatch(getMedia());

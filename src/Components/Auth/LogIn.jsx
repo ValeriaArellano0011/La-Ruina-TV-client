@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./css/LogIn.module.css";
-import GoogleSignUp from "./GoogleSignUp";
 
 import { login } from "../../middlewares/redux/actions";
 import { logCss } from "./js/logCss";
@@ -54,13 +53,13 @@ const LogIn = () => {
                 value="onSubmit"
                 onClick={(e) => {
                  return (
-                  e.preventDefault() ,
-                  dispatch(login(email, password)))
+                  e.preventDefault(),
+                  dispatch(login(email, password))
+                  )
                 }}
               >
                 Entrar
               </button>
-              <GoogleSignUp/>
             </li>
           </form>
         </ul>

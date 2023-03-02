@@ -158,12 +158,13 @@ export default function rootReducer(state = initialState, action) {
         case CURRENT_USER:
             return {
                 ...state,
-                currentUser: action.payload.msg ? {
-                    userId: action.payload.msg.userId,
-                    userAlias: action.payload.msg.userAlias,
-                    email: action.payload.msg.email,
-                    role: JSON.parse(action.payload.msg.role)
-                } : user,
+                currentUser: action.payload.msg ?{
+                    userId: action.payload.msg.userId.length? action.payload.msg.userId : user.userId,
+                    userAlias: action.payload.msg.userAlias.length? action.payload.msg.userAlias : user.userAlias,
+                    email: action.payload.msg.email.length? action.payload.msg.email : user.email,
+                    isVerified: action.payload.msg.isVerified.length? action.payload.msg.isVerified : user.isVerified,
+                    role: action.payload.msg.role.length? JSON.parse(action.payload.msg.role) : user.role
+                } : user
             };
         case LOGIN:
             return {
@@ -172,9 +173,10 @@ export default function rootReducer(state = initialState, action) {
                     userId: action.payload.msg.userId,
                     userAlias: action.payload.msg.userAlias,
                     email: action.payload.msg.email,
+                    isVerified: action.payload.msg.isVerified,
                     role: JSON.parse(action.payload.msg.role)
                 } : user,
-                rolUser: action.payload.msg ? JSON.parse(action.payload.msg.role) : false
+                rolUser: action.payload.msg ? JSON.parse(action.payload.msg.role) : false,
             };
         case OPTION:
             return {

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import RequestProfile from '../../Admin/Requests/RequestProfile';
-import { useSelector } from 'react-redux';
 import s from './css/Profile.module.css';
 import userIcon from '../../design/user-icon.png';
 import { DeleteAccount } from './DeleteAccount';
@@ -8,7 +7,6 @@ import { DeleteAccount } from './DeleteAccount';
 const Profile = () => {
   const [ userAlias, setUserAlias ] = useState('')
   const [ userPicGoogle, setUserPicGoogle ] = useState('')
-  const currentUser = useSelector(state=>state.currentUser)
   const auth = localStorage.getItem('auth');
   const user = auth ? JSON.parse(auth) : null;
 
@@ -32,7 +30,7 @@ const Profile = () => {
             <ul className={s.ulListProfile}>
               <li className={s.liProfile1}>Perfil de</li>
               <li className={s.liProfile2}>
-                <h1>{userAlias ? userAlias : currentUser?.userAlias? currentUser.userAlias : "Usuario"}</h1>
+                <h1>{userAlias ? userAlias : "Usuario"}</h1>
               </li>
               <li>
                 <img 
@@ -42,7 +40,7 @@ const Profile = () => {
                   height='100px' 
                   alt="foto de perfil" />
               </li>
-              <li className={s.liProfile3}>{currentUser? currentUser.subs : 'Free Plan'}</li>
+              <li className={s.liProfile3}>{user.role.role}</li>
             </ul>
           </div>
               <div className={s.buttons}>
