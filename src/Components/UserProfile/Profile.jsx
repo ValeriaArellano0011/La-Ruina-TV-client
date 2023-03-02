@@ -40,12 +40,12 @@ const Profile = () => {
                   height='100px' 
                   alt="foto de perfil" />
               </li>
-              <li className={s.liProfile3}>{user.role.role}</li>
+              <li className={s.liProfile3}>{user.role.userMode}</li>
             </ul>
           </div>
               <div className={s.buttons}>
                 <button className='button1'>Editar cuenta</button><br/>
-                <button className='button2' onClick={()=>{return document.querySelector('#deleteAccount').style.display='flex'}} >Eliminar cuenta</button>
+                <button className='button2' onClick={()=>{return document.querySelector('#deleteAccount').style.display='flex'}}>Eliminar cuenta</button>
               </div>
           <ul>
             <li>

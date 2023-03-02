@@ -22,6 +22,7 @@ const AuthToken = () => {
     if (currentUser) {
       localStorage.setItem('auth', JSON.stringify(currentUser))
       history.push('/browser')
+      window.location.reload()
     }
   }, [currentUser, history])
 
