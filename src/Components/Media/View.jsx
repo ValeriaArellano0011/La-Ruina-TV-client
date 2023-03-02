@@ -11,7 +11,6 @@ import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
 import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes } from '../../middlewares/redux/actions';
 import OptionCanvas from '../../functions';
-// import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
 import { EditBtn } from '../Utils/EditBtn'
 import likeIcon from '../../design/like-icon.png'
 import s from './css/View.module.css'
@@ -97,21 +96,25 @@ const View = () => {
 
     return (
         <div className="browserBody">
-            {/* <YtSubscribeButton /> */}
             <div className='visor'>
                 <div className='visorBGCanvas'>
                     <img className='visorBG' src={linkimg} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
                 <div className='visorPostInfo'>
-
                     <div className='visorPostArtista'>
-                        <p>{artist}</p>
+                        <p>
+                            {artist}
+                        </p>
                     </div>
                     <div className='visorPostTitulo' id='viewPostTitulo'>
-                    <p>{title}</p>
+                        <p>
+                            {title}
+                        </p>
                     <div className='visorInfo'>
-                        <h3>{info}</h3>
+                        <h3>
+                            {info}
+                        </h3>
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
@@ -137,7 +140,8 @@ const View = () => {
                                 src={likeIcon} 
                                 alt='add favorites' 
                                 width='25px' 
-                            /></button> : null}
+                            />
+                            </button> : null}
                         <><ul>
                         {(currentUser || user)? <button 
                         className='buttonAddToPlaylist' 
@@ -187,10 +191,10 @@ const View = () => {
                                     </div>
                                     <li>
                                         <button 
-                                        onClick={()=>{return(
+                                            onClick={()=>{return(
                                             document.querySelector('.divCanvasAddListForm').style.display='block'
-                                        )}}
-                                        className='buttonCreateNewPlaylist'>Crear una nueva lista
+                                            )}}
+                                            className='buttonCreateNewPlaylist'>Crear una nueva lista
                                         </button>
                                     </li>
                                 </ul>
@@ -241,6 +245,7 @@ const View = () => {
                                 return (
                                     dispatch(getIdYT(idLinkYT)),
                                     dispatch(resetUrlPlayer()),
+                                    document.querySelector('#canvasYtSubBtn').style.display='flex',
                                     document.querySelector('.playerCont').style.opacity='1',
                                     document.querySelector('#ytplayer').style.display='block',
                                     document.querySelector('.playerLi').style.scale='1',
@@ -262,7 +267,7 @@ const View = () => {
                             id='login'
                             onClick={(e) => {
                                 return(
-                                onClickValue(e), 
+                                onClickValue(e),
                                 document.querySelector('#slideCanvasCont').style.overflowY="hidden"
                               )
                             }}>
