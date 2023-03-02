@@ -146,7 +146,7 @@ export default function rootReducer(state = initialState, action) {
         case __GOD_MODE__:
             return {
                 ...state,
-                rolUser: ''
+                rolUser: action.payload
             };
 
         case GET_EDIT_MEDIA:

@@ -2,7 +2,6 @@ import React from "react";
 import s from "./css/LogIn.module.css";
 
 import { login } from "../../middlewares/redux/actions";
-import { logCss } from "./js/logCss";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,9 +15,10 @@ const LogIn = () => {
 
   useEffect(() => {
     if (currentUser) {
-      logCss();
       localStorage.setItem('auth', JSON.stringify(currentUser))
-      // history.push('/browser')
+      history.push('/browser')
+      window.location.reload()
+
     }
   }, [currentUser, history]);
   

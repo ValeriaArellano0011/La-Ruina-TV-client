@@ -23,6 +23,7 @@ import { EditMediaList } from './Admin/Requests/EditMediaList';
 import { EditUsersList } from './Admin/Requests/EditUsersList';
 import PlanMP from './Components/MercadopagoPlan/PlanMP.jsx';
 import { CanvasMenu } from './Components/Nav/CanvasMenu';
+import Enter from './Components/Auth/Enter';
 
 
 function App() {
@@ -96,6 +97,9 @@ function App() {
             </Route>
             <Route path='/mercadopago/plan'>
               <PlanMP/>
+            </Route>
+            <Route path='/admin'>
+              <Enter/>
             </Route>
           </div>
         </>

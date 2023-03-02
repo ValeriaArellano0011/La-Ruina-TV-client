@@ -2,12 +2,12 @@ import React from 'react'
 import GoogleSignUp from '../Auth/GoogleSignUp'
 import style from './css/Enter.module.css'
 import { EnterCss } from './js/EnterCss'
-// import LogIn from './LogIn'
+import LogIn from './LogIn'
 import { useLocation } from 'react-router-dom';
 
 const Enter = () => {
   const location = useLocation()
-  const currentPath = window.location.origin + location.pathname;
+  const currentPath = location.pathname;
   EnterCss()
   return (
     <div className={style.enterBody}>
@@ -16,8 +16,7 @@ const Enter = () => {
         <div className={style.welcomeCont} id='welcomeCont'>
         <h1>ENTRÁ BOBO, VENÍ PARA ACÁ</h1>
         <h4>Debes ingresar con una cuenta de Google</h4>
-        {/* {!currentPath==='http://localhost:3000/browser'? <GoogleSignUp/> : <LogIn/> } */}
-        <GoogleSignUp/>
+        {currentPath==='/browser'? <GoogleSignUp/> : <LogIn/> }
       </div>
      </div>
     </div>
