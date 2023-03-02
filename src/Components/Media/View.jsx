@@ -271,7 +271,7 @@ const View = () => {
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
                         {
-                            user?.role.role==='admin'? <EditBtn connectionId={connectionId} /> : null
+                            user?.role.userMode==='admin'? <EditBtn connectionId={connectionId} /> : null
                         }
                     </div>
                 </div>

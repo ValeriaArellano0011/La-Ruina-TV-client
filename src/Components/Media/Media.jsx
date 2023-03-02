@@ -51,7 +51,7 @@ const Media = ({ cardList, style, keyID }) => {
 
                     </button>
                   </Link>
-                  {user?.role.role === 'admin' ? (
+                  {user?.role.userMode === 'admin' ? (
                     <ul className={s.adminRequest}>
                       <li className={s.adminBtn}>
                         <img src={editIcon}

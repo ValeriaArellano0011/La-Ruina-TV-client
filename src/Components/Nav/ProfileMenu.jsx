@@ -15,7 +15,6 @@ import subscriptionIcon from '../../design/subscription-icon.png';
 
 export const ProfileMenu = () => {
   const currentUser = useSelector(state=>state.currentUser)
-  const rolUser = useSelector(state=>state.rolUser)
   const dispatch = useDispatch()
   const history = useHistory()
   const auth = localStorage.getItem('auth');
@@ -132,15 +131,15 @@ export const ProfileMenu = () => {
               <button                                 
                 id='optionProfileBtn5' 
                 className={s.optionProfileBtn} 
-                value={rolUser==='admin'? 'dashboard' : 'subscription'}
+                value={user?.role.userMode==='admin'? 'dashboard' : 'subscription'}
                 onClick={(e)=>{return onClickValue(e)}}
                 onMouseEnter={() => {return profileMenuCss('enter')}}>
               <img 
                 className={s.imgIcon}
-                onClick={(e) => {return e.target.value=((rolUser==='admin')? ('dashboard') : ('subscription'))}}
-                src={rolUser==='admin'? adminIcon : subscriptionIcon} 
+                onClick={(e) => {return e.target.value=((user?.role.userMode==='admin')? ('dashboard') : ('subscription'))}}
+                src={user?.role.userMode==='admin'? adminIcon : subscriptionIcon} 
                 alt="" /><br></br>
-                {rolUser==='admin'? 'DASHBOARD' : 'SUSCRIPCIÓN'}
+                {user?.role.userMode==='admin'? 'DASHBOARD' : 'SUSCRIPCIÓN'}
               </button>
             </li>
             <li className={s.ulSalirBtn}>

@@ -12,7 +12,6 @@ import { OptionProfile } from '../../functions'
 
 const RequestProfile = () => {
     const dispatch = useDispatch()
-    const rolUser = useSelector(state=>state.rolUser)
     const option = useSelector(state=>state.option)
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
@@ -46,7 +45,7 @@ const RequestProfile = () => {
                         <span id='spanList' className={s.spanLists}>Listas</span>                    
                     </li>
                     {   
-                        rolUser === 'admin' ?
+                        user?.role.userMode === 'admin' ?
                         <li>
                             <img src={adminIcon} className={s.adminIcon} id='dashboardIcon' onClick={()=>{return dispatch(getOption('dashboard'))}} alt="lista" />
                             <span id='spanAdmin' className={s.spanOpt}>Dash</span>                    
