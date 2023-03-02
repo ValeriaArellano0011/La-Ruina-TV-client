@@ -10,7 +10,6 @@ import Fav from "../Fav/Fav";
 
 const Media = ({ cardList, style, keyID }) => {
   const history = useHistory();
-  const rolUser = useSelector(state => state.rolUser);
   const dispatch = useDispatch();
   const auth = localStorage.getItem('auth');
   const user = auth ? JSON.parse(auth) : null;
@@ -52,7 +51,7 @@ const Media = ({ cardList, style, keyID }) => {
 
                     </button>
                   </Link>
-                  {rolUser === 'admin' ? (
+                  {user?.role.role === 'admin' ? (
                     <ul className={s.adminRequest}>
                       <li className={s.adminBtn}>
                         <img src={editIcon}

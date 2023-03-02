@@ -52,7 +52,6 @@ const View = () => {
     const user = auth ? JSON.parse(auth) : null;
     const infoDetailViewer = useSelector(state=>state.infoDetailViewer)
     const myPlaylists = useSelector(state=>state.myPlaylists)
-    const rolUser = useSelector(state=>state.rolUser)
     const currentUser = useSelector(state=>state.currentUser)
     const idYT = useSelector(state=>state.ytPlayerState)
     const [color, setColor] = useState(1)
@@ -272,7 +271,7 @@ const View = () => {
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
                         {
-                            rolUser==='admin'? <EditBtn connectionId={connectionId} /> : null
+                            user?.role.role==='admin'? <EditBtn connectionId={connectionId} /> : null
                         }
                     </div>
                 </div>

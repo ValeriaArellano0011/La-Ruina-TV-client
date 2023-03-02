@@ -158,13 +158,23 @@ export default function rootReducer(state = initialState, action) {
         case CURRENT_USER:
             return {
                 ...state,
-                currentUser: action.payload.msg ? action.payload.msg : user,
+                currentUser: action.payload.msg ? {
+                    userId: action.payload.msg.userId,
+                    userAlias: action.payload.msg.userAlias,
+                    email: action.payload.msg.email,
+                    role: JSON.parse(action.payload.msg.role)
+                } : user,
             };
         case LOGIN:
             return {
                 ...state,
-                currentUser: action.payload.msg ? action.payload.msg : user,
-                rolUser: action.payload.msg.role
+                currentUser: action.payload.msg ? {
+                    userId: action.payload.msg.userId,
+                    userAlias: action.payload.msg.userAlias,
+                    email: action.payload.msg.email,
+                    role: JSON.parse(action.payload.msg.role)
+                } : user,
+                rolUser: action.payload.msg ? JSON.parse(action.payload.msg.role) : false
             };
         case OPTION:
             return {
