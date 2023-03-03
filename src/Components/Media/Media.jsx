@@ -10,7 +10,6 @@ import Fav from "../Fav/Fav";
 
 const Media = ({ cardList, style, keyID }) => {
   const history = useHistory();
-  const rolUser = useSelector(state => state.rolUser);
   const dispatch = useDispatch();
   const auth = localStorage.getItem('auth');
   const user = auth ? JSON.parse(auth) : null;
@@ -52,7 +51,7 @@ const Media = ({ cardList, style, keyID }) => {
 
                     </button>
                   </Link>
-                  {rolUser === 'admin' ? (
+                  {user?.role.userMode === 'admin' ? (
                     <ul className={s.adminRequest}>
                       <li className={s.adminBtn}>
                         <img src={editIcon}
@@ -68,7 +67,6 @@ const Media = ({ cardList, style, keyID }) => {
                   )
                     : null
                   }
-                  <Link to={``} className={s.link}>
                     <div className={style.mydiv}>
                       <div className={style.ulTitlesItems}>
                         <div style={{ display: 'flex', alignItems: 'center', margin: '5px'}}>
@@ -82,7 +80,6 @@ const Media = ({ cardList, style, keyID }) => {
                         <Fav urlID={e.id} color={'red'} style={{marginTop: '-10px'}}/>:null}
                       </div>
                     </div>
-                  </Link>
                 </div>
               </li>
             );

@@ -131,10 +131,11 @@ export const getDeleteUsers = (id) =>   {
     }
 
 
-    export const _GOD_MODE_ = () => {
+    export const _GOD_MODE_ = (mode) => {
         return async function (dispatch) {
             return dispatch ({
-                type:'__GOD_MODE__'
+                type:'__GOD_MODE__',
+                payload: mode
             })
         }
     };

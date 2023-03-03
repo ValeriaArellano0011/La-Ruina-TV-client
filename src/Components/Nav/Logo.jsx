@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ruinaLogo from '../../design/ruina-logo.png';
 import { GOD__MODE } from '../../Admin/Requests/GOD__MODE.jsx';
 import navBack from './js/Nav';
 import { resetOption } from '../../middlewares/redux/actions';
 
 const Logo = () => {
-    // const auth = localStorage.getItem('auth');
-    // const user = auth ? JSON.parse(auth) : null;
-    const rolUser = useSelector(state=>state.rolUser)
+    const auth = localStorage.getItem('auth');
+    const user = auth ? JSON.parse(auth) : null;
     const dispatch = useDispatch()
     const [posNav, setPosNav] = useState()
     window.onscroll = function() {navBack(setPosNav, posNav)};
@@ -38,7 +37,7 @@ const Logo = () => {
                     )}}
                 />
             </Link>
-            { rolUser==='admin'? <GOD__MODE/> : null }
+            { user?.role.role==='admin'? <GOD__MODE/> : null }
         </div>
     )
 }

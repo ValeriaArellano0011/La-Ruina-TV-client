@@ -144,9 +144,10 @@ export default function rootReducer(state = initialState, action) {
     switch (action.type) {
         /*----------------Admin----------------*/
         case __GOD_MODE__:
+            localStorage.setItem('auth', action.payload)
+            window.location.reload()
             return {
                 ...state,
-                rolUser: ''
             };
 
         case GET_EDIT_MEDIA:
@@ -158,13 +159,27 @@ export default function rootReducer(state = initialState, action) {
         case CURRENT_USER:
             return {
                 ...state,
-                currentUser: action.payload.msg ? action.payload.msg : user,
+                currentUser: action.payload.msg ?{
+                    userId: action.payload.msg.userId.length? action.payload.msg.userId : user.userId,
+                    userAlias: action.payload.msg.userAlias.length? action.payload.msg.userAlias : user.userAlias,
+                    email: action.payload.msg.email.length? action.payload.msg.email : user.email,
+                    isVerified: action.payload.msg.isVerified.length? action.payload.msg.isVerified : user.isVerified,
+                    googlePic: action.payload.msg.googplePic.length? action.payload.msg.googlePic : user.googlePic,
+                    role: action.payload.msg.role.length? JSON.parse(action.payload.msg.role) : user.role
+                } : user
             };
         case LOGIN:
             return {
                 ...state,
-                currentUser: action.payload.msg ? action.payload.msg : user,
-                rolUser: action.payload.msg.role
+                currentUser: action.payload.msg ? {
+                    userId: action.payload.msg.userId,
+                    userAlias: action.payload.msg.userAlias,
+                    email: action.payload.msg.email,
+                    isVerified: action.payload.msg.isVerified,
+                    googlePic: action.payload.msg.googlePic,
+                    role: JSON.parse(action.payload.msg.role)
+                } : user,
+                rolUser: action.payload.msg ? JSON.parse(action.payload.msg.role) : false,
             };
         case OPTION:
             return {

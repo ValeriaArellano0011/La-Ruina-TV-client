@@ -1,7 +1,7 @@
 import React from 'react'
 import { YtSubscribeButton } from '../Utils/YtSubscribeButton'
 
-const Player = (props) => {
+const YtPlayer = (props) => {
   const {idYT}= props
   return (
     <div className='playerCont'>
@@ -18,4 +18,4 @@ const Player = (props) => {
 }
 
 
-export default Player
+export default YtPlayer

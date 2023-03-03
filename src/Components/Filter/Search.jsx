@@ -16,18 +16,20 @@ export const Search = () => {
                   return (
                     <li key={index}>
                     <SearchedMedia 
-                      id={e.id} 
-                      title={e.title} 
-                      img={e.linkimg} 
-                      categories={e.categories} 
-                      artist={e.artist} 
+                      id={e.id}
+                      title={e.title}
+                      img={e.linkimg}
+                      categories={e.categories}
+                      artist={e.artist}
                       idLinkYT={e.idLinkYT}
                       mediaType={e.mediaType}/>
                     </li>
                     )}
                   )
                 :               
-                <div className={s.notFound} ><h2>No se han encontrado resultados que coincidan con tu búsqueda</h2></div>
+                <div className={s.notFound} >
+                  <h2>No se han encontrado resultados que coincidan con tu búsqueda</h2>
+                </div>
               }
             </ul>
         </div>

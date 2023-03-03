@@ -5,16 +5,16 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getIdYT, getInfo, resetUrlPlayer, addToPlaylist } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
-import Player from './Player'
+import YtPlayer from './YtPlayer'
 import playIconn from '../../design/ruinatv-icon-play-n.png'
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
 import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes } from '../../middlewares/redux/actions';
 import OptionCanvas from '../../functions';
-// import { YtSubscribeButton } from '../Utils/YtSubscribeButton';
 import { EditBtn } from '../Utils/EditBtn'
 import likeIcon from '../../design/like-icon.png'
 import s from './css/View.module.css'
+import DrivePlayer from './DrivePlayer'
 
 
 const View = () => {
@@ -52,7 +52,6 @@ const View = () => {
     const user = auth ? JSON.parse(auth) : null;
     const infoDetailViewer = useSelector(state=>state.infoDetailViewer)
     const myPlaylists = useSelector(state=>state.myPlaylists)
-    const rolUser = useSelector(state=>state.rolUser)
     const currentUser = useSelector(state=>state.currentUser)
     const idYT = useSelector(state=>state.ytPlayerState)
     const [color, setColor] = useState(1)
@@ -68,11 +67,11 @@ const View = () => {
         dispatch(getInfo(id))
         dispatch(getAllPlaylist(user?.userId))
         dispatch(getAllLikes(user?.userId))
-    },[dispatch, id, favs, user])
+    },[dispatch, id, user?.userId])
 
     useEffect(() => {
         (favs?.filter(fav => fav.id === id).length > 0) ? setColor(0) : setColor(1)
-    },[favs, color, id])
+    },[favs, id])
     function colorLike(color){
         if(favs?.length>1 && (user || currentUser)) return document.querySelector('#favViewIcon').style.filter = `grayscale(${color})`       
     }
@@ -98,25 +97,29 @@ const View = () => {
 
     return (
         <div className="browserBody">
-            {/* <YtSubscribeButton /> */}
             <div className='visor'>
                 <div className='visorBGCanvas'>
                     <img className='visorBG' src={linkimg} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
                 <div className='visorPostInfo'>
-
                     <div className='visorPostArtista'>
-                        <p>{artist}</p>
+                        <p>
+                            {artist}
+                        </p>
                     </div>
                     <div className='visorPostTitulo' id='viewPostTitulo'>
-                    <p>{title}</p>
+                        <p>
+                            {title}
+                        </p>
                     <div className='visorInfo'>
-                        <h3>{info}</h3>
+                        <h3>
+                            {info}
+                        </h3>
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
-                        <Player idYT={idYT} />              
+                        {user.role.userMode === 'free' ? <YtPlayer idYT={idYT} /> : <DrivePlayer idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}              
 
                             {/* {
                                 Object.entries(type).map((el)=>{
@@ -138,7 +141,8 @@ const View = () => {
                                 src={likeIcon} 
                                 alt='add favorites' 
                                 width='25px' 
-                            /></button> : null}
+                            />
+                            </button> : null}
                         <><ul>
                         {(currentUser || user)? <button 
                         className='buttonAddToPlaylist' 
@@ -188,10 +192,10 @@ const View = () => {
                                     </div>
                                     <li>
                                         <button 
-                                        onClick={()=>{return(
+                                            onClick={()=>{return(
                                             document.querySelector('.divCanvasAddListForm').style.display='block'
-                                        )}}
-                                        className='buttonCreateNewPlaylist'>Crear una nueva lista
+                                            )}}
+                                            className='buttonCreateNewPlaylist'>Crear una nueva lista
                                         </button>
                                     </li>
                                 </ul>
@@ -239,14 +243,21 @@ const View = () => {
                         <button 
                             className='buttonVer'
                             onClick={()=>{
-                                return (
+                                if(user.role.userMode==='free') return (
                                     dispatch(getIdYT(idLinkYT)),
                                     dispatch(resetUrlPlayer()),
+                                    document.querySelector('#canvasYtSubBtn').style.display='flex',
                                     document.querySelector('.playerCont').style.opacity='1',
                                     document.querySelector('#ytplayer').style.display='block',
                                     document.querySelector('.playerLi').style.scale='1',
                                     document.querySelector('.playUl').style.scale='1'
-                                )}}
+                                )
+                                if(user.role.userMode==='admin' || user.role.userMode==='subscriber' ) return (
+                                    document.querySelector('.playerCont1').style.opacity='1',
+                                    document.querySelector('.playerLi1').style.scale='1',
+                                    document.querySelector('.playerUl1').style.scale='1'
+                                )                            
+                            }}
                             onMouseEnter={()=>{
                                 document.querySelector('.visorButtonPlay').src=playIconb
                             }}
@@ -263,7 +274,7 @@ const View = () => {
                             id='login'
                             onClick={(e) => {
                                 return(
-                                onClickValue(e), 
+                                onClickValue(e),
                                 document.querySelector('#slideCanvasCont').style.overflowY="hidden"
                               )
                             }}>
@@ -272,7 +283,7 @@ const View = () => {
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
                         {
-                            rolUser==='admin'? <EditBtn connectionId={connectionId} /> : null
+                            user?.role.userMode==='admin'? <EditBtn connectionId={connectionId} /> : null
                         }
                     </div>
                 </div>
