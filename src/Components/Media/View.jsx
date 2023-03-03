@@ -66,11 +66,11 @@ const View = () => {
         dispatch(getInfo(id))
         dispatch(getAllPlaylist(user?.userId))
         dispatch(getAllLikes(user?.userId))
-    },[dispatch, id, favs, user])
+    },[dispatch, id, user?.userId])
 
     useEffect(() => {
         (favs?.filter(fav => fav.id === id).length > 0) ? setColor(0) : setColor(1)
-    },[favs, color, id])
+    },[favs, id])
     function colorLike(color){
         if(favs?.length>1 && (user || currentUser)) return document.querySelector('#favViewIcon').style.filter = `grayscale(${color})`       
     }

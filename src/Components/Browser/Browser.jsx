@@ -32,7 +32,7 @@ const Browser = () => {
     dispatch(resetIdYT());
     dispatch(getAllLikes(user?.userId));
     BodyCss();
-  }, [dispatch, user]);
+  }, [dispatch, user?.userId]);
 
   return (
     <div className="browserBody"> 

@@ -14,8 +14,7 @@ export const Favorites = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getAllLikes(userId))
-    console.log('ALL USER LIKES: ',userLikes)
-  }, [dispatch, userId, userLikes])
+  }, [dispatch, userId])
   
   return (
     <div>
