@@ -14,6 +14,7 @@ import OptionCanvas from '../../functions';
 import { EditBtn } from '../Utils/EditBtn'
 import likeIcon from '../../design/like-icon.png'
 import s from './css/View.module.css'
+import DrivePlayer from './DrivePlayer'
 
 
 const View = () => {
@@ -118,7 +119,7 @@ const View = () => {
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
-                        {user.role.userMode === 'free' ? <YtPlayer idYT={idYT} />: null}              
+                        {user.role.userMode === 'free' ? <YtPlayer idYT={idYT} /> : <DrivePlayer idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}              
 
                             {/* {
                                 Object.entries(type).map((el)=>{
@@ -242,7 +243,7 @@ const View = () => {
                         <button 
                             className='buttonVer'
                             onClick={()=>{
-                                return (
+                                if(user.role.userMode==='free') return (
                                     dispatch(getIdYT(idLinkYT)),
                                     dispatch(resetUrlPlayer()),
                                     document.querySelector('#canvasYtSubBtn').style.display='flex',
@@ -250,7 +251,13 @@ const View = () => {
                                     document.querySelector('#ytplayer').style.display='block',
                                     document.querySelector('.playerLi').style.scale='1',
                                     document.querySelector('.playUl').style.scale='1'
-                                )}}
+                                )
+                                if(user.role.userMode==='admin' || user.role.userMode==='subscriber' ) return (
+                                    document.querySelector('.playerCont1').style.opacity='1',
+                                    document.querySelector('.playerLi1').style.scale='1',
+                                    document.querySelector('.playerUl1').style.scale='1'
+                                )                            
+                            }}
                             onMouseEnter={()=>{
                                 document.querySelector('.visorButtonPlay').src=playIconb
                             }}
