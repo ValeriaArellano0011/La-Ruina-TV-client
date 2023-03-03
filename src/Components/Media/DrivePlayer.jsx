@@ -7,10 +7,13 @@ const DrivePlayer = (props) => {
             <ul className='playerUl1'>
                 <li className='playerLi1'>
                 <iframe
+                    style={{border: 'none'}}
                     title={idDrive}
                     src={`https://drive.google.com/file/d/${idDrive}/preview`}
-                    width="640"
-                    height="480"                
+                    width="100%"
+                    height="100%"   
+                    allowfullscreen
+                    autoplay         
                     />
                 </li>
             </ul>
