@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getIdYT, getInfo, resetUrlPlayer, addToPlaylist } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
-import Player from './Player'
+import YtPlayer from './YtPlayer'
 import playIconn from '../../design/ruinatv-icon-play-n.png'
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
@@ -118,7 +118,7 @@ const View = () => {
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
-                        <Player idYT={idYT} />              
+                        {user.role.userMode === 'free' ? <YtPlayer idYT={idYT} />: null}              
 
                             {/* {
                                 Object.entries(type).map((el)=>{
