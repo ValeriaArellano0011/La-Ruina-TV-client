@@ -12,8 +12,6 @@ const DrivePlayer = (props) => {
                     src={`https://drive.google.com/file/d/${idDrive}/preview`}
                     width="100%"
                     height="100%"   
-                    allowfullscreen
-                    autoplay         
                     />
                 </li>
             </ul>
