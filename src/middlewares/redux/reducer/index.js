@@ -20,7 +20,8 @@ import {
     // GET_PLAYLIST,
     GET_ITEM_LIST,
     GET_ALL_PLAYLIST,
-    GET_ALL_LIKES
+    GET_ALL_LIKES,
+    GET_YT_SUBSCRIBERS
 } from "../../misc";
 
 import iconYT from '../../../design/yt-icon.png'
@@ -33,7 +34,7 @@ const initialState = {
 
     /*----------------Admin----------------*/
     rolUser: '', // s: 'admin', 'subscriber', 'colaborator', 'free'
-
+    YTSub: false,
     /*----------------Auth----------------*/
     currentUser: false,
     option: '',
@@ -155,6 +156,12 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 mediaWithConnectionId: action.payload.files
             };
+        /*----------------YT----------------*/
+        case GET_YT_SUBSCRIBERS:
+            return {
+                ...state,
+                YTSub: action.payload
+            }
         /*----------------Auth----------------*/
         case CURRENT_USER:
             return {

@@ -5,6 +5,9 @@ export const LOGIN = 'LOGIN'
 export const SIGNUP = 'SIGNUP'
 export const CURRENT_USER = 'CURRENT_USER' 
 
+/* --------------------YT--------------------- */
+export const GET_YT_SUBSCRIBERS = 'GET_YT_SUBSCRIBERS'
+
 /* -------------------Media------------------- */
 export const GET_CATEGORIAS = 'GET_CATEGORIAS'
 export const GET_MEDIATYPE = 'GET_MEDIATYPE'

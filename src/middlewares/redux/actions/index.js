@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { URL_API } from '../../misc/config'
 import { 
-    GET_MEDIA, 
+    GET_MEDIA,
+    GET_YT_SUBSCRIBERS, 
     GET_INFO, 
     GET_CATEGORIAS, 
     GET_MEDIATYPE, 
@@ -41,6 +42,19 @@ import {
     } from '../../misc'
 
 /*-----------------Admin----------------*/
+
+/*------------------YT------------------*/
+    export const getYtSubs = (email) => {
+        return async function (dispatch) {
+            await axios.post(`${URL_API}/yt/subscription`, email)
+            .then(res => {
+                dispatch({
+                    type: GET_YT_SUBSCRIBERS,
+                    payload: res.data
+                })
+            })
+        }
+    }
 
 //----------------USERS-----------------
 

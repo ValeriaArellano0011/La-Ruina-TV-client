@@ -9,7 +9,7 @@ import YtPlayer from './YtPlayer'
 import playIconn from '../../design/ruinatv-icon-play-n.png'
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
-import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes } from '../../middlewares/redux/actions';
+import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes, getYtSubs } from '../../middlewares/redux/actions';
 import OptionCanvas from '../../functions';
 import { EditBtn } from '../Utils/EditBtn'
 import likeIcon from '../../design/like-icon.png'
@@ -19,6 +19,7 @@ import DrivePlayer from './DrivePlayer'
 
 const View = () => {
     const favs = useSelector(state=>state.allUserLikes);
+    const YTSub = useSelector(state=>state.YTSub)
     const [list, setList] = useState([]);
     let toastProperties = null;
     const showToast = (type, description) => {
@@ -244,9 +245,10 @@ const View = () => {
                             className='buttonVer'
                             onClick={()=>{
                                 if(user?.role.userMode==='free') return (
+                                    dispatch(getYtSubs(user?.email)),
                                     dispatch(getIdYT(idLinkYT)),
                                     dispatch(resetUrlPlayer()),
-                                    document.querySelector('#canvasYtSubBtn').style.display='flex',
+                                    (YTSub? document.querySelector('#canvasYtSubBtn').style.display='none' : document.querySelector('#canvasYtSubBtn').style.display='flex'),
                                     document.querySelector('.playerCont').style.opacity='1',
                                     document.querySelector('#ytplayer').style.display='block',
                                     document.querySelector('.playerLi').style.scale='1',
