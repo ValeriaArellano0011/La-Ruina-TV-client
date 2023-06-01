@@ -1,1 +1,1 @@
- export const URL_API = 'https://laruina-tv.fly.dev'
+ export const URL_API = 'https://terminalkiller.fly.dev'
