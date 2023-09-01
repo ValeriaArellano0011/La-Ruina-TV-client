@@ -1,7 +1,7 @@
 import { Card } from "@mui/material";
 import { Title } from "react-admin";
 import CardContent from "@mui/material/CardContent";
-import styles from "../css/CreatePost.module.scss";
+import styles from "../css/CreatePost.module.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editMedia, getEditMedia } from "../../middlewares/redux/actions/index";

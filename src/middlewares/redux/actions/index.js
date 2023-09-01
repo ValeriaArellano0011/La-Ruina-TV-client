@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { URL_API } from '../../misc/config'
+import { URL_API } from '../../config'
 import { 
     GET_MEDIA,
     GET_YT_SUBSCRIBERS, 

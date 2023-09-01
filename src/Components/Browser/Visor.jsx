@@ -4,6 +4,7 @@ import playIconb from '../../design/ruinatv-icon-play-b.png'
 import playIconn from '../../design/ruinatv-icon-play-n.png'
 import visorIntroVideo from '../../design/laruina-intro.mp4'
 import { VisorFunction } from './js/VisorFunction';
+import { $d } from "../../functions";
 
 const Visor = () => {
     const { 
@@ -49,16 +50,16 @@ const Visor = () => {
                             tag={visorTag? visorTag : null}
                             onClick={()=>{window.scrollTo(0, 0)}}
                             onMouseEnter={()=>{
-                                document.querySelector('.visorButtonPlay').src=playIconb
+                                $d('.visorButtonPlay').src=playIconb
                             }}
                             onMouseLeave={()=>{
-                                document.querySelector('.visorButtonPlay').src=playIconn
+                                $d('.visorButtonPlay').src=playIconn
                             }}
                             >
                             <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{!(user || currentUser)?  'Previsualizar' : 'Ir al contenido'}</button></Link></li>
                         <li><button 
                                 className='button2'
-                                onClick={()=>{ return document.querySelector('#infoCont').style.scale='1' }} >
+                                onClick={()=>{ return $d('#infoCont').style.scale='1' }} >
                             Más información</button></li>
                     </ul>
                     <ul className='visorIcons'>

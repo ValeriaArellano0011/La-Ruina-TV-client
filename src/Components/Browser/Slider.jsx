@@ -1,3 +1,4 @@
+import { $d } from "../../functions"
 import Media from "../Media/Media"
 import SliderBtns from "../Utils/SliderBtns"
 
@@ -16,26 +17,26 @@ const Slider = (props) => {
                     {
                         if(cardList?.length <= 1){
                             return(
-                                document.querySelector(`#${id}PostBtn`).style.display="none",
-                                document.querySelector(`#${id}PostBtn`).style.transitionDuration='1s'
+                                $d(`#${id}PostBtn`).style.display="none",
+                                $d(`#${id}PostBtn`).style.transitionDuration='1s'
                             )
                         }
                         return(
-                            document.querySelector(`#${id}PostBtn`).style.transitionDuration='1s',
-                            document.querySelector(`#${id}PostBtn`).style.cursor='pointer',
-                            document.querySelector(`#${id}PostBtn`).style.opacity='1',
-                            document.querySelector(`#${id}PrevBtn`).style.opacity='1',
-                            document.querySelector(`#${id}PostBtn`).style.background='linear-gradient(to left, rgb(255, 255, 255), transparent)'
+                            $d(`#${id}PostBtn`).style.transitionDuration='1s',
+                            $d(`#${id}PostBtn`).style.cursor='pointer',
+                            $d(`#${id}PostBtn`).style.opacity='1',
+                            $d(`#${id}PrevBtn`).style.opacity='1',
+                            $d(`#${id}PostBtn`).style.background='linear-gradient(to left, rgb(255, 255, 255), transparent)'
                             )
                     }
                 }
                 onMouseLeave={()=>
                     {
                         return(
-                            document.querySelector(`#${id}PostBtn`).style.transitionDuration='1s',
-                            document.querySelector(`#${id}PrevBtn`).style.opacity='0',
-                            document.querySelector(`#${id}PostBtn`).style.opacity='0',
-                            document.querySelector(`#${id}PostBtn`).style.background='linear-gradient(to left, rgb(255, 255, 255), transparent)'
+                            $d(`#${id}PostBtn`).style.transitionDuration='1s',
+                            $d(`#${id}PrevBtn`).style.opacity='0',
+                            $d(`#${id}PostBtn`).style.opacity='0',
+                            $d(`#${id}PostBtn`).style.background='linear-gradient(to left, rgb(255, 255, 255), transparent)'
                             )   
                     }
                 }

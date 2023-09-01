@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { resetOption } from '../../middlewares/redux/actions'
 import s from '../css/Dashboard.module.css'
+import { $d } from '../../functions'
 
 const Requests = () => {
   const dispatch = useDispatch()
@@ -14,15 +15,15 @@ const Requests = () => {
           onClick={()=>{
             return(
             dispatch(resetOption()),
-            document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-            document.querySelector(`.navCont`).style.transitionDuration='.2s',
-            document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-            document.querySelector(`.navCont`).style.width='0vw',
-            document.querySelector(`.navCont`).style.width='100vw',
-            document.querySelector(`.browserBody`).style.height='auto',
-            document.querySelector(`.browserBody`).style.overflowY='scroll',
-            document.querySelector(`.visor`).style.transform='translateX(0)',
-            document.querySelector('#slideCanvasCont').style.overflowY="scroll"
+            $d(`.bodyApp`).style.transform='translateX(0)',
+            $d(`.navCont`).style.transitionDuration='.2s',
+            $d(`.bodyApp`).style.transitionDuration='2s',
+            $d(`.navCont`).style.width='0vw',
+            $d(`.navCont`).style.width='100vw',
+            $d(`.browserBody`).style.height='auto',
+            $d(`.browserBody`).style.overflowY='scroll',
+            $d(`.visor`).style.transform='translateX(0)',
+            $d('#slideCanvasCont').style.overflowY="scroll"
             )}}>
         Crear Media
         </button>
@@ -33,15 +34,15 @@ const Requests = () => {
           onClick={()=>{
             return(
             dispatch(resetOption()),
-            document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-            document.querySelector(`.navCont`).style.transitionDuration='.2s',
-            document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-            document.querySelector(`.navCont`).style.width='0vw',
-            document.querySelector(`.navCont`).style.width='100vw',
-            document.querySelector(`.browserBody`).style.height='auto',
-            document.querySelector(`.browserBody`).style.overflowY='scroll',
-            document.querySelector(`.visor`).style.transform='translateX(0)',
-            document.querySelector('#slideCanvasCont').style.overflowY="scroll"
+            $d(`.bodyApp`).style.transform='translateX(0)',
+            $d(`.navCont`).style.transitionDuration='.2s',
+            $d(`.bodyApp`).style.transitionDuration='2s',
+            $d(`.navCont`).style.width='0vw',
+            $d(`.navCont`).style.width='100vw',
+            $d(`.browserBody`).style.height='auto',
+            $d(`.browserBody`).style.overflowY='scroll',
+            $d(`.visor`).style.transform='translateX(0)',
+            $d('#slideCanvasCont').style.overflowY="scroll"
             )}}>
         Modificar Contenido
         </button>
@@ -52,15 +53,15 @@ const Requests = () => {
           onClick={()=>{
             return(
             dispatch(resetOption()),
-            document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-            document.querySelector(`.navCont`).style.transitionDuration='.2s',
-            document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-            document.querySelector(`.navCont`).style.width='0vw',
-            document.querySelector(`.navCont`).style.width='100vw',
-            document.querySelector(`.browserBody`).style.height='auto',
-            document.querySelector(`.browserBody`).style.overflowY='scroll',
-            document.querySelector(`.visor`).style.transform='translateX(0)',
-            document.querySelector('#slideCanvasCont').style.overflowY="scroll"
+            $d(`.bodyApp`).style.transform='translateX(0)',
+            $d(`.navCont`).style.transitionDuration='.2s',
+            $d(`.bodyApp`).style.transitionDuration='2s',
+            $d(`.navCont`).style.width='0vw',
+            $d(`.navCont`).style.width='100vw',
+            $d(`.browserBody`).style.height='auto',
+            $d(`.browserBody`).style.overflowY='scroll',
+            $d(`.visor`).style.transform='translateX(0)',
+            $d('#slideCanvasCont').style.overflowY="scroll"
             )}}>
         Administrar Usuarios
         </button>

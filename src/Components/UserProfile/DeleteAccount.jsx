@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import s from './css/Profile.module.css';
+import { $d } from '../../functions';
 
 
 export const DeleteAccount = (props) => {
@@ -39,7 +40,7 @@ export const DeleteAccount = (props) => {
           {success && <p>{success}</p>} <br/><br/>
 
         </form>
-        <button type="cancel" className={s.btnCancelDeleteAccount} onClick={()=>{return document.querySelector('#deleteAccount').style.display='none'}} >Cancelar</button>
+        <button type="cancel" className={s.btnCancelDeleteAccount} onClick={()=>{return $d('#deleteAccount').style.display='none'}} >Cancelar</button>
     </div>
     );
   }

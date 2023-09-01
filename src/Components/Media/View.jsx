@@ -10,7 +10,7 @@ import playIconn from '../../design/ruinatv-icon-play-n.png'
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import userIcon from '../../design/user-icon.png'
 import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes, getYtSubs } from '../../middlewares/redux/actions';
-import OptionCanvas from '../../functions';
+import OptionCanvas, { $d } from '../../functions';
 import { EditBtn } from '../Utils/EditBtn'
 import likeIcon from '../../design/like-icon.png'
 import s from './css/View.module.css'
@@ -74,7 +74,7 @@ const View = () => {
         (favs?.filter(fav => fav.id === id).length > 0) ? setColor(0) : setColor(1)
     },[favs, id])
     function colorLike(color){
-        if(favs?.length>1 && (user || currentUser)) return document.querySelector('#favViewIcon').style.filter = `grayscale(${color})`       
+        if(favs?.length>1 && (user || currentUser)) return $d('#favViewIcon').style.filter = `grayscale(${color})`       
     }
     colorLike(color)
     const {
@@ -149,15 +149,15 @@ const View = () => {
                         className='buttonAddToPlaylist' 
                         onClick={()=>{
                             dispatch(getAllPlaylist(user.userId))
-                            document.querySelector('.ulButtonAddItem').style.transitionDuration='.3s'
-                            document.querySelector('.ulButtonAddItem').style.display='block'
-                            document.querySelector('.ulButtonAddItem').style.opacity='1'
-                            if(myPlaylists?.length===0) return document.querySelector('.ulButtonAddItem').style.bottom='40px'
-                            if(myPlaylists?.length===1) return document.querySelector('.ulButtonAddItem').style.bottom='80px'
-                            if(myPlaylists?.length===2) return document.querySelector('.ulButtonAddItem').style.bottom='120px'
+                            $d('.ulButtonAddItem').style.transitionDuration='.3s'
+                            $d('.ulButtonAddItem').style.display='block'
+                            $d('.ulButtonAddItem').style.opacity='1'
+                            if(myPlaylists?.length===0) return $d('.ulButtonAddItem').style.bottom='40px'
+                            if(myPlaylists?.length===1) return $d('.ulButtonAddItem').style.bottom='80px'
+                            if(myPlaylists?.length===2) return $d('.ulButtonAddItem').style.bottom='120px'
                             if(myPlaylists?.length>2) return (
-                                document.querySelector('.ulButtonAddItem').style.bottom='160px',
-                                document.querySelector('.ulButtonAddItem').style.overflowY='scroll'
+                                $d('.ulButtonAddItem').style.bottom='160px',
+                                $d('.ulButtonAddItem').style.overflowY='scroll'
                                 )
                             }}
                         >+</button> : null}
@@ -165,8 +165,8 @@ const View = () => {
                                 <ul
                                 className={'ulButtonAddItem'}
                                 onMouseLeave={()=>{return(
-                                    document.querySelector('.ulButtonAddItem').style.opacity='0',
-                                    document.querySelector('.ulButtonAddItem').style.display='none'
+                                    $d('.ulButtonAddItem').style.opacity='0',
+                                    $d('.ulButtonAddItem').style.display='none'
                                 )}}>
                                     <div className='divButtonAddItem'>
                                         {
@@ -194,7 +194,7 @@ const View = () => {
                                     <li>
                                         <button 
                                             onClick={()=>{return(
-                                            document.querySelector('.divCanvasAddListForm').style.display='block'
+                                            $d('.divCanvasAddListForm').style.display='block'
                                             )}}
                                             className='buttonCreateNewPlaylist'>Crear una nueva lista
                                         </button>
@@ -223,7 +223,7 @@ const View = () => {
                                         dispatch(getAllPlaylist(user.userId))
                                         showToast('success', `Playlist "${playlistName}" creada!`)
                                         setPlaylistName('')
-                                        document.querySelector('.divCanvasAddListForm').style.display='none'
+                                        $d('.divCanvasAddListForm').style.display='none'
                                     }}
                                     /><br/><br/>
                                 <input 
@@ -231,7 +231,7 @@ const View = () => {
                                     onClick={(e)=>{
                                         e.preventDefault()
                                         setPlaylistName('')
-                                        document.querySelector('.divCanvasAddListForm').style.display='none'
+                                        $d('.divCanvasAddListForm').style.display='none'
                                     }}
                                     className='button2'
                                     style={{cursor: 'pointer'}}
@@ -248,23 +248,23 @@ const View = () => {
                                     dispatch(getYtSubs(user?.email)),
                                     dispatch(getIdYT(idLinkYT)),
                                     dispatch(resetUrlPlayer()),
-                                    (YTSub? document.querySelector('#canvasYtSubBtn').style.display='none' : document.querySelector('#canvasYtSubBtn').style.display='flex'),
-                                    document.querySelector('.playerCont').style.opacity='1',
-                                    document.querySelector('#ytplayer').style.display='block',
-                                    document.querySelector('.playerLi').style.scale='1',
-                                    document.querySelector('.playUl').style.scale='1'
+                                    (YTSub? $d('#canvasYtSubBtn').style.display='none' : $d('#canvasYtSubBtn').style.display='flex'),
+                                    $d('.playerCont').style.opacity='1',
+                                    $d('#ytplayer').style.display='block',
+                                    $d('.playerLi').style.scale='1',
+                                    $d('.playUl').style.scale='1'
                                 )
                                 if(user?.role.userMode==='admin' || user?.role.userMode==='subscriber' ) return (
-                                    document.querySelector('.playerCont1').style.opacity='1',
-                                    document.querySelector('.playerLi1').style.scale='1',
-                                    document.querySelector('.playerUl1').style.scale='1'
+                                    $d('.playerCont1').style.opacity='1',
+                                    $d('.playerLi1').style.scale='1',
+                                    $d('.playerUl1').style.scale='1'
                                 )                            
                             }}
                             onMouseEnter={()=>{
-                                document.querySelector('.visorButtonPlay').src=playIconb
+                                $d('.visorButtonPlay').src=playIconb
                             }}
                             onMouseLeave={()=>{
-                                document.querySelector('.visorButtonPlay').src=playIconn
+                                $d('.visorButtonPlay').src=playIconn
                             }}>
                                 <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />Ver ahora
                         </button>
@@ -277,7 +277,7 @@ const View = () => {
                             onClick={(e) => {
                                 return(
                                 onClickValue(e),
-                                document.querySelector('#slideCanvasCont').style.overflowY="hidden"
+                                $d('#slideCanvasCont').style.overflowY="hidden"
                               )
                             }}>
                             <img className='visorButtonPlay' src={userIcon} alt='visorbtn' />Ingresar

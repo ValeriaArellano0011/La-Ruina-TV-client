@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import s from './css/Media.module.css';
 import { getDeleteMedia, getEditMedia } from "../../middlewares/redux/actions";
 import Fav from "../Fav/Fav";
+import { $d } from "../../functions";
 
 const Media = ({ cardList, style, keyID }) => {
   const history = useHistory();
@@ -43,7 +44,7 @@ const Media = ({ cardList, style, keyID }) => {
                       artista={e.artist}
                       img={e.linkimg}
                       onClick={() => {
-                        document.querySelector(`.link`).style.transitionDelay = '1s'
+                        $d(`.link`).style.transitionDelay = '1s'
                         return window.scrollTo(0, 0);
                       }}
                     >

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { URL_API } from '../../middlewares/misc/config';
+import { URL_API } from '../../middlewares/config';
 
 const PlanMP = () => {
 

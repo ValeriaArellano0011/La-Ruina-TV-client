@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { URL_API } from '../../../middlewares/misc/config'
+import { URL_API } from '../../../middlewares/config'
 
 export const handleCheckout = async () => {
 

@@ -7,6 +7,7 @@ import { useState } from "react";
 import { getMusicName, resetOption } from "../../middlewares/redux/actions";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
+import { $d } from "../../functions";
 
 export default function SearchBar(){
     const dispatch = useDispatch()
@@ -28,14 +29,14 @@ export default function SearchBar(){
         return (
           dispatch(getMusicName(name)),
           dispatch(resetOption()),
-          document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-          document.querySelector(`.navCont`).style.transitionDuration='.2s',
-          document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-          document.querySelector(`.navCont`).style.width='100vw',
-          document.querySelector(`.browserBody`).style.height='auto',
-          document.querySelector(`.browserBody`).style.overflowY='scroll',
-          document.querySelector(`.visor`).style.transform='translateX(0)',
-          document.querySelector('#slideCanvasCont').style.overflowY="scroll",
+          $d(`.bodyApp`).style.transform='translateX(0)',
+          $d(`.navCont`).style.transitionDuration='.2s',
+          $d(`.bodyApp`).style.transitionDuration='2s',
+          $d(`.navCont`).style.width='100vw',
+          $d(`.browserBody`).style.height='auto',
+          $d(`.browserBody`).style.overflowY='scroll',
+          $d(`.visor`).style.transform='translateX(0)',
+          $d('#slideCanvasCont').style.overflowY="scroll",
           history.push(`/search`))
       }
     }

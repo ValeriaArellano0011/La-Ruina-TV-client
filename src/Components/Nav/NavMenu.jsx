@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import navBack from './js/Nav';
 import { resetOption } from '../../middlewares/redux/actions';
+import { $d } from '../../functions';
 
 const NavMenu = () => {
     const dispatch = useDispatch()
@@ -16,14 +17,14 @@ const NavMenu = () => {
                     window.scrollTo(0, 0)
                     return(
                     dispatch(resetOption()),
-                    document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                    document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                    document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                    document.querySelector(`.navCont`).style.width='100vw',
-                    document.querySelector(`.browserBody`).style.height='auto',
-                    document.querySelector(`.browserBody`).style.overflowY='scroll',
-                    document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll"
+                    $d(`.bodyApp`).style.transform='translateX(0)',
+                    $d(`.navCont`).style.transitionDuration='.2s',
+                    $d(`.bodyApp`).style.transitionDuration='2s',
+                    $d(`.navCont`).style.width='100vw',
+                    $d(`.browserBody`).style.height='auto',
+                    $d(`.browserBody`).style.overflowY='scroll',
+                    $d(`.visor`).style.transform='translateX(0)',
+                    $d('#slideCanvasCont').style.overflowY="scroll"
                     )}}>
                 <Link to='/browser'>Inicio</Link></li>
             <li
@@ -31,14 +32,14 @@ const NavMenu = () => {
                     window.scrollTo(0, 0)
                     return(
                     dispatch(resetOption()),
-                    document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                    document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                    document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                    document.querySelector(`.navCont`).style.width='100vw',
-                    document.querySelector(`.browserBody`).style.height='auto',
-                    document.querySelector(`.browserBody`).style.overflowY='scroll',
-                    document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll"
+                    $d(`.bodyApp`).style.transform='translateX(0)',
+                    $d(`.navCont`).style.transitionDuration='.2s',
+                    $d(`.bodyApp`).style.transitionDuration='2s',
+                    $d(`.navCont`).style.width='100vw',
+                    $d(`.browserBody`).style.height='auto',
+                    $d(`.browserBody`).style.overflowY='scroll',
+                    $d(`.visor`).style.transform='translateX(0)',
+                    $d('#slideCanvasCont').style.overflowY="scroll"
                     )}}>
                 <Link to='/novedades'>Novedades</Link></li>
             <li
@@ -46,14 +47,14 @@ const NavMenu = () => {
                     window.scrollTo(0, 0)
                     return(
                     dispatch(resetOption()),
-                    document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                    document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                    document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                    document.querySelector(`.navCont`).style.width='100vw',
-                    document.querySelector(`.browserBody`).style.height='auto',
-                    document.querySelector(`.browserBody`).style.overflowY='scroll',
-                    document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll"
+                    $d(`.bodyApp`).style.transform='translateX(0)',
+                    $d(`.navCont`).style.transitionDuration='.2s',
+                    $d(`.bodyApp`).style.transitionDuration='2s',
+                    $d(`.navCont`).style.width='100vw',
+                    $d(`.browserBody`).style.height='auto',
+                    $d(`.browserBody`).style.overflowY='scroll',
+                    $d(`.visor`).style.transform='translateX(0)',
+                    $d('#slideCanvasCont').style.overflowY="scroll"
                     )}}>
                 <a href='https://laruinarecords.cl/back&amp' target=' _blank' > Back&Amp </a>
             </li>
@@ -62,14 +63,14 @@ const NavMenu = () => {
                     window.scrollTo(0, 0)
                     return(
                     dispatch(resetOption()),
-                    document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                    document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                    document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                    document.querySelector(`.navCont`).style.width='100vw',
-                    document.querySelector(`.browserBody`).style.height='auto',
-                    document.querySelector(`.browserBody`).style.overflowY='scroll',
-                    document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll"
+                    $d(`.bodyApp`).style.transform='translateX(0)',
+                    $d(`.navCont`).style.transitionDuration='.2s',
+                    $d(`.bodyApp`).style.transitionDuration='2s',
+                    $d(`.navCont`).style.width='100vw',
+                    $d(`.browserBody`).style.height='auto',
+                    $d(`.browserBody`).style.overflowY='scroll',
+                    $d(`.visor`).style.transform='translateX(0)',
+                    $d('#slideCanvasCont').style.overflowY="scroll"
                     )}}>
                 <Link to='/colaborar'>Colaborar</Link></li>
             <li
@@ -77,14 +78,14 @@ const NavMenu = () => {
                     window.scrollTo(0, 0)
                     return(
                     dispatch(resetOption()),
-                    document.querySelector(`.bodyApp`).style.transform='translateX(0)',
-                    document.querySelector(`.navCont`).style.transitionDuration='.2s',
-                    document.querySelector(`.bodyApp`).style.transitionDuration='2s',
-                    document.querySelector(`.navCont`).style.width='100vw',
-                    document.querySelector(`.browserBody`).style.height='auto',
-                    document.querySelector(`.browserBody`).style.overflowY='scroll',
-                    document.querySelector(`.visor`).style.transform='translateX(0)',
-                    document.querySelector('#slideCanvasCont').style.overflowY="scroll")}}>
+                    $d(`.bodyApp`).style.transform='translateX(0)',
+                    $d(`.navCont`).style.transitionDuration='.2s',
+                    $d(`.bodyApp`).style.transitionDuration='2s',
+                    $d(`.navCont`).style.width='100vw',
+                    $d(`.browserBody`).style.height='auto',
+                    $d(`.browserBody`).style.overflowY='scroll',
+                    $d(`.visor`).style.transform='translateX(0)',
+                    $d('#slideCanvasCont').style.overflowY="scroll")}}>
                 <a href='https://merch.laruinarecords.cl' target=' _blank' > Merch </a>
             </li>
         </ul>

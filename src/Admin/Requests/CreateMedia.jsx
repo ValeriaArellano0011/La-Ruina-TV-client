@@ -6,8 +6,9 @@ import { Card } from "@mui/material";
 import { Title } from "react-admin";
 import defaultPreview from '../../design/ruina-records-logo.png'
 import defaultImage from '../../design/defaultImage.jpg'
-import styles from "../css/CreatePost.module.scss";
+import styles from "../css/CreatePost.module.css";
 import s from './css/CreateMedia.module.css'
+import { $d } from "../../functions";
 
 const CreateMedia = () => {
   const dispatch = useDispatch();
@@ -339,14 +340,14 @@ const CreateMedia = () => {
                   {/*----------------------*/}
                   {/*----------------------*/}
                 <button className={s.btnContinuar} onClick={()=>{return (
-                  document.querySelector('#cont1').style.transform='translateY(-100vh)',
-                  document.querySelector('#cont2').style.transform='translateY(-100vh)'
+                  $d('#cont1').style.transform='translateY(-100vh)',
+                  $d('#cont2').style.transform='translateY(-100vh)'
                   )}}>Continuar</button>
                 </div>
               <div className={s.cont2} id='cont2'>
               <button className={s.btnVolver} onClick={()=>{return (
-                  document.querySelector('#cont1').style.transform='translateY(0)',
-                  document.querySelector('#cont2').style.transform='translateY(0)'
+                  $d('#cont1').style.transform='translateY(0)',
+                  $d('#cont2').style.transform='translateY(0)'
                   )}}>Volver al paso anterior</button>
                   {/*----------------------*/}
                   {/*----------------------*/}

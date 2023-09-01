@@ -1,6 +1,7 @@
 import s from './css/YtSubscribeButton.module.css'
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux'
+import { $d } from '../../functions';
 
 export const YtSubscribeButton = () => {
     const YTSub = useSelector(state=>state.YTSub)
@@ -21,10 +22,10 @@ export const YtSubscribeButton = () => {
                         className={s.btnX} 
                         onClick={()=>
                             {YTSub? 
-                            document.querySelector('#canvasYtSubBtn').style.display='none' 
+                            $d('#canvasYtSubBtn').style.display='none' 
                             : 
-                            // document.querySelector('#canvasYtSubBtn').style.display='flex'}
-                            document.querySelector('#canvasYtSubBtn').style.display='none'}
+                            // $d('#canvasYtSubBtn').style.display='flex'}
+                            $d('#canvasYtSubBtn').style.display='none'}
                     }>CERRAR</button></li>
             </ul>
         </div>

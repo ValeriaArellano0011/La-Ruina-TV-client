@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import playIconb from '../../design/ruinatv-icon-play-b.png'
 import { useDispatch } from 'react-redux';
 import { getMedia } from '../../middlewares/redux/actions';
+import { $d } from '../../functions';
 
 const SliderBtns = (props) => {
     const dispatch = useDispatch()
@@ -20,19 +21,19 @@ const SliderBtns = (props) => {
             onMouseEnter={()=>
                 {
                     return(
-                        document.querySelector(`#${key}PrevBtn`).style.transitionDuration='1s',
-                        document.querySelector(`#${key}PrevBtn`).style.cursor='pointer',
-                        document.querySelector(`#${key}PrevBtn`).style.opacity='1',
-                        document.querySelector(`#${key}PrevBtn`).style.background='linear-gradient(to right, rgb(0, 0, 0), transparent)'
+                        $d(`#${key}PrevBtn`).style.transitionDuration='1s',
+                        $d(`#${key}PrevBtn`).style.cursor='pointer',
+                        $d(`#${key}PrevBtn`).style.opacity='1',
+                        $d(`#${key}PrevBtn`).style.background='linear-gradient(to right, rgb(0, 0, 0), transparent)'
                     )
                 }
             }
             onMouseLeave={()=>
                 {
                     return(
-                        document.querySelector(`#${key}PrevBtn`).style.transitionDuration='1s',
-                        document.querySelector(`#${key}PrevBtn`).style.opacity='0',
-                        document.querySelector(`#${key}PrevBtn`).style.background='linear-gradient(to right, rgb(255, 255, 255), transparent)'
+                        $d(`#${key}PrevBtn`).style.transitionDuration='1s',
+                        $d(`#${key}PrevBtn`).style.opacity='0',
+                        $d(`#${key}PrevBtn`).style.background='linear-gradient(to right, rgb(255, 255, 255), transparent)'
                         )   
                 }
             }
@@ -43,17 +44,17 @@ const SliderBtns = (props) => {
 
                     if (n>=0){
                         return (
-                            document.querySelector(`#${key}ListaItems`).style.transform=`translate(${(n)}px`,
-                            document.querySelector(`#${key}ListaItems`).style.transitionDuration='1s',
-                            document.querySelector(`#${key}PrevBtn`).style.transform='translate(-65px)',
-                            document.querySelector(`#${key}PrevBtn`).style.transitionDuration='0.1s'
+                            $d(`#${key}ListaItems`).style.transform=`translate(${(n)}px`,
+                            $d(`#${key}ListaItems`).style.transitionDuration='1s',
+                            $d(`#${key}PrevBtn`).style.transform='translate(-65px)',
+                            $d(`#${key}PrevBtn`).style.transitionDuration='0.1s'
                             )}
                             
                     else{
                         return (
-                            document.querySelector(`#${key}ListaItems`).style.transform=`translate(${(n)}px`,
-                            document.querySelector(`#${key}ListaItems`).style.transitionDuration='1s',
-                            document.querySelector(`#${key}PostBtn`).style.display='block'
+                            $d(`#${key}ListaItems`).style.transform=`translate(${(n)}px`,
+                            $d(`#${key}ListaItems`).style.transitionDuration='1s',
+                            $d(`#${key}PostBtn`).style.display='block'
                         )}
                     }
                 }                       
@@ -70,46 +71,46 @@ const SliderBtns = (props) => {
                 setPosn(n+k)
                 if (i<0 && i>(props.categories.length-1)*k){
                 return (
-                    document.querySelector(`#${key}ListaItems`).style.transform=`translate(${i}px)`,
-                    document.querySelector(`#${key}ListaItems`).style.transitionDuration='1s',
-                    document.querySelector(`#${key}PrevBtn`).style.transform='translate(0)',
-                    document.querySelector(`#${key}PrevBtn`).style.transitionDuration='1s'
+                    $d(`#${key}ListaItems`).style.transform=`translate(${i}px)`,
+                    $d(`#${key}ListaItems`).style.transitionDuration='1s',
+                    $d(`#${key}PrevBtn`).style.transform='translate(0)',
+                    $d(`#${key}PrevBtn`).style.transitionDuration='1s'
                     
                 )}
                     
                 if (i===(props.categories.length-1)*k){
                 return (
-                    document.querySelector(`#${key}PostBtn`).style.display="none",
-                    document.querySelector(`#${key}ListaItems`).style.transform=`translate(${i}px)`,
-                    document.querySelector(`#${key}ListaItems`).style.transitionDuration='1s',
-                    document.querySelector(`#${key}PrevBtn`).style.transform='translate(0)',
-                    document.querySelector(`#${key}PrevBtn`).style.transitionDuration='1s'
+                    $d(`#${key}PostBtn`).style.display="none",
+                    $d(`#${key}ListaItems`).style.transform=`translate(${i}px)`,
+                    $d(`#${key}ListaItems`).style.transitionDuration='1s',
+                    $d(`#${key}PrevBtn`).style.transform='translate(0)',
+                    $d(`#${key}PrevBtn`).style.transitionDuration='1s'
 
                     )}
                 }
             } onMouseEnter={()=>{
                 if(props.categories.length <= 1){
                     return(
-                        document.querySelector(`#${key}PostBtn`).style.display="none",
-                        document.querySelector(`#${key}PostBtn`).style.transitionDuration='1s'
+                        $d(`#${key}PostBtn`).style.display="none",
+                        $d(`#${key}PostBtn`).style.transitionDuration='1s'
                     )
                 }
                 if(props.categories.length > 1){
                     return(
-                        document.querySelector(`#${key}PostBtn`).style.display="block",
-                        document.querySelector(`#${key}PostBtn`).style.transitionDuration='1s',
-                        document.querySelector(`#${key}PostBtn`).style.cursor='pointer',
-                        document.querySelector(`#${key}PostBtn`).style.opacity='1',
-                        document.querySelector(`#${key}PostBtn`).style.background='linear-gradient(to left, rgb(0, 0, 0), transparent)'
+                        $d(`#${key}PostBtn`).style.display="block",
+                        $d(`#${key}PostBtn`).style.transitionDuration='1s',
+                        $d(`#${key}PostBtn`).style.cursor='pointer',
+                        $d(`#${key}PostBtn`).style.opacity='1',
+                        $d(`#${key}PostBtn`).style.background='linear-gradient(to left, rgb(0, 0, 0), transparent)'
 
                 )}
-                else return document.querySelector(`#${key}PostBtn`).style.opacity='0'
+                else return $d(`#${key}PostBtn`).style.opacity='0'
             }}
             onMouseLeave={()=>
                 {   
                     return(
-                        document.querySelector(`#${key}PostBtn`).style.transitionDuration='1s',
-                        document.querySelector(`#${key}PostBtn`).style.background='linear-gradient(to left, rgb(225, 225, 225), transparent)'
+                        $d(`#${key}PostBtn`).style.transitionDuration='1s',
+                        $d(`#${key}PostBtn`).style.background='linear-gradient(to left, rgb(225, 225, 225), transparent)'
                         )   
                 }
             }

@@ -18,8 +18,8 @@
     gap: 5px;
     justify-content: center;
     margin-top: 5px;
-    // border: solid;
-    // border-width: 1px;
+    /* border: solid;
+    border-width: 1px; */
     
     input[type="checkbox"],
     input[type="radio"] {
@@ -62,8 +62,8 @@
   width: 120px;
   font-family: Bebas Neue;
   font-size: 20px;
-  //background-color: $secondary;
-  color: white;
+/*   background-color: $secondary;
+ */  color: white;
   background-color: rgb(32, 32, 32);
   border: none;
   cursor: pointer;

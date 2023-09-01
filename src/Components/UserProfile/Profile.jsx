@@ -3,6 +3,7 @@ import RequestProfile from '../../Admin/Requests/RequestProfile';
 import s from './css/Profile.module.css';
 import userIcon from '../../design/user-icon.png';
 import { DeleteAccount } from './DeleteAccount';
+import { $d } from '../../functions';
 
 const Profile = () => {
   const [ userAlias, setUserAlias ] = useState('')
@@ -45,7 +46,7 @@ const Profile = () => {
           </div>
               <div className={s.buttons}>
                 <button className='button1'>Editar cuenta</button><br/>
-                <button className='button2' onClick={()=>{return document.querySelector('#deleteAccount').style.display='flex'}}>Eliminar cuenta</button>
+                <button className='button2' onClick={()=>{return $d('#deleteAccount').style.display='flex'}}>Eliminar cuenta</button>
               </div>
           <ul>
             <li>

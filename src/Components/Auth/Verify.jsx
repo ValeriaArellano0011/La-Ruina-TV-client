@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from './css/Verify.module.scss'
+import styles from './css/Verify.module.css'
 import { useLocation } from 'react-router-dom';
 import LogIn from './LogIn';
 import CreateAccount from './CreateAccount';
+import { $d } from '../../functions';
 
 
 function Verify() {
@@ -18,8 +19,8 @@ function Verify() {
                     className='button1'
                     onClick={()=>
                         {
-                            document.querySelector('.LogInBody').style.transitionDuration="1s"
-                            document.querySelector('.LogInBody').style.transform="translate(0)"
+                            $d('.LogInBody').style.transitionDuration="1s"
+                            $d('.LogInBody').style.transform="translate(0)"
                         }
                     }
                 >Iniciar Sesión</button>

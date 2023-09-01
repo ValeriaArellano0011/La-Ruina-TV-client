@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch  } from 'react-redux';
 import { getNextVisor, getResetVisor } from '../../../middlewares/redux/actions';
+import { $d } from '../../../functions';
 
 export const VisorFunction = () =>{
     document.addEventListener('mouseup', function(e) {
         var container0 = document.getElementById('infoCont');
-        if (!container0.contains(e.target))
+        if (!container0?.contains(e.target))
         {
-            document.querySelector('#infoCont').style.scale='0'
+            $d('#infoCont').style.scale='0'
         }
     })
     const auth = localStorage.getItem('auth');
@@ -49,14 +50,14 @@ export const VisorFunction = () =>{
             setVisorArtista(artist)
             setVisorTypeMedia(mediaType)
             setVisorIdYT(idLinkYT)            
-            document.querySelector('.visorPostInfo').style.animationName='infoScale'
-            document.querySelector('.visorPostInfo').style.animationIterationCount=inf
-            document.querySelector('.visorPostInfo').style.animationDuration=`${timeInterval}s`
-            document.querySelector('.visorBtn').style.scale='1'
-            document.querySelector('.visorBG').style.animationName='aniScale'
-            document.querySelector('.visorBG').style.animationIterationCount=inf
-            document.querySelector('.visorBG').style.animationDuration=`${timeInterval}s`
-            document.querySelector(`.visor`).style.transform='translateX(0)'
+            $d('.visorPostInfo').style.animationName='infoScale'
+            $d('.visorPostInfo').style.animationIterationCount=inf
+            $d('.visorPostInfo').style.animationDuration=`${timeInterval}s`
+            $d('.visorBtn').style.scale='1'
+            $d('.visorBG').style.animationName='aniScale'
+            $d('.visorBG').style.animationIterationCount=inf
+            $d('.visorBG').style.animationDuration=`${timeInterval}s`
+            $d(`.visor`).style.transform='translateX(0)'
         }, timeInterval*1000)
         return () =>  (clearInterval(interval, timeInterval))
     },[actionButton,visorIdYT, idMedia, id, linkimg, idLinkYT, visorImg, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])

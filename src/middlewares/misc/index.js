@@ -1,3 +1,5 @@
+export const DEVELOPMENT = "development";
+
 /* --------------------Auth-------------------- */
 export const OPTION = 'OPTION'
 export const RESET_OPTION = 'RESET_OPTION'
