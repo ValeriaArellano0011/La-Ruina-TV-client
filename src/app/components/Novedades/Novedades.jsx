@@ -1,5 +1,5 @@
-import React from 'react'
-import { BodyCss } from '../../functions'
+import React from 'react';
+import { BodyCss } from '../../../functions';
 
 export const Novedades = () => {
   BodyCss()

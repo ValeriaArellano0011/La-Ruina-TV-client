@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import playIconb from '../../design/ruinatv-icon-play-b.png'
+import playIconb from '../../../design/ruinatv-icon-play-b.png'
 import { useDispatch } from 'react-redux';
-import { getMedia } from '../../middlewares/redux/actions';
-import { $d } from '../../functions';
+import { getMedia } from '../../../middlewares/redux/actions';
+import { $d } from '../../../functions';
 
 const SliderBtns = (props) => {
     const dispatch = useDispatch()

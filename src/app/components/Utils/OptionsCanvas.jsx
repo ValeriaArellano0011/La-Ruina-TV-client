@@ -1,15 +1,17 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import s from './css/SlideCanvas.module.css'
-import Enter from '../Auth/Enter'
-import Profile from '../UserProfile/Profile'
-import Dashboard from '../../Admin/Dashboard/Dashboard'
-import { Subscription } from '../UserProfile/Subscription'
-import { PlayList } from '../UserProfile/PlayList'
-import { Favorites } from '../UserProfile/Favorites'
-import { BackButton } from '../Nav/BackButton'
-import { Notifications } from '../UserProfile/Notifications'
-import { Configurations } from '../UserProfile/Configurations'
+import s from './css/SlideCanvas.module.css';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import Enter from '../Auth/Enter';
+import Profile from '../UserProfile/Profile';
+import Dashboard from '../../admin/Dashboard/Dashboard';
+
+import { PlayList } from '../UserProfile/PlayList';
+import { Favorites } from '../UserProfile/Favorites';
+import { BackButton } from '../Nav/BackButton';
+import { Subscription } from '../UserProfile/Subscription';
+import { Notifications } from '../UserProfile/Notifications';
+import { Configurations } from '../UserProfile/Configurations';
 
 export const OptionsCanvas = () => {
     const option = useSelector(state=>state.option)

@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getOption } from '../../middlewares/redux/actions'
+import { getOption } from '../../../middlewares/redux/actions'
 import s from './css/RequestProfile.module.css'
 import likeIcon from '../../design/like-icon.png'
 import listIcon from '../../design/lista-icon.png'
@@ -8,7 +8,7 @@ import logoutIcon from '../../design/logout-icon.png'
 import adminIcon from '../../design/admin-icon.png'
 import subscriptionIcon from '../../design/subscription-icon.png'
 import userIcon from '../../design/user-icon.png'
-import { OptionProfile } from '../../functions'
+import { OptionProfile } from '../../../functions'
 
 const RequestProfile = () => {
     const dispatch = useDispatch()

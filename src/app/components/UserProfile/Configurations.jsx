@@ -1,5 +1,5 @@
 import React from 'react'
-import RequestProfile from '../../Admin/Requests/RequestProfile'
+import RequestProfile from '../../../admin/Requests/RequestProfile'
 
 export const Configurations = () => {
   return (

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import ruinaLogo from '../../design/ruina-logo.png';
-import { GOD__MODE } from '../../Admin/Requests/GOD__MODE.jsx';
+import { useDispatch } from 'react-redux'
+;
 import navBack from './js/Nav';
-import { resetOption } from '../../middlewares/redux/actions';
-import { $d } from '../../functions';
+import { $d } from '../../../functions';
+import { GOD__MODE } from '../../../admin/Requests/GOD__MODE.jsx';
+import { resetOption } from '../../../middlewares/redux/actions';
+import ruinaLogo from '../../../design/ruina-logo.png';
 
 const Logo = () => {
     const auth = localStorage.getItem('auth');

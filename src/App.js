@@ -1,29 +1,29 @@
 import './App.css';
-import Nav from './Components/Nav/Nav';
-import View from './Components/Media/View';
-import Verify from './Components/Auth/Verify';
-import Browser from './Components/Browser/Browser';
-// import Product from './Components/Products/Product';
-import CreateMedia from './Admin/Requests/CreateMedia';
-import EditMedia from './Admin/Requests/EditMedia';
-import CreateProduct from './Admin/Requests/CreateProduct';
-// import { Tienda } from './Components/Tienda/Tienda';
-import { Search } from './Components/Filter/Search';
-import { Colaborar } from './Components/Colaborar/Colaborar';
-import { Novedades } from './Components/Novedades/Novedades';
-import { BackAmp } from './Components/Back&Amp/BackAmp';
-import { OptionsCanvas } from './Components/Utils/OptionsCanvas';
-import { PlayerList } from './Components/Media/PlayerList'
-import { Checkout } from './Components/Checkout/Checkout';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import AuthToken from './Components/Auth/AuthToken';
 import React from 'react';
 import { useSelector } from 'react-redux'
-import { EditMediaList } from './Admin/Requests/EditMediaList';
-import { EditUsersList } from './Admin/Requests/EditUsersList';
-import PlanMP from './Components/MercadopagoPlan/PlanMP.jsx';
-import { CanvasMenu } from './Components/Nav/CanvasMenu';
-import Enter from './Components/Auth/Enter';
+import { Switch, Route, Redirect } from 'react-router-dom';
+
+import Nav from './app/components/Nav/Nav';
+import View from './app/components/Media/View';
+import Enter from './app/components/Auth/Enter';
+import Verify from './app/components/Auth/Verify';
+import PlanMP from './app/components/MercadopagoPlan/PlanMP.jsx';
+import Browser from './app/components/Browser/Browser';
+import EditMedia from './app/admin/Requests/EditMedia';
+import AuthToken from './app/components/Auth/AuthToken';
+import CreateMedia from './app/Admin/Requests/CreateMedia';
+import CreateProduct from './app/cdmin/Requests/CreateProduct';
+
+import { Search } from './app/components/Filter/Search';
+import { BackAmp } from './app/components/Back&Amp/BackAmp';
+import { Checkout } from './app/components/Checkout/Checkout';
+import { Colaborar } from './app/components/Colaborar/Colaborar';
+import { Novedades } from './app/components/Novedades/Novedades';
+import { CanvasMenu } from './app/components/Nav/CanvasMenu';
+import { PlayerList } from './app/components/Media/PlayerList'
+import { OptionsCanvas } from './app/components/Utils/OptionsCanvas';
+import { EditMediaList } from './app/cdmin/Requests/EditMediaList';
+import { EditUsersList } from './app/cdmin/Requests/EditUsersList';
 
 
 function App() {

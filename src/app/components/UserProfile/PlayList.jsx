@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react'
-import RequestProfile from '../../Admin/Requests/RequestProfile'
+import RequestProfile from '../../../admin/Requests/RequestProfile'
 import s from './css/PlayList.module.css'
-import { lists } from '../../audio/consts'
+import { lists } from '../../../audio/consts'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUrlPlayer, getItemList, getAllPlaylist} from '../../middlewares/redux/actions'
-import defaultImg from '../../design/lista-icon.png'
-import favIcon from '../../design/like-icon.png'
+import { getUrlPlayer, getItemList, getAllPlaylist} from '../../../middlewares/redux/actions'
+import defaultImg from '../../../design/lista-icon.png'
+import favIcon from '../../../design/like-icon.png'
 
 export const PlayList = () => {
   const dispatch = useDispatch()

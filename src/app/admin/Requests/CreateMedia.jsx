@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { postMedia } from "../../middlewares/redux/actions/index";
+import { postMedia } from "../../../middlewares/redux/actions/index";
 import { useDispatch } from "react-redux";
 import { Card } from "@mui/material";
 import { Title } from "react-admin";
@@ -8,7 +8,7 @@ import defaultPreview from '../../design/ruina-records-logo.png'
 import defaultImage from '../../design/defaultImage.jpg'
 import styles from "../css/CreatePost.module.css";
 import s from './css/CreateMedia.module.css'
-import { $d } from "../../functions";
+import { $d } from "../../../functions";
 
 const CreateMedia = () => {
   const dispatch = useDispatch();
@@ -282,7 +282,7 @@ const CreateMedia = () => {
                   <textarea
                     placeholder="Escribe una breve reseña..."
                     rows="3" 
-                    minlength='1'
+                    minLength='1'
                     type="text"
                     name="info"
                     value={data.info}

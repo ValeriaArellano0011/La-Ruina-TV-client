@@ -1,7 +1,7 @@
 import s from './css/YtSubscribeButton.module.css'
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux'
-import { $d } from '../../functions';
+import { $d } from '../../../functions';
 
 export const YtSubscribeButton = () => {
     const YTSub = useSelector(state=>state.YTSub)
