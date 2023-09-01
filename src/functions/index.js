@@ -13,12 +13,16 @@ const defaultValue = {
         transitionTimingFunction: '',
         transformBox: '',
         transitionDelay: '',
-        transitionProperty: '',   
-    }
-}
+        transitionProperty: '',
+    },
+};
 
 export const $d = (e) => {
     return document.querySelector(e) || defaultValue
+};
+
+export const $gId = (e) => {
+    return document.getElementById(e) || defaultValue
 };
 
 export const BodyCss= () => {

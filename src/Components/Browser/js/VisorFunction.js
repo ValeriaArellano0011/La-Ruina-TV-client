@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch  } from 'react-redux';
 import { getNextVisor, getResetVisor } from '../../../middlewares/redux/actions';
-import { $d } from '../../../functions';
+import { $d, $gId } from '../../../functions';
 
 export const VisorFunction = () =>{
     document.addEventListener('mouseup', function(e) {
-        var container0 = document.getElementById('infoCont');
+        var container0 = $gId('infoCont');
         if (!container0?.contains(e.target))
         {
             $d('#infoCont').style.scale='0'

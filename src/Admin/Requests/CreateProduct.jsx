@@ -6,6 +6,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { postProduct } from "../../middlewares/redux/actions/index"
 import { useHistory } from "react-router-dom"
+import { $gId } from "../../functions"
 
 const CreateProduct = () => {
   const history = useHistory()
@@ -29,7 +30,7 @@ const CreateProduct = () => {
 const handleSubmit = (e) => {
   if (input.name === undefined 
   ) {
-      document.getElementById("DoNotSubmit"); 
+      $gId("DoNotSubmit"); 
       return alert("Please complete the fields with valid data");
   }
   const addProduct = {
