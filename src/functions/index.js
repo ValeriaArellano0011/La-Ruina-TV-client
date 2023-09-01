@@ -15,7 +15,12 @@ const defaultValue = {
         transitionDelay: '',
         transitionProperty: '',
     },
+    contains
 };
+
+function contains() {
+    return;
+}
 
 export const $d = (e) => {
     return document.querySelector(e) || defaultValue
