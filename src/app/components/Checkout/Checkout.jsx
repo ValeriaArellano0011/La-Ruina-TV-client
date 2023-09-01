@@ -1,5 +1,5 @@
 import React from 'react'
-import { BodyCss } from '../../functions'
+import { BodyCss } from '../../../functions'
 import s from './css/Checkout.module.css'
 import { handleCheckout, handleCheckout2 } from "../Checkout/js/CheckoutFunction"
 import { Link, useParams } from 'react-router-dom'

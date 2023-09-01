@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import navBack from './js/Nav';
-import { resetOption } from '../../middlewares/redux/actions';
-import { $d } from '../../functions';
+import { resetOption } from '../../../middlewares/redux/actions';
+import { $d } from '../../../functions';
 
 const NavMenu = () => {
     const dispatch = useDispatch()

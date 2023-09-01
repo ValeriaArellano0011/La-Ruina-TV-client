@@ -11,8 +11,8 @@ import PlanMP from './app/components/MercadopagoPlan/PlanMP.jsx';
 import Browser from './app/components/Browser/Browser';
 import EditMedia from './app/admin/Requests/EditMedia';
 import AuthToken from './app/components/Auth/AuthToken';
-import CreateMedia from './app/Admin/Requests/CreateMedia';
-import CreateProduct from './app/cdmin/Requests/CreateProduct';
+import CreateMedia from './app/admin/Requests/CreateMedia';
+import CreateProduct from './app/admin/Requests/CreateProduct';
 
 import { Search } from './app/components/Filter/Search';
 import { BackAmp } from './app/components/Back&Amp/BackAmp';
@@ -22,8 +22,8 @@ import { Novedades } from './app/components/Novedades/Novedades';
 import { CanvasMenu } from './app/components/Nav/CanvasMenu';
 import { PlayerList } from './app/components/Media/PlayerList'
 import { OptionsCanvas } from './app/components/Utils/OptionsCanvas';
-import { EditMediaList } from './app/cdmin/Requests/EditMediaList';
-import { EditUsersList } from './app/cdmin/Requests/EditUsersList';
+import { EditMediaList } from './app/admin/Requests/EditMediaList';
+import { EditUsersList } from './app/admin/Requests/EditUsersList';
 
 
 function App() {

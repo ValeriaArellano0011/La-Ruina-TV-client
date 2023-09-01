@@ -97,7 +97,7 @@
 
 .btnEdit{
     background-color: #c3c3c3;
-    background-image: url(../../../design/edit-icon.png);
+    background-image: url(../../../../design/edit-icon.png);
     background-size: cover;
     width: 25px;
     height: 25px;
@@ -112,7 +112,7 @@
 
 .btnDelete{
     background-color: #c3c3c3;
-    background-image: url(../../../design/delete-icon.png);
+    background-image: url(../../../../design/delete-icon.png);
     background-size: cover;
     width: 25px;
     height: 25px;

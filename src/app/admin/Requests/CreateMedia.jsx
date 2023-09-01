@@ -1,13 +1,14 @@
+import s from './css/CreateMedia.module.css';
 import React from "react";
 import { useState } from "react";
-import { postMedia } from "../../../middlewares/redux/actions/index";
 import { useDispatch } from "react-redux";
+
+import { postMedia } from "../../../middlewares/redux/actions/index";
 import { Card } from "@mui/material";
 import { Title } from "react-admin";
-import defaultPreview from '../../design/ruina-records-logo.png'
-import defaultImage from '../../design/defaultImage.jpg'
+import defaultPreview from '../../../design/ruina-records-logo.png';
+import defaultImage from '../../../design/defaultImage.jpg';
 import styles from "../css/CreatePost.module.css";
-import s from './css/CreateMedia.module.css'
 import { $d } from "../../../functions";
 
 const CreateMedia = () => {

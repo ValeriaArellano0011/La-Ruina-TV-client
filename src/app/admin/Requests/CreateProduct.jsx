@@ -1,12 +1,13 @@
+import s from "../css/CreateProduct.module.css"
+import { useState } from "react"
+import { useHistory } from "react-router-dom"
+
 import { Card } from "@mui/material"
 import { Title } from 'react-admin'
 import CardContent from '@mui/material/CardContent'
-import styles from "../css/CreateProduct.module.css"
-import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { postProduct } from "../../middlewares/redux/actions/index"
-import { useHistory } from "react-router-dom"
-import { $gId } from "../../functions"
+import { postProduct } from "../../../middlewares/redux/actions/index"
+import { $gId } from "../../../functions"
 
 const CreateProduct = () => {
   const history = useHistory()
@@ -50,16 +51,16 @@ const handleSubmit = (e) => {
 }
 
   return (
-    <div className={styles.createBody}>
+    <div className={s.createBody}>
       <div className='bgNav'></div>
-      <div className={styles.CreateProduct}>
+      <div className={s.CreateProduct}>
       <div className='CreateBody'>
       <Card>
         <Title title="Nuevo Post"/>
         <h1>Crear un Nuevo Producto</h1>
         <CardContent>Rellena el siguiente formulario</CardContent>
-        <form className={styles.formCont} onSubmit={(e) => handleSubmit(e)}>
-          <ul className={styles.ulCont}>
+        <form className={s.formCont} onSubmit={(e) => handleSubmit(e)}>
+          <ul className={s.ulCont}>
             <div>
               <label><h2>Nombre del producto</h2></label>
               <input className="field" type="text" value={input.name}  name="name" onChange={handleChange} />

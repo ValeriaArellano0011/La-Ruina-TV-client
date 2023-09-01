@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import s from './css/Profile.module.css';
-import { $d } from '../../functions';
+import { $d } from '../../../functions';
 
 
 export const DeleteAccount = (props) => {

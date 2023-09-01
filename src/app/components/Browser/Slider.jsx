@@ -1,4 +1,4 @@
-import { $d } from "../../functions"
+import { $d } from "../../../functions"
 import Media from "../Media/Media"
 import SliderBtns from "../Utils/SliderBtns"
 

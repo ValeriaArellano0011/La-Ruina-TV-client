@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { resetOption } from '../../middlewares/redux/actions'
+import { resetOption } from '../../../middlewares/redux/actions'
 import s from './css/BackBtn.module.css'
-import backIcon from '../../design/ruinatv-icon-play-b.png'
-import { $d, BodyCss } from '../../functions'
+import backIcon from '../../../design/ruinatv-icon-play-b.png'
+import { $d, BodyCss } from '../../../functions'
 
 export const BackButton = () => {
     const dispatch = useDispatch()

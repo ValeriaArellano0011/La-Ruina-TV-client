@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Products from '../Products/Products'
 import s from './css/Tienda.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProducts, resetProductDetails } from '../../middlewares/redux/actions'
+import { getProducts, resetProductDetails } from '../../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
 
 export const Tienda = () => {

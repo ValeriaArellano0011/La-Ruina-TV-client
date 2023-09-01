@@ -1,7 +1,7 @@
+import s from './css/EditMediaList.module.css'  
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
-import s from './css/EditMediaList.module.css'  
 import {
     getMedia,
     resetIdYT,
@@ -9,7 +9,7 @@ import {
     resetOption,
     getEditMedia,
     getDeleteMedia
-  } from "../../middlewares/redux/actions";
+  } from "../../../middlewares/redux/actions";
 
 export const EditMediaList = () => {
     const history = useHistory()

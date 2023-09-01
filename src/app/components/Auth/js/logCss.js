@@ -1,4 +1,4 @@
-import { $d } from "../../../functions";
+import { $d } from "../../../../functions";
 
 export function logCss(){
     return (

@@ -3,7 +3,7 @@ import styles from './css/Verify.module.css'
 import { useLocation } from 'react-router-dom';
 import LogIn from './LogIn';
 import CreateAccount from './CreateAccount';
-import { $d } from '../../functions';
+import { $d } from '../../../functions';
 
 
 function Verify() {

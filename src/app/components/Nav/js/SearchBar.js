@@ -1,4 +1,4 @@
-import { $d, $gId } from "../../../functions";
+import { $d, $gId } from "../../../../functions";
 
 export function searchBarFunction(e) {
     document.addEventListener('mouseup', function(e) {

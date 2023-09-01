@@ -1,7 +1,7 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { _GOD_MODE_ } from '../../middlewares/redux/actions'
-import s from '../css/GODE_MODE.module.css'
+import s from '../css/GODE_MODE.module.css';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { _GOD_MODE_ } from '../../../middlewares/redux/actions';
 
 export const GOD__MODE = () => {
   const auth = localStorage.getItem('auth');

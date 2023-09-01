@@ -1,4 +1,4 @@
-import { $d } from "../../../functions";
+import { $d } from "../../../../functions";
 
 export default function CanvasMenuFunction(){
         document.addEventListener('mouseup', function(e) {

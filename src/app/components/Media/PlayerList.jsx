@@ -3,7 +3,7 @@ import s from './css/Playlist.module.css'
 import './css/player.css'
 
 import { useDispatch } from 'react-redux'
-import { resetUrlPlayer } from '../../middlewares/redux/actions'
+import { resetUrlPlayer } from '../../../middlewares/redux/actions'
 
 
 export const PlayerList = (props) =>{

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import RequestProfile from '../../../admin/Requests/RequestProfile'
+import RequestProfile from '../../admin/Requests/RequestProfile'
 import s from './css/PlayList.module.css'
 import { lists } from '../../../audio/consts'
 import { useDispatch, useSelector } from 'react-redux'

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import RequestProfile from '../../../admin/Requests/RequestProfile';
+import RequestProfile from '../../admin/Requests/RequestProfile';
 import s from './css/Profile.module.css';
 import userIcon from '../../../design/user-icon.png';
 import { DeleteAccount } from './DeleteAccount';

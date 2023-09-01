@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
-import RequestProfile from '../../Admin/Requests/RequestProfile'
-import { getAllLikes, resetOption } from '../../middlewares/redux/actions'
+import RequestProfile from '../../admin/Requests/RequestProfile'
+import { getAllLikes, resetOption } from '../../../middlewares/redux/actions'
 import s from './css/Favorites.module.css'
-import { $d } from '../../functions';
+import { $d } from '../../../functions';
 
 export const Favorites = () => {
 

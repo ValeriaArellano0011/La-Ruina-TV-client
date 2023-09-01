@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { resetOption } from '../../middlewares/redux/actions'
+import { resetOption } from '../../../middlewares/redux/actions'
 import s from './css/CanvasMenu.module.css'
 import CanvasMenuFunction from './js/CanvasMenuFunction'
 import navBack from './js/Nav'
-import { $d } from '../../functions'
+import { $d } from '../../../functions'
 
 export const CanvasMenu = () => {
     const dispatch = useDispatch()

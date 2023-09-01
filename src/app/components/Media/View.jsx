@@ -1,20 +1,20 @@
+import s from './css/View.module.css'
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getIdYT, getInfo, resetUrlPlayer, addToPlaylist } from '../../middlewares/redux/actions'
 import { Link } from 'react-router-dom'
 import YtPlayer from './YtPlayer'
-import playIconn from '../../design/ruinatv-icon-play-n.png'
-import playIconb from '../../design/ruinatv-icon-play-b.png'
-import userIcon from '../../design/user-icon.png'
-import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes, getYtSubs } from '../../middlewares/redux/actions';
-import OptionCanvas, { $d } from '../../functions';
+import playIconn from '../../../design/ruinatv-icon-play-n.png'
+import playIconb from '../../../design/ruinatv-icon-play-b.png'
+import userIcon from '../../../design/user-icon.png'
+import OptionCanvas,  { $d } from '../../../functions';
 import { EditBtn } from '../Utils/EditBtn'
-import likeIcon from '../../design/like-icon.png'
-import s from './css/View.module.css'
+import likeIcon from '../../../design/like-icon.png'
 import DrivePlayer from './DrivePlayer'
+import { getIdYT, getInfo, resetUrlPlayer, addToPlaylist } from '../../../middlewares/redux/actions'
+import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes, getYtSubs } from '../../../middlewares/redux/actions';
 
 
 const View = () => {
@@ -48,7 +48,7 @@ const View = () => {
 
     const dispatch = useDispatch()
     const[playlistName, setPlaylistName] = useState('')
-    const {id} = useParams()
+    const { id } = useParams()
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
     const infoDetailViewer = useSelector(state=>state.infoDetailViewer)

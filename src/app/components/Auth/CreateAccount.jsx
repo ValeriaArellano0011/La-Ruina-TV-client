@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import s from './css/CreateAccount.module.css';
-import { signup } from '../../middlewares/redux/actions';
+import { signup } from '../../../middlewares/redux/actions';
 import { useDispatch } from 'react-redux';
 import { authCss } from './js/authCss';
 import GoogleSignUp from './GoogleSignUp'

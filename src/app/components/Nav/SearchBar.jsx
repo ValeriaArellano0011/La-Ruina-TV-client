@@ -1,13 +1,13 @@
 import React from "react";
 import s from './css/SearchBar.module.css';
-import searchIcon from '../../design/search-icon.png';
+import searchIcon from '../../../design/search-icon.png';
 import { useDispatch } from "react-redux";
 import { searchBarFunction } from './js/SearchBar';
 import { useState } from "react";
-import { getMusicName, resetOption } from "../../middlewares/redux/actions";
+import { getMusicName, resetOption } from "../../../middlewares/redux/actions";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
-import { $d } from "../../functions";
+import { $d } from "../../../functions";
 
 export default function SearchBar(){
     const dispatch = useDispatch()

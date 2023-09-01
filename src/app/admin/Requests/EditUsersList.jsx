@@ -7,7 +7,7 @@ import {
     resetOption,
     getEditUsers,
     getDeleteUsers
-  } from "../../middlewares/redux/actions";
+  } from "../../../middlewares/redux/actions";
 
 export const EditUsersList = () => {
     const history = useHistory()

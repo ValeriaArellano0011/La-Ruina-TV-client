@@ -1,12 +1,13 @@
-import { Card } from "@mui/material";
-import { Title } from "react-admin";
-import CardContent from "@mui/material/CardContent";
-import styles from "../css/CreatePost.module.css";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { editMedia, getEditMedia } from "../../middlewares/redux/actions/index";
+import s from "../css/CreatePost.module.css";
 import React from "react";
 import { useParams } from "react-router-dom";
+
+import CardContent from "@mui/material/CardContent";
+import { Card } from "@mui/material";
+import { Title } from "react-admin";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { editMedia, getEditMedia } from "../../../middlewares/redux/actions/index";
 
 const EditMedia = () => {
   const dispatch = useDispatch();
@@ -270,11 +271,11 @@ const EditMedia = () => {
   };
 
   return (
-    <div className={styles.createBody}>
-      <div className={styles.CreateProduct}>
+    <div className={s.createBody}>
+      <div className={s.CreateProduct}>
         <Card>
           <Title title="Nuevo Post" />
-          <h1 className={styles.createTitle}>Modificar Post</h1>
+          <h1 className={s.createTitle}>Modificar Post</h1>
           <CardContent>Rellena el siguiente formulario</CardContent>
           {objofarrs ?
             (<form onSubmit={submit}>
@@ -348,7 +349,7 @@ const EditMedia = () => {
                   />
                 </p>
                 <h1>Media Type</h1>
-                <div className={styles.types}>
+                <div className={s.types}>
                   {optionsMediaType?.map((t) => (
                     <div key={`${t.name}-${t.slot}`}>
                       <input
@@ -424,7 +425,7 @@ const EditMedia = () => {
                 </p>
                 <div>
                   <h1>Categoria</h1>
-                  <div className={styles.types}>
+                  <div className={s.types}>
                     {optionsCategories?.map((t) => (
                       <div key={`${t.name}-${t.slot}`}>
                         <input
@@ -442,7 +443,7 @@ const EditMedia = () => {
                   </div>
 
                   <h1>Género</h1>
-                  <div className={styles.types}>
+                  <div className={s.types}>
                     {optionsGenre?.map((t) => (
                       <div key={`${t.name}-${t.slot}`}>
                         <input
@@ -461,7 +462,7 @@ const EditMedia = () => {
                   <input
                     type="submit"
                     value="Actualizar"
-                    className={styles.submit}
+                    className={s.submit}
                   />
                 </div>
               </div>

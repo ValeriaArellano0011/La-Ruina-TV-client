@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom'
-import { loginWithGoogle } from '../../middlewares/redux/actions';
+import { useHistory, useLocation } from 'react-router-dom';
+import { loginWithGoogle } from '../../../middlewares/redux/actions';
 
 const AuthToken = () => {
   const history = useHistory()

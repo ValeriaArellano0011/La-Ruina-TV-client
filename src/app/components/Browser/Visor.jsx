@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import playIconb from '../../design/ruinatv-icon-play-b.png'
-import playIconn from '../../design/ruinatv-icon-play-n.png'
-import visorIntroVideo from '../../design/laruina-intro.mp4'
+import playIconb from '../../../design/ruinatv-icon-play-b.png'
+import playIconn from '../../../design/ruinatv-icon-play-n.png'
+import visorIntroVideo from '../../../design/laruina-intro.mp4'
 import { VisorFunction } from './js/VisorFunction';
-import { $d } from "../../functions";
+import { $d } from "../../../functions";
 
 const Visor = () => {
     const { 

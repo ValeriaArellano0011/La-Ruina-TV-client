@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 ;
 import navBack from './js/Nav';
 import { $d } from '../../../functions';
-import { GOD__MODE } from '../../../admin/Requests/GOD__MODE.jsx';
+import { GOD__MODE } from '../../admin/Requests/GOD__MODE.jsx';
 import { resetOption } from '../../../middlewares/redux/actions';
 import ruinaLogo from '../../../design/ruina-logo.png';
 

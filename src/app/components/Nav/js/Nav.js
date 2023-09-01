@@ -1,4 +1,4 @@
-import { $d } from "../../../functions"
+import { $d } from "../../../../functions"
 
 export default function navBack(setPosNav, posNav) {
     if (window.pageYOffset>= 100) {

@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./css/LogIn.module.css";
 
-import { login } from "../../middlewares/redux/actions";
+import { login } from "../../../middlewares/redux/actions";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";

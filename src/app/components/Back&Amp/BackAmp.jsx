@@ -1,5 +1,5 @@
 import React from 'react'
-import { BodyCss } from '../../functions'
+import { BodyCss } from '../../../functions'
 
 export const BackAmp = () => {
   BodyCss()

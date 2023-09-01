@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch  } from 'react-redux';
-import { getNextVisor, getResetVisor } from '../../../middlewares/redux/actions';
-import { $d, $gId } from '../../../functions';
+import { getNextVisor, getResetVisor } from '../../../../middlewares/redux/actions';
+import { $d, $gId } from '../../../../functions';
 
 export const VisorFunction = () =>{
     document.addEventListener('mouseup', function(e) {

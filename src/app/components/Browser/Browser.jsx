@@ -3,7 +3,7 @@ import s from "./css/Slider.module.css";
 import Visor from "./Visor";
 import Footer from "../Footer/Footer";
 import Slider from "./Slider";
-import { BodyCss } from "../../functions";
+import { BodyCss } from "../../../functions";
 import { useDispatch, useSelector } from "react-redux";
 import { InfoCanvas } from '../Utils/InfoCanvas';
 import {
@@ -12,7 +12,7 @@ import {
   resetMedia,
   resetOption,
   getAllLikes,
-} from "../../middlewares/redux/actions";
+} from "../../../middlewares/redux/actions";
 
 const Browser = () => {
   const dispatch = useDispatch();
