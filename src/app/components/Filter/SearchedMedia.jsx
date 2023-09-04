@@ -1,4 +1,4 @@
-import s from './css/SearchedMedia.module.css'
+import s from './SearchedMedia.module.css'
 import { Link } from "react-router-dom";
 
 

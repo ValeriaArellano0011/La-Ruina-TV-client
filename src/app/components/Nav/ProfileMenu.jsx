@@ -1,4 +1,4 @@
-import s from './css/ProfileMenu.module.css';
+import s from './ProfileMenu.module.css';
 import React, {useState, useEffect} from 'react';
 
 import profileMenuCss from './js/ProfileMenu';
@@ -8,13 +8,13 @@ import { getOption } from '../../../middlewares/redux/actions';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import btnMenuTv from '../../../design/ruinatv-icon-play-b.png';
-import likeIcon from '../../../design/like-icon.png';
-import userIcon from '../../../design/user-icon.png';
-import adminIcon from '../../../design/admin-icon.png';
-import listaIcon from '../../../design/lista-icon.png';
-import logoutIcon from '../../../design/logout-icon.png';
-import subscriptionIcon from '../../../design/subscription-icon.png';
+import btnMenuTv from '../../../assets/images/ruinatv-icon-play-b.png';
+import likeIcon from '../../../assets/images/like-icon.png';
+import userIcon from '../../../assets/images/user-icon.png';
+import adminIcon from '../../../assets/images/admin-icon.png';
+import listaIcon from '../../../assets/images/lista-icon.png';
+import logoutIcon from '../../../assets/images/logout-icon.png';
+import subscriptionIcon from '../../../assets/images/subscription-icon.png';
 
 export const ProfileMenu = () => {
   const currentUser = useSelector(state=>state.currentUser)

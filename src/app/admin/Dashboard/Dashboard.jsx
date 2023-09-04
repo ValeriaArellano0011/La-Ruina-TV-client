@@ -1,7 +1,7 @@
 import React from 'react'
 import Requests from '../Requests/Requests'
 import CardContent from '@mui/material/CardContent'
-import RequestProfile from '../Requests/RequestProfile'
+import RequestProfile from '../RequestProfile/RequestProfile'
 import { Card } from '@mui/material'
 import { Title } from 'react-admin'
 

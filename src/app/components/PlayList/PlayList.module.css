@@ -1,0 +1,271 @@
+.itemListBtn{
+	width: 100%;
+	height: 50px;
+	background-color: transparent;
+	position: relative;
+	margin-top: 1px;
+	margin-right: 50px;
+	font-family: Bebas Neue;
+	font-size: 15px;
+	border-radius: 5px;
+	border-width: 1px;
+	border-bottom-width: .5px;
+	border-top-width: .5px;
+	background-color: #171717;
+	color: rgb(241, 241, 241);
+	transition-duration: .4s;
+	z-index: 999;
+	text-align: left;
+
+}
+
+.favIcon{
+	filter: grayscale(1);
+	transition-duration: .4s;
+
+}
+.favIcon:hover{
+	filter: grayscale(0)
+}
+.itemInfo{
+	display: flex;
+	justify-content: space-around;
+}
+
+.itemListBtn:hover{
+	background-color: #616161;
+	color: aliceblue;
+}
+.titlePlaylistCont{
+	color: black;
+	width: 290px;
+	height: auto;
+	margin-top: 0px;
+	left: 55px;
+	position: absolute;
+	/* background-color: aqua; */
+	z-index: 999;
+	top: 80px;
+}
+.divPlaylistsCont{
+	width: 345px;
+	height: 100%;
+	background: linear-gradient(to top, #000000, #2f2f2f 98%);
+	position: absolute;
+	left: 0px;
+	box-shadow: 0px 0px 10px black;
+}
+.titlePlaylist{
+	/* margin-top: 60px; */
+	color: white;
+	text-shadow: 0px 0px 1px black;
+	font-size: 30px;
+}
+
+.divPlaylistsNames{
+	position: absolute;
+	left: 55px;
+	top: 0px;
+	width: 300px;
+	height: 100%;
+	/* background-color: rgb(255, 255, 0); */
+}
+
+.ulPlaylistsNames{
+	width: 230px;
+	height: auto;
+	position: relative;
+	top: 180px;
+	left: 0px;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #616161;
+	border-spacing: 10px;
+	margin-bottom: 10px;
+	/* background-color: aqua; */
+}
+.btnCreateList{
+	border-radius: 5px;
+	color: rgb(187, 185, 185);
+	text-shadow: 0px 0px 1px black;
+	background-color: #3f3f3f;
+	font-weight: thin;
+	border: none;
+	width: 90px;
+	height: 30px;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	justify-content: center;
+	align-items: flex-start;
+	font-family: Bebas Neue;
+	font-size: 10px;
+	transition-duration: .4s;
+	box-shadow: 0px 0px 3px black;
+	bottom: 100px;
+	left: 100px;
+}
+.btnCreateList:hover{
+	background-color: rgb(143, 143, 143);
+	cursor: pointer;
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 0px 1px rgb(0, 0, 0);
+}
+.ulPlaylistsNames>li{
+	margin-bottom: 10px;
+	/* background-color: aqua; */
+	left: -20px;
+	position: relative;
+}
+.itemListCont>li{
+	position: relative;
+	margin-top: 5px;
+	top: 150px;
+	width: 500px;
+	/* background-color: white; */
+	text-align: left;
+	margin-left: 25px;
+}
+.titleList{
+	width: 80%;
+	margin-top: 20px;
+	margin-left: 10%;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	text-shadow: 0px 0px 2px black;
+}
+
+.msgNoSelected{
+	width: 80%;
+	margin-top: 20px;
+	margin-left: 10%;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	text-shadow: 0px 0px 2px black;
+}
+
+.imgList{
+	margin-top: 15px;
+}
+
+.titleList{
+	width: 100%;
+	height: 150px;
+	margin-left: 550px;
+	margin-top: 0px;
+	top: 100px;
+	position: relative;
+	text-align: left;
+}
+
+.titleList>h1{
+	font-size: 40px;
+	margin-top: -40px;
+	margin-bottom: 0px;
+	font-weight: thin;
+}
+
+.titleList>h2{
+	font-size: 20px;
+	margin-top: -5px;
+	margin-bottom: 0px;
+	font-weight: thin;
+}
+.titleList>h3{
+	font-size: 15px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: thin;
+}
+
+.ulPlaylistNames{
+	position: absolute;
+    /* background-color: rgb(77, 77, 77); */
+	width: 250px;
+	height: 100%;
+	left: 55px;
+	top: 10px;
+	display: flex;
+}
+
+.itemListLi{
+	z-index: 99999;
+}
+
+.btnPlaylistNames{
+	border-radius: 5px;
+	color: rgb(187, 185, 185);
+	text-shadow: 0px 0px 1px black;
+	background-color: #171717;
+	font-weight: thin;
+	border: none;
+	width: 100%;
+	height: 30px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	justify-content: center;
+	align-items: flex-start;
+	font-family: Bebas Neue;
+	font-size: 10px;
+	transition-duration: .4s;
+	box-shadow: 0px 0px 3px black;
+	margin-top: -3px;
+}
+
+.btnPlaylistNames:hover{
+	background-color: rgb(143, 143, 143);
+	cursor: pointer;
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 0px 1px rgb(0, 0, 0);
+}
+
+.listBannerCont{
+	/* background-color: rgba(0, 255, 255, 0.271); */
+	width: 100vw;
+	height: 100vh;
+	left: -375px;
+	position: absolute;
+	top: 0px;
+	z-index: -1;
+}
+.cont1{
+	/* background-color: #171717; */
+	width: 100%;
+	height: 100%;
+	right: 0px;
+	z-index: 1;
+	position: fixed;
+}
+.cont2{
+	position: absolute;
+	width: 100%;
+	height: 275px;
+	background: linear-gradient(to bottom, #000000cf, rgba(255, 255, 255, 0));
+	border-bottom: solid;
+	border-width: 1px;
+	display: flex;
+	flex-direction: row;
+}
+
+.contImg{
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	background: linear-gradient(to bottom, #000000cf, rgba(255, 255, 255, 0));
+	margin-left: 380px;
+	margin-top: 100px;
+}
+
+.cont3{
+	position: relative;
+	width: 970px;
+	height: 250px;
+	margin-left: 380px;
+	top: 275px;
+	overflow-y: auto;
+}

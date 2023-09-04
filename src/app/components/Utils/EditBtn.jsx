@@ -1,10 +1,10 @@
-import s from './css/EditBtn.module.css';
+import s from './EditBtn.module.css';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { getDeleteMedia, getEditMedia } from "../../../middlewares/redux/actions";
-import editIcon from '../../../design/edit-icon.png';
-import deleteIcon from '../../../design/delete-icon.png';
+import editIcon from '../../../assets/images/edit-icon.png';
+import deleteIcon from '../../../assets/images/delete-icon.png';
 
 export const EditBtn = (props) => {
     const {connectionId} = props

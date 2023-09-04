@@ -1,8 +1,8 @@
+import s from './Requests.module.css'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { resetOption } from '../../../middlewares/redux/actions'
-import s from '../css/Dashboard.module.css'
 import { $d } from '../../../functions'
 
 const Requests = () => {

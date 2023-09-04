@@ -1,8 +1,8 @@
+import s from './Verify.module.css';
 import React from 'react';
-import styles from './css/Verify.module.css'
 import { useLocation } from 'react-router-dom';
 import LogIn from './LogIn';
-import CreateAccount from './CreateAccount';
+import CreateAccount from '../CreateAccount/CreateAccount';
 import { $d } from '../../../functions';
 
 
@@ -12,7 +12,7 @@ function Verify() {
     
     if(message === "verified"){
         return (
-            <div className={styles.verify_container}>
+            <div className={s.verify_container}>
                 <h1 style={{color: 'white'}}>Tu correo fue verificado!</h1>
                 <h3 style={{color: 'white', filter: 'drop-shadow(0px 0px 2px green)'}}>Ya puedes iniciar sesión</h3>
                 <button
@@ -30,7 +30,7 @@ function Verify() {
         )
     }else{
         return (
-            <div className={styles.verify_container}>
+            <div className={s.verify_container}>
                 <h1 style={{color: 'white'}}>No pudimos verificar tu correo"</h1>
                 <h2 style={{color: 'white', filter: 'drop-shadow(0px 0px 2px red)'}}>Vuelve a intentarlo</h2>
             </div>

@@ -1,19 +1,19 @@
-import s from './css/View.module.css'
-import React from 'react'
-import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import YtPlayer from './YtPlayer'
-import playIconn from '../../../design/ruinatv-icon-play-n.png'
-import playIconb from '../../../design/ruinatv-icon-play-b.png'
-import userIcon from '../../../design/user-icon.png'
+import s from './View.module.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import YtPlayer from './PlayerYoutube';
+import playIconn from '../../../assets/images/ruinatv-icon-play-n.png';
+import playIconb from '../../../assets/images/ruinatv-icon-play-b.png';
+import userIcon from '../../../assets/images/user-icon.png';
+import likeIcon from '../../../assets/images/like-icon.png';
 import OptionCanvas,  { $d } from '../../../functions';
-import { EditBtn } from '../Utils/EditBtn'
-import likeIcon from '../../../design/like-icon.png'
-import DrivePlayer from './DrivePlayer'
-import { getIdYT, getInfo, resetUrlPlayer, addToPlaylist } from '../../../middlewares/redux/actions'
+import { EditBtn } from '../Utils/EditBtn';
+import PlayerDrive from './PlayerDrive';
+import { getIdYT, getInfo, resetUrlPlayer, addToPlaylist } from '../../../middlewares/redux/actions';
 import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes, getYtSubs } from '../../../middlewares/redux/actions';
 
 
@@ -120,7 +120,7 @@ const View = () => {
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
-                        {user?.role.userMode === 'free' ? <YtPlayer idYT={idYT} /> : <DrivePlayer idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}              
+                        {user?.role.userMode === 'free' ? <YtPlayer idYT={idYT} /> : <PlayerDrive idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}              
 
                             {/* {
                                 Object.entries(type).map((el)=>{

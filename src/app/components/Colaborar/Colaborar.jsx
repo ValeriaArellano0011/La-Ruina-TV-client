@@ -1,8 +1,8 @@
+import s from './Colaborar.module.css';
 import React from 'react';
-import { BodyCss } from '../../../functions';
-import s from './css/Colaborar.module.css';
 import { Link } from 'react-router-dom';
-import laruinaLogo from '../../../design/ruina-records-logo.png'
+import { BodyCss } from '../../../functions';
+import laruinaLogo from '../../../assets/images/ruina-records-logo.png'
 
 export const Colaborar = () => {
   BodyCss()

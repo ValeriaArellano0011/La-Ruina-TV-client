@@ -1,12 +1,12 @@
+import s from './Media.module.css';
 import React from "react";
-import playIconn from "../../../design/ruinatv-icon-play-n.png";
 import { Link, useHistory } from "react-router-dom";
-import editIcon from '../../../design/edit-icon.png';
-import deleteIcon from '../../../design/delete-icon.png';
-import { useDispatch, useSelector } from "react-redux";
-import s from './css/Media.module.css';
-import { getDeleteMedia, getEditMedia } from "../../../middlewares/redux/actions";
 import Fav from "../Fav/Fav";
+import editIcon from '../../../assets/images/edit-icon.png';
+import playIconn from "../../../assets/images/ruinatv-icon-play-n.png";
+import deleteIcon from '../../../assets/images/delete-icon.png';
+import { useDispatch, useSelector } from "react-redux";
+import { getDeleteMedia, getEditMedia } from "../../../middlewares/redux/actions";
 import { $d } from "../../../functions";
 
 const Media = ({ cardList, style, keyID }) => {

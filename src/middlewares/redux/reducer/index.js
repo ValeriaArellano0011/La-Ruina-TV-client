@@ -24,11 +24,11 @@ import {
     GET_YT_SUBSCRIBERS
 } from "../../misc";
 
-import iconYT from '../../../design/yt-icon.png'
-import iconSpty from '../../../design/spty-icon.png'
-import iconDrive from '../../../design/drive-icon.png'
-import iconWeb from '../../../design/web-icon.png'
-import iconDescarga from '../../../design/descarga-icon.png'
+import iconYT from '../../../assets/images/yt-icon.png'
+import iconSpty from '../../../assets/images/spty-icon.png'
+import iconDrive from '../../../assets/images/drive-icon.png'
+import iconWeb from '../../../assets/images/web-icon.png'
+import iconDescarga from '../../../assets/images/descarga-icon.png'
 
 const initialState = {
 

@@ -1,10 +1,9 @@
-import React from "react";
-import s from "./css/LogIn.module.css";
+import s from "./LogIn.module.css";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import { login } from "../../../middlewares/redux/actions";
-import { useHistory } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 const LogIn = () => {
   const dispatch = useDispatch();

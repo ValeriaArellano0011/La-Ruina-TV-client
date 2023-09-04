@@ -1,4 +1,4 @@
-import s from './css/YtSubscribeButton.module.css'
+import s from './YtSubscribeButton.module.css'
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { $d } from '../../../functions';

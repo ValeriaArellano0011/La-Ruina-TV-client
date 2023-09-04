@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import styles from './css/Toast.module.css'
+import styles from './Toast.module.css'
 
 const Toast = ({ toastlist, position, setList }) => {
 

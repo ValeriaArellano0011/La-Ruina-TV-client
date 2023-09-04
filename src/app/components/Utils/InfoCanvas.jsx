@@ -1,5 +1,5 @@
-import React from 'react'
-import s from './css/InfoCanvas.module.css'
+import s from './InfoCanvas.module.css';
+import React from 'react';
 
 export const InfoCanvas = () => {
   return (

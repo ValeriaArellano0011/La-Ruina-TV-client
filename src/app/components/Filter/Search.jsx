@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './css/Search.module.css'
+import s from './Search.module.css'
 import { useSelector } from 'react-redux'
 import { SearchedMedia } from './SearchedMedia'
 

@@ -1,5 +1,5 @@
-import menuIcon from '../../../design/menu-icon.png'
-import { $d } from '../../../functions'
+import menuIcon from '../../../assets/images/menu-icon.png';
+import { $d } from '../../../functions';
 
 export const NavBurgerMenuTablet = () => {
     return (
