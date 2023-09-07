@@ -6,7 +6,6 @@ import Enter from '../Auth/Enter';
 import Profile from '../../pages/Profile/Profile';
 import Dashboard from '../../admin/Dashboard/Dashboard';
 
-import { PlayList } from '../PlayList/PlayList';
 import { Favorites } from '../Favorites/Favorites';
 import { BackButton } from '../Nav/BackButton';
 import { Subscription } from '../Subscription/Subscription';
@@ -25,8 +24,6 @@ export const OptionsCanvas = () => {
                     (option === 'config')?          <><Configurations/></>
                     :
                     (option === 'profile')?         <><Profile/></>
-                    :
-                    (option === 'playlist')?        <><PlayList/></>
                     :
                     (option === 'favorites')?       <><Favorites/></>
                     :

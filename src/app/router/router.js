@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Nav from '../components/Nav/Nav';
@@ -19,28 +18,18 @@ import { Checkout } from '../components/Checkout/Checkout';
 import { Colaborar } from '../components/Colaborar/Colaborar';
 import { Novedades } from '../components/Novedades/Novedades';
 import { CanvasMenu } from '../components/Nav/CanvasMenu';
-import { PlayerList } from '../components/Media/PlayerList';
 import { OptionsCanvas } from '../components/Utils/SlideCanvas';
 import { EditMediaList } from '../admin/EditMediaList/EditMediaList';
 import { EditUsersList } from '../admin/EditUserList/EditUsersList';
 
 
 function Router() {
-  const url = useSelector(state=>state.urlPlayer)
-  const option = useSelector(state=>state.option)
   return (
     <div className="App">
       <Switch>
         <>
           <Nav />
             <CanvasMenu/>
-          <div className='userPlayerCont'>
-          { (url !== '') || (option === 'playlist')?
-            <div className='playListCont'>
-              <PlayerList url={url} />
-            </div> : null
-          }  
-          </div>
           <div className='bodyApp'>
             <OptionsCanvas/>
             <Route path='/auth'>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOption } from '../../../middlewares/redux/actions';
 import userIcon from '../../../assets/images/user-icon.png';
 import likeIcon from '../../../assets/images/like-icon.png';
-import listIcon from '../../../assets/images/lista-icon.png';
+import configIcon from '../../../assets/images/config-icon.png';
 import adminIcon from '../../../assets/images/admin-icon.png';
 import logoutIcon from '../../../assets/images/logout-icon.png';
 import subscriptionIcon from '../../../assets/images/subscription-icon.png';
@@ -41,8 +41,8 @@ const RequestProfile = () => {
                         <span id='spanFavs' className={s.spanFavs}>Favs</span>
                     </li>
                     <li>
-                        <img src={listIcon} className={s.listIcon} id='playlistIcon' alt="lista" onClick={()=>{return dispatch(getOption('playlist'))}} />
-                        <span id='spanList' className={s.spanLists}>Listas</span>                    
+                        <img src={configIcon} className={s.configIcon} id='configIcon' alt="config" onClick={()=>{return dispatch(getOption('config'))}} />
+                        <span id='spanList' className={s.spanLists}>Config</span>                    
                     </li>
                     {   
                         user?.role.userMode === 'admin' ?

@@ -12,8 +12,8 @@ import btnMenuTv from '../../../assets/images/ruinatv-icon-play-b.png';
 import likeIcon from '../../../assets/images/like-icon.png';
 import userIcon from '../../../assets/images/user-icon.png';
 import adminIcon from '../../../assets/images/admin-icon.png';
-import listaIcon from '../../../assets/images/lista-icon.png';
 import logoutIcon from '../../../assets/images/logout-icon.png';
+import configIcon from '../../../assets/images/config-icon.png';
 import subscriptionIcon from '../../../assets/images/subscription-icon.png';
 
 export const ProfileMenu = () => {
@@ -69,22 +69,6 @@ export const ProfileMenu = () => {
                   PERFIL
               </button>
           </li>
-            {/* <li>
-              <button 
-                id='optionProfileBtn1' 
-                className={s.optionProfileBtn} 
-                value='notifications' 
-                onClick={(e)=>{return onClickValue(e)}}
-                onMouseEnter={() => {return profileMenuCss('enter')}}>
-              <img 
-                className={s.imgIcon}
-                style={{rotate: '-90deg'}}
-                onClick={(e) => {return e.target.value='notifications'}}
-                src={notificationIcon} 
-                alt="" /><br></br>
-                Notificaciones
-              </button>
-            </li> */}
             <li>
               <button 
                 id='optionProfileBtn2' 
@@ -104,21 +88,6 @@ export const ProfileMenu = () => {
               <button 
                 id='optionProfileBtn3' 
                 className={s.optionProfileBtn} 
-                value='playlist' 
-                onClick={(e)=>{return onClickValue(e)}}
-                onMouseEnter={() => {return profileMenuCss('enter')}}>
-              <img 
-                className={s.imgIcon}
-                onClick={(e) => {return e.target.value='playlist'}}
-                src={listaIcon} 
-                alt="" /><br></br>
-                  MIS LISTAS
-              </button>
-            </li>
-            {/* <li>
-              <button 
-                id='optionProfileBtn4' 
-                className={s.optionProfileBtn} 
                 value='config' 
                 onClick={(e)=>{return onClickValue(e)}}
                 onMouseEnter={() => {return profileMenuCss('enter')}}>
@@ -129,7 +98,7 @@ export const ProfileMenu = () => {
                 alt="" /><br></br>
                   CONFIGURACIÓN
               </button>
-            </li> */}
+            </li>
             <li>
               <button                                 
                 id='optionProfileBtn5' 
