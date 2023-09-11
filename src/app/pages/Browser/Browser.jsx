@@ -11,8 +11,8 @@ import {
   resetIdYT,
   resetMedia,
   resetOption,
-  getAllLikes,
-} from "../../../middlewares/redux/actions";
+/*   getAllLikes,
+ */} from "../../../middlewares/redux/actions";
 
 const Browser = () => {
   const dispatch = useDispatch();
@@ -30,8 +30,8 @@ const Browser = () => {
     dispatch(getMedia());
     dispatch(resetMedia());
     dispatch(resetIdYT());
-    dispatch(getAllLikes(user?.userId));
-    BodyCss();
+/*     dispatch(getAllLikes(user?.userId));
+ */    BodyCss();
   }, [dispatch, user?.userId]);
 
   return (
