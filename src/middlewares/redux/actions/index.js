@@ -26,14 +26,9 @@ import {
     RESET_URL_PLAYER,
     CURRENT_USER,
     GET_EDIT_MEDIA,
-    // REMOVE_MEDIA,
     EDIT_MEDIA,
     ADD_TO_PLAYLIST,
-    // DELETE_FROM_PLAYLIST,
-    // CREATE_PLAYLIST,
-    // DELETE_PLAYLIST,
     GET_ITEM_LIST,
-    // GET_PLAYLIST,
     GET_ALL_PLAYLIST,
     GET_ALL_LIKES,
     GET_USERS,
@@ -176,17 +171,6 @@ export const getDeleteUsers = (id) =>   {
             })
         }
     };
-    // export const getPosts = () => {
-    //     return async function (dispatch) {
-    //         const response = await axios.get(
-    //             `${URL_API}/media/getall`
-    //         );
-    //         return dispatch ({
-    //             type: GET_MEDIA,
-    //             payload: response.data
-    //         })
-    //     }
-    // };
 
 /*-----------------Auth----------------*/
 export function getOption(e) {
@@ -271,12 +255,10 @@ export function resetIdYT() {
 export function getMedia() {
     return async function(dispatch) {
         try {
-            await axios.get(`${URL_API}/media/getall`)
-            .then(res =>{
-                dispatch({
-                    type: GET_MEDIA,
-                    payload: res.data
-                })
+            const response = await axios.get(`${URL_API}/media/getall`)
+            dispatch({
+                type: GET_MEDIA,
+                payload: response
             })
         } catch(e) {
             console.log(e)
