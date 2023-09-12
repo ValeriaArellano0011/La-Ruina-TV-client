@@ -1,25 +1,13 @@
 import s from './Profile.module.css';
-import React, {useState, useEffect} from 'react';
 import RequestProfile from '../../admin/RequestProfile/RequestProfile';
 import userIcon from '../../../assets/images/user-icon.png';
 import { DeleteAccount } from '../../components/DeleteAccount/DeleteAccount';
 import { $d } from '../../../functions';
+import { useSelector } from 'react-redux';
 
 const Profile = () => {
-  const [ userAlias, setUserAlias ] = useState('')
-  const [ userPicGoogle, setUserPicGoogle ] = useState('')
-  const auth = localStorage.getItem('auth');
-  const user = auth ? JSON.parse(auth) : null;
-
-  useEffect(() => {
-    if (user) {
-      setUserAlias(user.userAlias)
-      if(user.googlePic){
-        setUserPicGoogle(user.googlePic)
-        console.log(user.googlePic)
-      }
-    }
-  }, [user]);
+  const currentUser = useSelector(state => state.currentUser)
+  const { username, profilePic, role } = currentUser
 
   return (
     <div >
@@ -31,17 +19,17 @@ const Profile = () => {
             <ul className={s.ulListProfile}>
               <li className={s.liProfile1}>Perfil de</li>
               <li className={s.liProfile2}>
-                <h1>{userAlias ? userAlias : "Usuario"}</h1>
+                <h1>{username ? username : "Usuario"}</h1>
               </li>
               <li>
                 <img 
                   className={s.userIcon} 
                   referrerPolicy="no-referrer" 
-                  src={userPicGoogle ? userPicGoogle : userIcon} 
+                  src={profilePic ? profilePic : userIcon} 
                   height='100px' 
                   alt="foto de perfil" />
               </li>
-              <li className={s.liProfile3}>{user.role.userMode}</li>
+              <li className={s.liProfile3}>{role}</li>
             </ul>
           </div>
               <div className={s.buttons}>
