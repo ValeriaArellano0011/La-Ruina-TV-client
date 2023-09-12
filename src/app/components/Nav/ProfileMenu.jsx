@@ -1,5 +1,4 @@
 import s from './ProfileMenu.module.css';
-import React, {useState, useEffect} from 'react';
 
 import profileMenuCss from './js/ProfileMenu';
 import OptionCanvas from '../../../functions';
@@ -20,11 +19,7 @@ export const ProfileMenu = () => {
   const currentUser = useSelector(state=>state.currentUser)
   const dispatch = useDispatch()
   const history = useHistory()
-  const auth = localStorage.getItem('auth');
-  const user = auth ? JSON.parse(auth) : null;
   
-  const [ userAlias, setUserAlias ] = useState('')
-  const [ userPicGoogle, setUserPicGoogle ] = useState('')
 
   function onClickValue(e){
     return (
@@ -32,14 +27,7 @@ export const ProfileMenu = () => {
       OptionCanvas(e.target.value || e)
     )
   }
-  useEffect(() => {
-    if (user) {
-      setUserAlias(user.userAlias)
-      if(user.googlePic){
-        setUserPicGoogle(user.googlePic)
-      }
-    }
-  }, [user]);
+
   return (
     <div className={s.profileCont} id='profileCont'>
         <ul className={s.profileBtnCont}>
@@ -48,8 +36,8 @@ export const ProfileMenu = () => {
             onClick={() => {return profileMenuCss('enter')}}
             onMouseLeave={() => {return profileMenuCss('leave')}}
             >
-            <img className={s.userIcon} referrerPolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} alt='userIcon' width='25px' />
-            Hola, {currentUser?.userAlias? currentUser.userAlias : userAlias? userAlias.split(' ').at(0) : "Usuario"}
+            <img className={s.userIcon} referrerPolicy="no-referrer" src={currentUser.profilePic ? currentUser.profilePic : userIcon} alt='userIcon' width='25px' />
+            Hola, {currentUser?.username? currentUser.username : "Usuario"}
             <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
           </li>
           <ul className={s.ulProfileOptions}>
@@ -63,7 +51,7 @@ export const ProfileMenu = () => {
               <img 
                 className={s.imgIconProf}
                 referrerPolicy="no-referrer" 
-                src={userPicGoogle ? userPicGoogle : userIcon}
+                src={currentUser.profilePic ? currentUser.profilePic : userIcon}
                 onClick={(e) => {return e.target.value='profile'}}
                 alt="" /> <br></br>
                   PERFIL
@@ -103,15 +91,14 @@ export const ProfileMenu = () => {
               <button                                 
                 id='optionProfileBtn5' 
                 className={s.optionProfileBtn} 
-                value={user?.role.userMode==='admin'? 'dashboard' : 'subscription'}
+                value={currentUser?.role==='admin'? 'dashboard' : 'subscription'}
                 onClick={(e)=>{return onClickValue(e)}}
                 onMouseEnter={() => {return profileMenuCss('enter')}}>
               <img 
                 className={s.imgIcon}
-                onClick={(e) => {return e.target.value=((user?.role.userMode==='admin')? ('dashboard') : ('subscription'))}}
-                src={user?.role.userMode==='admin'? adminIcon : subscriptionIcon} 
+                onClick={(e) => {return e.target.value=((currentUser?.role==='admin')? ('dashboard') : ('subscription'))}}
+                src={currentUser?.role==='admin'? adminIcon : subscriptionIcon} 
                 alt="" /><br></br>
-                {user?.role.userMode==='admin'? 'DASHBOARD' : 'SUSCRIPCIÓN'}
               </button>
             </li>
             <li className={s.ulSalirBtn}>
@@ -121,7 +108,7 @@ export const ProfileMenu = () => {
                 className={s.optionProfileBtn} 
                 onClick={()=>{
                   return (
-                    localStorage.removeItem('auth'), 
+                    localStorage.clear(),
                     history.push('/browser'),
                     window.location.reload()
                   )

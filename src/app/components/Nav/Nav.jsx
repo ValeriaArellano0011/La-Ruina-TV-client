@@ -18,11 +18,13 @@ const Nav = () => {
         <div className='navCont'>
             <Logo/>
             {
-                !(currentPath === '/admin')?
-            <><NavMenu/>
-            <NavBurgerMenuTablet/>
-            <NavSearchBar/></>
-            : null
+                !(currentPath === '/admin')
+                ?<>
+                    <NavMenu/>
+                    <NavBurgerMenuTablet/>
+                    <NavSearchBar/>
+                </>
+                : null
             }
         </div>
     )

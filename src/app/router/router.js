@@ -28,7 +28,7 @@ function Router() {
     <div className="App">
       <Switch>
         <>
-          <Nav />
+          <Nav/>
             <CanvasMenu/>
           <div className='bodyApp'>
             <OptionsCanvas/>

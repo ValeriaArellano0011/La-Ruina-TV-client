@@ -6,7 +6,6 @@ import {
     RESET_VISOR,
     OPTION,
     RESET_OPTION,
-    LOGIN,
     POST_PRODUCT,
     GET_IDYT,
     GET_MUSIC_NAME,
@@ -14,14 +13,14 @@ import {
     RESET_IDYT,
     URL_PLAYER,
     RESET_URL_PLAYER,
-    CURRENT_USER,
     // EDIT_MEDIA,
     GET_EDIT_MEDIA,
     // GET_PLAYLIST,
     GET_ITEM_LIST,
     GET_ALL_PLAYLIST,
     GET_ALL_LIKES,
-    GET_YT_SUBSCRIBERS
+    GET_YT_SUBSCRIBERS,
+    CURRENT_USER
 } from "../../misc";
 
 import iconYT from '../../../assets/images/yt-icon.png'
@@ -30,14 +29,18 @@ import iconDrive from '../../../assets/images/drive-icon.png'
 import iconWeb from '../../../assets/images/web-icon.png'
 import iconDescarga from '../../../assets/images/descarga-icon.png'
 
+
+const userData = localStorage.getItem('userData');
+const currentUser = userData ? JSON.parse(userData) : null;
+
 const initialState = {
 
     /*----------------Admin----------------*/
-    rolUser: '', // s: 'admin', 'subscriber', 'colaborator', 'free'
     YTSub: false,
     /*----------------Auth----------------*/
-    currentUser: false,
+    currentUser,
     option: '',
+
     /*----------------Media----------------*/
     allUserLikes: [],
     ytPlayerState: '',
@@ -140,12 +143,9 @@ const initialState = {
 }
 
 export default function rootReducer(state = initialState, action) {
-    const auth = localStorage.getItem('auth');
-    const user = auth ? JSON.parse(auth) : null;
     switch (action.type) {
         /*----------------Admin----------------*/
         case __GOD_MODE__:
-            localStorage.setItem('auth', action.payload)
             window.location.reload()
             return {
                 ...state,
@@ -161,32 +161,12 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 YTSub: action.payload
-            }
+            };
         /*----------------Auth----------------*/
         case CURRENT_USER:
             return {
                 ...state,
-                currentUser: action.payload.msg ?{
-                    userId: action.payload.msg.userId.length? action.payload.msg.userId : user.userId,
-                    userAlias: action.payload.msg.userAlias.length? action.payload.msg.userAlias : user.userAlias,
-                    email: action.payload.msg.email.length? action.payload.msg.email : user.email,
-                    isVerified: action.payload.msg.isVerified.length? action.payload.msg.isVerified : user.isVerified,
-                    googlePic: action.payload.msg.googplePic.length? action.payload.msg.googlePic : user.googlePic,
-                    role: action.payload.msg.role.length? JSON.parse(action.payload.msg.role) : user.role
-                } : user
-            };
-        case LOGIN:
-            return {
-                ...state,
-                currentUser: action.payload.msg ? {
-                    userId: action.payload.msg.userId,
-                    userAlias: action.payload.msg.userAlias,
-                    email: action.payload.msg.email,
-                    isVerified: action.payload.msg.isVerified,
-                    googlePic: action.payload.msg.googlePic,
-                    role: JSON.parse(action.payload.msg.role)
-                } : user,
-                rolUser: action.payload.msg ? JSON.parse(action.payload.msg.role) : false,
+                currentUser: action.payload
             };
         case OPTION:
             return {

@@ -1,25 +1,16 @@
 import s from "./LogIn.module.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { login } from "../../../middlewares/redux/actions";
+import { loginInner } from "../../../middlewares/redux/actions/auth";
 
 const LogIn = () => {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.currentUser);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    if (currentUser) {
-      localStorage.setItem('auth', JSON.stringify(currentUser))
-      history.push('/browser')
-      window.location.reload()
-    }
-  }, [currentUser, history]);
-  
   return (
       <div className="formCont">
         <ul className={s.form_ul}>
@@ -52,7 +43,7 @@ const LogIn = () => {
                 onClick={(e) => {
                  return (
                   e.preventDefault(),
-                  dispatch(login(email, password))
+                  dispatch(loginInner(email, password, history))
                   )
                 }}
               >

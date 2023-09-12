@@ -67,9 +67,10 @@ const RequestProfile = () => {
                             alt="salir" 
                             onClick={()=>{
                                 return (
-                                localStorage.removeItem('auth'), 
-                                // history.push('/browser'),
-                                window.location.reload()
+                                    localStorage.removeItem('userData'), 
+                                    localStorage.removeItem('userToken'), 
+                                    // history.push('/browser'),
+                                    window.location.reload()
                                 )
                             }}/>
                     </li>

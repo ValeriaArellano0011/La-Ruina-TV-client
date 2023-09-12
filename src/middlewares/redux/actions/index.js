@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { URL_API } from '../../config'
 import { 
-    GET_MEDIA,
     GET_YT_SUBSCRIBERS, 
     GET_INFO, 
     GET_CATEGORIAS, 
@@ -12,7 +11,6 @@ import {
     RESET_VISOR,
     OPTION,
     RESET_OPTION,
-    LOGIN,
     SIGNUP,
     GET_PRODUCTS,
     GET_PRODUCT_DETAILS,
@@ -24,7 +22,6 @@ import {
     GET_MUSIC_NAME,
     URL_PLAYER,
     RESET_URL_PLAYER,
-    CURRENT_USER,
     GET_EDIT_MEDIA,
     EDIT_MEDIA,
     ADD_TO_PLAYLIST,
@@ -35,6 +32,7 @@ import {
     GET_EDIT_USERS,
     DELETE_USERS
     } from '../../misc'
+import { getMedia } from './media'
 
 /*-----------------Admin----------------*/
 
@@ -52,12 +50,6 @@ import {
     }
 
 //----------------USERS-----------------
-
-    export const logIn = (url) => {
-        return async function () {
-            await axios.get(`${URL_API}/media/edit/${url}`)
-        }
-    }
 
 export function getUsers() {
     return async function(dispatch) {
@@ -187,42 +179,8 @@ export function resetOption() {
 export async function googleAuth(){
     return await axios.get(`${URL_API}/auth/google`)
 }
-export function getCurrentUser() {
-    return{
-        type: CURRENT_USER
-    }
-}
-export function login(email, password){
-    return async function (dispatch){ 
-        await axios.post(`${URL_API}/users/login`, {email, password})
-        .then(res => {
-            console.log(res.data)
-            dispatch({
-                type: LOGIN,
-                payload: res.data
-            })
-        })
-        .catch((e) => {
-            console.log(e);
-        })
-    }
-}
-export function loginWithGoogle(accessToken){
-    return async function (dispatch){ 
-        await axios.post(`${URL_API}/users/loginwithgoogle`, {accessToken})
-        .then(res => {
-            dispatch({
-                type: 'LOGIN',
-                payload: res.data
-            })
-        })
-        .catch((e) => {
-            console.log(e);
-        })
-    }
-}
-export const signup =
-  (alias, email, password) => async (dispatch) => {
+
+export const signup = (alias, email, password) => async (dispatch) => {
     try {
         const response = await axios.post(`${URL_API}/users/signup`, {
       alias,
@@ -252,19 +210,7 @@ export function resetIdYT() {
         type: RESET_IDYT
     }
 }
-export function getMedia() {
-    return async function(dispatch) {
-        try {
-            const response = await axios.get(`${URL_API}/media/getall`)
-            dispatch({
-                type: GET_MEDIA,
-                payload: response
-            })
-        } catch(e) {
-            console.log(e)
-        }
-    }
-}
+
 export function getInfo(id) {
     return async function(dispatch) {
         try{

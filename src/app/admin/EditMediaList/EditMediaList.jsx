@@ -3,13 +3,13 @@ import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import {
-    getMedia,
     resetIdYT,
     resetMedia,
     resetOption,
     getEditMedia,
     getDeleteMedia
   } from "../../../middlewares/redux/actions";
+import { getMedia } from '../../../middlewares/redux/actions/media';
 
 export const EditMediaList = () => {
     const history = useHistory()

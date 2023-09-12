@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
-import { loginWithGoogle } from '../../../middlewares/redux/actions';
+import { auth } from '../../../middlewares/redux/actions/auth';
 
 const AuthToken = () => {
-  const history = useHistory()
+  const history = useHistory();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const authToken = params.get('token');
@@ -13,18 +13,10 @@ const AuthToken = () => {
 
   useEffect(() => {
     if (authToken) {
-      dispatch(loginWithGoogle(authToken))
-      console.log('el current user', currentUser)
+      dispatch(auth(authToken, history))
+      localStorage.setItem('userToken', JSON.stringify(authToken))
     }
-  }, [currentUser, authToken, dispatch])
-
-  useEffect(() => {
-    if (currentUser) {
-      localStorage.setItem('auth', JSON.stringify(currentUser))
-      history.push('/browser')
-      window.location.reload()
-    }
-  }, [currentUser, history])
+  }, [currentUser, authToken, dispatch, history])
 
   return (
     <div style={{

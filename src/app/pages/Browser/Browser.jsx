@@ -5,26 +5,30 @@ import Footer from "../../components/Footer/Footer";
 import Slider from "../../components/MediaSlider/MediaSlider";
 import { BodyCss } from "../../../functions";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import { InfoCanvas } from '../../components/Utils/InfoCanvas';
 import {
-  getMedia,
   resetIdYT,
   resetMedia,
   resetOption,
-/*   getAllLikes,
- */} from "../../../middlewares/redux/actions";
+  } from "../../../middlewares/redux/actions";
+import { getMedia } from "../../../middlewares/redux/actions/media";
 
 const Browser = () => {
   const dispatch = useDispatch();
-  const auth = localStorage.getItem('auth');
-  const user = JSON.parse(auth);
-  const currentUser = useSelector((state) => state.currentUser)
+  const history = useHistory()
+  const userToken = localStorage.getItem('userToken');
+  const currentUser = useSelector((state) => state.currentUser);
   const cardList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
-  
+
   useEffect(()=>{
     dispatch(resetOption())
-  },[dispatch, currentUser])
+  },[dispatch])
+
+  useEffect(()=>{
+    !(userToken?.length && !currentUser)?? history.push(`/auth?token=${userToken}`);
+  },[dispatch, currentUser, userToken, history])
 
   useEffect(() => {
     dispatch(getMedia());
@@ -32,7 +36,7 @@ const Browser = () => {
     dispatch(resetIdYT());
 /*     dispatch(getAllLikes(user?.userId));
  */    BodyCss();
-  }, [dispatch, user?.userId]);
+  }, [dispatch]);
 
   return (
     <div className="browserBody"> 
