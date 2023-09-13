@@ -1,8 +1,7 @@
-import React from 'react';
-import GoogleSignUp from '../Auth/GoogleSignUp';
 import s from './Enter.module.css';
+import LoginGoogle from '../Auth/LoginGoogle';
+import LoginInner from './LoginInner';
 import { EnterCss } from './js/EnterCss';
-import LogIn from './LogIn';
 import { useLocation } from 'react-router-dom';
 
 const Enter = () => {
@@ -16,7 +15,7 @@ const Enter = () => {
         <div className={s.welcomeCont} id='welcomeCont'>
         <h1>ENTRÁ BOBO, VENÍ PARA ACÁ</h1>
         <h4>Debes ingresar con una cuenta de Google</h4>
-        {!(currentPath==='/admin')? <GoogleSignUp/> : <LogIn/> }
+        {!(currentPath==='/admin')? <LoginGoogle/> : <LoginInner/> }
       </div>
      </div>
     </div>

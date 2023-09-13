@@ -1,10 +1,9 @@
 import s from './Verify.module.css';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import LogIn from './LogIn';
+import LoginInner from './LoginInner';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import { $d } from '../../../functions';
-
 
 function Verify() {
     const location = useLocation()
@@ -24,7 +23,7 @@ function Verify() {
                         }
                     }
                 >Iniciar Sesión</button>
-                <LogIn />
+                <LoginInner />
                 <CreateAccount />
             </div>
         )

@@ -3,7 +3,7 @@ import s from './CreateAccount.module.css';
 import { signup } from '../../../middlewares/redux/actions';
 import { useDispatch } from 'react-redux';
 import { authCss } from '../Auth/js/authCss';
-import GoogleSignUp from '../Auth/GoogleSignUp'
+import LoginGoogle from '../Auth/LoginGoogle'
 import Toast from '../Utils/Toast';
 
 const CreateAccount = () => {
@@ -22,7 +22,6 @@ const CreateAccount = () => {
   const [list, setList] = useState([]);
   let toastProperties = null;
   const showToast = (type, description) => {
-    console.log('entrooo')
     switch(type) {
       case 'success':
         toastProperties = {
@@ -83,7 +82,7 @@ const CreateAccount = () => {
         <h3 style={{ color: "white", fontWeight: 'lighter', fontSize: "15px"}}>
           o puedes registrarte a través de
         </h3>
-          <GoogleSignUp /></>
+          <LoginGoogle/></>
           : (<><div 
               style={{color: 'white'}}>
               <h1 
@@ -94,7 +93,7 @@ const CreateAccount = () => {
                     Te hemos enviado un correo electrónico a la dirección que nos brindaste. Revísalo para verificar tus datos</h3></div>
         <h3 style={{ position: 'relative', color: "white", fontWeight: 'lighter', fontSize: "15px", top: '200px'}}>
           también puedes registrarte a través de
-          <GoogleSignUp />
+          <LoginGoogle/>
         </h3>
           </>
           )}

@@ -1,11 +1,11 @@
-import s from "./LogIn.module.css";
+import s from "./LoginInner.module.css";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { loginInner } from "../../../middlewares/redux/actions/auth";
 
-const LogIn = () => {
+const LoginInner = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [email, setEmail] = useState("");
@@ -56,4 +56,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default LoginInner;
