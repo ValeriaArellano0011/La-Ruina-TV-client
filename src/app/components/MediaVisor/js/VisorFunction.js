@@ -24,12 +24,11 @@ export const VisorFunction = () =>{
     const [visorInfo, setVisorInfo] = useState()
     const [visorIcon, setVisorIcon] = useState()
     const [visorImg, setVisorImage] = useState()
-    const [visorUrlID, setVisorUrlID] = useState()  
     const [visorTitle, setVisorTitulo] = useState()
     const [visorArtist, setVisorArtista] = useState()
     const [visorTypeMedia, setVisorTypeMedia] = useState()
     const [visorIdYT, setVisorIdYT] = useState()
-    const {idMedia, id, idLinkYT, imageVisor, artist, title, mediaType, tag, icon, actionButton, info} = visorList?.at(0)
+    const {id, idLinkYT, imageVisor, artist, title, mediaType, tag, icon, actionButton, info} = visorList?.at(0)
     
     useEffect(() => {
         let inf = 99999+cont;
@@ -46,7 +45,6 @@ export const VisorFunction = () =>{
             setVisorIcon(icon)
             setVisorTitulo(title)
             setVisorIdYT(idLinkYT) 
-            setVisorUrlID(idMedia)
             setVisorArtista(artist)
             setVisorImage(imageVisor)
             setVisorBtn1(actionButton)
@@ -61,7 +59,7 @@ export const VisorFunction = () =>{
             $d(`.visor`).style.transform='translateX(0)'
         }, timeInterval*1000);
         return () =>  (clearInterval(interval, timeInterval));
-    },[actionButton,visorIdYT, idMedia, id, imageVisor, idLinkYT, visorImg, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
+    },[actionButton,visorIdYT, id, imageVisor, idLinkYT, visorImg, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
     return {
         visorList,
         nextVisor,
@@ -72,7 +70,6 @@ export const VisorFunction = () =>{
         visorInfo, 
         visorIcon, 
         visorImg, 
-        visorUrlID, 
         visorTitle, 
         visorArtist, 
         visorTypeMedia,

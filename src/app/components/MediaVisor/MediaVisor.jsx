@@ -16,7 +16,6 @@ const Visor = () => {
         visorIcon, 
         visorList,
         visorTitle,
-        visorUrlID,
         visorArtist, 
         currentUser,
         user
@@ -44,7 +43,6 @@ const Visor = () => {
                                 <button 
                                     className='button1'
                                     id={visorID}
-                                    urlid={visorUrlID}
                                     titulo={visorTitle}
                                     artista={visorArtist}
                                     img={visorImg}
