@@ -45,7 +45,7 @@ const Browser = () => {
         <InfoCanvas/>
 
       {/* --------------------SLIDERS-------------------- */}
-      {mediaList && mediaList.length && (
+      {mediaList?.length && (
         <Slider
           title={"Contenido"}
           mediaList={mediaList}

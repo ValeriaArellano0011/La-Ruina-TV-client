@@ -19,14 +19,12 @@ const Visor = () => {
         visorArtist, 
         currentUser,
         } = VisorFunction();
-
-    const img = RenderDriveImage(visorImg);
-
+        
     return(
         <div className='visor'>
             <video className='visorVideoIntro' src={visorIntroVideo} autoPlay muted loop type="video/mp4"/>
             <div className='visorBGCanvas'>
-                <img className='visorBG' src={img} alt='' />
+                <img className='visorBG' src={RenderDriveImage(visorImg)} alt='' />
             </div>
             <div className='visorCanvas'/>
             { visorList?.length
