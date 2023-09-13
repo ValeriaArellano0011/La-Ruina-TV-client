@@ -6,7 +6,6 @@ import visorIntroVideo from '../../../assets/videos/laruina-intro.mp4';
 import { VisorFunction } from './js/VisorFunction';
 import { $d } from "../../../functions";
 import { RenderDriveImage } from "../../../functions/RenderDriveImage";
-import defaultImg from "../../../assets/images/ruina-records-logo.png";
 
 const Visor = () => {
     const { 
@@ -25,7 +24,7 @@ const Visor = () => {
         <div className='visor'>
             <video className='visorVideoIntro' src={visorIntroVideo} autoPlay muted loop type="video/mp4"/>
             <div className='visorBGCanvas'>
-                <img className='visorBG' src={visorImg? RenderDriveImage(visorImg) : defaultImg} alt='' />
+                <img className='visorBG' src={RenderDriveImage(visorImg)} alt='' />
             </div>
             <div className='visorCanvas'/>
             { visorList?.length
