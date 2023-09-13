@@ -11,8 +11,8 @@ export const VisorFunction = () =>{
             $d('#infoCont').style.scale='0'
         }
     })
-    const currentUser = useSelector(state=>state.currentUser)
     const dispatch = useDispatch()
+    const currentUser = useSelector(state=>state.currentUser)
     const visorList = useSelector(state=>state.visorList)
     const nextVisor = useSelector(state=>state.nextVisor)
     const [cont, setI] = useState(0)
@@ -26,7 +26,7 @@ export const VisorFunction = () =>{
     const [visorArtist, setVisorArtista] = useState(null)
     const [visorTypeMedia, setVisorTypeMedia] = useState(null)
     const [visorIdYT, setVisorIdYT] = useState(null)
-    const {id, idLinkYT, imageVisor, artist, title, mediaType, tag, icon, actionButton, info} = visorList?.at(0)
+    const {id, idLinkYT, imageVisor, artist, title, mediaType, tag, icon, actionButton, info} = visorList? visorList?.at(0) : nextVisor
     
     useEffect(() => {
         let inf = 99999+cont;

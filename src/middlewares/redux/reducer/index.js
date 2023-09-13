@@ -63,40 +63,36 @@ const initialState = {
             urlDownload: { url: '', img: iconDescarga },
         }
     },
-    mediaList: [
-        {
-            id: '',
-            idMedia: [''],
-            mediaType: [''],
-            title: [''],
-            artist: [''],
-            tag: [''],
-            visorImage: [''],
-            sliderImage: [''],
-            icon: [''],
-            categories: [''],
-            actionButton: [''],
-            info: [''],
-            genre: ['']
-        }
-    ],
-    visorList: [
-        {
-            id: '',
-            idMedia: [''],
-            mediaType: [''],
-            title: [''],
-            artist: [''],
-            tag: [''],
-            visorImage: [''],
-            sliderImage: [''],
-            icon: [''],
-            categories: [''],
-            actionButton: [''],
-            info: [''],
-            genre: ['']
-        }
-    ],
+    mediaList: [{
+        id: '',
+        idMedia: [''],
+        mediaType: [''],
+        title: [''],
+        artist: [''],
+        tag: [''],
+        visorImage: [''],
+        sliderImage: [''],
+        icon: [''],
+        categories: [''],
+        actionButton: [''],
+        info: [''],
+        genre: ['']
+    }],
+    visorList: [{
+        id: '',
+        idMedia: [''],
+        mediaType: [''],
+        title: [''],
+        artist: [''],
+        tag: [''],
+        visorImage: [''],
+        sliderImage: [''],
+        icon: [''],
+        categories: [''],
+        actionButton: [''],
+        info: [''],
+        genre: ['']
+    }],
     nextVisor: false,
     infoDetailViewer: [{
         linkimg: "",
