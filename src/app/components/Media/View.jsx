@@ -13,8 +13,8 @@ import likeIcon from '../../../assets/images/like-icon.png';
 import OptionCanvas,  { $d } from '../../../functions';
 import { EditBtn } from '../Utils/EditBtn';
 import PlayerDrive from './PlayerDrive';
-import { getIdYT, getInfo, resetUrlPlayer, addToPlaylist } from '../../../middlewares/redux/actions';
-import { getOption, createPlaylist, getAllPlaylist, addLike, getAllLikes, getYtSubs } from '../../../middlewares/redux/actions';
+import { getIdYT, getInfo, resetUrlPlayer } from '../../../middlewares/redux/actions';
+import { getOption, addLike, getAllLikes, getYtSubs } from '../../../middlewares/redux/actions';
 
 
 const View = () => {
@@ -66,7 +66,6 @@ const View = () => {
 
     useEffect(()=>{
         dispatch(getInfo(id))
-        dispatch(getAllPlaylist(user?.userId))
         dispatch(getAllLikes(user?.userId))
     },[dispatch, id, user?.userId])
 
@@ -79,22 +78,12 @@ const View = () => {
     colorLike(color)
     const {
         linkimg,
-        // idLinkSPOTY,
-        // idLinkDRIVE,
-        // urlLinkWEB,
-        // urlLinkDOWNLOAD,
-        // categories,
         info,
         connectionId,
         title,
-        // genre,
         artist,
         idLinkYT,
-        // mediaType
         } = infoDetailViewer?.at(0)
-    // useEffect(()=>{
-    //     setType(typeMediaList[dispatch(getMediaType(typeMedia)).payload])
-    // },[dispatch, typeMediaList, typeMedia])
 
     return (
         <div className="browserBody">
@@ -134,7 +123,6 @@ const View = () => {
                             } */}
                         {(currentUser || user)? <button className='buttonAddToFavorites' onClick={() => {
                             dispatch(addLike(user?.userId, id))
-                            dispatch(getAllLikes(user?.userId))
                         }}>
                             <img 
                                 className={s.favIcon}
@@ -148,7 +136,6 @@ const View = () => {
                         {(currentUser || user)? <button 
                         className='buttonAddToPlaylist' 
                         onClick={()=>{
-                            dispatch(getAllPlaylist(user.userId))
                             $d('.ulButtonAddItem').style.transitionDuration='.3s'
                             $d('.ulButtonAddItem').style.display='block'
                             $d('.ulButtonAddItem').style.opacity='1'
@@ -171,14 +158,13 @@ const View = () => {
                                     <div className='divButtonAddItem'>
                                         {
                                             myPlaylists?.map(e=>{
-                                                const listId = e.id
                                                 return (
                                                     <>
                                                         <li>
                                                             <button 
                                                                 className='buttonAddItem' 
                                                                 value='id de este item' 
-                                                                onClick={()=>dispatch(addToPlaylist(listId, connectionId))} >
+                                                            >
                                                                     Añadir a {e.title}
                                                             </button>
                                                         </li>
@@ -186,10 +172,6 @@ const View = () => {
                                                 )
                                             })
                                         }
-                                        {/* <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista1</button></li>
-                                        <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista2</button></li>
-                                        <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista3</button></li>
-                                        <li><button className='buttonAddItem' onClick={()=>addToPlaylist()} >añadir a lista4</button></li> */}
                                     </div>
                                     <li>
                                         <button 
@@ -219,8 +201,6 @@ const View = () => {
                                     style={{cursor: 'pointer'}}
                                     onClick={(e)=>{
                                         e.preventDefault()
-                                        dispatch(createPlaylist(playlistName, user.userId))
-                                        dispatch(getAllPlaylist(user.userId))
                                         showToast('success', `Playlist "${playlistName}" creada!`)
                                         setPlaylistName('')
                                         $d('.divCanvasAddListForm').style.display='none'
