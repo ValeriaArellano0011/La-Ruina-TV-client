@@ -52,7 +52,7 @@ function Router() {
             <Route exact path='/colaborar'>
               <Colaborar />
             </Route>
-            <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
+            <Route path={'/view/v=:id'}>
               <View />
             </Route>
             <Route exact path='/media/create'>

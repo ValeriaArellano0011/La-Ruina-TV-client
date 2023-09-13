@@ -13,83 +13,53 @@ import likeIcon from '../../../assets/images/like-icon.png';
 import OptionCanvas,  { $d } from '../../../functions';
 import { EditBtn } from '../Utils/EditBtn';
 import PlayerDrive from './PlayerDrive';
-import { getIdYT, getInfo } from '../../../middlewares/redux/actions';
-import { getOption, addLike, getAllLikes, getYtSubs } from '../../../middlewares/redux/actions';
-
+import { getIdYT } from '../../../middlewares/redux/actions';
+import { getOption, addLike, getYtSubs } from '../../../middlewares/redux/actions';
+import { getMediaById } from '../../../middlewares/redux/actions/media';
+import { RenderDriveImage } from '../../../functions/RenderDriveImage';
 
 const View = () => {
+    const params = useParams();
+    const { id } = params;
+    const dispatch = useDispatch();
+    const YTSub = useSelector(state=>state.YTSub);
     const favs = useSelector(state=>state.allUserLikes);
-    const YTSub = useSelector(state=>state.YTSub)
-    const [list, setList] = useState([]);
-    let toastProperties = null;
-    const showToast = (type, description) => {
-      switch(type) {
-        case 'success':
-          toastProperties = {
-            id: list.length+1,
-            title: 'Success',
-            description: description,
-            backgroundColor: '#5cb85c'
-          }
-          break;
-        case 'danger':
-          toastProperties = {
-            id: list.length+1,
-            title: 'Error',
-            description: description,
-            backgroundColor: '#d9534f'
-          }
-          break;
-        default:
-          toastProperties = [];
-      }
-      setList([...list, toastProperties]);
-    };
+    const idYT = useSelector(state=>state.ytPlayerState);
+    const currentUser = useSelector(state=>state.currentUser);
+    const infoDetailViewer = useSelector(state=>state.infoDetailViewer);
+    const [color, setColor] = useState(1);
 
-    const dispatch = useDispatch()
-    const[playlistName, setPlaylistName] = useState('')
-    const { id } = useParams()
-    const auth = localStorage.getItem('auth');
-    const user = auth ? JSON.parse(auth) : null;
-    const infoDetailViewer = useSelector(state=>state.infoDetailViewer)
-    const myPlaylists = useSelector(state=>state.myPlaylists)
-    const currentUser = useSelector(state=>state.currentUser)
-    const idYT = useSelector(state=>state.ytPlayerState)
-    const [color, setColor] = useState(1)
+    useEffect(()=>{
+        dispatch(getMediaById(id))
+    },[dispatch, id]);
 
     function onClickValue(e){
         return (
             dispatch(getOption(e.target.id)),
-            OptionCanvas(e.target.id),
-            dispatch(getAllLikes(user?.userId))
+            OptionCanvas(e.target.id)
         )}
-
-    useEffect(()=>{
-        dispatch(getInfo(id))
-        dispatch(getAllLikes(user?.userId))
-    },[dispatch, id, user?.userId])
 
     useEffect(() => {
         (favs?.filter(fav => fav.id === id).length > 0) ? setColor(0) : setColor(1)
-    },[favs, id])
+    },[favs, id]);
     function colorLike(color){
-        if(favs?.length>1 && (user || currentUser)) return $d('#favViewIcon').style.filter = `grayscale(${color})`       
+        if(favs?.length>1 && currentUser) return $d('#favViewIcon').style.filter = `grayscale(${color})`       
     }
     colorLike(color)
     const {
-        linkimg,
+        imageSlider,
         info,
         connectionId,
         title,
         artist,
         idLinkYT,
-        } = infoDetailViewer?.at(0)
+        } = infoDetailViewer
 
     return (
         <div className="browserBody">
             <div className='visor'>
                 <div className='visorBGCanvas'>
-                    <img className='visorBG' src={linkimg} alt='' />
+                    <img className='visorBG' src={RenderDriveImage(imageSlider)} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
                 <div className='visorPostInfo'>
@@ -109,7 +79,7 @@ const View = () => {
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
-                        {user?.role.userMode === 'free' ? <YtPlayer idYT={idYT} /> : <PlayerDrive idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}              
+                        {currentUser.role === 'free' ? <YtPlayer idYT={idYT} /> : <PlayerDrive idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}              
 
                             {/* {
                                 Object.entries(type).map((el)=>{
@@ -121,8 +91,8 @@ const View = () => {
                                     }))
                                 })
                             } */}
-                        {(currentUser || user)? <button className='buttonAddToFavorites' onClick={() => {
-                            dispatch(addLike(user?.userId, id))
+                        {currentUser? <button className='buttonAddToFavorites' onClick={() => {
+                            dispatch(addLike(currentUser?.id, id))
                         }}>
                             <img 
                                 className={s.favIcon}
@@ -133,56 +103,15 @@ const View = () => {
                             />
                             </button> : null}
                         <><ul>
-                        {(currentUser || user)? <button 
+                        {currentUser? <button 
                         className='buttonAddToPlaylist' 
                         onClick={()=>{
                             $d('.ulButtonAddItem').style.transitionDuration='.3s'
                             $d('.ulButtonAddItem').style.display='block'
                             $d('.ulButtonAddItem').style.opacity='1'
-                            if(myPlaylists?.length===0) return $d('.ulButtonAddItem').style.bottom='40px'
-                            if(myPlaylists?.length===1) return $d('.ulButtonAddItem').style.bottom='80px'
-                            if(myPlaylists?.length===2) return $d('.ulButtonAddItem').style.bottom='120px'
-                            if(myPlaylists?.length>2) return (
-                                $d('.ulButtonAddItem').style.bottom='160px',
-                                $d('.ulButtonAddItem').style.overflowY='scroll'
-                                )
                             }}
                         >+</button> : null}
-                        {(currentUser || user)?
-                                <ul
-                                className={'ulButtonAddItem'}
-                                onMouseLeave={()=>{return(
-                                    $d('.ulButtonAddItem').style.opacity='0',
-                                    $d('.ulButtonAddItem').style.display='none'
-                                )}}>
-                                    <div className='divButtonAddItem'>
-                                        {
-                                            myPlaylists?.map(e=>{
-                                                return (
-                                                    <>
-                                                        <li>
-                                                            <button 
-                                                                className='buttonAddItem' 
-                                                                value='id de este item' 
-                                                            >
-                                                                    Añadir a {e.title}
-                                                            </button>
-                                                        </li>
-                                                    </>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                    <li>
-                                        <button 
-                                            onClick={()=>{return(
-                                            $d('.divCanvasAddListForm').style.display='block'
-                                            )}}
-                                            className='buttonCreateNewPlaylist'>Crear una nueva lista
-                                        </button>
-                                    </li>
-                                </ul>
-                                : null}
+
                             </ul></>
                         </ul>
                         <div className={'divCanvasAddListForm'}>
@@ -192,7 +121,6 @@ const View = () => {
                                 <input 
                                     type="text" 
                                     name='listName'
-                                    onChange={(e)=> setPlaylistName(e.target.value)}
                                     placeholder='Ingresa un nombre' /> <br/><br/>
                                 <input 
                                     className='button1'
@@ -201,8 +129,6 @@ const View = () => {
                                     style={{cursor: 'pointer'}}
                                     onClick={(e)=>{
                                         e.preventDefault()
-                                        showToast('success', `Playlist "${playlistName}" creada!`)
-                                        setPlaylistName('')
                                         $d('.divCanvasAddListForm').style.display='none'
                                     }}
                                     /><br/><br/>
@@ -210,7 +136,6 @@ const View = () => {
                                     type="submit" 
                                     onClick={(e)=>{
                                         e.preventDefault()
-                                        setPlaylistName('')
                                         $d('.divCanvasAddListForm').style.display='none'
                                     }}
                                     className='button2'
@@ -219,13 +144,13 @@ const View = () => {
                             
                             </form>
                         </div>
-                        { (currentUser || user)?
-                        (          
+                        { currentUser?
+                        (
                         <button 
                             className='buttonVer'
                             onClick={()=>{
-                                if(user?.role.userMode==='free') return (
-                                    dispatch(getYtSubs(user?.email)),
+                                if(currentUser?.role==='free') return (
+                                    dispatch(getYtSubs(currentUser?.email)),
                                     dispatch(getIdYT(idLinkYT)),
                                     (YTSub? $d('#canvasYtSubBtn').style.display='none' : $d('#canvasYtSubBtn').style.display='flex'),
                                     $d('.playerCont').style.opacity='1',
@@ -233,7 +158,7 @@ const View = () => {
                                     $d('.playerLi').style.scale='1',
                                     $d('.playUl').style.scale='1'
                                 )
-                                if(user?.role.userMode==='admin' || user?.role.userMode==='subscriber' ) return (
+                                if(currentUser?.role==='admin' || currentUser?.role==='subscriber' ) return (
                                     $d('.playerCont1').style.opacity='1',
                                     $d('.playerLi1').style.scale='1',
                                     $d('.playerUl1').style.scale='1'
@@ -259,12 +184,13 @@ const View = () => {
                                 $d('#slideCanvasCont').style.overflowY="hidden"
                               )
                             }}>
-                            <img className='visorButtonPlay' src={userIcon} alt='visorbtn' />Ingresar
+                            <img className='visorButtonPlay' src={userIcon} alt='visorbtn'/>
+                            Ingresar
                         </button>)
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
                         {
-                            user?.role.userMode==='admin'? <EditBtn connectionId={connectionId} /> : null
+                            currentUser?.role==='admin'? <EditBtn connectionId={connectionId} /> : null
                         }
                     </div>
                 </div>
@@ -274,4 +200,4 @@ const View = () => {
     )
 }
 
-export default View
+export default View;

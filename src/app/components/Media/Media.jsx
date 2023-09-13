@@ -8,12 +8,11 @@ import deleteIcon from '../../../assets/images/delete-icon.png';
 import { useDispatch, useSelector } from "react-redux";
 import { $d } from "../../../functions";
 import { deleteMedia, updateMedia } from '../../../middlewares/redux/actions/admin';
+import { RenderDriveImage } from '../../../functions/RenderDriveImage';
 
-const Media = ({ cardList, style, keyID }) => {
+const Media = ({ mediaList, style, keyID }) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const auth = localStorage.getItem('auth');
-  const user = auth ? JSON.parse(auth) : null;
   const currentUser = useSelector(state=>state.currentUser)
   const favs = useSelector(state => state.allUserLikes)
 
@@ -24,25 +23,25 @@ const Media = ({ cardList, style, keyID }) => {
         id={`${keyID}ListaItems`}
       >
         {
-          cardList ? cardList.map((e, i) => {
+          mediaList ? mediaList.map((e, i) => {
             return (
               <li value={e.id} key={i} >
                 <div className={style.sliderItem}>
                   <Link
-                    to={`/view/v=${e.idLinkYT}=_type_=${e.mediaType}=_id_=${e.id}`}
+                    to={`/view/v=${e.id}`}
                     className='link' >
                     <button
                       className={style.media}
                       style={{
-                        backgroundImage: e.linkimg
-                          ? `url(${e.linkimg})`
+                        backgroundImage: e.imageSlider
+                          ? `url(${RenderDriveImage(e.imageSlider)})`
                           : "error",
                       }}
                       id={e.id}
                       urlid={e.urlID}
                       titulo={e.title}
                       artista={e.artist}
-                      img={e.linkimg}
+                      img={RenderDriveImage(e.imageSlider)}
                       onClick={() => {
                         $d(`.link`).style.transitionDelay = '1s'
                         return window.scrollTo(0, 0);
@@ -52,9 +51,7 @@ const Media = ({ cardList, style, keyID }) => {
 
                     </button>
                   </Link>
-                  {
-                  user?
-                  (user?.role.userMode === 'admin' ? (
+                  { currentUser?.role === 'admin' ? (
                     <ul className={s.adminRequest}>
                       <li className={s.adminBtn}>
                         <img src={editIcon}
@@ -68,7 +65,7 @@ const Media = ({ cardList, style, keyID }) => {
                       </li>
                     </ul>
                   )
-                    : null):null
+                    : null
                   }
                     <div className={style.mydiv}>
                       <div className={style.ulTitlesItems}>
@@ -79,7 +76,7 @@ const Media = ({ cardList, style, keyID }) => {
                             alt="play" />
                           <p style={{color: 'black'}}>{e.title}</p>
                         </div>
-                        {(user || currentUser) && favs?.filter(fav => fav.id === e.id).length > 0 ?
+                        {currentUser && favs?.filter(fav => fav.id === e.id).length > 0 ?
                         <Fav urlID={e.id} color={'red'} style={{marginTop: '-10px'}}/>:null}
                       </div>
                     </div>

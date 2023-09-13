@@ -176,27 +176,11 @@ export default function rootReducer(state = initialState, action) {
             };
 
         case GET_MEDIA:
-            var hash = {};
-            var hash2 = {};
-            var hash3 = {};
             return {
                 ...state,
-                mediaList: [...state.mediaList, ...action.payload?.slider].filter(e => e.id !== '').filter(function (current) {
-                    var exists = !hash[current.id];
-                    hash[current.id] = true;
-                    return exists;
-                }),
-                visorList: [...state.visorList, ...action.payload?.visor].filter(e => e.id !== '').filter(function (current) {
-                    var exists = !hash2[current.id];
-                    hash2[current.id] = true;
-                    return exists;
-                }),
-
-                searchedMedia: [...state.mediaList, ...action.payload?.slider].filter(e => e.id !== '').filter(function (current) {
-                    var exists = !hash3[current.id];
-                    hash3[current.id] = true;
-                    return exists;
-                })
+                mediaList: action.payload,
+                visorList: action.payload,
+                searchedMedia: action.payload
             };
         case GET_INFO:
             return {

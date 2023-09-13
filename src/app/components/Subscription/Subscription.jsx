@@ -22,14 +22,13 @@ export const Subscription = () => {
   useEffect(() => {
     axios.post(`${URL_API}/mercadopago/getplan`, {userId})
     .then(res => {
-      console.log(res.data)
       if(res.data === 'Plan Subscriptor'){
         setDisabled(true);        
       }else{
         setDisabled(false)
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => console.error(err))
   }, [userId])
 
   return (

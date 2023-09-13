@@ -16,10 +16,9 @@ const PlanMP = () => {
             if(preapproval_id){
             await axios.post(`${URL_API}/mercadopago/plan`, {userId, preapproval_id})
             .then(res=> {
-                console.log(res)
                 history.push('/browser')
           })
-          .catch(err => console.log(err))
+          .catch(err => console.error(err))
         }
     }
     fetchData();

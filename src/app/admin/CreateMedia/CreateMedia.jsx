@@ -19,7 +19,6 @@ const CreateMedia = () => {
       e.target.name !== "artist" &&
       e.target.name !== "categories"
     ) {
-      console.log("la imagen", e.target.files[0]);
       setData({
         ...data,
         [e.target.name]: e.target.files[0],
@@ -39,8 +38,8 @@ const CreateMedia = () => {
     category: [],
     genre: [],
     categories: [],
+    mediaType: "",
     idLinkYT: "",
-    mediaType: [],
     idLinkSPOTY: "",
     urlLinkWEB: "",
     urlLinkDOWNLOAD: "",
@@ -217,7 +216,7 @@ const CreateMedia = () => {
       genre: [],
       categories: [],
       idLinkYT: "",
-      mediaType: [],
+      mediaType: "",
       idLinkSPOTY: "",
       idLinkDRIVE: "",
       urlLinkWEB: "",
@@ -324,13 +323,13 @@ const CreateMedia = () => {
                   {/*----------------------*/}
                   {/*----------------------*/}
                   {/*----------------------*/}
-                <button className={s.btnContinuar} onClick={()=>{return (
+                <button className={s.btnContinuar} type='button' onClick={()=>{return (
                   $d('#cont1').style.transform='translateY(-100vh)',
                   $d('#cont2').style.transform='translateY(-100vh)'
                   )}}>Continuar</button>
                 </div>
               <div className={s.cont2} id='cont2'>
-              <button className={s.btnVolver} onClick={()=>{return (
+              <button type='button' className={s.btnVolver} onClick={()=>{return (
                   $d('#cont1').style.transform='translateY(0)',
                   $d('#cont2').style.transform='translateY(0)'
                   )}}>Volver al paso anterior</button>

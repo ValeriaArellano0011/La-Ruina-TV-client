@@ -11,7 +11,7 @@ export const handleCheckout = async () => {
       window.location.href = data.data
     })
   } catch (error) {
-      console.log(error);
+      console.error(error);
       alert("Hubo un error, intenta de nuevo más tarde.");
   }
 }
@@ -23,7 +23,7 @@ export const handleCheckout2 = async () => {
         window.location.href = data.data
       )
   } catch (error) {
-      console.log(error);
+      console.error(error);
       alert("Hubo un error, intenta de nuevo más tarde.");
   }
   }

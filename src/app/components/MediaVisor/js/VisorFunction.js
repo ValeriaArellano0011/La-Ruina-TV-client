@@ -29,27 +29,28 @@ export const VisorFunction = () =>{
     const [visorArtist, setVisorArtista] = useState()
     const [visorTypeMedia, setVisorTypeMedia] = useState()
     const [visorIdYT, setVisorIdYT] = useState()
-    const {idMedia, id, idLinkYT, linkimg, artist, title, mediaType, tag, icon, actionButton, info} = nextVisor? nextVisor.at(0) : nextVisor
+    const {idMedia, id, idLinkYT, imageVisor, artist, title, mediaType, tag, icon, actionButton, info} = visorList?.at(0)
+    
     useEffect(() => {
-        let inf = 99999+cont
-        const max = visorList? visorList.length : 0
-        let timeInterval = 20
-        let interval = null
-        dispatch(getNextVisor(cont%max))
-        interval = setInterval(()=>{    
+        let inf = 99999+cont;
+        const max = visorList?.length || 0;
+        let timeInterval = 20;
+        let interval = null;
+        dispatch(getNextVisor(cont%max));
+        interval = setInterval(()=>{
             dispatch(getResetVisor())
             setI(k=>k+1)
             setVisorID(id)
             setVisorTag(tag)
             setVisorInfo(info)
-            setVisorImage(linkimg)
             setVisorIcon(icon)
-            setVisorBtn1(actionButton)
-            setVisorUrlID(idMedia)
             setVisorTitulo(title)
+            setVisorIdYT(idLinkYT) 
+            setVisorUrlID(idMedia)
             setVisorArtista(artist)
+            setVisorImage(imageVisor)
+            setVisorBtn1(actionButton)
             setVisorTypeMedia(mediaType)
-            setVisorIdYT(idLinkYT)            
             $d('.visorPostInfo').style.animationName='infoScale'
             $d('.visorPostInfo').style.animationIterationCount=inf
             $d('.visorPostInfo').style.animationDuration=`${timeInterval}s`
@@ -58,9 +59,9 @@ export const VisorFunction = () =>{
             $d('.visorBG').style.animationIterationCount=inf
             $d('.visorBG').style.animationDuration=`${timeInterval}s`
             $d(`.visor`).style.transform='translateX(0)'
-        }, timeInterval*1000)
-        return () =>  (clearInterval(interval, timeInterval))
-    },[actionButton,visorIdYT, idMedia, id, linkimg, idLinkYT, visorImg, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
+        }, timeInterval*1000);
+        return () =>  (clearInterval(interval, timeInterval));
+    },[actionButton,visorIdYT, idMedia, id, imageVisor, idLinkYT, visorImg, artist, title, mediaType, tag, icon, info, cont, visorList, dispatch])
     return {
         visorList,
         nextVisor,

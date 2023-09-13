@@ -4,13 +4,13 @@ import styles from './Toast.module.css'
 const Toast = ({ toastlist, position, setList }) => {
 
   const deleteToast = useCallback(id => {
-    const toastListItem = toastlist.filter(e => e.id !== id);
+    const toastListItem = toastlist?.filter(e => e.id !== id);
     setList(toastListItem);
   }, [toastlist, setList]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if(toastlist.length) {
+      if(toastlist?.length) {
         deleteToast(toastlist[0].id);
       }
     }, 3000);

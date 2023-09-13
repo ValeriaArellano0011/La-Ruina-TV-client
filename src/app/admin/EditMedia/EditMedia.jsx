@@ -15,7 +15,6 @@ const EditMedia = () => {
   const { connectionId } = useParams()
 
   useEffect(() => {
-    console.log(objofarrs)
     if (objofarrs) {
       setData({
         title: objofarrs[0]?.appProperties?.title || "",
@@ -43,14 +42,12 @@ const EditMedia = () => {
   const handleInputChange = (e) => {
     switch (e.target.name) {
       case "imageSlider":
-        console.log("image slider selected: ", e.target.files[0]);
         setData({
           ...data,
           [e.target.name]: e.target.files[0],
         });
         break;
       case "imageVisor":
-        console.log("image visor selected: ", e.target.files[0]);
         setData({
           ...data,
           [e.target.name]: e.target.files[0],

@@ -19,7 +19,7 @@ const Browser = () => {
   const history = useHistory();
   const userToken = localStorage.getItem('userToken');
   const currentUser = useSelector((state) => state.currentUser);
-  const cardList = useSelector((state) => state.mediaList);
+  const mediaList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);
 
   useEffect(()=>{
@@ -34,8 +34,7 @@ const Browser = () => {
     dispatch(getMedia());
     dispatch(resetMedia());
     dispatch(resetIdYT());
-/*     dispatch(getAllLikes(user?.userId));
- */    BodyCss();
+    BodyCss();
   }, [dispatch]);
 
   return (
@@ -46,10 +45,10 @@ const Browser = () => {
         <InfoCanvas/>
 
       {/* --------------------SLIDERS-------------------- */}
-      {cardList && cardList.length>1 && (
+      {mediaList && mediaList.length && (
         <Slider
           title={"Contenido"}
-          cardList={cardList}
+          mediaList={mediaList}
           style={s}
           id={`s${-1}`}
           key={`s${-1}`}
@@ -58,11 +57,11 @@ const Browser = () => {
 
       {
         categoryList.map((category, index) => {
-            const filteredList = cardList?.filter(card => card.categories.includes(category));
-            return filteredList?.length ? (
+            const filteredList = mediaList?.filter(card => card.categories?.includes(category));
+            return filteredList?.length? (
                 <Slider
                   title={category}
-                  cardList={filteredList}
+                  mediaList={filteredList}
                   style={s}
                   id={`s${index}`}
                   key={category}
@@ -73,7 +72,7 @@ const Browser = () => {
 
       {/* ---------------------FOOTER--------------------- */}
 
-      {cardList?.length > 1 && <Footer/>}
+      {mediaList?.length > 1 && <Footer/>}
     </div>
   );
 };

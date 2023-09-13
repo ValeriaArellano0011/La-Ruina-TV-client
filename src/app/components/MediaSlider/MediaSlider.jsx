@@ -3,10 +3,10 @@ import SliderBtns from "../Utils/SliderBtns"
 import { $d } from "../../../functions"
 
 const Slider = (props) => {
-    const sliderTitle = (props.title)
-    const cardList = (props.cardList)
-    const s = (props.style)
-    const id = (props.id)
+    const sliderTitle = (props.title);
+    const mediaList = (props.mediaList);
+    const s = (props.style);
+    const id = (props.id);
 
     return(
         <div className={s.sliderCont}>
@@ -15,7 +15,7 @@ const Slider = (props) => {
                 className={s.slidercategories}
                 onMouseEnter={()=>
                     {
-                        if(cardList?.length <= 1){
+                        if(mediaList?.length <= 1){
                             return(
                                 $d(`#${id}PostBtn`).style.display="none",
                                 $d(`#${id}PostBtn`).style.transitionDuration='1s'
@@ -45,10 +45,10 @@ const Slider = (props) => {
                     <SliderBtns
                         name = {sliderTitle}
                         keyID = {id}
-                        categories = {cardList}
+                        categories = {mediaList}
                         style = {s} />
                     <Media
-                        cardList = {cardList}
+                        mediaList = {mediaList}
                         keyID = {id}
                         key = {`${sliderTitle}Sldr`}
                         style = {s} />

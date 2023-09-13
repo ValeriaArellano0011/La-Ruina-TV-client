@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import playIconb from '../../../assets/images/ruinatv-icon-play-b.png'
+import playIconb from '../../../assets/images/ruinatv-icon-play-b.png';
 import { useDispatch } from 'react-redux';
 import { $d } from '../../../functions';
 import { getMedia } from '../../../middlewares/redux/actions/media';
 
 const SliderBtns = (props) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const k = -210;
+    const [i, setPosi] = useState(k);
+    const [n, setPosn] = useState(-k);
+    const key = (props.keyID);
+    const s = (props.style);
 
-    const k = -210
-    const [i, setPosi] = useState(k)
-    const [n, setPosn] = useState(-k)
-
-    const key = (props.keyID)
-    const s = (props.style)
     return (
         <>
             <button 
@@ -61,7 +60,7 @@ const SliderBtns = (props) => {
             >
             <img className={s.sliderBtnPrevImg} alt='prevBtn' src={playIconb} />
             </button>
-            {!props.categories.length>1? null : 
+            {!props.categories?.length>1? null : 
             <button 
             className={`${s.sliderPostBtn}`}
             id={`${key}PostBtn`}
@@ -69,7 +68,7 @@ const SliderBtns = (props) => {
                 dispatch(getMedia())
                 setPosi(i+k)
                 setPosn(n+k)
-                if (i<0 && i>(props.categories.length-1)*k){
+                if (i<0 && i>(props.categories?.length-1)*k){
                 return (
                     $d(`#${key}ListaItems`).style.transform=`translate(${i}px)`,
                     $d(`#${key}ListaItems`).style.transitionDuration='1s',
@@ -78,7 +77,7 @@ const SliderBtns = (props) => {
                     
                 )}
                     
-                if (i===(props.categories.length-1)*k){
+                if (i===(props.categories?.length-1)*k){
                 return (
                     $d(`#${key}PostBtn`).style.display="none",
                     $d(`#${key}ListaItems`).style.transform=`translate(${i}px)`,
@@ -89,13 +88,13 @@ const SliderBtns = (props) => {
                     )}
                 }
             } onMouseEnter={()=>{
-                if(props.categories.length <= 1){
+                if(props.categories?.length <= 1){
                     return(
                         $d(`#${key}PostBtn`).style.display="none",
                         $d(`#${key}PostBtn`).style.transitionDuration='1s'
                     )
                 }
-                if(props.categories.length > 1){
+                if(props.categories?.length > 1){
                     return(
                         $d(`#${key}PostBtn`).style.display="block",
                         $d(`#${key}PostBtn`).style.transitionDuration='1s',

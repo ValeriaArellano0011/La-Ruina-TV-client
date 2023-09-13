@@ -1,0 +1,1 @@
+export function RenderDriveImage(id) { return `https://drive.google.com/uc?export=view&id=${id}`};
