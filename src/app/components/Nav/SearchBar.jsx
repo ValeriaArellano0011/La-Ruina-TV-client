@@ -1,7 +1,7 @@
 import s from './SearchBar.module.css';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import searchIcon from '../../../assets/images/search-icon.png';
-import { getMusicName, resetOption } from "../../../middlewares/redux/actions";
+import { resetOption } from "../../../middlewares/redux/actions";
 import { searchBarFunction } from './js/SearchBar';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -14,18 +14,13 @@ export default function SearchBar(){
 
     function handleInputChange(e){
         e.preventDefault();
-        setName(e.target.value)
+        setName(e.target.value);
     }
-
-    useEffect(() => {
-      dispatch(getMusicName(name))
-    },[dispatch, name])
 
     function handleSubmit(e){
         e.preventDefault();
         if (name.length>0){
         return (
-          dispatch(getMusicName(name)),
           dispatch(resetOption()),
           $d(`.bodyApp`).style.transform='translateX(0)',
           $d(`.navCont`).style.transitionDuration='.2s',

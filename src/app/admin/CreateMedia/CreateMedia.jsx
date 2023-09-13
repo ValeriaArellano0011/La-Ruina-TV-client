@@ -4,12 +4,12 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { postMedia } from "../../../middlewares/redux/actions/index";
 import { Card } from "@mui/material";
 import { Title } from "react-admin";
 import defaultPreview from '../../../assets/images/ruina-records-logo.png';
 import defaultImage from '../../../assets/images/defaultImage.jpg';
 import { $d } from "../../../functions";
+import { createMedia } from '../../../middlewares/redux/actions/admin';
 
 const CreateMedia = () => {
   const dispatch = useDispatch();
@@ -226,7 +226,7 @@ const CreateMedia = () => {
     formData.append("urlLinkWEB", data.urlLinkWEB);
     formData.append("urlLinkDOWNLOAD", data.urlLinkDOWNLOAD);
 
-    dispatch(postMedia(formData));
+    dispatch(createMedia(formData));
     setData({
       title: "",
       artist: "",

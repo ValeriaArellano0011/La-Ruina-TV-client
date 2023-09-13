@@ -6,14 +6,13 @@ import {
     RESET_VISOR,
     OPTION,
     RESET_OPTION,
-    POST_PRODUCT,
     GET_IDYT,
     __GOD_MODE__,
     RESET_IDYT,
-    GET_EDIT_MEDIA,
     GET_ALL_LIKES,
     GET_YT_SUBSCRIBERS,
-    CURRENT_USER
+    CURRENT_USER,
+    UPDATE_MEDIA
 } from "../../misc";
 
 import iconYT from '../../../assets/images/yt-icon.png'
@@ -132,7 +131,7 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
             };
 
-        case GET_EDIT_MEDIA:
+        case UPDATE_MEDIA:
             return {
                 ...state,
                 mediaWithConnectionId: action.payload.files
@@ -159,11 +158,6 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 option: ''
             };
-        case POST_PRODUCT:
-            return {
-                ...state
-            };/*  */
-
         /*----------------Media----------------*/
         case GET_ALL_LIKES:
             return {

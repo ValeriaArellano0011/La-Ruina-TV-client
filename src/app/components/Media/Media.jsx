@@ -6,8 +6,8 @@ import editIcon from '../../../assets/images/edit-icon.png';
 import playIconn from "../../../assets/images/ruinatv-icon-play-n.png";
 import deleteIcon from '../../../assets/images/delete-icon.png';
 import { useDispatch, useSelector } from "react-redux";
-import { getDeleteMedia, getEditMedia } from "../../../middlewares/redux/actions";
 import { $d } from "../../../functions";
+import { deleteMedia, updateMedia } from '../../../middlewares/redux/actions/admin';
 
 const Media = ({ cardList, style, keyID }) => {
   const history = useHistory();
@@ -59,12 +59,12 @@ const Media = ({ cardList, style, keyID }) => {
                       <li className={s.adminBtn}>
                         <img src={editIcon}
                           onClick={() => {
-                            dispatch(getEditMedia(e.connectionId))
+                            dispatch(updateMedia(e.connectionId))
                             history.push(`/media/edit/${e.connectionId}`)
                           }} className={s.editImg} alt='edit' width='15px' />
                       </li>
                       <li className={s.adminBtn}>
-                        <img src={deleteIcon} onClick={() => { dispatch(getDeleteMedia(e.id)) }} className={s.deleteImg} alt='delete' width='15px' />
+                        <img src={deleteIcon} onClick={() => {dispatch(deleteMedia(e.id))}} className={s.deleteImg} alt='delete' width='15px' />
                       </li>
                     </ul>
                   )

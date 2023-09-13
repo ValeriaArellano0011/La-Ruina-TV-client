@@ -5,12 +5,11 @@ import Nav from '../components/Nav/Nav';
 import View from '../components/Media/View';
 import Enter from '../components/Auth/Enter';
 import Verify from '../components/Auth/Verify';
-import PlanMP from '../components/MercadopagoPlan/PlanMP.jsx';
+import PlanMP from '../components/MercadopagoPlan/PlanMP';
 import Browser from '../pages/Browser/Browser';
 import EditMedia from '../admin/EditMedia/EditMedia';
 import AuthToken from '../components/Auth/AuthToken';
 import CreateMedia from '../admin/CreateMedia/CreateMedia';
-import CreateProduct from '../admin/CreateProduct/CreateProduct';
 
 import { Search } from '../components/Filter/Search';
 import { BackAmp } from '../components/Back&Amp/BackAmp';
@@ -53,17 +52,8 @@ function Router() {
             <Route exact path='/colaborar'>
               <Colaborar />
             </Route>
-            {/* <Route exact path='/tienda'>
-              <Tienda />
-            </Route>
-            <Route path={'/tienda/product/:id'}>
-              <Product />
-            </Route> */}
             <Route path={'/view/v=:urlid=_type_=:typeMedia=_id_=:id'}>
               <View />
-            </Route>
-            <Route exact path='/product/create'>
-              <CreateProduct />
             </Route>
             <Route exact path='/media/create'>
               <CreateMedia />

@@ -7,18 +7,12 @@ import { Card } from "@mui/material";
 import { Title } from "react-admin";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editMedia, getEditMedia } from "../../../middlewares/redux/actions/index";
+import { updateMedia } from "../../../middlewares/redux/actions/admin";
 
 const EditMedia = () => {
   const dispatch = useDispatch();
   const objofarrs = useSelector(state => state.mediaWithConnectionId)
   const { connectionId } = useParams()
-
-  useEffect(() => {
-    if (connectionId) {
-      dispatch(getEditMedia(connectionId))
-    }
-  }, [connectionId, dispatch])
 
   useEffect(() => {
     console.log(objofarrs)
@@ -250,7 +244,7 @@ const EditMedia = () => {
     formData.append("idAudioFile", data.idAudioFile);
     formData.append("idVideoFile", data.idVideoFile);
 
-    dispatch(editMedia(formData));
+    dispatch(updateMedia(formData));
 
     setData({
       title: "",

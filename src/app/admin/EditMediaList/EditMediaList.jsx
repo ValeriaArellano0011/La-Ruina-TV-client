@@ -6,10 +6,9 @@ import {
     resetIdYT,
     resetMedia,
     resetOption,
-    getEditMedia,
-    getDeleteMedia
   } from "../../../middlewares/redux/actions";
 import { getMedia } from '../../../middlewares/redux/actions/media';
+import { deleteMedia } from '../../../middlewares/redux/actions/admin';
 
 export const EditMediaList = () => {
     const history = useHistory()
@@ -36,11 +35,10 @@ export const EditMediaList = () => {
                                     <li key={index}>
                                         <ul className={s.ulList2}><li>{index}</li> - <li>{e.title}</li> - <li>{e.id}</li> - 
                                         <li><button className={s.btnEdit} onClick={() => {
-                                            dispatch(getEditMedia(e.connectionId))
                                             history.push(`/media/edit/${e.connectionId}`)
                                         }}>  </button></li> - 
                                         <li><button className={s.btnDelete} onClick={() => {
-                                            dispatch(getDeleteMedia(e.connectionId))
+                                            dispatch(deleteMedia(e.connectionId))
                                         }}>  </button></li></ul>
                                     </li>
                                 )

@@ -12,18 +12,8 @@ import {
     OPTION,
     RESET_OPTION,
     SIGNUP,
-    GET_PRODUCTS,
-    GET_PRODUCT_DETAILS,
-    POST_PRODUCT,
-    POST_MEDIA,
-    RESET_PRODUCT_DETAILS,
     GET_IDYT,
     RESET_IDYT,
-    GET_MUSIC_NAME,
-    URL_PLAYER,
-    RESET_URL_PLAYER,
-    GET_EDIT_MEDIA,
-    EDIT_MEDIA,
     GET_ALL_LIKES,
     GET_USERS,
     GET_EDIT_USERS,
@@ -94,72 +84,6 @@ export const getDeleteUsers = (id) => {
         })
     }
 }
-
-//------------------------MEDIA-------------------------------
-
-export const getEditMedia = (id) => {
-    return async function (dispatch) {
-        let res = await axios.get(`${URL_API}/media/edit/${id}`);
-        return dispatch({
-            type: GET_EDIT_MEDIA,
-            payload: res.data
-        })
-    }
-}
-
-export const editMedia = (formdata) => {
-    return async function (dispatch) {
-        await axios.post(
-            `${URL_API}/media/edit`,
-            formdata,
-            { headers: { 'Content-Type': 'multipart/form-data' } }
-        );
-        getMedia()
-    }
-}
-
-export const getDeleteMedia = (id) => {
-    return async function (dispatch) {
-        let res = await axios.get(`${URL_API}/media/delete/${id}`);
-        return dispatch({
-            type: EDIT_MEDIA,
-            payload: res.data
-        })
-    }
-}
-
-
-export const _GOD_MODE_ = (mode) => {
-    return async function (dispatch) {
-        return dispatch({
-            type: '__GOD_MODE__',
-            payload: mode
-        })
-    }
-};
-export const postProduct = (post) => {
-    return async function (dispatch) {
-        let json = await axios.post(`${URL_API}/post/product`, post);
-        return dispatch({
-            type: POST_PRODUCT,
-            payload: json.data
-        })
-    }
-};
-export const postMedia = (formData) => {
-    return async function (dispatch) {
-        const response = await axios.post(
-            `${URL_API}/media/upload`,
-            formData,
-            { headers: { 'Content-Type': 'multipart/form-data' } }
-        );
-
-        return dispatch({
-            type: POST_MEDIA,
-            payload: response.data
-        })
-    }
-};
 
 /*-----------------Auth----------------*/
 export function getOption(e) {
@@ -262,55 +186,9 @@ export function getResetVisor() {
     }
 }
 
-/*---------------Tienda---------------*/
-export function getProducts() {
-    return async function (dispatch) {
-        await axios.get(`${URL_API}/product/all`)
-            .then(res => {
-                dispatch({
-                    type: GET_PRODUCTS,
-                    payload: res.data
-                })
-            })
-            .catch(e => console.error(e))
-    }
-}
-export function getProductDetails(id) {
-    return async function (dispatch) {
-        await axios.get(`${URL_API}/product/${id}`)
-            .then(res => {
-                dispatch({
-                    type: GET_PRODUCT_DETAILS,
-                    payload: res.data
-                })
-            })
-            .catch(e => console.error(e))
-    }
-}
-export function resetProductDetails() {
-    return {
-        type: RESET_PRODUCT_DETAILS
-    }
-}
-
 /*------------Filter&Search------------*/
 export function loadingSearchSet() {
 
-}
-
-export function getMusicName(name) {
-    return async function (dispatch) {
-        await axios.get(`${URL_API}/media/search/s?name=${name}`)
-            .then(res => {
-                dispatch({
-                    type: GET_MUSIC_NAME,
-                    payload: res.data,
-                });
-            })
-            .catch((e) => {
-                console.error(e)
-            });
-    }
 }
 
 export function searchStateChange() {
@@ -323,31 +201,6 @@ export function totalMedia() {
 
 /* -------------Pagination------------ */
 
-/* ---------------Player-------------- */
-export function getUrlPlayer(url) {
-    return {
-        type: URL_PLAYER,
-        payload: url
-    }
-}
-export function resetUrlPlayer() {
-    return {
-        type: RESET_URL_PLAYER
-    }
-}
-export function addLike(idUser, urlId) {
-    return async function (dispatch) {
-        await axios.post(`${URL_API}/likes/add`, { idUser, urlId })
-            .then(res => {
-                dispatch({
-                    type: 'LIKE',
-                    payload: res.data
-                })
-            })
-            .catch(e => console.error(e))
-    }
-}
-
 export function getAllLikes(userId) {
     return async function (dispatch) {
         await axios.post(`${URL_API}/likes/getAll`, { userId })
@@ -359,4 +212,9 @@ export function getAllLikes(userId) {
             })
             .catch(e => console.error(e))
     }
+}
+
+
+export function addLike() {
+    return;
 }

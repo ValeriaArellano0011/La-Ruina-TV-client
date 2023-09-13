@@ -13,7 +13,7 @@ import likeIcon from '../../../assets/images/like-icon.png';
 import OptionCanvas,  { $d } from '../../../functions';
 import { EditBtn } from '../Utils/EditBtn';
 import PlayerDrive from './PlayerDrive';
-import { getIdYT, getInfo, resetUrlPlayer } from '../../../middlewares/redux/actions';
+import { getIdYT, getInfo } from '../../../middlewares/redux/actions';
 import { getOption, addLike, getAllLikes, getYtSubs } from '../../../middlewares/redux/actions';
 
 
@@ -227,7 +227,6 @@ const View = () => {
                                 if(user?.role.userMode==='free') return (
                                     dispatch(getYtSubs(user?.email)),
                                     dispatch(getIdYT(idLinkYT)),
-                                    dispatch(resetUrlPlayer()),
                                     (YTSub? $d('#canvasYtSubBtn').style.display='none' : $d('#canvasYtSubBtn').style.display='flex'),
                                     $d('.playerCont').style.opacity='1',
                                     $d('#ytplayer').style.display='block',
