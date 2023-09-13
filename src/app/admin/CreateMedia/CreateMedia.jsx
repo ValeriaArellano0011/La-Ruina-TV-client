@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { Card } from "@mui/material";
 import { Title } from "react-admin";
 import defaultPreview from '../../../assets/images/ruina-records-logo.png';
-import defaultImage from '../../../assets/images/defaultImage.jpg';
 import { $d } from "../../../functions";
 import { createMedia } from '../../../middlewares/redux/actions/admin';
 
@@ -45,8 +44,6 @@ const CreateMedia = () => {
     idLinkSPOTY: "",
     urlLinkWEB: "",
     urlLinkDOWNLOAD: "",
-    audioFile: null,
-    videoFile: null
   });
 
   const optionsMediaType = [
@@ -187,8 +184,6 @@ const CreateMedia = () => {
 
   const [imgSlider, setImgSlider] = useState(null);
   const [imgVisor, setImgVisor] = useState(null);
-  const [audioFile, setAudioFile] = useState(null);
-  const [videoFile, setVideoFile] = useState(null);
 
   const [previewSlider, setPreviewSlider] = useState(null);
   const [previewVisor, setPreviewVisor] = useState(null);
@@ -196,37 +191,22 @@ const CreateMedia = () => {
   const submit = (e) => {
     e.preventDefault();
 
-    console.log(videoFile)
-
-    let formData = new FormData();
-    if(imgSlider === null && imgVisor === null){
-      formData.append('imageSlider', defaultImage)
-    }
-    if (imgSlider !== null) {
-      formData.append("imageSlider", imgSlider);
-    }
-    if (imgVisor !== null) {
-      formData.append("imageVisor", imgVisor);
-    }
-    if (audioFile !== null) {
-      formData.append("audioFile", audioFile);
-    }
-    if (videoFile !== null) {
-      formData.append("videoFile", videoFile);
-    }
-    formData.append("title", data.title);
-    formData.append("artist", data.artist);
-    formData.append("info", data.info);
-    formData.append("categories", data.categories);
-    formData.append("genre", data.genre);
-    formData.append("idLinkYT", data.idLinkYT);
-    formData.append("mediaType", data.mediaType);
-    formData.append("idLinkSPOTY", data.idLinkSPOTY);
-    formData.append("idLinkDRIVE", data.idLinkDRIVE);
-    formData.append("urlLinkWEB", data.urlLinkWEB);
-    formData.append("urlLinkDOWNLOAD", data.urlLinkDOWNLOAD);
-
+    const formData = {
+      artist: data.artist,
+      title: data.title,
+      info: data.info,
+      idLinkYT: data.idLinkYT,
+      idLinkSPOTY: data.idLinkSPOTY,
+      idLinkDRIVE: data.idLinkDRIVE,
+      urlLinkWEB: data.urlLinkWEB,
+      urlLinkDOWNLOAD: data.urlLinkDOWNLOAD,
+      mediaType: data.mediaType,
+      imageSlider: imgSlider,
+      imageVisor: imgVisor,
+    };
+    
     dispatch(createMedia(formData));
+    
     setData({
       title: "",
       artist: "",
@@ -305,10 +285,12 @@ const CreateMedia = () => {
                     name="imageSlider"
                     accept="image/jpeg"
                     onChange={(e) => {
-                      setImgSlider(e.target.files[0])
                       const file = e.target.files[0];
                       const reader = new FileReader();
-                      reader.onloadend = () => {
+                      reader.onloadend = (e) => {
+                        const pic = e.target.result;
+                        const imageSrc = pic;
+                        setImgSlider(imageSrc);
                         setPreviewSlider(reader.result);
                       }
                       reader.readAsDataURL(file);
@@ -326,10 +308,12 @@ const CreateMedia = () => {
                     name="imageVisor"
                     accept="image/jpeg"
                     onChange={(e) => {
-                      setImgVisor(e.target.files[0])
                       const file = e.target.files[0];
                       const reader = new FileReader();
-                      reader.onloadend = () => {
+                      reader.onloadend = (e) => {
+                        const pic = e.target.result;
+                        const imageSrc = pic;
+                        setImgVisor(imageSrc);
                         setPreviewVisor(reader.result);
                       }
                       reader.readAsDataURL(file);
@@ -450,29 +434,6 @@ const CreateMedia = () => {
                   ))}
                 </div>
               <div>             
-                <p>
-                <label>Archivo de audio</label>
-                <br></br>
-                <input
-                  type="file"
-                  name="audioFile"
-                  onChange={(e) =>
-                    setAudioFile(e.target.files[0])
-                  }
-                />
-              </p>
-              <p>
-                <label>Archivo de video</label>
-                <br></br>
-                <input
-                  type="file"
-                  name="videoFile"
-                  onChange={(e) =>
-                    setVideoFile(e.target.files[0])
-                  }
-                />
-              </p>
-
                 <input
                   type="submit"
                   value="Publicar"

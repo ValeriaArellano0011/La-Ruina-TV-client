@@ -16,7 +16,7 @@ import { getMedia } from "../../../middlewares/redux/actions/media";
 
 const Browser = () => {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
   const userToken = localStorage.getItem('userToken');
   const currentUser = useSelector((state) => state.currentUser);
   const cardList = useSelector((state) => state.mediaList);
