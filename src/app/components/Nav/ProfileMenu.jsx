@@ -99,12 +99,12 @@ export const ProfileMenu = () => {
                 onClick={(e) => {return e.target.value=((currentUser?.role==='admin')? ('dashboard') : ('subscription'))}}
                 src={currentUser?.role==='admin'? adminIcon : subscriptionIcon} 
                 alt="" /><br></br>
+                {currentUser?.role==='admin'? 'DASHBOARD' : 'SUSCRIPCIÓN'}
               </button>
             </li>
             <li className={s.ulSalirBtn}>
               <button 
                 id='optionProfileBtn6' 
-                // className={s.optionSalirBtn} 
                 className={s.optionProfileBtn} 
                 onClick={()=>{
                   return (
