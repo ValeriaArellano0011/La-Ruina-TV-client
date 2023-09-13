@@ -18,8 +18,8 @@ const Visor = () => {
         visorTitle,
         visorArtist, 
         currentUser,
-        user
         } = VisorFunction();
+
     const img = RenderDriveImage(visorImg);
 
     return(
@@ -55,7 +55,7 @@ const Visor = () => {
                                         $d('.visorButtonPlay').src=playIconn
                                     }}
                                     >
-                                    <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{!(user || currentUser)?  'Previsualizar' : 'Ir al contenido'}
+                                    <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />{!currentUser?  'Previsualizar' : 'Ir al contenido'}
                                 </button>
                             </Link>
                         </li>

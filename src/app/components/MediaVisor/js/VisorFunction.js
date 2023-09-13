@@ -11,8 +11,6 @@ export const VisorFunction = () =>{
             $d('#infoCont').style.scale='0'
         }
     })
-    const auth = localStorage.getItem('auth');
-    const user = auth ? JSON.parse(auth) : null;
     const currentUser = useSelector(state=>state.currentUser)
     const dispatch = useDispatch()
     const visorList = useSelector(state=>state.visorList)
@@ -74,7 +72,6 @@ export const VisorFunction = () =>{
         visorArtist, 
         visorTypeMedia,
         currentUser,
-        user
     }
 }
 
