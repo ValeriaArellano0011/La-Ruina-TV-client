@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 export const SearchedMedia = (props) => {
-    const {id, title, img, artist, idLinkYT, mediaType } = props
+    const {id, title, img, artist } = props
     return(
         <div className={s.searchedCont1}>
             <div className={s.searchedCont2} style={{backgroundImage: `url(${img})`}}>
