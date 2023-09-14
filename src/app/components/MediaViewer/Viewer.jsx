@@ -5,20 +5,20 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import YtPlayer from './PlayerYoutube';
+import YtPlayer from '../Media/PlayerYoutube';
 import playIconn from '../../../assets/images/ruinatv-icon-play-n.png';
 import playIconb from '../../../assets/images/ruinatv-icon-play-b.png';
 import userIcon from '../../../assets/images/user-icon.png';
 import likeIcon from '../../../assets/images/like-icon.png';
 import OptionCanvas,  { $d } from '../../../functions';
 import { EditBtn } from '../Utils/EditBtn';
-import PlayerDrive from './PlayerDrive';
+import PlayerDrive from '../Media/PlayerDrive';
 import { getIdYT } from '../../../middlewares/redux/actions';
 import { getOption, addLike, getYtSubs } from '../../../middlewares/redux/actions';
 import { getMediaById } from '../../../middlewares/redux/actions/media';
 import { RenderDriveImage } from '../../../functions/RenderDriveImage';
 
-const View = () => {
+const MediaViewer = () => {
     const params = useParams();
     const { id } = params;
     const dispatch = useDispatch();
@@ -29,23 +29,16 @@ const View = () => {
     const infoDetailViewer = useSelector(state=>state.infoDetailViewer);
     const [color, setColor] = useState(1);
 
-    useEffect(()=>{
-        dispatch(getMediaById(id))
-    },[dispatch, id]);
+    useEffect(()=>{ dispatch(getMediaById(id)) },[dispatch, id]);
 
-    function onClickValue(e){
-        return (
-            dispatch(getOption(e.target.id)),
-            OptionCanvas(e.target.id)
-        )}
+    function onClickValue(e){ return ( dispatch(getOption(e.target.id)), OptionCanvas(e.target.id) )};
 
-    useEffect(() => {
-        (favs?.filter(fav => fav.id === id).length > 0) ? setColor(0) : setColor(1)
-    },[favs, id]);
-    function colorLike(color){
-        if(favs?.length>1 && currentUser) return $d('#favViewIcon').style.filter = `grayscale(${color})`       
-    }
-    colorLike(color)
+    useEffect(() => { (favs?.filter(fav => fav.id === id).length > 0) ? setColor(0) : setColor(1) },[favs, id]);
+
+    function colorLike(color){ if(favs?.length>1 && currentUser) return $d('#favViewIcon').style.filter = `grayscale(${color})`};
+
+    colorLike(color);
+
     const {
         imageSlider,
         info,
@@ -200,4 +193,4 @@ const View = () => {
     )
 }
 
-export default View;
+export default MediaViewer;

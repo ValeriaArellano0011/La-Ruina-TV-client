@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import playIconb from '../../../assets/images/ruinatv-icon-play-b.png';
 import playIconn from '../../../assets/images/ruinatv-icon-play-n.png';
 import visorIntroVideo from '../../../assets/videos/laruina-intro.mp4';
-import { VisorFunction } from './js/VisorFunction';
+import { VisorFunction } from './MediaVisor.functions';
 import { $d } from "../../../functions";
 import { RenderDriveImage } from "../../../functions/RenderDriveImage";
 
-const Visor = () => {
+const MediaVisor = () => {
     const { 
         visorID, 
         visorImg, 
@@ -80,4 +80,4 @@ const Visor = () => {
         </div>
     )
 }
-export default Visor
+export default MediaVisor;

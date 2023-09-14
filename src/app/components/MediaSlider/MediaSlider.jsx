@@ -2,7 +2,7 @@ import Media from "../Media/Media"
 import SliderBtns from "../Utils/SliderBtns"
 import { $d } from "../../../functions"
 
-const Slider = (props) => {
+const MediaSlider = (props) => {
     const sliderTitle = (props.title);
     const mediaList = (props.mediaList);
     const s = (props.style);
@@ -57,4 +57,4 @@ const Slider = (props) => {
         </div>
     )
 }
-export default Slider
+export default MediaSlider;

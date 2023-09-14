@@ -5,6 +5,11 @@
 ul, li{
   list-style: none;
 }
+
+:root {
+  background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);
+}
+
 body {
   margin: 0;
   font-family: Bebas Neue;

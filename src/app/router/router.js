@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Nav from '../components/Nav/Nav';
-import View from '../components/Media/View';
 import Enter from '../components/Auth/Enter';
 import Verify from '../components/Auth/Verify';
 import PlanMP from '../components/MercadopagoPlan/PlanMP';
@@ -10,6 +9,7 @@ import Browser from '../pages/Browser/Browser';
 import EditMedia from '../admin/EditMedia/EditMedia';
 import AuthToken from '../components/Auth/AuthToken';
 import CreateMedia from '../admin/CreateMedia/CreateMedia';
+import MediaViewer from '../components/MediaViewer/Viewer';
 
 import { Search } from '../components/Filter/Search';
 import { BackAmp } from '../components/Back&Amp/BackAmp';
@@ -53,7 +53,7 @@ function Router() {
               <Colaborar />
             </Route>
             <Route path={'/view/v=:id'}>
-              <View />
+              <MediaViewer/>
             </Route>
             <Route exact path='/media/create'>
               <CreateMedia />
