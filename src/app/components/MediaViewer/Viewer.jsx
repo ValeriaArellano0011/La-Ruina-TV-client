@@ -72,18 +72,7 @@ const MediaViewer = () => {
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
-                        {currentUser?.role === 'free' ? <YtPlayer idYT={idYT} /> : <PlayerDrive idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}              
-
-                            {/* {
-                                Object.entries(type).map((el)=>{
-                                    return(
-                                    el.map((e)=>{
-                                    return(
-                                        <li className='viewLiImg' key={e}><a href={`${e.url}${mediaLink}`}><img className='viewLiIcon' src={e.img} alt="" /></a></li>
-                                        )
-                                    }))
-                                })
-                            } */}
+                        {currentUser?.role === 'free' ? <YtPlayer idYT={idYT} /> : <PlayerDrive idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}
                         {currentUser? <button className='buttonAddToFavorites' onClick={() => {
                             dispatch(addLike(currentUser?.id, id))
                         }}>
@@ -95,48 +84,7 @@ const MediaViewer = () => {
                                 width='25px' 
                             />
                             </button> : null}
-                        <><ul>
-                        {currentUser? <button 
-                        className='buttonAddToPlaylist' 
-                        onClick={()=>{
-                            $d('.ulButtonAddItem').style.transitionDuration='.3s'
-                            $d('.ulButtonAddItem').style.display='block'
-                            $d('.ulButtonAddItem').style.opacity='1'
-                            }}
-                        >+</button> : null}
-
-                            </ul></>
                         </ul>
-                        <div className={'divCanvasAddListForm'}>
-                            <h1>Crear una nueva Lista</h1>
-                            <form>
-                                <h3 style={{fontWeight:'thin'}}>Nombre de la lista</h3>
-                                <input 
-                                    type="text" 
-                                    name='listName'
-                                    placeholder='Ingresa un nombre' /> <br/><br/>
-                                <input 
-                                    className='button1'
-                                    type="submit" 
-                                    value="Crear"
-                                    style={{cursor: 'pointer'}}
-                                    onClick={(e)=>{
-                                        e.preventDefault()
-                                        $d('.divCanvasAddListForm').style.display='none'
-                                    }}
-                                    /><br/><br/>
-                                <input 
-                                    type="submit" 
-                                    onClick={(e)=>{
-                                        e.preventDefault()
-                                        $d('.divCanvasAddListForm').style.display='none'
-                                    }}
-                                    className='button2'
-                                    style={{cursor: 'pointer'}}
-                                    value="Cancelar" />
-                            
-                            </form>
-                        </div>
                         { currentUser?
                         (
                         <button 
