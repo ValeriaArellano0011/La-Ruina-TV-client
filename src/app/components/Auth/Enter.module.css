@@ -85,3 +85,10 @@ p {
     background-color: #171717;
     transition-duration: 0.5s;
 }
+
+.separatorContainer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

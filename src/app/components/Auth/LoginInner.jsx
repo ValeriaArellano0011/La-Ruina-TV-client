@@ -12,32 +12,36 @@ const LoginInner = () => {
   const [password, setPassword] = useState("");
 
   return (
-      <div className="formCont">
+      <div className={s.formCont}>
         <ul className={s.form_ul}>
           <form className={s.form}>
-            <li className={s.form_li}>Nombre de usuario</li>
-            <input
-              type="text"
-              name="userName"
-              required
-              onChange={(e) => {
-                return setEmail(e.target.value);
-              }}
-              placeholder="alias o e-mail"
-            />
-            <li className={s.form_li}>Contraseña</li>
-            <input
-              type="password"
-              name="password"
-              required
-              onChange={(e) => {
-                return setPassword(e.target.value);
-              }}
-              placeholder="contraseña"
-            />
+            <li className={s.form_li}>
+              Nombre de usuario
+              <input
+                type="text"
+                name="userName"
+                required
+                onChange={(e) => {
+                  return setEmail(e.target.value);
+                }}
+                placeholder="alias o e-mail"
+              />
+            </li>
+            <li className={s.form_li}>
+              Contraseña
+              <input
+                type="password"
+                name="password"
+                required
+                onChange={(e) => {
+                  return setPassword(e.target.value);
+                }}
+                placeholder="contraseña"
+              />
+            </li>
             <li className={s.form_li}>
               <button
-                className="button1"
+                className={`${s.innerLoginButton} button1`}
                 type="submit"
                 value="onSubmit"
                 onClick={(e) => {
