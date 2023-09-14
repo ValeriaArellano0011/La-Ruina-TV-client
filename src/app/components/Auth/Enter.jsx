@@ -16,6 +16,7 @@ const Enter = () => {
         <h1>ENTRÁ BOBO, VENÍ PARA ACÁ</h1>
         <h4>Debes ingresar con una cuenta de Google</h4>
         {!(currentPath==='/admin')? <LoginGoogle/> : <LoginInner/> }
+        <p>¿No tienes una cuenta? <a className={s.linkHub} href='https://hub.laruinarecords.cl/#/register'>Regístrate</a></p>
       </div>
      </div>
     </div>
