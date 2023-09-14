@@ -80,24 +80,24 @@ export const CanvasMenu = () => {
                     $d('.contCanvasMenu').style.display='none',
                     $d('#slideCanvasCont').style.overflowY="scroll"
                     )}}>
-                <Link to='/checkout/donation'>Colaborar</Link></li>
-            <li
-                onClick={()=>{
-                    window.scrollTo(0, 0)
-                    return(
-                    dispatch(resetOption()),
-                    $d(`.bodyApp`).style.transform='translateX(0)',
-                    $d(`.navCont`).style.transitionDuration='.2s',
-                    $d(`.bodyApp`).style.transitionDuration='2s',
-                    $d(`.navCont`).style.width='100vw',
-                    $d(`.browserBody`).style.height='auto',
-                    $d(`.browserBody`).style.overflowY='scroll',
-                    $d(`.visor`).style.transform='translateX(0)',
-                    $d('.contCanvasMenu').style.display='none',
-                    $d('#slideCanvasCont').style.overflowY="scroll")}}>
-                <a href='https://merch.laruinarecords.cl' target=' _blank' > Merch </a>
-            </li>
-        </ul>
+                    <Link to='/checkout/donation'>Colaborar</Link></li>
+                    <li
+                        onClick={()=>{
+                            window.scrollTo(0, 0)
+                            return(
+                            dispatch(resetOption()),
+                            $d(`.bodyApp`).style.transform='translateX(0)',
+                            $d(`.navCont`).style.transitionDuration='.2s',
+                            $d(`.bodyApp`).style.transitionDuration='2s',
+                            $d(`.navCont`).style.width='100vw',
+                            $d(`.browserBody`).style.height='auto',
+                            $d(`.browserBody`).style.overflowY='scroll',
+                            $d(`.visor`).style.transform='translateX(0)',
+                            $d('.contCanvasMenu').style.display='none',
+                            $d('#slideCanvasCont').style.overflowY="scroll")}}>
+                        <a href='https://merch.laruinarecords.cl' target=' _blank' > Merch </a>
+                    </li>
+                </ul>
             </div>
         </div>
     )

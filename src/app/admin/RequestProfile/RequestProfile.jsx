@@ -1,5 +1,6 @@
 import s from './RequestProfile.module.css';
 import React, { useEffect, useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOption } from '../../../middlewares/redux/actions';
 import userIcon from '../../../assets/images/user-icon.png';
@@ -12,10 +13,12 @@ import { OptionProfile } from '../../../functions';
 
 const RequestProfile = () => {
     const dispatch = useDispatch()
+    const history = useHistory();
     const option = useSelector(state=>state.option)
     const auth = localStorage.getItem('auth');
     const user = auth ? JSON.parse(auth) : null;
-    const [ userPicGoogle, setUserPicGoogle ] = useState('')
+    const [ userPicGoogle, setUserPicGoogle ] = useState('');
+
     useEffect(() => {
         if (user) {
           if(user.googlePic){
@@ -69,7 +72,7 @@ const RequestProfile = () => {
                                 return (
                                     localStorage.removeItem('userData'), 
                                     localStorage.removeItem('userToken'), 
-                                    // history.push('/browser'),
+                                    history.push('/browser'),
                                     window.location.reload()
                                 )
                             }}/>
