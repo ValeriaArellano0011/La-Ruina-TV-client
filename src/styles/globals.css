@@ -774,7 +774,7 @@ button:hover{
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: 9999;
+  z-index: 99;
   top: 0px;
   transition-duration: 1s;
   filter: drop-shadow(0px 0px 20px black);

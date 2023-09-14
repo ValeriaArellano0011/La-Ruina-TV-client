@@ -2,6 +2,7 @@ import React from 'react'
 import s from './Search.module.css'
 import { useSelector } from 'react-redux'
 import { SearchedMedia } from './SearchedMedia'
+import { RenderDriveImage } from '../../../functions/RenderDriveImage'
 
 export const Search = () => {
   const searchedMedia = useSelector(state=>state.searchedMedia)
@@ -18,7 +19,7 @@ export const Search = () => {
                     <SearchedMedia 
                       id={e.id}
                       title={e.title}
-                      img={e.linkimg}
+                      img={RenderDriveImage(e.imageSlider)}
                       categories={e.categories}
                       artist={e.artist}
                       idLinkYT={e.idLinkYT}
