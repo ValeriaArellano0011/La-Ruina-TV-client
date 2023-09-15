@@ -252,10 +252,8 @@ const CreateMedia = () => {
                 </p>
                 <p>
                   <label>Descripción</label>
-                  <textarea
+                  <input
                     placeholder="Escribe una breve reseña..."
-                    rows="3"
-                    minLength='1'
                     type="text"
                     name="info"
                     value={data.info}
