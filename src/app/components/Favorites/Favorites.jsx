@@ -27,7 +27,7 @@ export const Favorites = () => {
                 { userLikes.length>0
                   ? <><h1>Tus favoritos</h1>
                     <h3>Encuentra tu contenido favorito aquí</h3></>
-                  : <><h1>Nada por aquí....</h1>
+                  : <><h1>Nada por aquí...</h1>
                     <h3>¡Agrega contenido a tus favoritos!</h3></>
                 }
               </div>
