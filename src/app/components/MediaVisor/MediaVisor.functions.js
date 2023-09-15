@@ -26,8 +26,22 @@ export const VisorFunction = () =>{
     const [visorArtist, setVisorArtista] = useState()
     const [visorTypeMedia, setVisorTypeMedia] = useState()
     const [visorIdYT, setVisorIdYT] = useState()
-    const {id, idLinkYT, imageVisor, artist, title, mediaType, tag, icon, actionButton, info} = visorList? visorList?.at(0) : nextVisor
-    
+
+    const defaultVisor = {
+        id: 0,
+        idLinkYT: "asd", 
+        imageVisor: "asd", 
+        artist: "asd", 
+        title: "asd", 
+        mediaType: "asd", 
+        tag: "asd", 
+        icon: "asd", 
+        actionButton: "asd", 
+        info: "asd"
+    }
+
+    const {id, idLinkYT, imageVisor, artist, title, mediaType, tag, icon, actionButton, info} = visorList?.length? visorList?.at(0) : defaultVisor
+
     useEffect(() => {
         let inf = 99999+cont;
         const max = visorList?.length || 0;
