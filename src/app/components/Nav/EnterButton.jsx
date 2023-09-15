@@ -16,15 +16,9 @@ export const EnterBtn = () => {
     <div
       className={s.enterBtn}
       id='login'
-      onClick={(e) => {
-        return(
-          onClickValue(e), 
-          $d('#slideCanvasCont').style.overflowY="hidden"
-        )
-      }
-    }>
-    <img className={s.userIconEnter} src={userIcon} alt='userIcon' width='15px' />
-      Ingresar
-  </div>
+      onClick={(e) => { return(onClickValue(e), $d('#slideCanvasCont').style.overflowY="hidden") }}>
+      <img className={s.userIconEnter} src={userIcon} alt='userIcon' width='15px' />
+        Ingresar
+    </div>
   )
 }

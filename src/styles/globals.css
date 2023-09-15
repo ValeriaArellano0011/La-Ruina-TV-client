@@ -92,6 +92,7 @@ button:hover{
   list-style: none;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .navCont:hover{
@@ -102,6 +103,7 @@ button:hover{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   list-style-type: none;
   height: 100%;
   margin-left: -150px;

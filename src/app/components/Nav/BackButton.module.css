@@ -5,6 +5,7 @@
     background-color: transparent;
     border: none;
     opacity: .8;
+    height: 50px;
 }
 
 .backIcon{
@@ -14,7 +15,6 @@
 }
 .BackButton,.backIcon{
     transition-duration: 1s;
-    margin-top: 7px;
 }
 .BackButton:hover,.backIcon:hover{
     opacity: 1;
