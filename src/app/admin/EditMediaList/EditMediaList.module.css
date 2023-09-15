@@ -1,20 +1,23 @@
 .editListCont{
+    position: absolute;
     width: 100%;
     height: auto;
-    min-height: 100vh;
-    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+    height: 100vh;
     margin: 0px;
     overflow: hidden;
     overflow-y: auto;
-    top: 0px;
-    left: 0px;
     text-align: center;
     display: flex;
     justify-content: center;
 }
 
 .editListFormat{
-    margin-top: 100px
+    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .divList{
@@ -32,7 +35,6 @@
     height: 20px;
     display: flex;
     justify-content: space-evenly;
-    text-align: left;
     align-items: center;
     background-color: rgb(1, 1, 1);
     color: rgba(255, 255, 255, 0.854);

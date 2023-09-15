@@ -28,7 +28,7 @@ export const EditMediaList = () => {
                 <div className={s.divList}>
                     <div className={s.ulList1}>
                         <ul className={s.ulList0}>
-                            <li>Imagen Visor</li> - <li>Imagen Slider</li> - <li>Título</li> - <li>Artista</li> - <li>Editar</li> - <li>Eliminar</li>
+                            <li>Visor</li> - <li>Slider</li> - <li>Título</li> - <li>Artista</li> - <li>Editar</li> - <li>Eliminar</li>
                         </ul>
                         {
                             mediaList?.map((e, index)=>{

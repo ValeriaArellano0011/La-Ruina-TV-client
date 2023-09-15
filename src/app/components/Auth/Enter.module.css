@@ -21,8 +21,10 @@ p {
 }
 
 .linkHub {
-    color: grey;
-
+    color: rgb(180, 180, 180);
+    font-weight: 900;
+    font-family: Bebas Neue;
+    font-size: 15px;
 }
 
 .linkHub:hover{

@@ -16,15 +16,15 @@ const LoginInner = () => {
         <ul className={s.form_ul}>
           <form className={s.form}>
             <li className={s.form_li}>
-              Nombre de usuario
+              Correo electrónico
               <input
                 type="text"
-                name="userName"
+                name="email"
                 required
                 onChange={(e) => {
                   return setEmail(e.target.value);
                 }}
-                placeholder="alias o e-mail"
+                placeholder="email"
               />
             </li>
             <li className={s.form_li}>

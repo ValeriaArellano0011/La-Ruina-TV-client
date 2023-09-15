@@ -229,7 +229,7 @@ const CreateMedia = () => {
           <div className='navFixed'/>
           <div className={s.cont0} id='cont0'>
             <div className={s.cont1} id='cont1'>
-              <h1 className={styles.createTitle}>Crear un Nuevo Contenido</h1>
+              <h1 className={s.createTitle}>Crear un Nuevo Contenido</h1>
               <div className={s.contTitleArtistDesc}>
                 <div className={s.divTitleArtistDesc}>
                   <p>
@@ -252,9 +252,8 @@ const CreateMedia = () => {
                     onChange={handleInputChange}
                   />
                 </p>
-                <p style={{textAlign:'center', marginLeft:'10px'}}>
+                <p>
                   <label>Descripción</label>
-                  <br></br>
                   <textarea
                     placeholder="Escribe una breve reseña..."
                     rows="3" 

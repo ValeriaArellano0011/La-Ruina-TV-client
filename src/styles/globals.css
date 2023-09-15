@@ -1,8 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.family-poppins {
+  color: rgb(180, 180, 180);
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: thin;
+}
+
+textarea {
+  font-size: Poppins;
+}
+
 .separator {
   height: 1px;
   width: 200px;
   background-color: white;
   position: absolute;
+}
+
+.separator-or {
+  background-color: black;
+  padding-left: .4rem;
+  padding-right: .4rem;
+  width: auto;
+  z-index: 2;
+}
+
+input {
+  font-family: Poppins;
 }
 
 #googleButton {

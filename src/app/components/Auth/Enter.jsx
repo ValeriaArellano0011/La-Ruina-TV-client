@@ -15,12 +15,11 @@ const Enter = () => {
           <LoginInner/>
           <div className={s.separatorContainer}>
             <div className='separator'/>
-            <span>O</span>
-            <div className='separator'/>
+            <span className='family-poppins separator-or'>O</span>
           </div>
-          <h4>puedes ingresar con una cuenta de Google</h4>
+          <h4 className='family-poppins'>puedes ingresar con una cuenta de Google</h4>
           <LoginGoogle/>
-          <p>¿No tienes una cuenta? <a className={s.linkHub} href={URL_LARUINAHUB_REGISTER}>Regístrate</a></p>
+          <p className='family-poppins'>¿No tienes una cuenta? <a className={s.linkHub} href={URL_LARUINAHUB_REGISTER}>Regístrate</a></p>
         </div>
       </div>
     </div>
