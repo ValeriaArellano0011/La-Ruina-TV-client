@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import defaultPreview from '../../../assets/images/ruina-records-logo.png';
-import { $d } from "../../../functions";
 import { createMedia } from '../../../middlewares/redux/actions/admin';
 
 const CreateMedia = () => {
@@ -201,9 +200,9 @@ const CreateMedia = () => {
       imageSlider: imgSlider,
       imageVisor: imgVisor,
     };
-    
+
     dispatch(createMedia(formData));
-    
+
     setData({
       title: "",
       artist: "",
@@ -223,25 +222,24 @@ const CreateMedia = () => {
   };
 
   return (
-    <div className={styles.mainContainer}>
+    <div className={s.mainContainer}>
       <div className={styles.createBody}>
-          <form onSubmit={submit}>
-          <div className='navFixed'/>
+        <form onSubmit={submit}>
+          <div className='navFixed' />
           <div className={s.cont0} id='cont0'>
-            <div className={s.cont1} id='cont1'>
-              <h1 className={s.createTitle}>Crear un Nuevo Contenido</h1>
-              <div className={s.contTitleArtistDesc}>
-                <div className={s.divTitleArtistDesc}>
-                  <p>
-                    <label>Titulo</label>
-                    <input
-                      type="text"
-                      name="title"
-                      placeholder="Título de la publicación"
-                      value={data.title}
-                      onChange={handleInputChange}
-                    />
-                  </p>
+            <h1 className={s.createTitle}>Crear un Nuevo Contenido</h1>
+            <div className={s.contTitleArtistDesc}>
+              <div className={s.divTitleArtistDesc}>
+                <p>
+                  <label>Titulo</label>
+                  <input
+                    type="text"
+                    name="title"
+                    placeholder="Título de la publicación"
+                    value={data.title}
+                    onChange={handleInputChange}
+                  />
+                </p>
                 <p>
                   <label>Artista</label>
                   <input
@@ -256,7 +254,7 @@ const CreateMedia = () => {
                   <label>Descripción</label>
                   <textarea
                     placeholder="Escribe una breve reseña..."
-                    rows="3" 
+                    rows="3"
                     minLength='1'
                     type="text"
                     name="info"
@@ -264,78 +262,62 @@ const CreateMedia = () => {
                     onChange={handleInputChange}
                   />
                 </p>
-                </div>
-                </div>
-              <div className={s.imgSlrVsr}>
-                <p>
-                  <label>Imagen del Slider</label>
-                  <br></br>
-                  <img src={previewSlider ? previewSlider : defaultPreview} alt="visor" height="120px" />
-                  <br></br>
-                  <input
-                    className={s.inputBtn}
-                    style={{cursor: 'pointer'}}
-                    type="file"
-                    name="imageSlider"
-                    accept="image/jpeg"
-                    onChange={(e) => {
-                      const file = e.target.files[0];
-                      const reader = new FileReader();
-                      reader.onloadend = (e) => {
-                        const pic = e.target.result;
-                        const imageSrc = pic;
-                        setImgSlider(imageSrc);
-                        setPreviewSlider(reader.result);
-                      }
-                      reader.readAsDataURL(file);
-                    }}
-                  />
-                </p>
-                <p>
-                  <label>Imagen del Visor</label>
-                  <br></br>
-                  <img src={previewVisor ? previewVisor : defaultPreview} alt="visor" height="120px" />
-                  <br></br>
-                  <input
-                    className={s.inputBtn}
-                    type="file"
-                    name="imageVisor"
-                    accept="image/jpeg"
-                    onChange={(e) => {
-                      const file = e.target.files[0];
-                      const reader = new FileReader();
-                      reader.onloadend = (e) => {
-                        const pic = e.target.result;
-                        const imageSrc = pic;
-                        setImgVisor(imageSrc);
-                        setPreviewVisor(reader.result);
-                      }
-                      reader.readAsDataURL(file);
-                    }}
-                  />
-                </p>
-                </div>
-                  {/*----------------------*/}
-                  {/*----------------------*/}
-                  {/*----------------------*/}
-                <button className={s.btnContinuar} type='button' onClick={()=>{return (
-                  $d('#cont1').style.transform='translateY(-100vh)',
-                  $d('#cont2').style.transform='translateY(-100vh)'
-                  )}}>Continuar</button>
-                </div>
-              <div className={s.cont2} id='cont2'>
-              <button type='button' className={s.btnVolver} onClick={()=>{return (
-                  $d('#cont1').style.transform='translateY(0)',
-                  $d('#cont2').style.transform='translateY(0)'
-                  )}}>Volver al paso anterior</button>
-                  {/*----------------------*/}
-                  {/*----------------------*/}
-                  {/*----------------------*/}
-              <h1>Detalles del contenido</h1>
+              </div>
+            </div>
+            <div className={s.imgSlrVsr}>
+              <p>
+                <label>Imagen del Slider</label>
+                <br></br>
+                <img src={previewSlider ? previewSlider : defaultPreview} alt="visor" height="120px" />
+                <br></br>
+                <input
+                  className={s.inputBtn}
+                  style={{ cursor: 'pointer' }}
+                  type="file"
+                  name="imageSlider"
+                  accept="image/jpeg"
+                  onChange={(e) => {
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onloadend = (e) => {
+                      const pic = e.target.result;
+                      const imageSrc = pic;
+                      setImgSlider(imageSrc);
+                      setPreviewSlider(reader.result);
+                    }
+                    reader.readAsDataURL(file);
+                  }}
+                />
+              </p>
+              <p>
+                <label>Imagen del Visor</label>
+                <br></br>
+                <img src={previewVisor ? previewVisor : defaultPreview} alt="visor" height="120px" />
+                <br></br>
+                <input
+                  className={s.inputBtn}
+                  type="file"
+                  name="imageVisor"
+                  accept="image/jpeg"
+                  onChange={(e) => {
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onloadend = (e) => {
+                      const pic = e.target.result;
+                      const imageSrc = pic;
+                      setImgVisor(imageSrc);
+                      setPreviewVisor(reader.result);
+                    }
+                    reader.readAsDataURL(file);
+                  }}
+                />
+              </p>
+            </div>
 
-            <div className={s.contTitleArtistDesc}>
+          <h1>Detalles del contenido</h1>
+
+          <div className={s.contTitleArtistDesc}>
             <div className={s.divTitleArtistDesc}>
-
               <p>
                 <label>Id del link de YouTube</label>
                 <input
@@ -376,64 +358,62 @@ const CreateMedia = () => {
                   value={data.urlLinkDOWNLOAD}
                   onChange={(e) =>
                     setData({ ...data, urlLinkDOWNLOAD: e.target.value })
-                  }/>
+                  } />
               </p>
             </div>
           </div>
-          <div className={s.divisor}></div>
-              <label>Tipo de contenido (selecciona uno)</label><br></br>
-            <div className={styles.types}>
-              {optionsMediaType?.map((t) => (
-                <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
-                  <input
-                    type="checkbox"
-                    name={t.name}
-                    value={t.name}
-                    id={t.name}
-                    onChange={(e) => checkboxMT(e)} />
-                  <label htmlFor={t.name}>{t.name}</label>
-                    {t.slot % 4 === 0 ? <br /> : null}
-                </div>))}
-              </div>
-              <br/><label>Género</label><br/>
-              <div className={styles.types}>
-                  {optionsGenre?.map((t) => (
-                    <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
-                      <input
-                        type="checkbox"
-                        name={t.name}
-                        value={t.name}
-                        id={t.name}
-                        onChange={(e) => checkboxGen(e)}
-                      />
-                      <label htmlFor={t.name}>{t.name}</label>
-                      {t.slot % 4 === 0 ? <br /> : null}
-                    </div>
-                  ))}
-                </div>
-                <br/><label>Categoria</label><br/>
-                <div className={styles.types}>
-                  {optionsCategories?.map((t) => (
-                    <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
-                      <input
-                        type="checkbox"
-                        name={t.name}
-                        value={t.name}
-                        id={t.name}
-                        onChange={(e) => checkboxCat(e)}
-                      />
-                      <label htmlFor={t.name}>{t.name}</label>
-                      {t.slot % 4 === 0 ? <br /> : null}
-                    </div>
-                  ))}
-                </div>
-              <div>             
+          <label>Tipo de contenido (selecciona uno)</label><br></br>
+          <div className={styles.types}>
+            {optionsMediaType?.map((t) => (
+              <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
                 <input
-                  type="submit"
-                  value="Publicar"
-                  className={styles.submit}
+                  type="checkbox"
+                  name={t.name}
+                  value={t.name}
+                  id={t.name}
+                  onChange={(e) => checkboxMT(e)} />
+                <label htmlFor={t.name}>{t.name}</label>
+                {t.slot % 4 === 0 ? <br /> : null}
+              </div>))}
+          </div>
+          <br /><label>Género</label><br />
+          <div className={styles.types}>
+            {optionsGenre?.map((t) => (
+              <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
+                <input
+                  type="checkbox"
+                  name={t.name}
+                  value={t.name}
+                  id={t.name}
+                  onChange={(e) => checkboxGen(e)}
                 />
-            </div>
+                <label htmlFor={t.name}>{t.name}</label>
+                {t.slot % 4 === 0 ? <br /> : null}
+              </div>
+            ))}
+          </div>
+          <br /><label>Categoria</label><br />
+          <div className={styles.types}>
+            {optionsCategories?.map((t) => (
+              <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
+                <input
+                  type="checkbox"
+                  name={t.name}
+                  value={t.name}
+                  id={t.name}
+                  onChange={(e) => checkboxCat(e)}
+                />
+                <label htmlFor={t.name}>{t.name}</label>
+                {t.slot % 4 === 0 ? <br /> : null}
+              </div>
+            ))}
+          </div>
+          <div>
+            <input
+              type="submit"
+              value="Publicar"
+              className={styles.submit}
+            />
           </div>
         </div>
         </form>

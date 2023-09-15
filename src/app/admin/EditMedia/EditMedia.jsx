@@ -269,7 +269,7 @@ const EditMedia = () => {
                 <h1>Media Type</h1>
                 <div className={s.types}>
                   {optionsMediaType?.map((t) => (
-                    <div key={`${t.name}-${t.slot}`} className={s.checkboxContainer}>
+                    <div className={s.tipeMedia} key={`${t.name}-${t.slot}`} >
                       <input
                         type="checkbox"
                         name={t.name}
@@ -344,7 +344,7 @@ const EditMedia = () => {
                   <h1>Categoria</h1>
                   <div className={s.types}>
                     {optionsCategories?.map((t) => (
-                      <div key={`${t.name}-${t.slot}`} className={s.checkboxContainer}>
+                      <div key={`${t.name}-${t.slot}`} className={s.tipeMedia}>
                         <input
                           type="checkbox"
                           name={t.name}
@@ -361,7 +361,7 @@ const EditMedia = () => {
                   <h1>Género</h1>
                   <div className={s.types}>
                     {optionsGenre?.map((t) => (
-                      <div key={`${t.name}-${t.slot}`} className={s.checkboxContainer}>
+                      <div key={`${t.name}-${t.slot}`} className={s.tipeMedia}>
                         <input
                           type="checkbox"
                           name={t.name}

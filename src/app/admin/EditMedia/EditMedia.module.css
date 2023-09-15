@@ -9,6 +9,15 @@
   text-align: left;
 }
 
+.tipeMedia{
+  border: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 200px;
+  text-align: left;
+}
+
 .editMediaContainer {
   color: #000000;
   margin-top: 80px;
