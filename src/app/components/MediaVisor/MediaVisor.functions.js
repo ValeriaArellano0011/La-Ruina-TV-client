@@ -28,16 +28,16 @@ export const VisorFunction = () =>{
     const [visorIdYT, setVisorIdYT] = useState()
 
     const defaultVisor = {
-        id: 0,
-        idLinkYT: "asd", 
-        imageVisor: "asd", 
-        artist: "asd", 
-        title: "asd", 
-        mediaType: "asd", 
-        tag: "asd", 
-        icon: "asd", 
-        actionButton: "asd", 
-        info: "asd"
+        id: null,
+        idLinkYT: null, 
+        imageVisor: null, 
+        artist: null, 
+        title: null, 
+        mediaType: null, 
+        tag: null, 
+        icon: null, 
+        actionButton: null, 
+        info: null
     }
 
     const {id, idLinkYT, imageVisor, artist, title, mediaType, tag, icon, actionButton, info} = visorList?.length? visorList?.at(0) : defaultVisor
