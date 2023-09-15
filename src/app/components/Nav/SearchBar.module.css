@@ -11,7 +11,6 @@
     border-color: rgba(255, 255, 255, 0.452);
     height: 25px;
     position: relative;
-    top: 8px;
     color: white;
     opacity: 0;
     width: 40px;
@@ -26,7 +25,6 @@
 .mediaSearch{
     opacity: .8;
     transition-duration: .5;
-    top: 14px;
     position: relative;
 }
 .mediaSearch:hover{
@@ -34,4 +32,9 @@
 }
 .barCont{
     margin-right: 30px;
+    display: flex;
+    align-items: center;
+}
+.form_search_bar {
+    display: flex;
 }

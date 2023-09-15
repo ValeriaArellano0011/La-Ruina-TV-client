@@ -45,13 +45,13 @@ export default function SearchBar(){
             onChange={handleInputChange}
             onMouseEnter={()=>{return searchBarFunction('enter')}}
           />
-            <button 
-              className={s.liSearchBtn} 
-              type="submit" 
-              disabled={false} 
-              onMouseEnter={()=>{return searchBarFunction('enter')}}>
-              <img className={s.mediaSearch} src={searchIcon} height='20' alt="search" />
-            </button>
+          <button 
+            className={s.liSearchBtn} 
+            type="submit" 
+            disabled={false} 
+            onMouseEnter={()=>{return searchBarFunction('enter')}}>
+            <img className={s.mediaSearch} src={searchIcon} height='20' alt="search" />
+          </button>
         </form>
       </div>
     )  
