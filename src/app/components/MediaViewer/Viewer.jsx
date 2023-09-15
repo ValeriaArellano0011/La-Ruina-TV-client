@@ -5,15 +5,15 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import YtPlayer from '../Media/PlayerYoutube';
-import playIconn from '../../../assets/images/ruinatv-icon-play-n.png';
+/* import YtPlayer from '../Media/PlayerYoutube';
+ */import playIconn from '../../../assets/images/ruinatv-icon-play-n.png';
 import playIconb from '../../../assets/images/ruinatv-icon-play-b.png';
 import userIcon from '../../../assets/images/user-icon.png';
 import likeIcon from '../../../assets/images/like-icon.png';
 import OptionCanvas,  { $d } from '../../../functions';
 import { EditBtn } from '../Utils/EditBtn';
-import PlayerDrive from '../Media/PlayerDrive';
-import { getIdYT } from '../../../middlewares/redux/actions';
+/* import PlayerDrive from '../Media/PlayerDrive';
+ */import { getIdYT } from '../../../middlewares/redux/actions';
 import { getOption, addLike, getYtSubs } from '../../../middlewares/redux/actions';
 import { getMediaById } from '../../../middlewares/redux/actions/media';
 import { RenderDriveImage } from '../../../functions/RenderDriveImage';
@@ -24,7 +24,6 @@ const MediaViewer = () => {
     const dispatch = useDispatch();
     const YTSub = useSelector(state=>state.YTSub);
     const favs = useSelector(state=>state.allUserLikes);
-    const idYT = useSelector(state=>state.ytPlayerState);
     const currentUser = useSelector(state=>state.currentUser);
     const infoDetailViewer = useSelector(state=>state.infoDetailViewer);
     const [color, setColor] = useState(1);
@@ -42,11 +41,10 @@ const MediaViewer = () => {
     const {
         imageSlider,
         info,
-        connectionId,
         title,
         artist,
         idLinkYT,
-        } = infoDetailViewer
+        } = infoDetailViewer;
 
     return (
         <div className="browserBody">
@@ -72,8 +70,8 @@ const MediaViewer = () => {
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
-                        {currentUser?.role === 'free' ? <YtPlayer idYT={idYT} /> : <PlayerDrive idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}
-                        {currentUser? <button className='buttonAddToFavorites' onClick={() => {
+{/*                         {currentUser?.role === 'free' ? <YtPlayer idYT={idYT} /> : <PlayerDrive idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}
+ */}                        {currentUser? <button className='buttonAddToFavorites' onClick={() => {
                             dispatch(addLike(currentUser?.id, id))
                         }}>
                             <img 
@@ -131,7 +129,7 @@ const MediaViewer = () => {
                         }
                         <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
                         {
-                            currentUser?.role==='admin'? <EditBtn connectionId={connectionId} /> : null
+                            currentUser?.role==='admin'? <EditBtn id={id} /> : null
                         }
                     </div>
                 </div>

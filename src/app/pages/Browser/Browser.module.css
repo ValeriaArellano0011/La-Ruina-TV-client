@@ -89,6 +89,7 @@ button:hover {
     height: 150px;
     transition-duration: 0.5s;
     scale: 1.03;
+    cursor: pointer;
 }
 
 .link:link,

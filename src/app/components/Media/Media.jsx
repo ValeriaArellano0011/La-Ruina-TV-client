@@ -1,6 +1,6 @@
 import s from './Media.module.css';
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Fav from "../Fav/Fav";
 import editIcon from '../../../assets/images/edit-icon.png';
 import playIconn from "../../../assets/images/ruinatv-icon-play-n.png";
@@ -26,39 +26,32 @@ const Media = ({ mediaList, style, keyID }) => {
           mediaList ? mediaList.map((e, i) => {
             return (
               <li value={e.id} key={i} >
-                <div className={style.sliderItem}>
-                  <Link
-                    to={`/view/v=${e.id}`}
-                    className='link' >
-                    <button
-                      className={style.media}
-                      style={{
-                        backgroundImage: e.imageSlider
-                          ? `url(${RenderDriveImage(e.imageSlider)})`
-                          : "error",
-                      }}
-                      id={e.id}
-                      urlid={e.urlID}
-                      titulo={e.title}
-                      artista={e.artist}
-                      img={RenderDriveImage(e.imageSlider)}
-                      onClick={() => {
-                        $d(`.link`).style.transitionDelay = '1s'
-                        return window.scrollTo(0, 0);
-                      }}
-                    >
-                    </button>
-                  </Link>
+                <div className={style.sliderItem} onClick={() => { history.push(`/view/v=${e.id}`)}}>
+                  <div
+                    className={style.media}
+                    style={{
+                      backgroundImage: e.imageSlider
+                        ? `url(${RenderDriveImage(e.imageSlider)})`
+                        : null,
+                    }}
+                    id={e.id}
+                    urlid={e.urlID}
+                    titulo={e.title}
+                    artista={e.artist}
+                    img={RenderDriveImage(e.imageSlider)}
+                    onClick={() => {
+                      $d(`.link`).style.transitionDelay = '1s'
+                      return window.scrollTo(0, 0);
+                    }}
+                  >
+                  </div>
                   { currentUser?.role === 'admin' ? (
                     <ul className={s.adminRequest}>
-                      <li className={s.adminBtn}>
-                        <img src={editIcon}
-                          onClick={() => {
-                            history.push(`/media/edit/${e.id}`)
-                          }} className={s.editImg} alt='edit' width='15px' />
+                      <li className={s.adminBtn} onClick={() => { history.push(`/media/edit/${e.id}`)}}>
+                        <img src={editIcon} className={s.editImg} alt='edit' width='15px'/>
                       </li>
-                      <li className={s.adminBtn}>
-                        <img src={deleteIcon} onClick={() => {dispatch(deleteMedia(e.id))}} className={s.deleteImg} alt='delete' width='15px' />
+                      <li className={s.adminBtn} onClick={() => {dispatch(deleteMedia(e.id))}} >
+                        <img src={deleteIcon} className={s.deleteImg} alt='delete' width='15px' />
                       </li>
                     </ul>
                   )
