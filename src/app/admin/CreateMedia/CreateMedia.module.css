@@ -51,7 +51,7 @@
     align-items: center;
 }
 .cont2{
-    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+    background: linear-gradient(to top, #ffffffcf, rgb(137, 137, 137));
     position: relative;
     width: 100vw;
     height: 100vh;
