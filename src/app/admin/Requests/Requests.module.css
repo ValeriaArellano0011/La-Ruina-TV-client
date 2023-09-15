@@ -11,9 +11,18 @@
   position: relative;
   opacity: .8;
   transition-duration: 1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .crearProducto:hover, .crearPost:hover, .editUsers:hover{
   opacity: 1;
   box-shadow: 0px 0px 4px white;
+}
+
+.reqContainer {
+  display: flex;
+  justify-content: center;
 }

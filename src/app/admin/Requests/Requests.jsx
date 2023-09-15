@@ -1,14 +1,16 @@
-import s from './Requests.module.css'
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { resetOption } from '../../../middlewares/redux/actions'
-import { $d } from '../../../functions'
+import s from './Requests.module.css';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { resetOption } from '../../../middlewares/redux/actions';
+import { $d } from '../../../functions';
+import editIcon from '../../../assets/images/svg/edit-icon.svg';
+import createIcon from '../../../assets/images/png/create-icon.png';
+import userIcon from '../../../assets/images/png/user-icon.png';
 
 const Requests = () => {
   const dispatch = useDispatch()
   return (
-    <div>
+    <div className={s.reqContainer}>
       <Link to='/media/create'>
         <button 
           className={s.crearPost}
@@ -25,7 +27,8 @@ const Requests = () => {
             $d(`.visor`).style.transform='translateX(0)',
             $d('#slideCanvasCont').style.overflowY="scroll"
             )}}>
-        Crear Media
+          <img src={createIcon} alt="" />
+          Crear Media
         </button>
       </Link>
       <Link to='/media/edit'>
@@ -44,7 +47,8 @@ const Requests = () => {
             $d(`.visor`).style.transform='translateX(0)',
             $d('#slideCanvasCont').style.overflowY="scroll"
             )}}>
-        Modificar Contenido
+          <img src={editIcon} alt="" />
+          Modificar Contenido
         </button>
       </Link>
       <Link to='/users/edit'>
@@ -63,7 +67,8 @@ const Requests = () => {
             $d(`.visor`).style.transform='translateX(0)',
             $d('#slideCanvasCont').style.overflowY="scroll"
             )}}>
-        Administrar Usuarios
+          <img src={userIcon} alt="" />
+          Administrar Usuarios
         </button>
       </Link>
     </div>
