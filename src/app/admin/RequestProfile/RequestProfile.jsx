@@ -1,5 +1,5 @@
 import s from './RequestProfile.module.css';
-import React, { useEffect, useState} from 'react';
+import React, { useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOption } from '../../../middlewares/redux/actions';
@@ -15,30 +15,20 @@ const RequestProfile = () => {
     const dispatch = useDispatch()
     const history = useHistory();
     const option = useSelector(state=>state.option)
-    const auth = localStorage.getItem('auth');
-    const user = auth ? JSON.parse(auth) : null;
-    const [ userPicGoogle, setUserPicGoogle ] = useState('');
+    const { profilePic, role } = useSelector(state => state.currentUser);
 
     useEffect(() => {
-        if (user) {
-          if(user.googlePic){
-            setUserPicGoogle(user.googlePic)
-          }
-        }
         OptionProfile(option)
-    }, [user, option]);
+    }, [option]);
     return (
         <div className={s.divProfileMenu}>
             <ul
                 className={s.ulProfileMenu}>
                 <ul className={s.ulRequestProfile}>
                     <li>
-                        <img referrerPolicy="no-referrer" src={userPicGoogle ? userPicGoogle : userIcon} className={s.userIcon} id='profileIcon' onClick={()=>{return dispatch(getOption('profile'))}} alt="perfil" />
+                        <img referrerPolicy="no-referrer" src={profilePic?? userIcon} className={s.userIcon} id='profileIcon' onClick={()=>{return dispatch(getOption('profile'))}} alt="perfil" />
                         <span id='spanProfile' className={s.spanProfile}>Perfil</span>
                     </li>
-                    {/* <li>
-                        <img src={notificationIcon} className={s.notificationIcon} alt="notificaciones" onClick={()=>{return dispatch(getOption('notifications'))}} />
-                    </li> */}
                     <li>
                         <img src={likeIcon} className={s.likeIcon} id='favoritesIcon' alt="favoritos" onClick={()=>{return dispatch(getOption('favorites'))}} />
                         <span id='spanFavs' className={s.spanFavs}>Favs</span>
@@ -48,7 +38,7 @@ const RequestProfile = () => {
                         <span id='spanList' className={s.spanLists}>Config</span>                    
                     </li>
                     {   
-                        user?.role.userMode === 'admin' ?
+                        role === 'admin' ?
                         <li>
                             <img src={adminIcon} className={s.adminIcon} id='dashboardIcon' onClick={()=>{return dispatch(getOption('dashboard'))}} alt="lista" />
                             <span id='spanAdmin' className={s.spanOpt}>Dash</span>                    
@@ -60,9 +50,6 @@ const RequestProfile = () => {
                           <span id='spaSubs' className={s.spanOpt}>Subs</span>                    
                         </li>                     
                     }
-                    {/* <li>
-                        <img src={configIcon} className={s.configIcon} onClick={()=>{return dispatch(getOption('config'))}} alt="configuraciones" />
-                    </li> */}
                     <li>
                         <img 
                             src={logoutIcon} 
