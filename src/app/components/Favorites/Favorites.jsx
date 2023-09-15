@@ -22,8 +22,15 @@ export const Favorites = () => {
       <div className='divProfile'>
         <div className='navFixed' ></div>
           <div className={s.divContLikes}>
-            <div className={s.contTitle}>
-            {userLikes.length>0? <h1>Tus favoritos</h1>: <><h1>Nada por aquí....</h1><br/><h3>¡Agrega contenido a tus favoritos!</h3></>}
+            <div className={s.divHeader}>
+              <div className="header-container">
+                { userLikes.length>0
+                  ? <><h1>Tus favoritos</h1>
+                    <h3>Encuentra tu contenido favorito aquí</h3></>
+                  : <><h1>Nada por aquí....</h1>
+                    <h3>¡Agrega contenido a tus favoritos!</h3></>
+                }
+              </div>
             </div>
             <ul className={s.contLikes}>
               {

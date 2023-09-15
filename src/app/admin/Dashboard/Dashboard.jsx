@@ -1,21 +1,17 @@
-import React from 'react'
-import Requests from '../Requests/Requests'
-import CardContent from '@mui/material/CardContent'
-import RequestProfile from '../RequestProfile/RequestProfile'
-import { Card } from '@mui/material'
-import { Title } from 'react-admin'
+import s from './Dashboard.module.css';
+import Requests from '../Requests/Requests';
+import RequestProfile from '../RequestProfile/RequestProfile';
 
 const Dashboard = () => {
   return (
     <div>
       <div className='navFixed'/>
-      <div className='divProfile'>
-        <div className='dashControlCont'>
-          <Card>
-            <Title title="Dashboard"/>
+      <div className={s.container}>
+        <div className={s.dashControlCont}>
+          <div className="header-container">
             <h1>Bienvenido a tu dashboard</h1>
-            <CardContent>¿Qué quieres hacer?</CardContent>
-          </Card>
+            <h3>¿Qué quieres hacer?</h3>
+          </div>
           <ul>
             <li>
               <Requests/>
