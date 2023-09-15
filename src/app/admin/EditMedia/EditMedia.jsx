@@ -3,42 +3,55 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import CardContent from "@mui/material/CardContent";
-import { Card } from "@mui/material";
-import { Title } from "react-admin";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateMedia } from "../../../middlewares/redux/actions/admin";
+import { getMediaById } from "../../../middlewares/redux/actions/media";
+import { RenderDriveImage } from "../../../functions/RenderDriveImage";
 
 const EditMedia = () => {
   const dispatch = useDispatch();
-  const objofarrs = useSelector(state => state.mediaWithConnectionId)
-  const { connectionId } = useParams()
-
+  const infoDetailViewer = useSelector(state => state.infoDetailViewer);
+  const { id } = useParams();
+  const [data, setData] = useState({
+    title: "",
+    artist: "",
+    info: "",
+    types: [],
+    imageVisor: "",
+    imageSlider: "",
+    genre: [],
+    categories: [],
+    idLinkYT: "",
+    mediaType: [],
+    idLinkSPOTY: "",
+    idLinkDRIVE: "",
+    urlLinkWEB: "",
+    urlLinkDOWNLOAD: ""
+  });
+  const { imageSlider, imageVisor, title, artist, info, idLinkSPOTY, idLinkDRIVE, urlLinkWEB, urlLinkDOWNLOAD } = infoDetailViewer;
+  
   useEffect(() => {
-    if (objofarrs) {
-      setData({
-        title: objofarrs[0]?.appProperties?.title || "",
-        artist: objofarrs[0]?.appProperties.artist || "",
-        info: objofarrs[0]?.appProperties.info || "",
-        categories: objofarrs[0]?.categories?.match(/[^,]+/g) || [],
-        genre: objofarrs[0]?.genre?.match(/[^,]+/g) || [],
-        idLinkYT: objofarrs[0]?.appProperties.idLinkYT || "",
-        mediaType: objofarrs[0]?.mediaType?.match(/[^,]+/g) || [],
-        idLinkSPOTY: objofarrs[0]?.appProperties.idLinkSPOTY || "",
-        idLinkDRIVE: objofarrs[0]?.appProperties.idLinkDRIVE || "",
-        urlLinkWEB: objofarrs[0]?.appProperties.urlLinkWEB || "",
-        urlLinkDOWNLOAD: objofarrs[0]?.appProperties.urlLinkDOWNLOAD || "",
-        id: objofarrs[0]?.appProperties.id || "",
-        idFileSlider: objofarrs[0]?.id || "",
-        idFileVisor: objofarrs[1]?.id || "",
-        idAudioFile: objofarrs[2]?.id ||"",
-        idVideoFile: objofarrs[3]?.id ||"",
-      })
-    }
-    setPreviewSlider(objofarrs[0]?.appProperties.imgLink)
-    setPreviewVisor(objofarrs[1]?.appProperties.imgLink)
-  }, [objofarrs ,connectionId])
+    dispatch(getMediaById(id));
+    setData({
+      title,
+      artist,
+      info,
+      types: [],
+      imageVisor: imageVisor,
+      imageSlider: imageSlider,
+      genre: [],
+      categories: [],
+      idLinkYT: "",
+      mediaType: [],
+      idLinkSPOTY,
+      idLinkDRIVE,
+      urlLinkWEB,
+      urlLinkDOWNLOAD
+    });
+  }, [dispatch, id, imageSlider, imageVisor, title, artist, info, idLinkSPOTY, idLinkDRIVE, urlLinkWEB, urlLinkDOWNLOAD ]);
 
+  
   const handleInputChange = (e) => {
     switch (e.target.name) {
       case "imageSlider":
@@ -60,22 +73,6 @@ const EditMedia = () => {
         });
     }
   };
-
-  const [data, setData] = useState({
-    title: objofarrs[0]?.appProperties?.title || "",
-    artist: objofarrs[0]?.appProperties.artist || "",
-    info: objofarrs[0]?.appProperties.info || "",
-    categories: objofarrs[0]?.categories?.match(/[^,]+/g) || [],
-    genre: objofarrs[0]?.genre?.match(/[^,]+/g) || [],
-    idLinkYT: objofarrs[0]?.appProperties.idLinkYT || "",
-    mediaType: objofarrs[0]?.mediaType?.match(/[^,]+/g) || [],
-    idLinkSPOTY: objofarrs[0]?.appProperties.idLinkSPOTY || "",
-    idLinkDRIVE: objofarrs[0]?.appProperties.idLinkDRIVE || "",
-    urlLinkWEB: objofarrs[0]?.appProperties.urlLinkWEB || "",
-    urlLinkDOWNLOAD: objofarrs[0]?.appProperties.urlLinkDOWNLOAD || "",
-    idFileSlider: objofarrs[0]?.appProperties.idFileSlider || "",
-    idFileVisor: objofarrs[0]?.appProperties.idFileVisor || "",
-  });
 
   const optionsMediaType = [
     {
@@ -184,91 +181,25 @@ const EditMedia = () => {
   };
 
   const checkboxGen = (e) => {
-    if (data.genre.includes(e.target.value)) {
-      data.genre = data.genre.filter((name) => name !== e.target.value);
-      setData({
-        ...data,
-        genre: data.genre,
-      });
-    } else {
-      setData({
-        ...data,
-        genre: [...data.genre, e.target.value],
-      });
-    }
+
   };
 
   const checkboxMT = (e) => {
-    if (data.mediaType.includes(e.target.value)) {
-      data.mediaType = data.mediaType.filter((name) => name !== e.target.value);
-      setData({
-        ...data,
-        mediaType: data.mediaType,
-      });
-    } else {
-      setData({
-        ...data,
-        mediaType: [...data.mediaType, e.target.value],
-      });
-    }
-  };
 
-  const [imgSlider, setImgSlider] = useState(null);
-  const [imgVisor, setImgVisor] = useState(null);
-  const [previewSlider, setPreviewSlider] = useState('');
-  const [previewVisor, setPreviewVisor] = useState('');
+  };
 
   const submit = (e) => {
     e.preventDefault();
     let formData = new FormData();
-    formData.append("imageSlider", imgSlider);
-    formData.append("imageVisor", imgVisor);
-    formData.append("title", data.title);
-    formData.append("artist", data.artist);
-    formData.append("info", data.info);
-    formData.append("categories", data.categories);
-    formData.append("genre", data.genre);
-    formData.append("idLinkYT", data.idLinkYT);
-    formData.append("mediaType", data.mediaType);
-    formData.append("idLinkSPOTY", data.idLinkSPOTY);
-    formData.append("idLinkDRIVE", data.idLinkDRIVE);
-    formData.append("urlLinkWEB", data.urlLinkWEB);
-    formData.append("urlLinkDOWNLOAD", data.urlLinkDOWNLOAD);
-    formData.append("connectionId", connectionId);
-    formData.append("id", data.id);
-    formData.append("idFileSlider", data.idFileSlider);
-    formData.append("idFileVisor", data.idFileVisor);
-    formData.append("idAudioFile", data.idAudioFile);
-    formData.append("idVideoFile", data.idVideoFile);
-
     dispatch(updateMedia(formData));
-
-    setData({
-      title: "",
-      artist: "",
-      info: "",
-      types: [],
-      imageVisor: null,
-      imageSlider: null,
-      genre: [],
-      categories: [],
-      idLinkYT: "",
-      mediaType: [],
-      idLinkSPOTY: "",
-      idLinkDRIVE: "",
-      urlLinkWEB: "",
-      urlLinkDOWNLOAD: "",
-    });
   };
 
   return (
-    <div className={s.createBody}>
-      <div className={s.CreateProduct}>
-        <Card>
-          <Title title="Nuevo Post" />
-          <h1 className={s.createTitle}>Modificar Post</h1>
+    <div className={s.mainContainer}>
+      <div className={s.editMediaContainer}>
+          <h1 className={s.createTitle}>Modificar Media</h1>
           <CardContent>Rellena el siguiente formulario</CardContent>
-          {objofarrs ?
+          {infoDetailViewer ?
             (<form onSubmit={submit}>
               <div>
                 <p>
@@ -277,7 +208,7 @@ const EditMedia = () => {
                   <input
                     type="text"
                     name="title"
-                    value={data.title}
+                    value={data?.title}
                     onChange={handleInputChange}
                   />
                 </p>
@@ -287,7 +218,7 @@ const EditMedia = () => {
                   <input
                     type="text"
                     name="artist"
-                    value={data.artist}
+                    value={data?.artist}
                     onChange={handleInputChange}
                   />
                 </p>
@@ -297,24 +228,22 @@ const EditMedia = () => {
                   <input
                     type="text"
                     name="info"
-                    value={data.info}
+                    value={data?.info}
                     onChange={handleInputChange}
                   />
                 </p>
                 <p>
                   <label>Imagen del Slider</label>
                   <br></br>
-                  <img src={previewSlider ? previewSlider : null} alt="slider" width="200px" height="100px" />
+                  <img src={RenderDriveImage(imageSlider)} alt="slider" width="200px" height="100px" />
                   <br></br>
                   <input
                     type="file"
                     name="imageSlider"
                     onChange={(e) => {
-                      setImgSlider(e.target.files[0])
                       const file = e.target.files[0];
                       const reader = new FileReader();
                       reader.onloadend = () => {
-                        setPreviewSlider(reader.result);
                       }
                       reader.readAsDataURL(file);
                     }}
@@ -323,17 +252,15 @@ const EditMedia = () => {
                 <p>
                   <label>Imagen del Visor</label>
                   <br></br>
-                  <img src={previewVisor ? previewVisor : objofarrs[1]?.appProperties.imgLink} alt="visor" width="200px" height="100px" />
+                  <img src={RenderDriveImage(imageVisor)} alt="visor" width="200px" height="100px" />
                   <br></br>
                   <input
                     type="file"
                     name="imageVisor"
                     onChange={(e) => {
-                      setImgVisor(e.target.files[0])
                       const file = e.target.files[0];
                       const reader = new FileReader();
                       reader.onloadend = () => {
-                        setPreviewVisor(reader.result);
                       }
                       reader.readAsDataURL(file);
                     }}
@@ -342,12 +269,11 @@ const EditMedia = () => {
                 <h1>Media Type</h1>
                 <div className={s.types}>
                   {optionsMediaType?.map((t) => (
-                    <div key={`${t.name}-${t.slot}`}>
+                    <div key={`${t.name}-${t.slot}`} className={s.checkboxContainer}>
                       <input
                         type="checkbox"
                         name={t.name}
                         value={t.name}
-                        defaultChecked={objofarrs[0] && objofarrs[0].appProperties.mediaType && objofarrs[0].appProperties.mediaType.includes(t.name)}
                         id={t.name}
                         onChange={(e) => checkboxMT(e)} />
                       <label htmlFor={t.name}>{t.name}</label>
@@ -361,7 +287,7 @@ const EditMedia = () => {
                   <input
                     type="text"
                     name="idLinkYT"
-                    value={data.idLinkYT}
+                    value={data?.idLinkYT}
                     onChange={(e) =>
                       setData({ ...data, idLinkYT: e.target.value })
                     } />
@@ -372,7 +298,7 @@ const EditMedia = () => {
                   <input
                     type="text"
                     name="idLinkSPOTY"
-                    value={data.idLinkSPOTY}
+                    value={data?.idLinkSPOTY}
                     onChange={(e) =>
                       setData({ ...data, idLinkSPOTY: e.target.value })
                     }
@@ -384,7 +310,7 @@ const EditMedia = () => {
                   <input
                     type="text"
                     name="idLinkDRIVE"
-                    value={data.idLinkDRIVE}
+                    value={data?.idLinkDRIVE}
                     onChange={(e) =>
                       setData({ ...data, idLinkDRIVE: e.target.value })
                     }
@@ -396,7 +322,7 @@ const EditMedia = () => {
                   <input
                     type="text"
                     name="urlLinkWEB"
-                    value={data.urlLinkWEB}
+                    value={data?.urlLinkWEB}
                     onChange={(e) =>
                       setData({ ...data, urlLinkWEB: e.target.value })
                     }
@@ -408,7 +334,7 @@ const EditMedia = () => {
                   <input
                     type="text"
                     name="urlLinkDOWNLOAD"
-                    value={data.urlLinkDOWNLOAD}
+                    value={data?.urlLinkDOWNLOAD}
                     onChange={(e) =>
                       setData({ ...data, urlLinkDOWNLOAD: e.target.value })
                     }
@@ -418,12 +344,11 @@ const EditMedia = () => {
                   <h1>Categoria</h1>
                   <div className={s.types}>
                     {optionsCategories?.map((t) => (
-                      <div key={`${t.name}-${t.slot}`}>
+                      <div key={`${t.name}-${t.slot}`} className={s.checkboxContainer}>
                         <input
                           type="checkbox"
                           name={t.name}
                           value={t.name}
-                          defaultChecked={objofarrs[0] && objofarrs[0].appProperties.categories && objofarrs[0].appProperties.categories.includes(t.name)}
                           id={t.name}
                           onChange={(e) => checkboxCat(e)}
                         />
@@ -436,12 +361,11 @@ const EditMedia = () => {
                   <h1>Género</h1>
                   <div className={s.types}>
                     {optionsGenre?.map((t) => (
-                      <div key={`${t.name}-${t.slot}`}>
+                      <div key={`${t.name}-${t.slot}`} className={s.checkboxContainer}>
                         <input
                           type="checkbox"
                           name={t.name}
                           value={t.name}
-                          defaultChecked={objofarrs[0] && objofarrs[0].appProperties.genre && objofarrs[0].appProperties.genre.includes(t.name)}
                           id={t.name}
                           onChange={(e) => checkboxGen(e)}
                         />
@@ -458,7 +382,6 @@ const EditMedia = () => {
                 </div>
               </div>
             </form>) : null}
-        </Card>
       </div>
     </div>
   );

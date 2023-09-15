@@ -1,26 +1,32 @@
-.createBody {
+.mainContainer {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
-.CreateProduct {
-  position: absolute;
+.checkboxContainer {
+  width: 200px;
+  text-align: left;
+}
+
+.editMediaContainer {
   color: #000000;
-  margin-top: 0px;
+  margin-top: 80px;
   width: 100vw;
-  height: auto;
-  border-radius: 20px;
+  height: 100vh;
   text-align: center;
+  background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   .types {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 5px;
     justify-content: center;
+    align-items: center;
     margin-top: 5px;
-    /* border: solid;
-    border-width: 1px; */
-    
     input[type="checkbox"],
     input[type="radio"] {
       display: none;
@@ -56,14 +62,16 @@
   }
 }
 
+input {
+  padding: 6px;
+}
 .submit {
   margin-top: 20px;
   padding: 0.6em 0.8em;
   width: 120px;
   font-family: Bebas Neue;
   font-size: 20px;
-/*   background-color: $secondary;
- */  color: white;
+  color: white;
   background-color: rgb(32, 32, 32);
   border: none;
   cursor: pointer;

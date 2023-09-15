@@ -9,6 +9,7 @@ import {
   } from "../../../middlewares/redux/actions";
 import { getMedia } from '../../../middlewares/redux/actions/media';
 import { deleteMedia } from '../../../middlewares/redux/actions/admin';
+import { RenderDriveImage } from '../../../functions/RenderDriveImage';
 
 export const EditMediaList = () => {
     const history = useHistory()
@@ -27,18 +28,22 @@ export const EditMediaList = () => {
                 <div className={s.divList}>
                     <div className={s.ulList1}>
                         <ul className={s.ulList0}>
-                            <li>Índice</li> - <li>Título</li> - <li>id</li> - <li>Editar</li> - <li>Eliminar</li>
+                            <li>Imagen Visor</li> - <li>Imagen Slider</li> - <li>Título</li> - <li>Artista</li> - <li>Editar</li> - <li>Eliminar</li>
                         </ul>
                         {
                             mediaList?.map((e, index)=>{
                                 return(
                                     <li key={index}>
-                                        <ul className={s.ulList2}><li>{index}</li> - <li>{e.title}</li> - <li>{e.id}</li> - 
-                                        <li><button className={s.btnEdit} onClick={() => {
-                                            history.push(`/media/edit/${e.connectionId}`)
-                                        }}>  </button></li> - 
+                                        <ul className={s.ulList2}>
+                                            <li><img src={RenderDriveImage(e.imageVisor)} height={80} alt="" /></li> - 
+                                            <li><img src={RenderDriveImage(e.imageSlider)} height={80} alt="" /></li> - 
+                                            <li>{e.title}</li> - 
+                                            <li>{e.artist}</li> -
+                                            <li>
+                                                <button className={s.btnEdit} onClick={() => { history.push(`/media/edit/${e.id}`) }}/>
+                                            </li> - 
                                         <li><button className={s.btnDelete} onClick={() => {
-                                            dispatch(deleteMedia(e.connectionId))
+                                            dispatch(deleteMedia(e.id))
                                         }}>  </button></li></ul>
                                     </li>
                                 )

@@ -1,39 +1,37 @@
 .editListCont{
-    width: 100vw;
+    width: 100%;
     height: auto;
     min-height: 100vh;
     background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
     margin: 0px;
-    overflow: scroll;
+    overflow: hidden;
+    overflow-y: auto;
     top: 0px;
     left: 0px;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .editListFormat{
     margin-top: 100px
 }
-.divFixed{
-    margin-left: 40px;
-}
+
 .divList{
     top: 200px;
     width: 90vw;
-    margin-left: 50px;
     margin-top: -50px;
     height: 70%;
-    margin-bottom: 110px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
 }
 
 .ulList0{
     width: 90vw;
     height: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     text-align: left;
     align-items: center;
     background-color: rgb(1, 1, 1);
@@ -58,6 +56,7 @@
     align-items: center;
     position: relative;
 }
+
 .ulList1>li{
     min-width: 300px;
     width: 90%;
@@ -69,11 +68,15 @@
     align-items: center;
     position: relative;
 }
+
 .ulList2{
     width: 90vw;
-    height: 50px;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 5px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     text-align: left;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.739);

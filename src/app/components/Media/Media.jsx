@@ -7,7 +7,7 @@ import playIconn from "../../../assets/images/ruinatv-icon-play-n.png";
 import deleteIcon from '../../../assets/images/delete-icon.png';
 import { useDispatch, useSelector } from "react-redux";
 import { $d } from "../../../functions";
-import { deleteMedia, updateMedia } from '../../../middlewares/redux/actions/admin';
+import { deleteMedia } from '../../../middlewares/redux/actions/admin';
 import { RenderDriveImage } from '../../../functions/RenderDriveImage';
 
 const Media = ({ mediaList, style, keyID }) => {
@@ -47,8 +47,6 @@ const Media = ({ mediaList, style, keyID }) => {
                         return window.scrollTo(0, 0);
                       }}
                     >
-                      {/* <img src={e.icon} alt="logo" className={style.logoItem} /> */}
-
                     </button>
                   </Link>
                   { currentUser?.role === 'admin' ? (
@@ -56,8 +54,7 @@ const Media = ({ mediaList, style, keyID }) => {
                       <li className={s.adminBtn}>
                         <img src={editIcon}
                           onClick={() => {
-                            dispatch(updateMedia(e.connectionId))
-                            history.push(`/media/edit/${e.connectionId}`)
+                            history.push(`/media/edit/${e.id}`)
                           }} className={s.editImg} alt='edit' width='15px' />
                       </li>
                       <li className={s.adminBtn}>

@@ -58,7 +58,7 @@ function Router() {
             <Route exact path='/media/create'>
               <CreateMedia />
             </Route>
-            <Route exact path='/media/edit/:connectionId'>
+            <Route exact path='/media/edit/:id'>
               <EditMedia />
             </Route>
             <Route exact path='/media/edit'>
