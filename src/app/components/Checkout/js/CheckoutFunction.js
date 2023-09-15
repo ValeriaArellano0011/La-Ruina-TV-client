@@ -1,10 +1,7 @@
 import axios from 'axios'
 import { URL_API } from '../../../../middlewares/config'
 
-export const handleCheckout = async () => {
-
-  const userId = JSON.parse(localStorage.getItem('auth')).userId
-  
+export const handleCheckout = async (userId) => { 
   try {
     await axios.post(`${URL_API}/mercadopago/create-checkout`, {userId})
     .then(data => {

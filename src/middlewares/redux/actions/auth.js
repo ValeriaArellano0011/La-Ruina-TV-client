@@ -12,7 +12,6 @@ export function auth(history) {
           type: CURRENT_USER,
           payload: res.data.userData
         })
-        localStorage.setItem('userData', JSON.stringify(res.data.userData));
         res.data.logged && history.push(`/browser`);
       })
       .catch((e) => {

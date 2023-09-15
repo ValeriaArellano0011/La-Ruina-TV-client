@@ -21,7 +21,6 @@ import { OptionsCanvas } from '../components/Utils/SlideCanvas';
 import { EditMediaList } from '../admin/EditMediaList/EditMediaList';
 import { EditUsersList } from '../admin/EditUserList/EditUsersList';
 
-
 function Router() {
   return (
     <div className="App">

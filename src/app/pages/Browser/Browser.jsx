@@ -13,11 +13,12 @@ import {
   resetOption,
   } from "../../../middlewares/redux/actions";
 import { getMedia } from "../../../middlewares/redux/actions/media";
+import { getUserToken } from "../../../middlewares/helpers";
 
 const Browser = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const userToken = localStorage.getItem('userToken');
+  const userToken = getUserToken();
   const currentUser = useSelector((state) => state.currentUser);
   const mediaList = useSelector((state) => state.mediaList);
   const categoryList = useSelector((state) => state.categoryList);

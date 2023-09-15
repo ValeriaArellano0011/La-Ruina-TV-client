@@ -12,7 +12,8 @@ import {
     GET_ALL_LIKES,
     GET_YT_SUBSCRIBERS,
     CURRENT_USER,
-    UPDATE_MEDIA
+    UPDATE_MEDIA,
+    GET_USER_DATA
 } from "../../misc";
 
 import iconYT from '../../../assets/images/yt-icon.png'
@@ -21,16 +22,12 @@ import iconDrive from '../../../assets/images/drive-icon.png'
 import iconWeb from '../../../assets/images/web-icon.png'
 import iconDescarga from '../../../assets/images/descarga-icon.png'
 
-
-const userData = localStorage.getItem('userData');
-const currentUser = userData ? JSON.parse(userData) : null;
-
 const initialState = {
 
     /*----------------Admin----------------*/
     YTSub: false,
     /*----------------Auth----------------*/
-    currentUser,
+    currentUser: null,
     option: '',
 
     /*----------------Media----------------*/
@@ -140,6 +137,11 @@ export default function rootReducer(state = initialState, action) {
             };
         /*----------------Auth----------------*/
         case CURRENT_USER:
+            return {
+                ...state,
+                currentUser: action.payload
+            };
+        case GET_USER_DATA:
             return {
                 ...state,
                 currentUser: action.payload

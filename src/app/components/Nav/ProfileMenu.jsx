@@ -16,17 +16,17 @@ import configIcon from '../../../assets/images/config-icon.png';
 import subscriptionIcon from '../../../assets/images/subscription-icon.png';
 
 export const ProfileMenu = () => {
-  const currentUser = useSelector(state=>state.currentUser)
-  const dispatch = useDispatch()
-  const history = useHistory()
-  
+  const currentUser = useSelector(state=>state.currentUser);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const { profilePic, username, role } = currentUser;
 
   function onClickValue(e){
     return (
       dispatch(getOption(e.target.value || e)),
       OptionCanvas(e.target.value || e)
     )
-  }
+  };
 
   return (
     <div className={s.profileCont} id='profileCont'>
@@ -36,8 +36,8 @@ export const ProfileMenu = () => {
             onClick={() => {return profileMenuCss('enter')}}
             onMouseLeave={() => {return profileMenuCss('leave')}}
             >
-            <img className={s.userIcon} referrerPolicy="no-referrer" src={currentUser.profilePic ? currentUser.profilePic : userIcon} alt='userIcon' width='25px' />
-            Hola, {currentUser?.username? currentUser.username : "Usuario"}
+            <img className={s.userIcon} referrerPolicy="no-referrer" src={profilePic ? profilePic : userIcon} alt='userIcon' width='25px' />
+            Hola, {username? username : "Usuario"}
             <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
           </li>
           <ul className={s.ulProfileOptions}>
@@ -51,7 +51,7 @@ export const ProfileMenu = () => {
               <img 
                 className={s.imgIconProf}
                 referrerPolicy="no-referrer" 
-                src={currentUser.profilePic ? currentUser.profilePic : userIcon}
+                src={profilePic ? profilePic : userIcon}
                 onClick={(e) => {return e.target.value='profile'}}
                 alt="" /> <br></br>
                   PERFIL
@@ -91,15 +91,15 @@ export const ProfileMenu = () => {
               <button                                 
                 id='optionProfileBtn5' 
                 className={s.optionProfileBtn} 
-                value={currentUser?.role==='admin'? 'dashboard' : 'subscription'}
+                value={role==='admin'? 'dashboard' : 'subscription'}
                 onClick={(e)=>{return onClickValue(e)}}
                 onMouseEnter={() => {return profileMenuCss('enter')}}>
               <img 
                 className={s.imgIcon}
-                onClick={(e) => {return e.target.value=((currentUser?.role==='admin')? ('dashboard') : ('subscription'))}}
-                src={currentUser?.role==='admin'? adminIcon : subscriptionIcon} 
+                onClick={(e) => {return e.target.value=((role==='admin')? ('dashboard') : ('subscription'))}}
+                src={role==='admin'? adminIcon : subscriptionIcon} 
                 alt="" /><br></br>
-                {currentUser?.role==='admin'? 'DASHBOARD' : 'SUSCRIPCIÓN'}
+                {role==='admin'? 'DASHBOARD' : 'SUSCRIPCIÓN'}
               </button>
             </li>
             <li className={s.ulSalirBtn}>

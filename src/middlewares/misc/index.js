@@ -6,6 +6,7 @@ export const RESET_OPTION = 'RESET_OPTION'
 export const LOGIN = 'LOGIN'
 export const SIGNUP = 'SIGNUP'
 export const CURRENT_USER = 'CURRENT_USER'
+export const GET_USER_DATA = 'GET_USER_DATA'
 
 /* --------------------YT--------------------- */
 export const GET_YT_SUBSCRIBERS = 'GET_YT_SUBSCRIBERS'

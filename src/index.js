@@ -12,11 +12,11 @@ import { $gId } from './functions';
 
 const root = ReactDOM.createRoot($gId('root'));
 root.render(
-    <Provider store={store}>
-      <React.StrictMode>
-        <HashRouter>
-          <Router/>
-        </HashRouter>
-      </React.StrictMode>
-    </Provider>
+  <Provider store={store}>
+    <React.StrictMode>
+      <HashRouter>
+        <Router/>
+      </HashRouter>
+    </React.StrictMode>
+  </Provider>
 );

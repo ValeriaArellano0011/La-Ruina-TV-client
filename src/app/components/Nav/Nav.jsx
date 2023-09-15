@@ -5,6 +5,9 @@ import Logo from './Logo';
 import NavSearchBar from './NavSearchBar';
 import { NavBurgerMenuTablet } from './NavBurgerMenuTablet';
 import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getUserData } from '../../../middlewares/redux/actions/account';
 
 
 const Nav = () => {
@@ -13,6 +16,12 @@ const Nav = () => {
   
     const [posNav, setPosNav] = useState()
     window.onscroll = function() {navBack(setPosNav, posNav)};
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(getUserData())
+    }, [dispatch]);
 
     return (
         <div className='navCont'>
