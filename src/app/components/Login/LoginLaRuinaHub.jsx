@@ -5,7 +5,7 @@ import laruinahubIcon from "../../../assets/images/ruina-records-icon.png";
 export default function LoginLaRuinaHub() {
   return (
     <div className={s.container}>
-      <button className={s.button}>
+      <a className={s.button} href="https://hub.laruinarecords.cl/#/oauth/chooseaccount/tv.laruinrecords.cl">
           <img
             src={laruinahubIcon}
             height="20px"
@@ -13,7 +13,7 @@ export default function LoginLaRuinaHub() {
             alt="Sign Up with Google"
           />
           La Ruina Hub
-      </button>
+      </a>
     </div>
   );
 }
