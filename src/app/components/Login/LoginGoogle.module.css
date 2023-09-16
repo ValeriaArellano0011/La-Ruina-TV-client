@@ -41,3 +41,12 @@
     justify-content: center;
     align-items: center;
 }
+
+.spanIcon {
+    width: 100%;
+}
+
+.spanText {
+    text-align: left;
+    width: 100%;
+}
