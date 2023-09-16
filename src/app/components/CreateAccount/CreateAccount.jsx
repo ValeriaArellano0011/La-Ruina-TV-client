@@ -3,7 +3,7 @@ import s from './CreateAccount.module.css';
 import { signup } from '../../../middlewares/redux/actions';
 import { useDispatch } from 'react-redux';
 import { authCss } from '../Auth/js/authCss';
-import LoginGoogle from '../Auth/LoginGoogle'
+import LoginGoogle from '../Login/LoginGoogle'
 import Toast from '../Utils/Toast';
 
 const CreateAccount = () => {
@@ -14,11 +14,6 @@ const CreateAccount = () => {
   const [password, setPassword] = useState('')
   const [display, setDisplay] = useState(true)
 
-  // const [errors, setErrors] = useState({
-  //   alias: '',
-  //   email: '',
-  //   password: ''
-  // })
   const [list, setList] = useState([]);
   let toastProperties = null;
   const showToast = (type, description) => {

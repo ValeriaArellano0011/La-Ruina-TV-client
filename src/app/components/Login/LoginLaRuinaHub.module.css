@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
-
-.contGoogleAuth{
+.auth{
     padding: 0;
     margin: 0;
     border-radius: 5px;
@@ -14,31 +12,31 @@
     text-align: center;
 }
 
-.googleBtn{
+.button{
     padding: 0;
     border: none;
     border-radius: 5px;
-    background: linear-gradient(to bottom, #ffffff, rgb(203, 203, 203));
-    width: 200px;
+    background: linear-gradient(172deg, #171717, rgb(112, 44, 89));
+    width: 260px;
     height: 40px;
     font-size: 13px;
-    color: black;
+    color: white;
     text-shadow: 0px 0px 1px rgba(50, 50, 50, 0.752);
     font-weight: bolder;
     font-family: 'Poppins', sans-serif;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     transition-duration: .4s;
 }
 
-.googleBtn:hover{
-    background: linear-gradient(to bottom, #ffffff, rgb(255, 255, 255));
+.button:hover{
+    background: linear-gradient(172deg, #171717, rgb(156, 58, 124));
     scale: 1.02;
 }
 
-.googleLoginContainer {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;

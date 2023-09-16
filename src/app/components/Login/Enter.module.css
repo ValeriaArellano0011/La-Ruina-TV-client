@@ -1,19 +1,15 @@
 .enterBody{
+    width: 100vw;
+    height: 100vh;
     text-align: center;
     overflow: hidden;
-    height: 100vh;
-    background-color: #171717;
     position: absolute;
     left: 0px;
     top: 0px;
-}
-
-.visor{
-    overflow: hidden;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 p {
@@ -31,23 +27,21 @@ p {
     color: white;
 }
 
-.visorCanvas{
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #000000 97%);
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-}
 .welcomeCont{
-    width: 100vw;
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
     color: white;
     font-weight: 100;
-    position: relative;
-    top: 30%;
     text-align: center;
+    overflow-y: auto;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
 }
+
 .welcomeCont h1{
     filter: drop-shadow(0px 0px 4px black);
 }

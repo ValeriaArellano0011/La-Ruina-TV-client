@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { auth } from '../../../middlewares/redux/actions/auth';
 import { setUserToken } from '../../../middlewares/helpers';
 
-const AuthToken = () => {
+const Auth = () => {
   const history = useHistory();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -33,4 +33,4 @@ const AuthToken = () => {
   )
 }
 
-export default AuthToken
+export default Auth;

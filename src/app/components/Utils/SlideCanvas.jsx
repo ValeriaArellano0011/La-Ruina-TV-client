@@ -2,7 +2,7 @@ import s from './SlideCanvas.module.css';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import Enter from '../Auth/Enter';
+import Enter from '../Login/Enter';
 import Profile from '../../pages/Profile/Profile';
 import Dashboard from '../../admin/Dashboard/Dashboard';
 

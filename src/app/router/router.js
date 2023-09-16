@@ -2,12 +2,12 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Nav from '../components/Nav/Nav';
-import Enter from '../components/Auth/Enter';
+import Enter from '../components/Login/Enter';
 import Verify from '../components/Auth/Verify';
 import PlanMP from '../components/MercadopagoPlan/PlanMP';
 import Browser from '../pages/Browser/Browser';
 import EditMedia from '../admin/EditMedia/EditMedia';
-import AuthToken from '../components/Auth/AuthToken';
+import Auth from '../components/Auth/Auth';
 import CreateMedia from '../admin/CreateMedia/CreateMedia';
 import MediaViewer from '../components/MediaViewer/Viewer';
 
@@ -31,7 +31,7 @@ function Router() {
           <div className='bodyApp'>
             <OptionsCanvas/>
             <Route path='/auth'>
-              <AuthToken />
+              <Auth/>
             </Route>
             <Route exact path='/'>
               <Redirect to='/browser' />
