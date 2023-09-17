@@ -41,15 +41,7 @@ const NavMenu = () => {
                     $d(`.visor`).style.transform='translateX(0)',
                     $d('#slideCanvasCont').style.overflowY="scroll"
                     )}}>
-                <Link to='/novedades'>Novedades</Link></li>
-            <li>
-                <a href='https://play.laruinarecords.cl/'> Play </a>
-            </li>
-            <li>
-                <a href='https://merch.laruinarecords.cl'> Merch </a>
-            </li>
-            <li>
-                <a href='https://hub.laruinarecords.cl/'> Hub </a>
+                <Link to='/novedades'>Novedades</Link>
             </li>
             <li
                 onClick={()=>{
@@ -66,6 +58,15 @@ const NavMenu = () => {
                     $d('#slideCanvasCont').style.overflowY="scroll"
                     )}}>
                 <Link to='/colaborar'>Colaborar</Link>
+            </li>
+            <li>
+                <a href='https://play.laruinarecords.cl/'> Play </a>
+            </li>
+            <li>
+                <a href='https://merch.laruinarecords.cl'> Merch </a>
+            </li>
+            <li>
+                <a href='https://hub.laruinarecords.cl/'> Hub </a>
             </li>
         </ul>
     )
