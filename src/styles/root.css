@@ -49,6 +49,7 @@ code {
   width: 10px;
   height: 100%;
   z-index: 999999999999999;  
+  position: absolute;
 }
 ::-webkit-scrollbar-track {
   background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);

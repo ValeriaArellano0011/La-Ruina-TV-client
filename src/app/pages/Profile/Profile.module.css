@@ -35,6 +35,7 @@
     width: 100vw;
     height: 100vh;
     position: absolute;
+    overflow-y: auto;
 }
 
 .profileCont{
@@ -74,4 +75,9 @@
     text-align: center;
     justify-content: center;
     color: white;
+}
+
+.dashControlCont {
+    height: 100vh;
+    overflow: hidden;
 }
