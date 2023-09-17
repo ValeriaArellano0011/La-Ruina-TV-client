@@ -13,7 +13,7 @@ import { RenderDriveImage } from '../../../functions/RenderDriveImage';
 const Media = ({ mediaList, style, keyID }) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const currentUser = useSelector(state=>state.currentUser)
+  const currentUser = useSelector(state => state.currentUser)
   const favs = useSelector(state => state.allUserLikes)
 
   return (
@@ -26,7 +26,7 @@ const Media = ({ mediaList, style, keyID }) => {
           mediaList ? mediaList.map((e, i) => {
             return (
               <li value={e.id} key={i} >
-                <div className={style.sliderItem} onClick={() => { history.push(`/view/v=${e.id}`)}}>
+                <div className={style.sliderItem} onClick={() => { history.push(`/view/v=${e.id}`) }}>
                   <div
                     className={style.media}
                     style={{
@@ -45,31 +45,31 @@ const Media = ({ mediaList, style, keyID }) => {
                     }}
                   >
                   </div>
-                  { currentUser?.role === 'admin' ? (
+                  {currentUser?.role === 'admin' ? (
                     <ul className={s.adminRequest}>
-                      <li className={s.adminBtn} onClick={() => { history.push(`/media/edit/${e.id}`)}}>
-                        <img src={editIcon} className={s.editImg} alt='edit' width='15px'/>
+                      <li className={s.adminBtn} onClick={() => { history.push(`/media/edit/${e.id}`) }}>
+                        <img src={editIcon} className={s.editImg} alt='edit' width='15px' />
                       </li>
-                      <li className={s.adminBtn} onClick={() => {dispatch(deleteMedia(e.id))}} >
+                      <li className={s.adminBtn} onClick={() => { dispatch(deleteMedia(e.id)) }} >
                         <img src={deleteIcon} className={s.deleteImg} alt='delete' width='15px' />
                       </li>
                     </ul>
                   )
                     : null
                   }
-                    <div className={style.mydiv}>
-                      <div className={style.ulTitlesItems}>
-                        <div style={{ display: 'flex', alignItems: 'center', margin: '5px'}}>
-                          <img
-                            className={style.sliderItemIconPlayN}
-                            src={playIconn}
-                            alt="play" />
-                          <p style={{color: 'black'}}>{e.title}</p>
-                        </div>
-                        {currentUser && favs?.filter(fav => fav.id === e.id).length > 0 ?
-                        <Fav urlID={e.id} color={'red'} style={{marginTop: '-10px'}}/>:null}
+                  <div className={style.mydiv}>
+                    <div className={style.ulTitlesItems}>
+                      <div style={{ display: 'flex', alignItems: 'center', margin: '5px' }}>
+                        <img
+                          className={style.sliderItemIconPlayN}
+                          src={playIconn}
+                          alt="play" />
+                        <p style={{ color: 'black' }}>{e.title}</p>
                       </div>
+                      {currentUser && favs?.filter(fav => fav.id === e.id).length > 0 ?
+                        <Fav urlID={e.id} color={'red'} style={{ marginTop: '-10px' }} /> : null}
                     </div>
+                  </div>
                 </div>
               </li>
             );

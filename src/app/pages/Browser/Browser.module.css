@@ -137,6 +137,9 @@ button:hover {
     border: transparent;
     filter: brightness(0.8);
     position: relative;
+    background-image: url(../../../assets/images/ruina-records-logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .media:hover {
