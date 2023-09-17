@@ -41,7 +41,7 @@
 .profileBtnCont{
     text-align: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: auto;
     margin-left: 0px;
     font-size: 20px;
@@ -113,13 +113,19 @@
     text-align: center;
 }
 .ulProfileOptions{
-    width: 260px;
+    padding: 0;
+    margin-right: 25px;
     height: 0;
-    position: fixed;
-    margin-top: 50px;
-    right: -8px;
     z-index: 999999999999999999999999999;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
 }
+
+.ulProfileOptions li {
+}
+
 .optionProfileBtn>img{
     margin-right: 0px;
 }
@@ -134,10 +140,7 @@
 }
 .imgIcon{
     filter: grayscale(1);
-    margin-right: 10px;
-    max-width: 25px;
-    max-height: 25px;
-    margin-top: 10px;
+    height: 30px;
 }
 .ulSalirBtn{
     position: fixed;
