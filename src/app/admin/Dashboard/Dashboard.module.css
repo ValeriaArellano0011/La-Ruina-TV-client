@@ -8,7 +8,6 @@
     margin: 0;
     overflow-y: auto;
     background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
-
 }
 
 .crearProducto, .crearPost, .editUsers {
