@@ -1,3 +1,8 @@
+.bodyContainer {
+    height: 100vh;
+    overflow: hidden;
+}
+
 .crearProducto, .crearPost, .editUsers {
     color:aliceblue;
     background-color: rgb(42, 42, 42);

@@ -4,7 +4,7 @@ import RequestProfile from '../RequestProfile/RequestProfile';
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className={s.bodyContainer}>
       <div className='navFixed'/>
       <div className={s.container}>
         <div className={s.dashControlCont}>
