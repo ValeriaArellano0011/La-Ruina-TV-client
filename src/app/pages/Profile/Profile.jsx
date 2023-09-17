@@ -13,7 +13,7 @@ const Profile = () => {
     <div >
       <div className='dashControlCont'>
         <div className='divProfile'>
-        <div className='navFixed' ></div>
+        <div className='navFixed'></div>
         <div className={s.profileFather}>
           <div className={s.profileCont}>
             <ul className={s.ulListProfile}>

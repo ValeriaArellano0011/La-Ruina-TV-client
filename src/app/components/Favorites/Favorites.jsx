@@ -19,8 +19,8 @@ export const Favorites = () => {
   
   return (
     <div>
-      <div className='divProfile'>
-        <div className='navFixed' ></div>
+      <div className={s.container}>
+        <div className='navFixed'></div>
           <div className={s.divContLikes}>
             <div className={s.divHeader}>
               <div className="header-container">
@@ -36,24 +36,21 @@ export const Favorites = () => {
               {
                 userLikes?.map((e,index)=>{
                   return(
-                    
                     <li className={s.liLikes} key={index}>
                       <Link to={`/view/v=${e.at(0).idLinkYT}=_type_=${e.at(0).mediaType}=_id_=${e.at(0).id}`}>
                         <img 
                         onClick={()=>{
-                          return(
-                                      dispatch(resetOption()),
-                                      $d(`.bodyApp`).style.transform='translateX(0)',
-                                      $d(`.navCont`).style.transitionDuration='.2s',
-                                      $d(`.bodyApp`).style.transitionDuration='2s',
-                                      $d(`.navCont`).style.width='100vw',
-                                      $d(`.browserBody`).style.height='auto',
-                                      $d(`.browserBody`).style.overflowY='scroll',
-                                      $d(`.visor`).style.transform='translateX(0)',
-                                      $d('#slideCanvasCont').style.overflowY="scroll"
-                                  )
-                              }
-                          }   
+                          return (
+                            dispatch(resetOption()),
+                            $d(`.bodyApp`).style.transform='translateX(0)',
+                            $d(`.navCont`).style.transitionDuration='.2s',
+                            $d(`.bodyApp`).style.transitionDuration='2s',
+                            $d(`.navCont`).style.width='100vw',
+                            $d(`.browserBody`).style.height='auto',
+                            $d(`.browserBody`).style.overflowY='scroll',
+                            $d(`.visor`).style.transform='translateX(0)',
+                            $d('#slideCanvasCont').style.overflowY="scroll"
+                        )}}   
                         className={s.likeImg}
                         src={e.at(0).linkimg} 
                         alt='img' 
