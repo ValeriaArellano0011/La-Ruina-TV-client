@@ -834,6 +834,7 @@ button:hover{
   bottom: 10vh;
   right: 20px;
 }
+
 .playerCont1{
   width: 100vw;
   height: 100vh;
@@ -849,7 +850,7 @@ button:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 0px;
+  left: 0;
 }
 
 .playerLi1{

@@ -18,10 +18,7 @@ const Media = ({ mediaList, style, keyID }) => {
 
   return (
     <div className={style.sliderItems}>
-      <ul
-        className={style.sliderListaItems}
-        id={`${keyID}ListaItems`}
-      >
+      <ul className={style.sliderListaItems} id={`${keyID}ListaItems`}>
         {
           mediaList ? mediaList.map((e, i) => {
             return (

@@ -1,12 +1,12 @@
-import s from './View.module.css';
+import s from './Viewer.module.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-/* import YtPlayer from '../Media/PlayerYoutube';
- */import playIconn from '../../../assets/images/ruinatv-icon-play-n.png';
+import YtPlayer from '../Media/PlayerYoutube';
+import playIconn from '../../../assets/images/ruinatv-icon-play-n.png';
 import playIconb from '../../../assets/images/ruinatv-icon-play-b.png';
 import userIcon from '../../../assets/images/user-icon.png';
 import likeIcon from '../../../assets/images/like-icon.png';
@@ -55,25 +55,17 @@ const MediaViewer = () => {
                 <div className='visorCanvas'></div>
                 <div className='visorPostInfo'>
                     <div className='visorPostArtista'>
-                        <p>
-                            {artist}
-                        </p>
+                        <p>{artist}</p>
                     </div>
                     <div className='visorPostTitulo' id='viewPostTitulo'>
-                        <p>
-                            {title}
-                        </p>
+                        <p>{title}</p>
                     <div className='visorInfo'>
-                        <h3>
-                            {info}
-                        </h3>
+                        <h3>{info}</h3>
                     </div>
                     <div className='viewMediaTypesCont'>
                         <ul className='viewMediaTypesList'>
-{/*                         {currentUser?.role === 'free' ? <YtPlayer idYT={idYT} /> : <PlayerDrive idDrive={'1FzIgns7wSLqG4DDjdaY1Eo8PVp0YqXad'}/>}
- */}                        {currentUser? <button className='buttonAddToFavorites' onClick={() => {
-                            dispatch(addLike(currentUser?.id, id))
-                        }}>
+                        <YtPlayer idLinkYT={idLinkYT} />
+                        { currentUser? <button className='buttonAddToFavorites' onClick={() => { dispatch(addLike(currentUser?.id, id)) }}>
                             <img 
                                 className={s.favIcon}
                                 id="favViewIcon"
