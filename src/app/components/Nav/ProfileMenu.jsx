@@ -36,27 +36,29 @@ export const ProfileMenu = () => {
             onClick={() => {return profileMenuCss('enter')}}
             onMouseLeave={() => {return profileMenuCss('leave')}}
             >
-            <img className={s.userIcon} referrerPolicy="no-referrer" src={profilePic ? profilePic : userIcon} alt='userIcon' width='25px' />
-            Hola, {username? username : "Usuario"}
-            <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
+              <span className={s.buttonProfile}>
+                <img className={s.userIcon} referrerPolicy="no-referrer" src={profilePic ? profilePic : userIcon} alt='userIcon' width='25px' />
+                Hola, {username? username : "Usuario"}
+                <img className={s.btnMenuTv} src={btnMenuTv} alt='btnMenuTv' width='8px' />
+              </span>
           </li>
           <ul className={s.ulProfileOptions}>
-          <li className='liProfileMenuDisplay'>
-            <button 
-              id='optionProfileBtn0' 
-              className={s.optionProfileBtn} 
-              value='profile' 
-              onClick={(e)=>{return onClickValue(e)}}
-              onMouseEnter={() => {return profileMenuCss('enter')}}>
-              <img 
-                className={s.imgIconProf}
-                referrerPolicy="no-referrer" 
-                src={profilePic ? profilePic : userIcon}
-                onClick={(e) => {return e.target.value='profile'}}
-                alt="" /> <br></br>
-                  PERFIL
-              </button>
-          </li>
+            <li className='liProfileMenuDisplay'>
+              <button 
+                id='optionProfileBtn0' 
+                className={s.optionProfileBtn} 
+                value='profile' 
+                onClick={(e)=>{return onClickValue(e)}}
+                onMouseEnter={() => {return profileMenuCss('enter')}}>
+                <img 
+                  className={s.imgIconProf}
+                  referrerPolicy="no-referrer" 
+                  src={profilePic ? profilePic : userIcon}
+                  onClick={(e) => {return e.target.value='profile'}}
+                  alt="" /> <br></br>
+                    PERFIL
+                </button>
+            </li>
             <li>
               <button 
                 id='optionProfileBtn2' 
