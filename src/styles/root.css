@@ -8,6 +8,7 @@ ul, li{
 
 :root {
   background: linear-gradient(168deg, rgb(0, 0, 0) 20% , #171717 120%);
+  --primary-white: rgb(240, 240, 240);
 }
 
 body {

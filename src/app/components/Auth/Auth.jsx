@@ -1,3 +1,4 @@
+import s from './Auth.module.css';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -20,16 +21,9 @@ const Auth = () => {
   }, [currentUser, authToken, dispatch, history]);
 
   return (
-    <div style={{
-      color: 'white',
-      filter: 'drop-shadow(0px 0px 2px green)',
-      bottom: '0px',
-      position: 'absolute',
-      fontSize: '8px',
-      height: '20px',
-      width: '100%', 
-      textAlign: 'right'
-    }} > <br></br></div>
+    <div className={s.loaderContainer}>
+      <div className='loader'></div>
+    </div>
   )
 }
 
