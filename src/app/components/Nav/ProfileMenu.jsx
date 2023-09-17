@@ -43,7 +43,7 @@ export const ProfileMenu = () => {
               </span>
           </li>
           <ul className={s.ulProfileOptions}>
-            <li className='liProfileMenuDisplay'>
+            <li className={s.liProfileMenuDisplay}>
               <button 
                 id='optionProfileBtn0' 
                 className={s.optionProfileBtn} 
@@ -59,7 +59,7 @@ export const ProfileMenu = () => {
                     PERFIL
                 </button>
             </li>
-            <li>
+            <li className={s.liProfileMenuDisplay}>
               <button 
                 id='optionProfileBtn2' 
                 className={s.optionProfileBtn} 
