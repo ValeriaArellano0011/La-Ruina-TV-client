@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Nav from '../components/Nav/Nav';
-import Enter from '../components/Login/Enter';
 import Verify from '../components/Auth/Verify';
 import PlanMP from '../components/MercadopagoPlan/PlanMP';
 import Browser from '../pages/Browser/Browser';
@@ -74,9 +73,6 @@ function Router() {
             </Route>
             <Route path='/mercadopago/plan'>
               <PlanMP/>
-            </Route>
-            <Route path='/admin'>
-              <Enter/>
             </Route>
           </div>
         </>
