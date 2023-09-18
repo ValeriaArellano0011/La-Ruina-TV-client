@@ -6,7 +6,6 @@ import {
     GET_CATEGORIAS,
     GET_MEDIATYPE,
     GET_MEDIAURL,
-    RESET_MEDIA,
     NEXT_VISOR,
     RESET_VISOR,
     OPTION,
@@ -169,11 +168,7 @@ export function getMediaUrl(mediainfo) {
         payload: mediainfo
     }
 }
-export function resetMedia() {
-    return {
-        type: RESET_MEDIA
-    }
-}
+
 export function getNextVisor(index) {
     return {
         type: NEXT_VISOR,

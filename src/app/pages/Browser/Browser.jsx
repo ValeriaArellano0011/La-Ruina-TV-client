@@ -9,10 +9,9 @@ import { useHistory } from 'react-router-dom';
 import { InfoCanvas } from '../../components/Utils/InfoCanvas';
 import {
   resetIdYT,
-  resetMedia,
   resetOption,
   } from "../../../middlewares/redux/actions";
-import { getMedia } from "../../../middlewares/redux/actions/media";
+import { getMedia, resetMedia } from "../../../middlewares/redux/actions/media";
 import { getUserToken } from "../../../middlewares/helpers";
 
 const Browser = () => {

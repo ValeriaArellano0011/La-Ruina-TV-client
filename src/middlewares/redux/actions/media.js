@@ -1,6 +1,6 @@
 import axios from "axios"
 import { URL_API } from "../../config"
-import { GET_INFO, GET_MEDIA } from "../../misc"
+import { GET_INFO, GET_MEDIA, RESET_MEDIA } from "../../misc"
 
 export function getMedia() {
     return async function (dispatch) {
@@ -29,3 +29,9 @@ export function getMediaById(id) {
         }
     }
 };
+
+export function resetMedia() {
+    return {
+        type: RESET_MEDIA
+    }
+}

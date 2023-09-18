@@ -202,23 +202,6 @@ const CreateMedia = () => {
     };
 
     dispatch(createMedia(formData));
-
-    setData({
-      title: "",
-      artist: "",
-      info: "",
-      types: [],
-      imageVisor: null,
-      imageSlider: null,
-      genre: [],
-      categories: [],
-      idLinkYT: "",
-      mediaType: "",
-      idLinkSPOTY: "",
-      idLinkDRIVE: "",
-      urlLinkWEB: "",
-      urlLinkDOWNLOAD: "",
-    });
   };
 
   return (
@@ -277,10 +260,8 @@ const CreateMedia = () => {
                   onChange={(e) => {
                     const file = e.target.files[0];
                     const reader = new FileReader();
-                    reader.onloadend = (e) => {
-                      const pic = e.target.result;
-                      const imageSrc = pic;
-                      setImgSlider(imageSrc);
+                    reader.onloadend = () => {
+                      setImgSlider(reader.result);
                       setPreviewSlider(reader.result);
                     }
                     reader.readAsDataURL(file);
@@ -300,10 +281,8 @@ const CreateMedia = () => {
                   onChange={(e) => {
                     const file = e.target.files[0];
                     const reader = new FileReader();
-                    reader.onloadend = (e) => {
-                      const pic = e.target.result;
-                      const imageSrc = pic;
-                      setImgVisor(imageSrc);
+                    reader.onloadend = () => {
+                      setImgVisor(reader.result);
                       setPreviewVisor(reader.result);
                     }
                     reader.readAsDataURL(file);

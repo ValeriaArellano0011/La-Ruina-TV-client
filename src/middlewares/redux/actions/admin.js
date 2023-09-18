@@ -6,6 +6,7 @@ import { options } from "../../helpers";
 export const createMedia = (formData) => {
   return async function (dispatch) {
     const response = await axios.post(`${URL_API}/admin/media/create`, formData, options());
+    console.log(response.data);
     return dispatch({
       type: CREATE_MEDIA,
       payload: response.data

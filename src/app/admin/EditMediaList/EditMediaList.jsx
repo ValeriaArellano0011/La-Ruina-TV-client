@@ -4,10 +4,9 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import {
     resetIdYT,
-    resetMedia,
     resetOption,
   } from "../../../middlewares/redux/actions";
-import { getMedia } from '../../../middlewares/redux/actions/media';
+import { getMedia, resetMedia } from '../../../middlewares/redux/actions/media';
 import { deleteMedia } from '../../../middlewares/redux/actions/admin';
 import { RenderDriveImage } from '../../../functions/RenderDriveImage';
 
