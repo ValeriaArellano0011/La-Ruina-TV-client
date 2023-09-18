@@ -452,7 +452,7 @@ button:hover{
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #000000 97%);
   width: 100%;
   height: 100vh;
-  position: relative;
+  position: absolute;
 }
 .visorPostInfo{
   height: 300px;
@@ -462,7 +462,6 @@ button:hover{
   bottom: 20vh;
   left: 50px;
   animation-timing-function: ease-in-out;
-  /* background-color: aqua; */
 }
 
 @keyframes infoScale{
@@ -528,9 +527,7 @@ button:hover{
   background: linear-gradient(to bottom, #ffffff, rgba(0, 0, 0, 0.679));
   background-color: #ffffff;
 }
-.buttonVer{
-  left: 50px;
-}
+
 .button2{
   background-color: #84848446;
   color: #ffffff;
@@ -642,23 +639,21 @@ button:hover{
   background-color: #84848446;
   color: #ffffff;
   font-weight: 100;
-  left: 45px;
   text-decoration: none;
 }
 
 .buttonAddToFavorites{
-  font-family: bebas neue;
+  font-family: Bebas Neue;
   background-color: #84848446;
   color: #ffffff;
   width: 40px;
   height: 40px;
   position: relative;
-  margin-right: -35px;
-  left: 8px;
   border: none;
   border-radius: 2%;
   font-size: 10px;
   transition-duration: .8s;
+  margin-bottom: 8px;
 }
 
 .buttonAddToPlaylist{
@@ -758,7 +753,6 @@ button:hover{
   flex-direction: row;
   justify-content: flex-start;
   list-style-type: none;
-  position: relative;
   width: 420px;
   height: 50px;
 }
@@ -785,14 +779,13 @@ button:hover{
   width: 200px;
   position: relative;
   margin-right: 10px;
-  font-family: bebas neue;
+  font-family: Bebas Neue;
   font-size: 20px;
   border: none;
   border-radius: 2%;
   background-color: #84848446;
   color: #ffffff;
   font-weight: 100;
-  left: 45px;
   text-decoration: none;
 }
 
@@ -802,37 +795,31 @@ button:hover{
 }
 
 /* ------------------PLAY----------------- */
-.playerCont{
+.playerBackGroundEffect{
   width: 100vw;
   height: 100vh;
-  position: fixed;
-  z-index: 9999;
-  top: 0px;
+  top: 0;
+  left: 0;
   transition-duration: 1s;
   filter: drop-shadow(0px 0px 20px black);
   background: linear-gradient(to right, #00000000, rgba(0, 0, 0, 0.579));
-  z-index: 0;
-  opacity: 0;
   text-align: center;
   display: flex;
-  justify-content: center;
   align-items: center;
-  left: 0px;
+  position: absolute;
+  opacity: 0;
 }
 
-
 .playerLi{
-  /* width: 500px;
-  height: 281.25px; */
   width: 640px;
   height: 360px;
   background-color: #171717;
-  position: relative;
-  scale: 0;
+  scale: 1;
   transition-duration: 1s;
   list-style: none;
-  bottom: 10vh;
-  right: 20px;
+  margin-right: 50px;
+  display: none;
+  transition: display 1s;
 }
 
 .playerCont1{
@@ -859,21 +846,17 @@ button:hover{
   width: 640px;
   height: 360px;
   background-color: #171717;
-  position: relative;
-  scale: 0;
+  scale: 1;
   transition-duration: 1s;
   list-style: none;
   bottom: 10vh;
   right: 20px;
+
 }
 
-#ytplayer{
-  display: none;
-}
 .playUl{
   list-style: none;
-  scale: 0;
-  position: absolute;
+  opacity: 0;
   justify-content: end;
 }
 /* ----------------FOOTER----------------- */

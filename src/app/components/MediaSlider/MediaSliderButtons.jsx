@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { $d } from '../../../functions';
 import { getMedia } from '../../../middlewares/redux/actions/media';
 
-const SliderBtns = (props) => {
+const MediaSliderButtons = (props) => {
     const dispatch = useDispatch();
     const k = -210;
     const [i, setPosi] = useState(k);
@@ -120,4 +120,4 @@ const SliderBtns = (props) => {
     )
 }
 
-export default SliderBtns
+export default MediaSliderButtons;

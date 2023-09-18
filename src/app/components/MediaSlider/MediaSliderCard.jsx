@@ -1,17 +1,15 @@
-import s from './Media.module.css';
-import React from "react";
-import { useHistory } from "react-router-dom";
+import s from './MediaSliderCard.module.css';
 import Fav from "../Fav/Fav";
 import editIcon from '../../../assets/images/edit-icon.png';
 import playIconn from "../../../assets/images/ruinatv-icon-play-n.png";
 import deleteIcon from '../../../assets/images/delete-icon.png';
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { $d } from "../../../functions";
-import { deleteMedia } from '../../../middlewares/redux/actions/admin';
 import { RenderDriveImage } from '../../../functions/RenderDriveImage';
+import { deleteMedia } from '../../../middlewares/redux/actions/admin';
 import { getMedia } from '../../../middlewares/redux/actions/media';
 
-const Media = ({ mediaList, style, keyID }) => {
+const MediaCard = ({ mediaList, style, keyID }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.currentUser);
@@ -33,14 +31,8 @@ const Media = ({ mediaList, style, keyID }) => {
                   <div
                     className={style.media}
                     style={{ backgroundImage: `url(${RenderDriveImage(e.imageSlider)})` }}
-                    id={e.id}
-                    urlid={e.urlID}
-                    titulo={e.title}
-                    artista={e.artist}
-                    img={RenderDriveImage(e.imageSlider)}
                     onClick={() => {
                       history.push(`/view/v=${e.id}`)
-                      $d(`.link`).style.transitionDelay = '1s'
                       window.scrollTo(0, 0);
                     }}
                   >
@@ -82,4 +74,4 @@ const Media = ({ mediaList, style, keyID }) => {
     </div>
   );
 };
-export default Media;
+export default MediaCard;

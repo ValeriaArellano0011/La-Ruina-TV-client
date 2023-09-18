@@ -1,0 +1,30 @@
+.adminRequest{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+}
+
+.adminBtn{
+    background-color: #b9b9b9c9;
+    scale: .9;
+    opacity: .8;
+    transition-duration: .2s;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.adminBtn:hover{
+    opacity: 1;
+    scale: .95;
+    cursor: pointer;
+}
+
+.container {
+    margin-bottom: 5rem;
+    height: 100px;
+}

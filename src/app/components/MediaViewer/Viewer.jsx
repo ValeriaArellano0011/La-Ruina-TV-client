@@ -5,15 +5,13 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import YtPlayer from '../Media/PlayerYoutube';
+import YtPlayer from '../Player/PlayerYoutube';
 import playIconn from '../../../assets/images/ruinatv-icon-play-n.png';
 import playIconb from '../../../assets/images/ruinatv-icon-play-b.png';
 import userIcon from '../../../assets/images/user-icon.png';
 import likeIcon from '../../../assets/images/like-icon.png';
 import OptionCanvas,  { $d } from '../../../functions';
-import { EditBtn } from '../Utils/EditBtn';
-/* import PlayerDrive from '../Media/PlayerDrive';
- */import { getIdYT } from '../../../middlewares/redux/actions';
+import { ContentMagementButtons } from '../../admin/Buttons/ContentMagementButtons';
 import { getOption, addLike, getYtSubs } from '../../../middlewares/redux/actions';
 import { getMediaById } from '../../../middlewares/redux/actions/media';
 import { RenderDriveImage } from '../../../functions/RenderDriveImage';
@@ -47,84 +45,81 @@ const MediaViewer = () => {
         } = infoDetailViewer;
 
     return (
-        <div className="browserBody">
-            <div className='visor'>
-                <div className='visorBGCanvas'>
-                    <img className='visorBG' src={RenderDriveImage(imageSlider)} alt='' />
+        <div className={s.browserBody}>
+            <div className={s.visor}>
+                <div className={s.visorBGCanvas}>
+                    <img className={s.visorBG} src={RenderDriveImage(imageSlider)} alt='' />
                 </div>
                 <div className='visorCanvas'></div>
-                <div className='visorPostInfo'>
-                    <div className='visorPostArtista'>
-                        <p>{artist}</p>
+                <div className='playerBackGroundEffect'></div>
+                <div className={s.sectionsContainer}>
+                    <section className={s.playerSection}>
+                    { currentUser && <YtPlayer idLinkYT={ idLinkYT }/> }
+                    </section>
+                    <section className={s.visorPostInfo}>
+                        <div className={s.infoContainer}>
+                            <div className={s.visorPostArtista}>
+                            { currentUser?.role==='admin' && <ContentMagementButtons id={id}/> }
+                                <p>{artist}</p>
+                            </div>
+                            <div className={s.visorPostTitulo}>
+                                <p>{title}</p>
+                            <div className={s.visorInfo}>
+                                <p>{info}</p>
+                            </div>
+                        </div>
+                        <div className={s.viewMediaTypesCont}>
+                            <ul className={s.viewMediaTypesList}>
+                            {   currentUser &&   
+                                <button className='buttonAddToFavorites' onClick={() => { dispatch(addLike(currentUser?.id, id)) }}>
+                                    <img 
+                                        className={s.favIcon}
+                                        id="favViewIcon"
+                                        src={likeIcon} 
+                                        alt='add favorites' 
+                                        width='25px' 
+                                    />
+                                </button>
+                            }
+                            </ul>
+                            {   currentUser
+                            ?   (<button 
+                                    className='buttonVer'
+                                    onClick={() => {
+                                        return (
+                                            dispatch(getYtSubs(currentUser?.email)),
+                                            (YTSub? $d('#canvasYtSubBtn').style.display='none' : $d('#canvasYtSubBtn').style.display='flex'),
+                                            $d('.playerBackGroundEffect').style.opacity='1',
+                                            $d('.playerLi').style.display='block',
+                                            $d('.playUl').style.opacity='1'
+                                        )                           
+                                    }}
+                                    onMouseEnter={()=>{
+                                        $d('.visorButtonPlay').src=playIconb
+                                    }}
+                                    onMouseLeave={()=>{
+                                        $d('.visorButtonPlay').src=playIconn
+                                    }}>
+                                        <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />Ver ahora
+                                </button>)
+                            :   (<button 
+                                    className='buttonVer'
+                                    id='login'
+                                    onClick={(e) => {
+                                        return(
+                                        onClickValue(e),
+                                        $d('#slideCanvasCont').style.overflowY="hidden"
+                                    )
+                                    }}>
+                                    <img className='visorButtonPlay' src={userIcon} alt='visorbtn'/>
+                                    Ingresar
+                                </button>)
+                            }
+                            <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
+                            
+                        </div>
                     </div>
-                    <div className='visorPostTitulo' id='viewPostTitulo'>
-                        <p>{title}</p>
-                    <div className='visorInfo'>
-                        <h3>{info}</h3>
-                    </div>
-                    <div className='viewMediaTypesCont'>
-                        <ul className='viewMediaTypesList'>
-                        <YtPlayer idLinkYT={idLinkYT} />
-                        { currentUser? <button className='buttonAddToFavorites' onClick={() => { dispatch(addLike(currentUser?.id, id)) }}>
-                            <img 
-                                className={s.favIcon}
-                                id="favViewIcon"
-                                src={likeIcon} 
-                                alt='add favorites' 
-                                width='25px' 
-                            />
-                            </button> : null}
-                        </ul>
-                        { currentUser?
-                        (
-                        <button 
-                            className='buttonVer'
-                            onClick={()=>{
-                                if(currentUser?.role==='free') return (
-                                    dispatch(getYtSubs(currentUser?.email)),
-                                    dispatch(getIdYT(idLinkYT)),
-                                    (YTSub? $d('#canvasYtSubBtn').style.display='none' : $d('#canvasYtSubBtn').style.display='flex'),
-                                    $d('.playerCont').style.opacity='1',
-                                    $d('#ytplayer').style.display='block',
-                                    $d('.playerLi').style.scale='1',
-                                    $d('.playUl').style.scale='1'
-                                )
-                                if(currentUser?.role==='admin' || currentUser?.role==='subscriber' ) return (
-                                    $d('.playerCont1').style.opacity='1',
-                                    $d('.playerLi1').style.scale='1',
-                                    $d('.playerUl1').style.scale='1'
-                                )                            
-                            }}
-                            onMouseEnter={()=>{
-                                $d('.visorButtonPlay').src=playIconb
-                            }}
-                            onMouseLeave={()=>{
-                                $d('.visorButtonPlay').src=playIconn
-                            }}>
-                                <img className='visorButtonPlay' src={playIconn} alt='visorbtn' />Ver ahora
-                        </button>
-                        )
-                        : 
-                        (
-                        <button 
-                            className='buttonVer'
-                            id='login'
-                            onClick={(e) => {
-                                return(
-                                onClickValue(e),
-                                $d('#slideCanvasCont').style.overflowY="hidden"
-                              )
-                            }}>
-                            <img className='visorButtonPlay' src={userIcon} alt='visorbtn'/>
-                            Ingresar
-                        </button>)
-                        }
-                        <Link to='/browser'><button className='buttonVolver'>Volver al inicio</button></Link>
-                        {
-                            currentUser?.role==='admin'? <EditBtn id={id} /> : null
-                        }
-                    </div>
-                </div>
+                </section>
             </div>
         </div>
     </div>
