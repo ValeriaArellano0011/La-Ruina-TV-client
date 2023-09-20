@@ -1,0 +1,95 @@
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.checkboxContainer {
+  width: 200px;
+  text-align: left;
+}
+
+.tipeMedia{
+  border: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 200px;
+  text-align: left;
+}
+
+.editMediaContainer {
+  color: #000000;
+  margin-top: 80px;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  .types {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    input[type="checkbox"],
+    input[type="radio"] {
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+      border-radius: 20px;
+      margin: 7px;
+    }
+
+    input[type="checkbox"]:checked + label {
+      background: rgba(105, 105, 104, 0.7);
+    }
+
+    input[type="checkbox"]:checked + label:hover {
+      background: rgba(105, 105, 104, 0.7);
+    }
+  }
+
+  label {
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 7px;
+  }
+
+  input[type="checkbox"]:checked + label {
+    background: rgba(105, 105, 104, 0.7);
+  }
+
+  input[type="checkbox"]:checked + label:hover {
+    background: rgba(105, 105, 104, 0.7);
+  }
+}
+
+input {
+  padding: 6px;
+}
+.submit {
+  margin-top: 20px;
+  padding: 0.6em 0.8em;
+  width: 120px;
+  font-family: Bebas Neue;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(32, 32, 32);
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  margin-bottom: 180px;
+  transition-duration: .4s;
+}
+.submit:hover{
+  background-color: #171717;
+  scale: 1.1;
+  box-shadow: 0px 0px 15px white;
+}

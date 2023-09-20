@@ -1,0 +1,61 @@
+.contLikes{
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 1px black;
+    font-weight: 100;
+    width: auto;
+    height: 100%;
+    position: relative;
+    text-align: left;
+    top: 0px;
+    display: inline-block;
+    column-count: 2;
+    margin-top: 100px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.divContLikes{
+    width: 100vw;
+    max-height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+.contTitle{
+    position: relative;
+    top: 75px;
+    color: black;
+}
+
+.container {
+    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.liLikes{
+    margin-right: 30px;
+    margin-bottom: 50px;
+    width: auto;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+
+}
+.divH3{
+    position: relative;
+}
+.likeImg{
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px black;
+}
+
+.divHeader {
+    margin-top: 110px;
+}

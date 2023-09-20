@@ -1,6 +1,0 @@
-.favIcon{
-    filter: grayscale(1);
-}
-.favIcon:hover{
-    filter: grayscale(0);
-}

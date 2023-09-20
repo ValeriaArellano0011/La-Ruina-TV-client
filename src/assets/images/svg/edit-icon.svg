@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 48 48" width="48px" height="48px"
+  baseProfile="basic">
+  <linearGradient id="YLg8faEJvEOKGx-tsFMJ-a" x1="19.699" x2="27.682" y1="2.942" y2="48.216"
+    gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#262626" stop-opacity="0" />
+    <stop offset="1" stop-color="#262626" stop-opacity=".8" />
+  </linearGradient>
+  <polygon fill="white"
+    points="30.485,9.029 8.029,31.485 16.515,39.971 38.971,17.515" />
+  <linearGradient id="YLg8faEJvEOKGx-tsFMJ-b" x1="33.447" x2="39.376" y1="-12.227" y2="21.399"
+    gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#262626" stop-opacity="0" />
+    <stop offset="1" stop-color="#262626" stop-opacity=".8" />
+  </linearGradient>
+  <path fill="white"
+    d="M33.743,5.772l-3.257,3.257l8.485,8.485l3.257-3.257c2.343-2.343,2.343-6.142,0-8.485l0,0	C39.885,3.429,36.086,3.429,33.743,5.772z" />
+  <linearGradient id="YLg8faEJvEOKGx-tsFMJ-c" x1="5.005" x2="14.058" y1="29.428" y2="54.301"
+    gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#262626" stop-opacity="0" />
+    <stop offset="1" stop-color="#262626" stop-opacity=".8" />
+  </linearGradient>
+  <polygon fill="white" points="8.029,31.485 3,45 16.515,39.971" />
+</svg>

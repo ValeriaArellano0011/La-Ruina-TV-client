@@ -1,0 +1,53 @@
+.formCont {
+  padding: 0;
+  width: 100%;
+}
+
+.btn_ul{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.form_li {
+  padding: 0;
+  margin: 0;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100;
+}
+
+.form_li input {
+  padding: 8px;
+  width: 250px;
+}
+
+.form_ul{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  flex-direction: column;
+  color: white;
+  text-shadow: 0px 0px 4px rgb(0, 0, 0);
+  padding: 0;
+  margin: 0;
+}
+
+.innerLoginButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 42px;
+}

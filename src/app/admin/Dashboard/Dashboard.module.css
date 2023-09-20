@@ -1,0 +1,42 @@
+.bodyContainer {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    background: linear-gradient(to bottom, #ffffffcf, rgb(137, 137, 137));
+}
+
+.crearProducto, .crearPost, .editUsers {
+    color:aliceblue;
+    background-color: rgb(42, 42, 42);
+    margin: 10px;
+    width: 250px;
+    height: 150px;
+    border-radius: 5px;
+    left: -20px;
+    font-family: Bebas Neue;
+    font-size: 20px;
+    position: relative;
+    opacity: .8;
+    transition-duration: 1s;
+}
+
+.crearProducto:hover, .crearPost:hover, .editUsers:hover{
+    opacity: 1;
+    box-shadow: 0px 0px 4px white;
+}
+
+.dashControlCont {
+    padding-top: 110px;
+
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
