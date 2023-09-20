@@ -13,7 +13,10 @@ import {
     GET_YT_SUBSCRIBERS,
     CURRENT_USER,
     UPDATE_MEDIA,
-    GET_USER_DATA
+    GET_USER_DATA,
+    GET_CATEGORIES,
+    GET_GENRES,
+    GET_MEDIATYPES
 } from "../../misc";
 
 import iconYT from '../../../assets/images/yt-icon.png'
@@ -31,6 +34,9 @@ const initialState = {
     option: '',
 
     /*----------------Media----------------*/
+    dbMediatype: [],
+    dbGenre: [],
+    dbCategory: [],
     allUserLikes: [],
     ytPlayerState: '',
     typeMediaList:
@@ -117,6 +123,21 @@ const initialState = {
 
 export default function rootReducer(state = initialState, action) {
     switch (action.type) {
+        case GET_CATEGORIES:
+            return {
+                ...state,
+                dbCategory: action.payload
+            };
+        case GET_GENRES:
+            return {
+                ...state,
+                dbGenre: action.payload
+            }
+        case GET_MEDIATYPES:
+            return {
+                ...state,
+                dbMediatype: action.payload
+            };
         /*----------------Admin----------------*/
         case __GOD_MODE__:
             window.location.reload()

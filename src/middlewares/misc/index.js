@@ -22,7 +22,9 @@ export const GET_MEDIA = 'GET_MEDIA'
 export const GET_INFO = 'GET_INFO'
 export const GET_IDYT = 'GET_IDYT'
 export const RESET_IDYT = 'RESET_IDYT'
-
+export const GET_CATEGORIES = 'GET_CATEGORIES'
+export const GET_GENRES = 'GET_GENRES'
+export const GET_MEDIATYPES = 'GET_MEDIATYPES'
 /* -----------------Admin----------------- */
 export const __GOD_MODE__ = '__GOD_MODE__'
 export const CREATE_MEDIA = 'CREATE_MEDIA'

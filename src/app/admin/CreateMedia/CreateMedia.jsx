@@ -2,13 +2,26 @@ import s from './CreateMedia.module.css';
 import styles from "../EditMedia/EditMedia.module.css";
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import defaultPreview from '../../../assets/images/ruina-records-logo.png';
 import { createMedia } from '../../../middlewares/redux/actions/admin';
+import { getCategories, getGenres, getMediatypes } from '../../../middlewares/redux/actions/media';
+import { useEffect } from 'react';
 
 const CreateMedia = () => {
+
   const dispatch = useDispatch();
+  const dbCategory = useSelector(state => state.dbCategory);
+  const dbGenre = useSelector(state => state.dbGenre);
+  const dbMediatype = useSelector(state => state.dbMediatype);
+
+  useEffect(() => {
+    dispatch(getCategories());
+    dispatch(getGenres());
+    dispatch(getMediatypes());
+  }, [])
+  
   const handleInputChange = (e) => {
     if (
       e.target.name !== "info" &&
@@ -41,95 +54,6 @@ const CreateMedia = () => {
     urlLinkWEB: "",
     urlLinkDOWNLOAD: "",
   });
-
-  const optionsMediaType = [
-    {
-      slot: 1,
-      name: "musica",
-    },
-    {
-      slot: 2,
-      name: "serie",
-    },
-    {
-      slot: 3,
-      name: "app",
-    },
-    {
-      slot: 4,
-      name: "libro",
-    },
-  ];
-
-  const optionsGenre = [
-    {
-      slot: 1,
-      name: "jazz",
-    },
-    {
-      slot: 2,
-      name: "pop",
-    },
-    {
-      slot: 3,
-      name: "punk",
-    },
-    {
-      slot: 4,
-      name: "metal",
-    },
-    {
-      slot: 5,
-      name: "electronica",
-    },
-    {
-      slot: 6,
-      name: "post-punk",
-    },
-    {
-      slot: 7,
-      name: "blues",
-    },
-    {
-      slot: 8,
-      name: "rock",
-    },
-    {
-      slot: 9,
-      name: "otro",
-    },
-  ];
-
-  const optionsCategories = [
-    {
-      slot: 1,
-      name: "Sello Arruinados",
-    },
-    {
-      slot: 2,
-      name: "Música",
-    },
-    {
-      slot: 3,
-      name: 'Estudio "La Ruina Records"',
-    },
-    {
-      slot: 4,
-      name: "En vivo",
-    },
-    {
-      slot: 5,
-      name: "App y descargables",
-    },
-    {
-      slot: 6,
-      name: "Literatura",
-    },
-    {
-      slot: 7,
-      name: "Series",
-    },
-  ];
 
   const checkboxCat = (e) => {
     if (data.categories.includes(e.target.value)) {
@@ -341,8 +265,8 @@ const CreateMedia = () => {
           </div>
           <label>Tipo de contenido (selecciona uno)</label><br></br>
           <div className={styles.types}>
-            {optionsMediaType?.map((t) => (
-              <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
+            {dbMediatype?.map((t, index) => (
+              <div className={s.tipeMedia} key={`${t.name}-${index}`}>
                 <input
                   type="checkbox"
                   name={t.name}
@@ -350,13 +274,13 @@ const CreateMedia = () => {
                   id={t.name}
                   onChange={(e) => checkboxMT(e)} />
                 <label htmlFor={t.name}>{t.name}</label>
-                {t.slot % 4 === 0 ? <br /> : null}
+                {index % 4 === 0 ? <br /> : null}
               </div>))}
           </div>
           <br /><label>Género</label><br />
           <div className={styles.types}>
-            {optionsGenre?.map((t) => (
-              <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
+            {dbGenre?.map((t, index) => (
+              <div className={s.tipeMedia} key={`${t.name}-${index}`}>
                 <input
                   type="checkbox"
                   name={t.name}
@@ -365,14 +289,14 @@ const CreateMedia = () => {
                   onChange={(e) => checkboxGen(e)}
                 />
                 <label htmlFor={t.name}>{t.name}</label>
-                {t.slot % 4 === 0 ? <br /> : null}
+                {index % 4 === 0 ? <br /> : null}
               </div>
             ))}
           </div>
           <br /><label>Categoria</label><br />
           <div className={styles.types}>
-            {optionsCategories?.map((t) => (
-              <div className={s.tipeMedia} key={`${t.name}-${t.slot}`}>
+            {dbCategory?.map((t, index) => (
+              <div className={s.tipeMedia} key={`${t.name}-${index}`}>
                 <input
                   type="checkbox"
                   name={t.name}
@@ -381,7 +305,7 @@ const CreateMedia = () => {
                   onChange={(e) => checkboxCat(e)}
                 />
                 <label htmlFor={t.name}>{t.name}</label>
-                {t.slot % 4 === 0 ? <br /> : null}
+                {index % 4 === 0 ? <br /> : null}
               </div>
             ))}
           </div>
